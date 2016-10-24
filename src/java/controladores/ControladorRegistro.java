@@ -512,6 +512,7 @@ public class ControladorRegistro extends HttpServlet
             }
             cuerpocorreo=cuerpocorreo+"</table><br>Atentamente<br><br><b>"+unidadadministrativanombre+"</b><br>Secretaría de Desarrollo Urbano y Vivienda";
             resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDUVI", cuerpocorreo);
+              
           }
           if(resultado==true)
           {

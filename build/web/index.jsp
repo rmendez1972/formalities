@@ -140,7 +140,7 @@
                 //alert(usuario);
                 if (usuario=='RMENDEZ1972'){
                     document.getElementById("consolaadmin").style.display="none";
-                    document.getElementById("registro_tramites").style.display="none";
+                    document.getElementById("registro").style.display="none";
                     
                 }
         </script>

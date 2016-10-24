@@ -18,9 +18,11 @@ public class mail {
     private void init() {
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.port", 587);
+         /*properties.put("mail.smtp.port", 587);*/
+        properties.put("mail.smtp.port",587);
         properties.put("mail.smtp.mail.sender", "seduviqroo@gmail.com");
         properties.put("mail.smtp.password", "seduviqroo01");
+        /* properties.put("mail.smtp.password", "veronica1972");*/
         properties.put("mail.smtp.user", "seduviqroo@gmail.com");
         properties.put("mail.smtp.auth", "true");
         session = Session.getDefaultInstance(properties);
@@ -33,13 +35,16 @@ public class mail {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(destino));
             message.setSubject(asunto);
             message.setContent(mensaje,"text/html");
+            //message.setText("Texto");
             Transport t = session.getTransport("smtp");
             t.connect((String) properties.get("mail.smtp.user"), (String) properties.get("mail.smtp.password"));
+            
             t.sendMessage(message, message.getAllRecipients());
             t.close();
             exito=true;
         } catch (MessagingException e) {
             
+            return false;
         }
         return exito;
     }
