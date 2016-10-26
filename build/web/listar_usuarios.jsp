@@ -71,7 +71,7 @@
             <tbody>
                 <c:forEach var="usr" items="${requestScope.usuarios}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td><c:out value="${usr.usuario}" /></td>
+                        <td> <c:out value="${usr.usuario}" /></td>
                         <td><c:out value="${usr.nombre} ${usr.apellido_paterno} ${usr.apellido_materno}" /></td>
                         <td><c:out value="${usr.unidadAdministrativa}" /></td>
                         <td><c:out value="${usr.grupo}" /></td>

@@ -3,7 +3,7 @@
     Created on : 27/11/2013, 09:49:17 AM
     Author     : Ismael García Hernández (igh1@hotmail.com)
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -64,6 +64,7 @@
                     <ul>
                         <li onclick="cargar('controladorusuario?operacion=listar','#admin')"><a href="#">Usuarios</a></li>
                         <li onclick="cargar('controladorunidadadtva?operacion=listar','#admin')"><a href="#">Unidad Adtva.</a></li>
+                        <li onclick="cargar('controladordirecciones?operacion=listar','#admin')"><a href="#">Direcciones</a></li>
                         <li onclick="cargar('controladortramite?operacion=listar','#admin')"><a href="#">Trámites</a></li>
                         <li onclick="cargar('controladorrequisito?operacion=listar','#admin')"><a href="#">Requisitos</a></li>
                         <li onclick="cargar('controladorestatus?operacion=listar','#admin')"><a href="#">Estatus</a></li>
