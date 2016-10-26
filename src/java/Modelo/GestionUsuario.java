@@ -13,7 +13,7 @@ import javabeans.Usuario;
 public class GestionUsuario {
     public boolean registroUsuario(Usuario usr){
         Object params[]={usr.getUsuario(), usr.getPassword(), usr.getNombre(), usr.getApellido_paterno(), usr.getApellido_materno(), usr.getId_unidadadministrativa(), usr.getId_grupo()};
-        return Conexion.ejecutar("insert into usuario (usuario, password, nombre, apellido_paterno, apellido_materno, id_unidadAdministrativa, id_grupo) values (?,md5(?),UPPER(?),UPPER(?),UPPER(?),?,?)", params);
+        return Conexion.ejecutar("insert into usuario (usuario, password, nombre, apellido_paterno, apellido_materno, id_unidadAdministrativa, id_grupo) values (UPPER(?),md5(?),UPPER(?),UPPER(?),UPPER(?),?,?)", params);
     }
     
     public Usuario obtenerPorId(int id_usuario){
