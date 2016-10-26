@@ -71,6 +71,7 @@
             
             
             function cargar(seccion, div){
+                
                 $.post(seccion, function(datos){
                     $(div).html(datos);
                 });

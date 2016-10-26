@@ -90,7 +90,7 @@ public class ControladorUsuario extends ControladorBase {
     }
     
     public void nuevo(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        GestionUnidadAdministrativa mod_ua=new GestionUnidadAdministrativa();
+            GestionUnidadAdministrativa mod_ua=new GestionUnidadAdministrativa();
             GestionGrupo mod_grp=new GestionGrupo();
             ArrayList ua=mod_ua.obtenerTodos();
             ArrayList grupos=mod_grp.obtenerTodos();
