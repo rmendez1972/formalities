@@ -7,10 +7,12 @@ package controladores;
 import Modelo.GestionRequisito;
 import Modelo.GestionTramite;
 import Modelo.GestionUnidadAdministrativa;
+import Modelo.GestionDirecciones;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javabeans.Tramite;
+import javabeans.Direcciones;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +36,11 @@ public class ControladorTramite extends ControladorBase {
         GestionUnidadAdministrativa modua=new GestionUnidadAdministrativa();
         ArrayList ua=modua.obtenerTodos();
         request.setAttribute("ua", ua);
+        /*igh*/
+        GestionDirecciones moddi=new GestionDirecciones();
+        ArrayList di=moddi.obtenerTodos();
+        request.setAttribute("di", di);/*igh*/
+        
         RequestDispatcher rd=request.getRequestDispatcher("frm_tramite.jsp");
         rd.forward(request, response);
     }

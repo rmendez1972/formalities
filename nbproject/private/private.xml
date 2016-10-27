@@ -3,36 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listar_tramites.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionDirecciones.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/index.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/Controladorlogin.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/javabeans/UnidadAdministrativa.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/javabeans/Usuario.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/javabeans/Direcciones.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionUnidadAdministrativa.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/css/estilos.css</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorTramite.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_unidadAdministrativa.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_tramite.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorUnidadAdtva.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_usuario.jsp</file>
-=======
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/index.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionDirecciones.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Direcciones.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_direccion.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/scr_admin.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_dir.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionUsuario.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorTramite.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/mail.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorRegistro.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_unidadAdministrativa.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_ua.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorUnidadAdtva.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorUsuario.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorDirecciones.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_usuarios.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorSeguimiento.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/js/script_tramites.js</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorBase.java</file>
->>>>>>> cc7b573c6d25cc662ecc99395f09bffe8d9dfda5
         </group>
     </open-files>
 </project-private>
