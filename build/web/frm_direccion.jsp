@@ -16,7 +16,7 @@
                 params.nombre=$("#nombre").val();
                 params.unidadAdministrativa=$("#unidadAdministrativa").val();
                 $.post("controladordirecciones?operacion=guardarNuevo", params, function(datos){
-                    alert ('dentro de javascript');
+                    
                     $('#admin').html(datos);
                 },"html");
                 
