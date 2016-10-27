@@ -30,9 +30,10 @@
             
             function directv(){
                 document.getElementById('direccion').style.display = 'block';
-                 
-                  //alert(igh1);
-            }
+                var lista= document.getElementById('unidadAdministrativa').value;
+                //alert(lista*3);
+            
+                }
         </script>
     </head>
     <body>
@@ -63,16 +64,17 @@
                     <td>
                         <select id="unidadAdministrativa" required style="width: 400px" onchange="directv()">
                             <option value="">Seleccione una opción</option>
-                            <c:forEach var="ua" items="${requestScope.ua}"> 
+                            <c:forEach var="ua" items="${requestScope.ua}">
                                 <option value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
                             </c:forEach>
                         </select>
                     </td>
                     
                     <td>
-                        <select id="direccion" required style="width: 300px; display:none">
+                        <select id="direccion" required style="width: 300px;display:none">
+                            <c:set var="salay" scope="session" value="${1}"/>
                             <option value="">Seleccione una opción</option>
-                            <c:forEach var="di" items="${requestScope.di}"> 
+                            <c:forEach var="di" items="${requestScope.di}">
                                 <option value="${di.id_direccion}">${di.nombre}</option>
                             </c:forEach>
                         </select>
