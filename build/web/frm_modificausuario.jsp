@@ -19,6 +19,7 @@
                 params.apellido_paterno=$("#paterno").val();
                 params.apellido_materno=$("#materno").val();
                 params.id_unidadadministrativa=$("#unidadAdministrativa").val();
+                params.id_direccion=$("#direccion").val();
                 params.id_grupo=$("#grupo").val();
                 
                 if(params.id_unidadadministrativa == 0){
@@ -29,6 +30,8 @@
                     alert("Seleccione un grupo");
                     return false;
                 }
+                
+                
                 
                 $.post("controladorusuario?operacion=editarGuardar", params, function(datos){
                     $("#admin").html(datos);
@@ -44,7 +47,8 @@
                                 
                 $.post("controladordirecciones?operacion=listarPorunidad", params, function(datos){
                     
-                    //$("#direccion").find('option').remove();
+                    $("#direccion").find('option').remove();
+                    $("#direccion").append('<option value="">'+'Selecciona una Dirección'+'</option>');
                     $.each(datos, function(i,v){
                         $("#direccion").append('<option value="'+v.id_direccion+'">'+v.nombre+'</option>');
                     });
@@ -90,7 +94,7 @@
                             <option value="">Seleccione una</option>
                             <c:forEach  var="ua" items="${requestScope.ua}">
                                 <OPTION VALUE="${ua.id_unidadAdministrativa}" ${ua.id_unidadAdministrativa == usr.id_unidadadministrativa ? 'selected':''}>${ua.nombre}</OPTION>
-                              </c:forEach>
+                            </c:forEach>
                         </select>
                     </td>
                    
@@ -98,7 +102,9 @@
                         <div id="id_direccion">
                             <select id="direccion" required style="width: 300">
                                 <option value="">Seleccione una Dirección</option>
-
+                                <c:forEach  var="dir" items="${requestScope.dir}">
+                                    <OPTION VALUE="${dir.id_direccion}" ${dir.id_direccion == usr.id_direccion ? 'selected':''}>${dir.nombre}</OPTION>
+                                </c:forEach>
                             </select>
                         </div>
                     </td>

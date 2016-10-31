@@ -4,6 +4,7 @@
  */
 package controladores;
 
+import Modelo.GestionDirecciones;
 import Modelo.GestionGrupo;
 import Modelo.GestionUnidadAdministrativa;
 import Modelo.GestionUsuario;
@@ -55,11 +56,15 @@ public class ControladorUsuario extends ControladorBase {
             
             GestionUnidadAdministrativa mod_ua=new GestionUnidadAdministrativa();
             GestionGrupo mod_grp=new GestionGrupo();
+            GestionDirecciones mod_dir=new GestionDirecciones();
+            
             ArrayList ua=mod_ua.obtenerTodos();
             ArrayList grupos=mod_grp.obtenerTodos();
+            ArrayList dir=mod_dir.obtenerTodos();
             
             request.setAttribute("usr", usr);
             request.setAttribute("ua", ua);
+            request.setAttribute("dir", dir);
             request.setAttribute("grupo", grupos);
             
             RequestDispatcher rd=request.getRequestDispatcher("frm_modificausuario.jsp");
@@ -74,6 +79,7 @@ public class ControladorUsuario extends ControladorBase {
             usr.setApellido_materno(request.getParameter("apellido_materno"));
             usr.setId_unidadadministrativa(Integer.parseInt(request.getParameter("id_unidadadministrativa")));
             usr.setId_grupo(Integer.parseInt(request.getParameter("id_grupo")));
+             usr.setId_direccion(Integer.parseInt(request.getParameter("id_direccion")));
             usr.setUsuario(request.getParameter("usuario"));
             
             GestionUsuario modelo=new GestionUsuario();
@@ -110,6 +116,7 @@ public class ControladorUsuario extends ControladorBase {
             usr.setApellido_paterno(request.getParameter("apellido_paterno"));
             usr.setApellido_materno(request.getParameter("apellido_materno"));
             usr.setId_unidadadministrativa(Integer.parseInt(request.getParameter("id_unidadadministrativa")));
+            usr.setId_direccion(Integer.parseInt(request.getParameter("id_direccion")));
             usr.setId_grupo(Integer.parseInt(request.getParameter("id_grupo")));
             
             GestionUsuario modelo=new GestionUsuario();

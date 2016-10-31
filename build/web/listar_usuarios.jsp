@@ -64,6 +64,7 @@
                     <th>Usuario</th>
                     <th>Nombre</th>
                     <th>Unidad responsable</th>
+                    <th>Dirección</th>
                     <th>Grupo</th>
                     <th width="80">Acciones</th>
                 </tr>
@@ -74,6 +75,7 @@
                         <td> <c:out value="${usr.usuario}" /></td>
                         <td><c:out value="${usr.nombre} ${usr.apellido_paterno} ${usr.apellido_materno}" /></td>
                         <td><c:out value="${usr.unidadAdministrativa}" /></td>
+                        <td><c:out value="${usr.direccion}" /></td>
                         <td><c:out value="${usr.grupo}" /></td>
                         <td><img src="imagenes/editar.png" class="btn-tabla" title="Editar Usuario" onclick="editarUsuario(${usr.id_usuario});" /><img src="imagenes/eliminar.png" class="btn-tabla" title="Eliminar Usuario" onclick="eliminarUsuario(${usr.id_usuario})" /></td>
                     </tr>
