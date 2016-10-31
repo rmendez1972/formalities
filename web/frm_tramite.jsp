@@ -18,7 +18,7 @@
                 params.nombre=$("#nombre").val();
                 params.dias_resolucion=$("#dias_resolucion").val();
                 params.id_unidadAdministrativa=$("#unidadAdministrativa").val();
-                
+                params.id_direccion=$("#direccion").val();
                 if(params.id_unidadAdministrativa!=0){
                     $.post("controladortramite?operacion=nuevoGuardar", params, function(datos){
                         $("#admin").html(datos);
@@ -30,10 +30,16 @@
             
             function directv(){
                 document.getElementById('direccion').style.display = 'block';
+          
                 var lista= document.getElementById('unidadAdministrativa').value;
-                //alert(lista*3);
-            
-                }
+                //a = lista.toString()
+                alert('El id es el '+lista+' multiplicado por 3 ='+lista*3);
+                          <c:set var="a" value= "1"></c:set>
+                   alert(value="${a}");
+                  
+                  
+            }
+                                   
         </script>
     </head>
     <body>
@@ -64,6 +70,7 @@
                     <td>
                         <select id="unidadAdministrativa" required style="width: 400px" onchange="directv()">
                             <option value="">Seleccione una opción</option>
+                           
                             <c:forEach var="ua" items="${requestScope.ua}">
                                 <option value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
                             </c:forEach>
@@ -72,11 +79,17 @@
                     
                     <td>
                         <select id="direccion" required style="width: 300px;display:none">
-                            <c:set var="salay" scope="session" value="${1}"/>
+                             
                             <option value="">Seleccione una opción</option>
+                          
                             <c:forEach var="di" items="${requestScope.di}">
+                              
+                             <c:if test="${a == di.id_unidadadministrativa}">  
                                 <option value="${di.id_direccion}">${di.nombre}</option>
-                            </c:forEach>
+                                
+                             </c:if>
+                            </c:forEach>    
+                           
                         </select>
                     </td>
                 </tr>

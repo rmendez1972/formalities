@@ -3,18 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listar_tramites.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionDirecciones.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/index.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/Controladorlogin.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/javabeans/UnidadAdministrativa.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/javabeans/Direcciones.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionUnidadAdministrativa.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorDirecciones.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_modificatramite.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorTramite.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_unidadAdministrativa.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_tramite.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorUnidadAdtva.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_usuario.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listar_tramites.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/index.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionDirecciones.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/Controladorlogin.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/javabeans/Direcciones.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionUnidadAdministrativa.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_direccionEditar.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_unidadAdministrativa.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_tramite.jsp</file>
         </group>
     </open-files>
 </project-private>
