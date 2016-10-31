@@ -6,6 +6,8 @@ package controladores;
 
 import Modelo.GestionDirecciones;
 import Modelo.GestionUnidadAdministrativa;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -36,6 +38,18 @@ public class ControladorDirecciones extends ControladorBase {
             
             RequestDispatcher rd=request.getRequestDispatcher("listar_dir.jsp");
             rd.forward(request,response);
+    }
+   
+   public void listarPorunidad(HttpServletRequest request, HttpServletResponse response) throws Exception{
+            int id_unidadadministrativa=Integer.parseInt(request.getParameter("id_unidadadministrativa"));
+            GestionDirecciones modelo=new GestionDirecciones();
+            ArrayList dir=modelo.obtenerTodosPorunidad(id_unidadadministrativa);
+            GsonBuilder builder=new GsonBuilder();
+            Gson gson=builder.create();
+
+            response.addHeader("Content-Type", "text/html; charset=utf-8");
+            response.getWriter().write(gson.toJson(dir));
+            
     }
     
     public void nuevo(HttpServletRequest request, HttpServletResponse response) throws Exception{

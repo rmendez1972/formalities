@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <script>
+            //alert('dentro de javascript');
             function eliminarTramite(id){
                 confirma("", "Eliminar Trámite", "Confirmar eliminación", "eliminar", function(){
                     var params=new Object();
@@ -36,7 +37,9 @@
             }
             
             <c:if test="${msg != null}">
-                alert('${msg}');
+                console.log('${msg}');
+                //alert('${msg}');
+                
             </c:if>
         </script>
     </head>
@@ -60,7 +63,9 @@
                     </td>
                 </tr>
             </table>
-
+        <p>
+            <c:out value="${msg}" />
+        </p>
         
         
           

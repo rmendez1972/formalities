@@ -52,6 +52,22 @@ public class GestionDirecciones {
         return dir;
     }
     
+    
+    public ArrayList obtenerTodosPorunidad(int id_unidadadministrativa){
+        Object params[]={id_unidadadministrativa};
+        ArrayList dir=new ArrayList();
+        ResultSet res=Conexion.ejecutarConsulta("select * from direcciones where id_unidadadministrativa=? ", params);
+        try{
+            while(res.next()){
+                Direcciones di=new Direcciones(res.getInt("id_direccion"), res.getString("nombre"), res.getInt("id_unidadadministrativa"));
+                
+                dir.add(di);
+            }
+            res.close();
+        }catch(Exception e){}
+        return dir;
+    }
+    
     public boolean eliminarPorId(int id_direccion){
         Object params[]={id_direccion};
         return Conexion.ejecutar("delete from direcciones where id_direccion=?", params);

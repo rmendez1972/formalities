@@ -22,9 +22,10 @@ public class Usuario {
     private String apellido_materno;
     private int id_unidadadministrativa;
     private int id_grupo;
+    private int id_direccion;
     private String unidadAdministrativa;
     private String grupo;
-    
+    private String direccion;
     
     
     public Usuario( String usuario, String password){
@@ -32,7 +33,7 @@ public class Usuario {
         this.password=password;
      }
     
-    public Usuario(int id_usuario, String usuario, String password, String nombre, String apellido_paterno, String apellido_materno, int id_unidadadministrativa, int id_grupo){
+    public Usuario(int id_usuario, String usuario, String password, String nombre, String apellido_paterno, String apellido_materno, int id_unidadadministrativa, int id_grupo, int id_direccion){
         this.id_usuario=id_usuario;
         this.usuario=usuario;
         this.password=password;
@@ -41,6 +42,7 @@ public class Usuario {
         this.apellido_materno=apellido_materno;
         this.id_unidadadministrativa=id_unidadadministrativa;
         this.id_grupo=id_grupo;
+        this.id_direccion=id_direccion;
     }
 
     public int getId_usuario() {
@@ -123,5 +125,21 @@ public class Usuario {
         this.grupo = grupo;
     }
     
+    public int getId_direccion() {
+        return id_direccion;
+    }
+
+    public void setId_direccion(int id_direccion) {
+        this.id_direccion = id_direccion;
+    }
+    
+    
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
     
 }

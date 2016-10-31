@@ -19,6 +19,7 @@
                 params.apellido_paterno=$("#paterno").val();
                 params.apellido_materno=$("#materno").val();
                 params.id_unidadadministrativa=$("#unidadAdministrativa").val();
+                params.id_direccion=$("#direccion").val();
                 params.id_grupo=$("#grupo").val();
                 
                 if(params.id_unidadadministrativa == 0){
@@ -30,9 +31,28 @@
                     return false;
                 }
                 
+                
+                
                 $.post("controladorusuario?operacion=editarGuardar", params, function(datos){
                     $("#admin").html(datos);
                 },"html");
+                
+                return false;
+            }
+            
+            function actualizaDir(id){
+                
+                var params=new Object();
+                params.id_unidadadministrativa=id;
+                                
+                $.post("controladordirecciones?operacion=listarPorunidad", params, function(datos){
+                    
+                    $("#direccion").find('option').remove();
+                    $("#direccion").append('<option value="">'+'Selecciona una Dirección'+'</option>');
+                    $.each(datos, function(i,v){
+                        $("#direccion").append('<option value="'+v.id_direccion+'">'+v.nombre+'</option>');
+                    });
+                },"json");
                 
                 return false;
             }
@@ -65,22 +85,37 @@
                 </tr>
                 <tr>
                     <td>Unidad administrativa:</td>
+                    <td>Dirección:</td>
                     <td>Grupo:</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td><select id="unidadAdministrativa" required style="width: 300">
+                    <td><select id="unidadAdministrativa" required style="width: 300" onChange="actualizaDir(this.value)">
                             <option value="">Seleccione una</option>
                             <c:forEach  var="ua" items="${requestScope.ua}">
                                 <OPTION VALUE="${ua.id_unidadAdministrativa}" ${ua.id_unidadAdministrativa == usr.id_unidadadministrativa ? 'selected':''}>${ua.nombre}</OPTION>
-                              </c:forEach>
-                        </select></td>
-                        <td><select id="grupo" required >
+                            </c:forEach>
+                        </select>
+                    </td>
+                   
+                    <td>
+                        <div id="id_direccion">
+                            <select id="direccion" required style="width: 300">
+                                <option value="">Seleccione una Dirección</option>
+                                <c:forEach  var="dir" items="${requestScope.dir}">
+                                    <OPTION VALUE="${dir.id_direccion}" ${dir.id_direccion == usr.id_direccion ? 'selected':''}>${dir.nombre}</OPTION>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </td>
+                    
+                    <td><select id="grupo" required >
                             <option value="">Seleccione uno</option>
                             <c:forEach  var="grupo" items="${requestScope.grupo}">
                                 <OPTION VALUE="${grupo.id_grupo}" ${grupo.id_grupo == usr.id_grupo ? 'selected':''}>${grupo.nombre}</OPTION>
                               </c:forEach>
-                        </select></td>
+                        </select>
+                    </td>
                     <td></td>
                 </tr>
                 <tr>
