@@ -27,6 +27,7 @@ public class ControladorTramite extends ControladorBase {
         GestionTramite modelo=new GestionTramite();
         ArrayList tramites=modelo.obtenerTodos();
         request.setAttribute("tramites",tramites);
+        
             
         RequestDispatcher rd=request.getRequestDispatcher("listar_tramites.jsp");
         rd.forward(request,response);
@@ -94,20 +95,25 @@ public class ControladorTramite extends ControladorBase {
     }
     
     public void editarGuardar(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        Tramite tramite=new Tramite();
+           /*Tramite tramite=new Tramite();
            tramite.setId_tramite(Integer.parseInt(request.getParameter("id_tramite")));
            tramite.setNombre(request.getParameter("nombre"));
            tramite.setDias_resolucion(Integer.parseInt(request.getParameter("dias_resolucion")));
            tramite.setId_unidadadministrativa(Integer.parseInt(request.getParameter("id_unidadAdministrativa")));
+           */
+           Tramite tramite=new Tramite(Integer.parseInt(request.getParameter("id_tramite")),Integer.parseInt( request.getParameter("dias_resolucion")),Integer.parseInt( request.getParameter("id_unidadAdministrativa")), request.getParameter("nombre"));
            
            GestionTramite modelo=new GestionTramite();
-           if(modelo.actualizar(tramite))
+           if(modelo.actualizar(tramite)){
+                RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=listar");
                 request.setAttribute("msg", "Datos actualizados");
-           else
-                request.setAttribute("msg", "Error al actualizar datos. Intente de nuevo más tarde");
-           
-           RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=listar");
-           rd.forward(request,response);
+                rd.forward(request,response);
+           }
+           else{
+                RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=editar");
+                request.setAttribute("msg", "Error al guardar. Intente de nuevo más tarde");
+                rd.forward(request,response);
+            }
     }
     
     public void verRequisitos(HttpServletRequest request, HttpServletResponse response) throws Exception{

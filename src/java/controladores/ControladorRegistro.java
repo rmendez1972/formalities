@@ -248,6 +248,7 @@ public class ControladorRegistro extends HttpServlet
             
             Integer id_grupo=usuario.getId_grupo();
             Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
+            Integer id_direccion=usuario.getId_direccion();
             GestionSolicitud oper2=new GestionSolicitud();
             if (id_grupo==1)
             {    

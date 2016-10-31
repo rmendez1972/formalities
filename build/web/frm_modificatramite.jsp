@@ -20,6 +20,7 @@
                 
                 if(params.id_unidadAdministrativa!=0){
                     $.post("controladortramite?operacion=editarGuardar", params, function(datos){
+                         
                         $("#admin").html(datos);
                     },"html");
                 }

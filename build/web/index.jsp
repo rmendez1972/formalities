@@ -136,10 +136,10 @@
         <script src="js/script_confirm.js"></script><!-->
      <script>
             
-             usuario='${requestScope.usuario.usuario}';
+             id_grupo='${requestScope.usuario.id_grupo}';
             
                 //alert(usuario);
-                if (usuario=='RMENDEZ1972'){
+                if (id_grupo=='2'){
                    document.getElementById("consolaadmin").style.display="none";
                    document.getElementById("registro").style.display="none";
                     
