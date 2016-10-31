@@ -100,7 +100,7 @@
                 <div id="sistema">Ventanilla Única de Gestión<br/> de Trámites y Servicios<br/>
                     <span class="secre" style="font-size: 12px; color:grey "><SPAN STYLE="font-weight: bold">USUARIO:</span>
                       
-                        <script type="text/javascript">document.write(usuario);</script>
+                        <script type="text/javascript">document.write(usuario+'    ');</script>
                         
                        
                         <a href="login.jsp"> <img src="imagenes/locked.png" class="btn-tabla" alt="Cerrar Sesión"  title="Cerrar Sesión"></a>
@@ -137,11 +137,11 @@
      <script>
             
              usuario='${requestScope.usuario.usuario}';
-
+            
                 //alert(usuario);
                 if (usuario=='RMENDEZ1972'){
-                    document.getElementById("consolaadmin").style.display="none";
-                    document.getElementById("registro").style.display="none";
+                   document.getElementById("consolaadmin").style.display="none";
+                   document.getElementById("registro").style.display="none";
                     
                 }
         </script>
