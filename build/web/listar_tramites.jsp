@@ -76,6 +76,7 @@
                     <th>Nombre</th>
                     <th>Días de resolución</th>
                     <th>Unidad responsable</th>
+                    <th>Direccion</th>
                     <th width="80">Acciones</th>
                 </tr>
             </thead>
@@ -85,6 +86,7 @@
                         <td><c:out value="${tram.nombre}" /></td>
                         <td><c:out value="${tram.dias_resolucion}" /></td>
                         <td><c:out value="${tram.unidadAdministrativa}" /></td>
+                        <td><c:out value="${tram.direccion}" /></td>
                         <td>
                             <img src="imagenes/editar.png" class="btn-tabla" title="Editar Trámite" onclick="editarTramite(${tram.id_tramite});" />
                             <img src="imagenes/listar.png" class="btn-tabla" title="Ver requisitos" onclick="verRequisitos(${tram.id_tramite});" />

@@ -15,17 +15,18 @@ import javabeans.Tramite;
 public class GestionTramite {
     
     public boolean registroTramite(Tramite t){
-        Object params[]={t.getNombre(), t.getDias_resolucion(), t.getId_unidadadministrativa()};
-        return Conexion.ejecutar("insert into tramite (nombre, dias_resolucion, id_unidadAdministrativa) values (?,?,?)", params);
+        Object params[]={t.getNombre(), t.getDias_resolucion(), t.getId_unidadadministrativa(), t.getId_direccion()};
+        return Conexion.ejecutar("insert into tramite (nombre, dias_resolucion, id_unidadAdministrativa,id_direccion) values (?,?,?,?)", params);
     }
     
     public Tramite obtenerPorId(int id_tramite){
         Tramite t=null;
         Object params[]={id_tramite};
-        ResultSet res=Conexion.ejecutarConsulta("select T.id_tramite as id_tramite, T.dias_resolucion as dias_resolucion, T.id_unidadadministrativa as id_unidadadministrativa, T.nombre as nombre, U.nombre as unidadAdministrativa from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa  where id_tramite=?", params);
+        //ResultSet res=Conexion.ejecutarConsulta("select T.id_tramite as id_tramite, T.dias_resolucion as dias_resolucion, T.id_unidadadministrativa as id_unidadadministrativa, T.nombre as nombre, U.nombre as unidadAdministrativa from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa  where id_tramite=?", params);
+        ResultSet res=Conexion.ejecutarConsulta("select * from tramite where id_tramite=?", params);
         try{
             while(res.next()){
-                t=new Tramite(res.getInt("id_tramite"), res.getInt("dias_resolucion"), res.getInt("id_unidadadministrativa"), res.getString("nombre"), res.getString("unidadAdministrativa"));
+                t=new Tramite(res.getInt("id_tramite"), res.getInt("dias_resolucion"), res.getInt("id_unidadadministrativa"), res.getInt("id_direccion"),res.getString("nombre"));
             }
             res.close();
         }catch(Exception e){}
@@ -38,7 +39,7 @@ public class GestionTramite {
         ResultSet res=Conexion.ejecutarConsulta("select * from tramite where id_unidadadministrativa=? order by nombre asc", params);
         try{
             while(res.next()){
-                Tramite t=new Tramite(res.getInt("id_tramite"), res.getInt("dias_resolucion"), res.getInt("id_unidadadministrativa"), res.getString("nombre"));
+                Tramite t=new Tramite(res.getInt("id_tramite"), res.getInt("dias_resolucion"), res.getInt("id_unidadadministrativa"), res.getInt("id_unidadadministrativa"),res.getString("nombre"));
                 tramites.add(t);
             }
             res.close();
@@ -48,11 +49,14 @@ public class GestionTramite {
     
     public ArrayList obtenerTodos(){
         ArrayList tramites=new ArrayList();
-        ResultSet res=Conexion.ejecutarConsulta("select T.id_tramite, T.dias_resolucion, T.id_unidadadministrativa, T.nombre, U.nombre as unidadAdministrativa from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa order by nombre asc", null);
+        ResultSet res=Conexion.ejecutarConsulta("select T.*, UA.nombre as unidadAdministrativa, D.nombre as direccion from tramite T inner join unidadadministrativa UA on T.id_unidadadministrativa=UA.id_unidadadministrativa inner join direcciones D on T.id_direccion=D.id_direccion order by T.nombre asc",null);
+        //ResultSet res=Conexion.ejecutarConsulta("select T.id_tramite, T.dias_resolucion, T.id_unidadadministrativa, T.id_direccion, T.nombre, UA.nombreU as unidadAdministrativa from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa inner join direcciones D on U.id_direccion=D.id_direccion order by nombre asc", null);
+       // ResultSet res=Conexion.ejecutarConsulta("select T.id_tramite, T.dias_resolucion, T.id_unidadadministrativa, T.id_direccion, T.nombre, UA.nombreU as unidadAdministrativa from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa order by nombre asc", null);
         try{
             while(res.next()){
-                Tramite t=new Tramite(res.getInt("id_tramite"), res.getInt("dias_resolucion"), res.getInt("id_unidadadministrativa"), res.getString("nombre"));
+                Tramite t=new Tramite(res.getInt("id_tramite"), res.getInt("dias_resolucion"), res.getInt("id_unidadadministrativa"), res.getInt("id_direccion"),res.getString("nombre"));
                 t.setUnidadAdministrativa(res.getString("unidadAdministrativa"));
+                t.setDireccion(res.getString("direccion"));
                 tramites.add(t);
             }
             res.close();
@@ -67,8 +71,8 @@ public class GestionTramite {
     }
     
     public boolean actualizar(Tramite t){
-        Object params[]={t.getNombre(), t.getDias_resolucion(), t.getId_unidadadministrativa(), t.getId_tramite()};
-        return Conexion.ejecutar("update tramite set nombre=?, dias_resolucion=?, id_unidadadministrativa=? where id_tramite=?", params);
+        Object params[]={t.getNombre(), t.getDias_resolucion(), t.getId_unidadadministrativa(),t.getId_direccion()};
+        return Conexion.ejecutar("update tramite set nombre=?, dias_resolucion=?, id_unidadadministrativa=?, id_direccion=? where id_tramite=?", params);
     }
     
     public boolean agregarRequisito(int id_tramite, int id_requisito){

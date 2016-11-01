@@ -9,25 +9,32 @@ package javabeans;
  * @author arturo
  */
 public class Tramite {
-    private int id_tramite, dias_resolucion, id_unidadadministrativa;
+    private int id_tramite;
+    private int dias_resolucion;
+    private int id_unidadadministrativa;
+    private int id_direccion;
     private String nombre;
     private String unidadAdministrativa;
+    private String direccion;
     
     public Tramite(){}
     
-    public Tramite(int id_tramite, int dias_resolucion, int id_unidadadministrativa, String nombre){
+    /*public Tramite(int id_tramite, int dias_resolucion, int id_unidadadministrativa, int id_direccion, String nombre){
         this.id_tramite=id_tramite;
         this.dias_resolucion=dias_resolucion;
         this.id_unidadadministrativa=id_unidadadministrativa;
+        this.id_direccion=id_direccion;
         this.nombre=nombre;
-    }
+     
+    }*/
     
-     public Tramite(int id_tramite, int dias_resolucion, int id_unidadadministrativa, String nombre, String unidadAdministrativa){
+     public Tramite(int id_tramite, int dias_resolucion,int id_unidadadministrativa, int id_direccion, String nombre){
         this.id_tramite=id_tramite;
         this.dias_resolucion=dias_resolucion;
         this.id_unidadadministrativa=id_unidadadministrativa;
+        this.id_direccion=id_direccion;
         this.nombre=nombre;
-        this.unidadAdministrativa=unidadAdministrativa;
+     
     }
 
     public int getId_tramite() {
@@ -53,6 +60,16 @@ public class Tramite {
     public void setId_unidadadministrativa(int id_unidadadministrativa) {
         this.id_unidadadministrativa = id_unidadadministrativa;
     }
+    
+    public int getId_direccion() {
+        return id_direccion;
+    }
+
+    public void setId_direccion(int id_direccion) {
+        this.id_direccion = id_direccion;
+    }
+    
+    
 
     public String getNombre() {
         return nombre;
@@ -70,4 +87,11 @@ public class Tramite {
         this.unidadAdministrativa = unidadAdministrativa;
     }
     
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 }

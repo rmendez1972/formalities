@@ -4,11 +4,12 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[select T.nombre as tramite, T.dias_resolucion, U.nombre as unidad from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa order by T.nombre asc]]>
+		<![CDATA[select T.nombre as tramite, T.dias_resolucion, U.nombre as unidad, D.nombre as direccion from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa inner join direcciones D on T.id_direccion=D.id_direccion order by T.nombre asc]]>
 	</queryString>
 	<field name="tramite" class="java.lang.String"/>
 	<field name="dias_resolucion" class="java.lang.Integer"/>
 	<field name="unidad" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -48,7 +49,7 @@
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="716750bd-0467-4efd-8620-21d6c05c8d45" x="295" y="7" width="274" height="20"/>
+				<reportElement uuid="716750bd-0467-4efd-8620-21d6c05c8d45" x="389" y="7" width="158" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="12" isBold="false" isItalic="true"/>
 				</textElement>
@@ -58,36 +59,50 @@
 				<reportElement uuid="cad955ba-dcff-413e-960d-ab868370b9b8" x="0" y="29" width="752" height="1"/>
 			</line>
 			<staticText>
-				<reportElement uuid="716750bd-0467-4efd-8620-21d6c05c8d45" x="569" y="7" width="163" height="20"/>
-				<textElement>
-					<font fontName="Tahoma" size="12" isBold="false" isItalic="true"/>
+				<reportElement uuid="716750bd-0467-4efd-8620-21d6c05c8d45" x="638" y="7" width="94" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="10" isBold="false" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Días para resolución]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b00963d4-8753-473b-b60f-386293e133f1" x="578" y="7" width="60" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="12" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Direccion]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="26" splitType="Stretch">
 			<textField>
-				<reportElement uuid="9ad5e737-7515-4cdd-83ca-6d2c7aea9f75" x="6" y="6" width="289" height="20"/>
+				<reportElement uuid="9ad5e737-7515-4cdd-83ca-6d2c7aea9f75" x="6" y="6" width="381" height="20"/>
 				<textElement>
-					<font fontName="Tahoma"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tramite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="bf7282c3-6edb-472f-ad0b-adbd466c5221" x="295" y="6" width="274" height="20"/>
+				<reportElement uuid="bf7282c3-6edb-472f-ad0b-adbd466c5221" x="387" y="6" width="186" height="20"/>
 				<textElement>
-					<font fontName="Tahoma"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{unidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="a6e11350-3433-4b7e-96df-5c8f0f3c41b3" x="569" y="6" width="163" height="20"/>
-				<textElement>
+				<reportElement uuid="a6e11350-3433-4b7e-96df-5c8f0f3c41b3" x="705" y="6" width="27" height="20"/>
+				<textElement textAlignment="Right">
 					<font fontName="Tahoma"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dias_resolucion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d122de21-ee51-4437-93bb-fb31d324077c" x="578" y="6" width="125" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
