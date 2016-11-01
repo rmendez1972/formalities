@@ -12,6 +12,7 @@ import Modelo.GestionSolicitud;
 import Modelo.GestionStatus;
 import Modelo.GestionTramite;
 import Modelo.GestionUnidadAdministrativa;
+import Modelo.GestionDirecciones;
 import Modelo.conectaMysql;
 import Modelo.mail;
 import java.io.File;
@@ -35,6 +36,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javabeans.Direcciones;
 import javabeans.Requisito;
 import javabeans.Seguimiento;
 import javabeans.Sexo;
@@ -261,12 +263,17 @@ public class ControladorRegistro extends HttpServlet
             {
                 GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa(); 
                 unidadadministrativa = gua.obtenerPorId(id_unidadadministrativa);
-                String nombreunidadadministrativa=unidadadministrativa.getNombre();
+                String nombreunidadadministrativa=unidadadministrativa.getNombre();  //nombre de la subsecretaria
                 
-                solicitudes = oper2.obtenerPorUnidad(id_unidadadministrativa);
+                GestionDirecciones mod_dir=new GestionDirecciones(); 
+                Direcciones dir = mod_dir.obtenerPorId(id_direccion);
+                String direccion=dir.getNombre();
+                
+                solicitudes = oper2.obtenerPorUnidad(id_unidadadministrativa, id_direccion);
                 request.setAttribute("solicitudes",solicitudes);
                 request.setAttribute("mensaje",mensaje);
                 request.setAttribute("nombreunidadadministrativa",nombreunidadadministrativa);
+                request.setAttribute("direccion",direccion);
                 RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes_seguimiento.jsp");
                 rd.forward(request,response);
             }

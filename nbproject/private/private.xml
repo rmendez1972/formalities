@@ -7,25 +7,33 @@
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/index.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionDirecciones.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Direcciones.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_direccion.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_unidadAdministrativaEditar.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionSolicitud.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/scr_admin.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_dir.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionUsuario.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Usuario.java</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionSeguimiento.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorTramite.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/mail.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorRegistro.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_unidadAdministrativa.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_ua.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorUnidadAdtva.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorUsuario.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorDirecciones.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_usuarios.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_direccionEditar.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorSeguimiento.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/js/script_tramites.js</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_tramites.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_direccion.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_unidadAdministrativaEditar.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_dir.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionUsuario.java</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_usuario.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Solicitud.java</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_unidadAdministrativa.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_ua.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionTramite.java</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Tramite.java</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorUnidadAdtva.java</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_usuarios.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_direccionEditar.jsp</file>
+            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_modificatramite.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorBase.java</file>
         </group>
     </open-files>

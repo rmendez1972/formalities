@@ -106,7 +106,8 @@
             <tr>
                 <td width="80%" align="right"> 
                     <h1>Listado de Solicitudes</h1>
-                    <p>Unidad Administrativa:  ${nombreunidadadministrativa}</p>
+                    <p style="padding:0.1em;">Unidad Administrativa:  ${nombreunidadadministrativa}</p>
+                    <p style="padding:0.1em;">Dirección:  ${direccion}</p>
                 </td>
                 <td width="20%" align="right">
                     <div class="btn-catalogo">

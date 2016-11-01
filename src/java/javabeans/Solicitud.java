@@ -14,7 +14,7 @@ public class Solicitud {
     private int id_solicitud;
     private Date fecha_ingreso, fecha_termino;
     private int id_tramite, id_solicitante, id_usuario_ingreso, id_usuario_seguimiento, id_status;
-    private String tramite,solicitante,status,unidadadministrativa;
+    private String tramite,solicitante,status,unidadadministrativa,direccion;
 
     
     
@@ -150,6 +150,14 @@ public class Solicitud {
 
     public void setUnidadadministrativa(String unidadadministrativa) {
         this.unidadadministrativa = unidadadministrativa;
+    }
+    
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
     
 }

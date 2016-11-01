@@ -69,9 +69,11 @@ public class Controladorlogin extends HttpServlet
            
             if (usuario!=null)
             {    
-                         
+                int id_grupo=usuario.getId_grupo();
                 HttpSession session = request.getSession();
                 session.setAttribute("usuario", usuario);
+                request.setAttribute("id_grupo", id_grupo);
+                
                 RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
                 rd.forward(request,response);
           

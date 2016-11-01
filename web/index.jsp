@@ -3,7 +3,7 @@
     Created on : 12/11/2013, 03:15:20 PM
     Author     : Ismael García Hernández (igh1@hotmail.com)
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="javabeans.Usuario"%>
 <!DOCTYPE>
@@ -89,7 +89,7 @@
           //usuario='{request.getAttribute.usuario.id_grupo}';
               usuario='${requestScope.usuario.usuario}';
               
-                  //alert(usuario);
+                 //alert(usuario);
         </script>
         
     <body ><strong></strong>
@@ -136,14 +136,12 @@
         <script src="js/script_confirm.js"></script><!-->
      <script>
             
-             id_grupo='${requestScope.usuario.id_grupo}';
-            
-                //alert(usuario);
-                if (id_grupo=='2'){
-                   document.getElementById("consolaadmin").style.display="none";
-                   document.getElementById("registro").style.display="none";
+            id_grupo='${requestScope.id_grupo}';
+            if (id_grupo==2){
+                document.getElementById("consolaadmin").style.display="none";
+                document.getElementById("registro").style.display="none";
                     
-                }
+            }
         </script>
     </body>
 </html>

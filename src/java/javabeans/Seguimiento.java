@@ -19,6 +19,7 @@ public class Seguimiento {
     private int id_status;
     private String estatus;
     private String adjunto;
+    private String usuario;
 
     
     
@@ -109,6 +110,14 @@ public class Seguimiento {
 
     public void setAdjunto(String adjunto) {
         this.adjunto = adjunto;
+    }
+    
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
     
 }
