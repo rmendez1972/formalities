@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javabeans.Tramite;
-import javabeans.Direcciones;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -52,6 +51,7 @@ public class ControladorTramite extends ControladorBase {
            tram.setNombre(request.getParameter("nombre"));
            tram.setDias_resolucion(Integer.parseInt(request.getParameter("dias_resolucion")));
            tram.setId_unidadadministrativa(Integer.parseInt(request.getParameter("id_unidadAdministrativa")));
+           tram.setId_direccion(Integer.parseInt(request.getParameter("id_direccion")));
            
            if(modelo.registroTramite(tram)){
                RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=listar");
@@ -87,21 +87,25 @@ public class ControladorTramite extends ControladorBase {
            
            GestionUnidadAdministrativa mod_ua=new GestionUnidadAdministrativa();
            ArrayList ua=mod_ua.obtenerTodos();
+           GestionDirecciones mod_dir=new GestionDirecciones();
+           ArrayList dir=mod_dir.obtenerTodos();
            
            request.setAttribute("ua", ua);
            request.setAttribute("tramite", tramite);
+           request.setAttribute("dir", dir);
            RequestDispatcher rd=request.getRequestDispatcher("frm_modificatramite.jsp");
            rd.forward(request,response);
     }
     
     public void editarGuardar(HttpServletRequest request, HttpServletResponse response) throws Exception{
-           /*Tramite tramite=new Tramite();
+           Tramite tramite=new Tramite();
            tramite.setId_tramite(Integer.parseInt(request.getParameter("id_tramite")));
            tramite.setNombre(request.getParameter("nombre"));
            tramite.setDias_resolucion(Integer.parseInt(request.getParameter("dias_resolucion")));
            tramite.setId_unidadadministrativa(Integer.parseInt(request.getParameter("id_unidadAdministrativa")));
-           */
-           Tramite tramite=new Tramite(Integer.parseInt(request.getParameter("id_tramite")),Integer.parseInt( request.getParameter("dias_resolucion")),Integer.parseInt( request.getParameter("id_unidadAdministrativa")), request.getParameter("nombre"));
+           tramite.setId_direccion(Integer.parseInt(request.getParameter("id_direccion")));
+           
+           //Tramite tramite=new Tramite(Integer.parseInt(request.getParameter("id_tramite")),Integer.parseInt( request.getParameter("dias_resolucion")),Integer.parseInt( request.getParameter("id_unidadAdministrativa")), request.getParameter("nombre"));
            
            GestionTramite modelo=new GestionTramite();
            if(modelo.actualizar(tramite)){

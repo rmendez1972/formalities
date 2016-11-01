@@ -18,6 +18,7 @@
                 params.nombre=$("#nombre").val();
                 params.dias_resolucion=$("#dias_resolucion").val();
                 params.id_unidadAdministrativa=$("#unidadAdministrativa").val();
+                params.id_direccion=$("#direccion").val();
                 
                 if(params.id_unidadAdministrativa!=0){
                     $.post("controladortramite?operacion=nuevoGuardar", params, function(datos){
@@ -28,12 +29,37 @@
                 return false;
             }
             
-            function directv(){
-                document.getElementById('direccion').style.display = 'block';
-                var lista= document.getElementById('unidadAdministrativa').value;
-                //alert(lista*3);
+            //function directv(){
+                //document.getElementById('direccion').style.display = 'block';
+          
+                //var lista= document.getElementById('unidadAdministrativa').value;
+                //a = lista.toString()
+                //alert('El id es el '+lista+' multiplicado por 3 ='+lista*3);
+                //          <c:set var="a" value= "1"></c:set>
+                //   alert(value="${a}");
+                               
+            //}
             
-                }
+            function actualizaDir(id){
+                document.getElementById('direccion').style.display = 'block';
+                
+                var params=new Object();
+                params.id_unidadadministrativa=id;
+                                
+                $.post("controladordirecciones?operacion=listarPorunidad", params, function(datos){
+                    
+                    $("#direccion").find('option').remove();
+                    $("#direccion").append('<option value="">'+'Selecciona una Dirección'+'</option>');
+                    $.each(datos, function(i,v){
+                        $("#direccion").append('<option value="'+v.id_direccion+'">'+v.nombre+'</option>');
+                    });
+                },"json");
+                
+                return false;
+            }
+            
+            
+                                   
         </script>
     </head>
     <body>
@@ -58,12 +84,12 @@
                     <td></td>-->
                 </tr>
                 <tr>
-                    <td>Unidad administrativa responsable:</td> <td>Dirección</td>
+                    <td>Unidad administrativa:</td> <td>Dirección</td>
                 </tr>
                 <tr>
                     <td>
-                        <select id="unidadAdministrativa" required style="width: 400px" onchange="directv()">
-                            <option value="">Seleccione una opción</option>
+                        <select id="unidadAdministrativa" required style="width: 400px" onchange="actualizaDir(this.value)">
+                            <option value="">Seleccione una Unidad</option>
                             <c:forEach var="ua" items="${requestScope.ua}">
                                 <option value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
                             </c:forEach>
@@ -72,11 +98,10 @@
                     
                     <td>
                         <select id="direccion" required style="width: 300px;display:none">
-                            <c:set var="salay" scope="session" value="${1}"/>
-                            <option value="">Seleccione una opción</option>
-                            <c:forEach var="di" items="${requestScope.di}">
-                                <option value="${di.id_direccion}">${di.nombre}</option>
-                            </c:forEach>
+                            <option value="">Seleccione una Dirección</option>
+                            <c:forEach  var="dir" items="${requestScope.dir}">
+                                    <OPTION VALUE="${dir.id_direccion}" ${dir.id_direccion == usr.id_direccion ? 'selected':''}>${dir.nombre}</OPTION>
+                            </c:forEach>   
                         </select>
                     </td>
                 </tr>

@@ -17,6 +17,7 @@
                 params.nombre=$("#nombre").val();
                 params.dias_resolucion=$("#dias_resolucion").val();
                 params.id_unidadAdministrativa=$("#unidadAdministrativa").val();
+                params.id_direccion=$("#direccion").val();
                 
                 if(params.id_unidadAdministrativa!=0){
                     $.post("controladortramite?operacion=editarGuardar", params, function(datos){
@@ -24,6 +25,22 @@
                         $("#admin").html(datos);
                     },"html");
                 }
+                
+                return false;
+            }
+            function actualizaDir(id){
+                
+                var params=new Object();
+                params.id_unidadadministrativa=id;
+                                              
+                $.post("controladordirecciones?operacion=listarPorunidad", params, function(datos){
+                    
+                    $("#direccion").find('option').remove();
+                    $("#direccion").append('<option value="">'+'Selecciona una Dirección'+'</option>');
+                    $.each(datos, function(i,v){
+                        $("#direccion").append('<option value="'+v.id_direccion+'">'+v.nombre+'</option>');
+                    });
+                },"json");
                 
                 return false;
             }
@@ -52,14 +69,22 @@
                 </tr>
                 <tr>
                     <td colspan='2'>Unidad administrativa responsable:</td>
-                    <td></td>
+                    <td colspan='2'>Direccion:</td>
                 </tr>
                 <tr>
                     <td colspan='2'>
-                        <select id="unidadAdministrativa" required style="width: 500px; font-size: 14px">
+                        <select id="unidadAdministrativa" required style="width: 500px; font-size: 14px"  onChange="actualizaDir(this.value)">
                             <option value="">Seleccione una opción</option>
                             <c:forEach var="ua" items="${requestScope.ua}"> 
                                 <option value="${ua.id_unidadAdministrativa}" ${ua.id_unidadAdministrativa == tramite.id_unidadadministrativa ? "selected":""}>${ua.nombre}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                    <td colspan='2'>
+                        <select id="direccion" required style="width: 300px; font-size: 14px">
+                            <option value="">Seleccione una opción</option>
+                            <c:forEach var="dir" items="${requestScope.dir}"> 
+                                <option value="${dir.id_direccion}" ${dir.id_direccion == tramite.id_direccion ? "selected":""}>${dir.nombre}</option>
                             </c:forEach>
                         </select>
                     </td>
