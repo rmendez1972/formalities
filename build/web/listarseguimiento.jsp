@@ -73,8 +73,8 @@
                     <h1>Listado de Seguimientos de la Solicitud</h1>
                     <p style="padding:0.1em">Tramite: ${tramite.nombre}</p>
                     <p style="padding:0.1em">Solicitante: ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
-                    <p style="padding:0.1em">Unidad Administrativa: ${nombreunidadadministrativa}</p>
-                    <p style="padding:0.1em">Dirección: ${direccion}</p>
+                    <p style="padding:0.1em">Unidad Administrativa: ${tramite.unidadAdministrativa}</p>
+                    <p style="padding:0.1em">Dirección: ${tramite.direccion}</p>
                 </td>
                 <td width="20%" align="right"> 
                     <div class="btn-catalogo">

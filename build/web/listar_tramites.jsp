@@ -73,21 +73,21 @@
         <table id="tramitestab" class="tablesorter" style="margin:auto; width:95%">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Días de resolución</th>
-                    <th>Unidad responsable</th>
-                    <th>Direccion</th>
-                    <th width="80">Acciones</th>
+                    <th width="40%">Nombre</th>
+                    <th width="10%">Días de resolución</th>
+                    <th width="15%">Unidad responsable</th>
+                    <th width="15%">Direccion</th>
+                    <th width="20%">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach var="tram" items="${requestScope.tramites}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td><c:out value="${tram.nombre}" /></td>
-                        <td><c:out value="${tram.dias_resolucion}" /></td>
-                        <td><c:out value="${tram.unidadAdministrativa}" /></td>
-                        <td><c:out value="${tram.direccion}" /></td>
-                        <td>
+                        <td width="40%"><c:out value="${tram.nombre}" /></td>
+                        <td width="10%"><c:out value="${tram.dias_resolucion}" /></td>
+                        <td width="15%"><c:out value="${tram.unidadAdministrativa}" /></td>
+                        <td width="15%"><c:out value="${tram.direccion}" /></td>
+                        <td width="20%">
                             <img src="imagenes/editar.png" class="btn-tabla" title="Editar Trámite" onclick="editarTramite(${tram.id_tramite});" />
                             <img src="imagenes/listar.png" class="btn-tabla" title="Ver requisitos" onclick="verRequisitos(${tram.id_tramite});" />
                             <img src="imagenes/eliminar.png" class="btn-tabla" title="Eliminar Trámite" onclick="eliminarTramite(${tram.id_tramite})" />

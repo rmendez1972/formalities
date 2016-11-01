@@ -22,12 +22,17 @@ public class GestionTramite {
     public Tramite obtenerPorId(int id_tramite){
         Tramite t=null;
         Object params[]={id_tramite};
-        //ResultSet res=Conexion.ejecutarConsulta("select T.id_tramite as id_tramite, T.dias_resolucion as dias_resolucion, T.id_unidadadministrativa as id_unidadadministrativa, T.nombre as nombre, U.nombre as unidadAdministrativa from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa  where id_tramite=?", params);
-        ResultSet res=Conexion.ejecutarConsulta("select * from tramite where id_tramite=?", params);
+        ResultSet res=Conexion.ejecutarConsulta("select T.*, U.nombre as unidadadministrativa, D.nombre as direccion from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa  inner join direcciones D on T.id_direccion=D.id_direccion where T.id_tramite=?", params);
+        //ResultSet res=Conexion.ejecutarConsulta("select * from tramite where id_tramite=?", params);
+        
         try{
             while(res.next()){
                 t=new Tramite(res.getInt("id_tramite"), res.getInt("dias_resolucion"), res.getInt("id_unidadadministrativa"), res.getInt("id_direccion"),res.getString("nombre"));
+                t.setUnidadAdministrativa(res.getString("unidadadministrativa"));
+                t.setDireccion(res.getString("direccion"));
             }
+            
+            
             res.close();
         }catch(Exception e){}
         return t;
