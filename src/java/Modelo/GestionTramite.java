@@ -76,7 +76,11 @@ public class GestionTramite {
     }
     
     public boolean actualizar(Tramite t){
+<<<<<<< HEAD
         Object params[]={t.getNombre(), t.getDias_resolucion(), t.getId_unidadadministrativa(),t.getId_direccion(), t.getId_tramite()};
+=======
+        Object params[]={t.getNombre(), t.getDias_resolucion(), t.getId_unidadadministrativa(),t.getId_direccion(),t.getId_tramite()};
+>>>>>>> 3eb99df7f4a6ab932c763c4e82e7f3a85c32283c
         return Conexion.ejecutar("update tramite set nombre=?, dias_resolucion=?, id_unidadadministrativa=?, id_direccion=? where id_tramite=?", params);
     }
     

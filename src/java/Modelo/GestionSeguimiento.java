@@ -4,7 +4,9 @@
  */
 package Modelo;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javabeans.Seguimiento;
 import javabeans.Solicitud;
 /**
@@ -19,6 +21,8 @@ public class GestionSeguimiento {
         Solicitud solicitud;
         Integer id_solicitud=s.getId_solicitud();
         Integer id_status=s.getId_status();
+        
+          
         Object params[]={s.getFecha(), s.getObservaciones(), s.getId_usuario(), s.getId_solicitud(), s.getId_status(),s.getAdjunto()};
         res=Conexion.ejecutar("insert into seguimiento (fecha, observaciones, id_usuario, id_solicitud, id_status,adjunto) values (?,?,?,?,?,?)", params);
         if(res)
@@ -65,7 +69,7 @@ public class GestionSeguimiento {
     public ArrayList obtenerPorSolicitud(int id_solicitud){
         ArrayList seg=new ArrayList();
         Object params[]={id_solicitud};
-        ResultSet res=Conexion.ejecutarConsulta("select S.id_seguimiento,S.fecha,S.observaciones,S.id_usuario,S.id_solicitud,S.id_status,E.nombre as estatus,S.adjunto,U.nombre as usuario from seguimiento S inner join status E on S.id_status=E.id_status inner join usuario U on S.id_usuario=U.id_usuario where id_solicitud=? order by fecha desc", params);
+        ResultSet res=Conexion.ejecutarConsulta("select S.id_seguimiento,S.fecha,S.observaciones,S.id_usuario,S.id_solicitud,S.id_status,E.nombre as estatus,S.adjunto,U.nombre as usuario from seguimiento S inner join status E on S.id_status=E.id_status inner join usuario U on S.id_usuario=U.id_usuario where id_solicitud=? order by S.fecha desc", params);
         try{
             while(res.next()){
                 Seguimiento s=new Seguimiento(res.getInt("id_seguimiento"), res.getDate("fecha"), res.getString("observaciones"), res.getInt("id_usuario"), res.getInt("id_solicitud"), res.getInt("id_status"),res.getString("estatus"),res.getString("adjunto"));

@@ -145,14 +145,14 @@
    <table width="920" border="0" align="center" style="background-color: rgba(255, 255,0,.3)">
    <tr>
         <td width="20">&nbsp;</td>
-        <td width="300">Fecha de Reporte:</td>
+        <td width="300">Fecha de Seguimiento:</td>
         <td width="300">Observaciones:</td>
         <td width="300">Estatus del Trámite:</td>
         
    </tr>
   <tr>
     <td width="20">&nbsp;</td>
-    <td><input type="date" name="fecha_t" id="fecha_t" required value="fecha()"/> </td>
+    <td><input type="date" name="fecha_t" id="fecha_t" required style="width: 400px"  /> </td>
     <td><textarea name="observaciones" id="observaciones"   col="10" rows="4" pattern="([a-zA-Z ]{10,400})" required maxlength="400" placeholder="ingresa tus observaciones..." ></textarea></td>
     <td><select name="id_status" id="id_status">
       <c:forEach  var="status" items="${requestScope.status}">

@@ -33,9 +33,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javabeans.Seguimiento;
@@ -285,10 +287,25 @@ public class ControladorSeguimiento extends HttpServlet
             String fecha_t = s4.nextLine();    // read filename from stream
           
             //datos del seguimiento
-            SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date diahoy = new Date();
+            
+            
+            TimeZone timeZone = TimeZone.getDefault();
+            Calendar calendar = Calendar.getInstance(timeZone);
+            Date nuevafecha =  calendar.getTime();
+            
+            
+            SimpleDateFormat time=new SimpleDateFormat("HH:mm:ss");
+            String tiempo= time.format(nuevafecha);
+            
+            String fechaactual = fecha_t+' '+tiempo;
             Date fecha = null;
+            
+            
             try {
-                fecha = sdf2.parse(fecha_t);
+                fecha =(Date) sdf2.parse(fechaactual);
+                
             } catch (ParseException ex) {
                 Logger.getLogger(ControladorSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
             }
