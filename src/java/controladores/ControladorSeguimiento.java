@@ -288,17 +288,16 @@ public class ControladorSeguimiento extends HttpServlet
           
             //datos del seguimiento
             SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date diahoy = new Date();
-            
-            
-            TimeZone timeZone = TimeZone.getDefault();
+                      
+            TimeZone timeZone = TimeZone.getTimeZone("America/Bogota");
             Calendar calendar = Calendar.getInstance(timeZone);
-            Date nuevafecha =  calendar.getTime();
-            
-            
-            SimpleDateFormat time=new SimpleDateFormat("HH:mm:ss");
-            String tiempo= time.format(nuevafecha);
-            
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int min = calendar.get(Calendar.MINUTE);
+            int sec = calendar.get(Calendar.SECOND);
+            //Date nuevafecha =  calendar.getTime();
+            String tiempo=Integer.toString(hour)+':'+Integer.toString(min)+':'+Integer.toString(sec);
+                       
+                       
             String fechaactual = fecha_t+' '+tiempo;
             Date fecha = null;
             
