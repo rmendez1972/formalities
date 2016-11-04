@@ -71,10 +71,10 @@
             <tr>
                 <td width="80%" align="left"> 
                     <h1>Listado de Seguimientos de la Solicitud</h1>
-                    <p style="padding:0.1em">Tramite: ${tramite.nombre}</p>
-                    <p style="padding:0.1em">Solicitante: ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
-                    <p style="padding:0.1em">Unidad Administrativa: ${tramite.unidadAdministrativa}</p>
-                    <p style="padding:0.1em">Dirección: ${tramite.direccion}</p>
+                    <p style="padding:0.1em"><strong>Tramite: </strong>${tramite.nombre}</p>
+                    <p style="padding:0.1em"><strong>Solicitante:</strong> ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
+                    <p style="padding:0.1em"><strong>Unidad Administrativa: </strong>${tramite.unidadAdministrativa}</p>
+                    <p style="padding:0.1em"><strong>Dirección:</strong> ${tramite.direccion}</p>
                 </td>
                 <td width="20%" align="right"> 
                     <div class="btn-catalogo">

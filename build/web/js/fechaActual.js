@@ -6,10 +6,12 @@
 function fechaActual()
 {
     f=new Date();
-    //var mes="";
     //var dia="";
     var mes=(f.getMonth() +1);
     var dia=(f.getDate());
+    var hora=(f.getHours());
+    var min=(f.getMinutes());
+    var seg=(f.getSeconds());
     
     if ((f.getMonth() +1)<10){ //Si el mes es menor a 2 digitos, antemoner un cero al mes
         mes="0"+(f.getMonth() +1);
@@ -18,7 +20,7 @@ function fechaActual()
     if (f.getDate()<10){ //Si el dia es menor a 2 digitos, antemoner un cero al dia
         dia="0"+(f.getDate());
     }
-   var fecha=(f.getFullYear()+ "-"+ mes+ "-" +dia); //Concatenar los valores para formar una fecha simple
+   var fecha=(f.getFullYear()+ "-"+ mes+ "-"+dia+":"+hora+":"+min+":"+seg); //Concatenar los valores para formar una fecha simple
    return fecha; //Devolver el valor de fecha simple
    //document.getElementById('fecha_r').value=fecha;
 }

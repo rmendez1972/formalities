@@ -57,6 +57,7 @@
             
             //document.getElementById('fecha_t').value=fecha;
             document.getElementById('fecha_t').value=fechaActual(); //Obtener la fecha actual(valor por default) y asignarla a fecha_t(fecha tramite
+            //alert(fecha);
         </script>
         
     </head>
