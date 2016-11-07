@@ -227,7 +227,8 @@ public class ControladorReportes extends HttpServlet
             //Integer id_status;
             //Integer id_grupo=usuario.getId_grupo();
             //Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
-            Integer id_unidadadministrativa,id_grupo;
+            int id_unidadadministrativa=0;
+            int id_grupo=0;
             
             try {
                  cn=conectaMysql.getConnection();
@@ -239,9 +240,27 @@ public class ControladorReportes extends HttpServlet
             
             
             String mid_grupo  = request.getParameter("id_grupo");
-            id_grupo=Integer.parseInt(mid_grupo);
             String mid_unidadadministrativa  = request.getParameter("id_unidadadministrativa");
-            id_unidadadministrativa=Integer.parseInt(mid_unidadadministrativa);
+            
+            
+            if (mid_grupo!=null && mid_unidadadministrativa!= null)
+            {
+                id_grupo=Integer.parseInt(mid_grupo);
+                id_unidadadministrativa=Integer.parseInt(mid_unidadadministrativa);
+            }
+            
+            if (mid_grupo==null && mid_unidadadministrativa!= null)
+            {
+                
+                id_unidadadministrativa=Integer.parseInt(mid_unidadadministrativa);
+                
+            }
+            
+            if (mid_grupo==null && mid_unidadadministrativa== null)
+            {
+                
+                
+            }
             
             ServletOutputStream servletOutputStream = response.getOutputStream();
             File reportFile=null;
@@ -255,9 +274,11 @@ public class ControladorReportes extends HttpServlet
                 //param.put("id_delegacion", id_delegacion);
                 //param.put("id_mecanica", id_mecanica);
                 
-                param.put("sql","where U.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and U.id_grupo='"+id_grupo+"'");
+                if (mid_grupo!=null && mid_unidadadministrativa!= null)
+                {
+                    param.put("sql","where U.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and U.id_grupo='"+id_grupo+"'");
                     
-                
+                }
                 byte[] bytes = null;
                 //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
                 //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);

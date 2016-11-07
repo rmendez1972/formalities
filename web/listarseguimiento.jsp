@@ -98,8 +98,8 @@
             <tbody>
                 <c:forEach var="seguimientos" items="${requestScope.seguimientos}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td width="8%"><c:out value="${seguimientos.fecha}" /></td> 
-                        <td width="45%"><c:out value="${seguimientos.observaciones}" /></td>
+                        <td width="13%"><c:out value="${seguimientos.fecha}" /></td> 
+                        <td width="40%"><c:out value="${seguimientos.observaciones}" /></td>
                         
                         <c:choose>
                                 <c:when test="${seguimientos.estatus=='TURNADO'}">
@@ -124,7 +124,7 @@
                         
                         <td width="15%"><a href="${requestScope.pathadjuntos}${seguimientos.adjunto}" download="${seguimientos.adjunto}" ><c:out value="${seguimientos.adjunto}" /></a></td>
                         <td width="10%"><c:out value="${seguimientos.usuario}" /></td>
-                        <td width="13%">
+                        <td width="12%">
                             <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
                                 <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
                             </button>

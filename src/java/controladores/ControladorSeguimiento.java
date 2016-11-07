@@ -423,10 +423,21 @@ public class ControladorSeguimiento extends HttpServlet
           Scanner s5 = new Scanner(p5.getInputStream()); //la clase Scanner es utilizada para leer datos de un dispostivo de entrada o stream
           String mfecha_t = s5.nextLine();    // lectura del stream como cadena de caracteres
           
-          SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+          SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                      
+          TimeZone timeZone = TimeZone.getTimeZone("America/Bogota");
+          Calendar calendar = Calendar.getInstance(timeZone);
+          int hour = calendar.get(Calendar.HOUR_OF_DAY);
+          int min = calendar.get(Calendar.MINUTE);
+          int sec = calendar.get(Calendar.SECOND);
+          //Date nuevafecha =  calendar.getTime();
+          String tiempo=Integer.toString(hour)+':'+Integer.toString(min)+':'+Integer.toString(sec);
+                       
+                       
+          String fechaactual = mfecha_t+' '+tiempo;
           Date fecha = null;
             try {
-                fecha = sdf.parse(mfecha_t);
+                fecha =(Date) sdf2.parse(fechaactual);
             } catch (ParseException ex) {
                 Logger.getLogger(ControladorSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -675,7 +686,13 @@ public class ControladorSeguimiento extends HttpServlet
           id_solicitud=seguimiento.getId_solicitud();
           id_status=seguimiento.getId_status();
           observaciones=seguimiento.getObservaciones();
+          Date fecha=seguimiento.getFecha();
+          SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+          String fecha_seguimiento = sdf.format(fecha);
+
+          
           seguimientos = gs.obtenerPorSolicitud(id_solicitud);
+          
          
                      
           GestionSolicitud gsol=new GestionSolicitud(); 
@@ -706,7 +723,7 @@ public class ControladorSeguimiento extends HttpServlet
           if(nombrestatus.equals("CONCLUIDO"))
           {    
             mail correo = new mail();
-            resultado=correo.send(email, "Notificación de Estatus de Trámite con la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te avisamos de la conclusión de tu trámite (<b>"+nombretramite+"</b>) con las siguientes observaciones: <br>"+observaciones+"<br><br>"+"Atentamente"+"<br><br>"+"<b>"+nombreunidadadministrativa+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
+            resultado=correo.send(email, "Notificación de Estatus de Trámite con la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te avisamos de la conclusión de tu trámite (<b>"+nombretramite+"</b>), de fecha: "+fecha_seguimiento+" con número de folio: <b>"+id_solicitud+"</b> con las siguientes observaciones: <br>"+observaciones+"<br><br>"+"Atentamente"+"<br><br>"+"<b>"+nombreunidadadministrativa+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
           }
           if(resultado==true)
           {
