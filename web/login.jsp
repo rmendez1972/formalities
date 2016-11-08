@@ -26,13 +26,16 @@
             @import url('css/fuentes.css');
             body{background-image: url(imagenes/login1.png);font-family: helveticanuelightext;}
             h1,h2,h3,h4,p{font-family: helveticanuelightext;color:#0080ff;}
-            
+                      
             #caja{
-		background: #f0f0f0;width: 500px;border:1px solid white; margin:100px auto;
-		padding:10px;border-radius: 6px;opacity: 1;box-shadow: 0px 5px 3px 0px #c0c0c0; 
+		/*background: #f0f0f0;*/width: 500px;border:1px solid white; margin:100px auto;
+		padding:10px;border-radius: 6px;opacity: 1;box-shadow: 0px 5px 3px 0px #c0c0c0;
+                background-image: url(imagenes/ceiba_opaco.png);
+                /*opacity: 0.5;*/
             }
 
             #caja:hover{border:1px solid greenyellow;
+                        border:1px solid #D2691E;
           
                 }
             
@@ -53,6 +56,7 @@
                 background-image: url(imagenes/loginbutton.png);
                 /**** Bordes redondeados ****/
                 /* W3C */
+                border:1px solid #D2691E;
                 border-radius: 5px;
                 /* Firefox */
                 -moz-border-radius: 5px;
@@ -63,8 +67,8 @@
             #campos{
                 width: 100%;
                 height: 200px;
-                background: url(imagenes/loginicon.png) no-repeat left center;
-                margin-left:  5%;
+                /*background: url(imagenes/loginicon.png) no-repeat left center;*/
+                /*margin-left:  5%;*/
                 
                 
             }
@@ -127,7 +131,7 @@
             <!--<a href="#" onclick="javascript:document.body.style.backgroundColor='none'; 
                 document.body.style.backgroundImage='url(imagenes/backg2.png)';">Rojo</a>!-->
             <center>
-                <h4 style="color: white; text-shadow: black 0.1em 0.1em 0.2em">Ventanilla Única de Gestión de Trámites y Servicios<br> Versión 1.0</h4>
+                <h4 style="color: #D2691E; text-shadow: white 0.1em 0.1em 0.2em">Ventanilla Única de Gestión de Trámites y Servicios<br> Versión 1.0</h4>
                 <!--<img SRC="imagenes\loginicon.png">!-->
 		
                 <form name="login" id="login"   method="post">
