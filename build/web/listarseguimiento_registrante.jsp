@@ -52,8 +52,10 @@
             <tr>
                 <td width="80%" align="left"> 
                     <h1>Listado de Seguimientos de la Solicitud</h1>
-                    Tramite: ${tramite.nombre}<br>
-                    Solicitante: ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}
+                    <p style="padding:0.1em">Tramite: ${tramite.nombre}</p>
+                    <p style="padding:0.1em">Solicitante: ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
+                    <p style="padding:0.1em">Unidad Administrativa: ${tramite.unidadAdministrativa}</p>
+                    <p style="padding:0.1em">Dirección: ${tramite.direccion}</p>
                 </td>
                 <td width="20%" align="right"> 
                     <div class="btn-catalogo">
@@ -68,12 +70,12 @@
         
         <table id="seguimientos"  class="tablesorter" width="98%" >
             <thead>
-            <tr><th >Reporte</th><th>Observaciones</th><th>Estatus</th>
+            <tr><th >Fecha</th><th>Observaciones</th><th>Usuario</th><th>Estatus</th>
             </thead>
             <tbody>
                 <c:forEach var="seguimientos" items="${requestScope.seguimientos}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td width="8%"><c:out value="${seguimientos.fecha}" /></td> <td width="60%"><c:out value="${seguimientos.observaciones}" /></td> <td width="20%"><c:out value="${seguimientos.estatus}" /></td>  
+                        <td width="20%"><c:out value="${seguimientos.fecha}" /></td> <td width="50%"><c:out value="${seguimientos.observaciones}" /></td> <td width="20%"><c:out value="${seguimientos.usuario}" /></td><td width="10%"><c:out value="${seguimientos.estatus}" /></td>  
                     </tr>
 
                 </c:forEach>

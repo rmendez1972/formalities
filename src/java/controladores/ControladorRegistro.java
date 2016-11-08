@@ -29,11 +29,13 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javabeans.Direcciones;
@@ -127,10 +129,24 @@ public class ControladorRegistro extends HttpServlet
         //datos de la solicitud
         Integer id_tramite=Integer.parseInt(request.getParameter("tramites"));
         solicitud.setId_tramite(id_tramite);
-        SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+        
+        SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                      
+        TimeZone timeZone = TimeZone.getTimeZone("America/Bogota");
+        Calendar calendar = Calendar.getInstance(timeZone);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        int sec = calendar.get(Calendar.SECOND);
+        //Date nuevafecha =  calendar.getTime();
+        String tiempo=Integer.toString(hour)+':'+Integer.toString(min)+':'+Integer.toString(sec);
+                       
+                       
+        String fechaactual = request.getParameter("fecha_r")+' '+tiempo;
+        
+        
         Date fecha_ingreso = null;
             try {
-                fecha_ingreso = sdf.parse(request.getParameter("fecha_r"));
+                fecha_ingreso = sdf2.parse(fechaactual);
             } catch (ParseException ex) {
                 Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -201,10 +217,24 @@ public class ControladorRegistro extends HttpServlet
         solicitud.setId_solicitud(id_solcitud);
         Integer id_tramite=Integer.parseInt(request.getParameter("tramites"));
         solicitud.setId_tramite(id_tramite);
-        SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+        
+        SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                      
+        TimeZone timeZone = TimeZone.getTimeZone("America/Bogota");
+        Calendar calendar = Calendar.getInstance(timeZone);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        int sec = calendar.get(Calendar.SECOND);
+        //Date nuevafecha =  calendar.getTime();
+        String tiempo=Integer.toString(hour)+':'+Integer.toString(min)+':'+Integer.toString(sec);
+                       
+                       
+        String fechaactual = request.getParameter("fecha_r")+' '+tiempo;
+        
+        
         Date fecha_ingreso = null;
             try {
-                fecha_ingreso = sdf.parse(request.getParameter("fecha_r"));
+                fecha_ingreso = sdf2.parse(fechaactual);
             } catch (ParseException ex) {
                 Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
             }

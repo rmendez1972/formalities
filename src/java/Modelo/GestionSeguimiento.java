@@ -59,7 +59,7 @@ public class GestionSeguimiento {
         ResultSet res=Conexion.ejecutarConsulta("select * from seguimiento where id_seguimiento=?", params);
         try{
             if(res.next()){
-                seg=new Seguimiento(res.getInt("id_seguimiento"), res.getDate("fecha"), res.getString("observaciones"), res.getInt("id_usuario"), res.getInt("id_solicitud"), res.getInt("id_status"), res.getString("adjunto"));
+                seg=new Seguimiento(res.getInt("id_seguimiento"), res.getTimestamp("fecha"), res.getString("observaciones"), res.getInt("id_usuario"), res.getInt("id_solicitud"), res.getInt("id_status"), res.getString("adjunto"));
             }
             res.close();
         }catch(Exception e){}
@@ -72,7 +72,7 @@ public class GestionSeguimiento {
         ResultSet res=Conexion.ejecutarConsulta("select S.id_seguimiento,S.fecha,S.observaciones,S.id_usuario,S.id_solicitud,S.id_status,E.nombre as estatus,S.adjunto,U.nombre as usuario from seguimiento S inner join status E on S.id_status=E.id_status inner join usuario U on S.id_usuario=U.id_usuario where id_solicitud=? order by S.fecha desc", params);
         try{
             while(res.next()){
-                Seguimiento s=new Seguimiento(res.getInt("id_seguimiento"), res.getDate("fecha"), res.getString("observaciones"), res.getInt("id_usuario"), res.getInt("id_solicitud"), res.getInt("id_status"),res.getString("estatus"),res.getString("adjunto"));
+                Seguimiento s=new Seguimiento(res.getInt("id_seguimiento"), res.getTimestamp("fecha"), res.getString("observaciones"), res.getInt("id_usuario"), res.getInt("id_solicitud"), res.getInt("id_status"),res.getString("estatus"),res.getString("adjunto"));
                 s.setUsuario(res.getString("usuario"));
                 seg.add(s);
             }
