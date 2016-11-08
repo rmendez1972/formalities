@@ -387,7 +387,7 @@ input:required:valid, textarea:required:valid{
                 height: 120px;
                 padding: 0px 0px;
 
-                border-right: solid 1px ;
+                border-right: solid 2px ;
                 border-right-style: groove;
                
                 }
@@ -409,9 +409,9 @@ input:required:valid, textarea:required:valid{
 
 
 
-            #logotipo a:hover{text-decoration: none; /*Efecto para cuando el mouse se posicione en el area logotipo*/
-                text-shadow: 0 0 0.08em #ffffff, 0 0 0.08em #ffffff
-            }
+           /* #logotipo a:hover{text-decoration: none; /*Efecto para cuando el mouse se posicione en el area logotipo*/
+               /* text-shadow: 0 0 0.08em #ffffff, 0 0 0.08em #ffffff
+            } */ 
 
 
 
@@ -516,7 +516,7 @@ footer {
 	height: 50px;
 	float:left;
         color:#ECF0F1;
-        color: #bdc3c7;
+        color: #ffffff;
 	clear: both;
 
         font-family: helveticanuelightcond;
@@ -528,8 +528,7 @@ footer {
 	border-radius: 5px;
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;	
-        background: #16a085;
-        background:#95A5A6;
+        background:#706b67;
 	margin-top: 20px;
 }
 
