@@ -98,7 +98,7 @@
             <div id="subheader">
 		<div id="logotipo">SEDUVI <span class="secre"><br/>Secretaría de Desarrollo Urbano y Vivienda</span></a></div>
                 <div id="sistema">Ventanilla Única de Gestión<br/> de Trámites y Servicios<br/>
-                    <span class="secre" style="font-size: 12px; color:grey "><SPAN STYLE="font-weight: bold">USUARIO:</span>
+                    <span class="secre" style="font-size: 12px; color:#000000"><br/>USUARIO:
                       
                         <script type="text/javascript">document.write(usuario+'    ');</script>
                         
@@ -127,8 +127,8 @@
             </section>
             
             <footer> <!--Pie de página!-->
-                <p>Sistema: Ventanilla Ünica de Gestión de Trámites y Servicios.<br>
-                        Derechos reservados SEDUVI. Subsecretaría de Técnica, Chetumal, Q.Roo 2013.</p>
+                <p>Sistema: Ventanilla Única de Gestión de Trámites y Servicios.<br>
+                        Derechos reservados SEDUVI. Subsecretaría de Técnica, Chetumal, Q.Roo 2016.</p>
             </footer> <!--fin del pie de página-->
 	            
 	</section> <!--fin del wrap, contenedor princiapal!-->
