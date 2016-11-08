@@ -276,7 +276,7 @@ public class ControladorReportes extends HttpServlet
                 
                 if (mid_grupo!=null && mid_unidadadministrativa!= null)
                 {
-                    param.put("sql","where U.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and U.id_grupo='"+id_grupo+"'");
+                   // param.put("sql","where U.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and U.id_grupo='"+id_grupo+"'");
                     
                 }
                 byte[] bytes = null;
