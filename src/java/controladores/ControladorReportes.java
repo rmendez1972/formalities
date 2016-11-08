@@ -221,14 +221,9 @@ public class ControladorReportes extends HttpServlet
     
         if(operacion.equals("usuarios"))
         {
-            //Usuario usuario;
-            //HttpSession objSession = request.getSession(); 
-            //usuario = (Usuario)(objSession.getAttribute("usuario")); 
-            //Integer id_status;
-            //Integer id_grupo=usuario.getId_grupo();
-            //Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
-            int id_unidadadministrativa=0;
-            int id_grupo=0;
+            
+            Integer id_unidadadministrativa=0;
+            Integer id_grupo=0;
             
             try {
                  cn=conectaMysql.getConnection();
@@ -243,20 +238,20 @@ public class ControladorReportes extends HttpServlet
             String mid_unidadadministrativa  = request.getParameter("id_unidadadministrativa");
             
             
-            if (mid_grupo!=null && mid_unidadadministrativa!= null)
+            if (mid_grupo!="" && mid_unidadadministrativa!="")
             {
                 id_grupo=Integer.parseInt(mid_grupo);
                 id_unidadadministrativa=Integer.parseInt(mid_unidadadministrativa);
             }
             
-            if (mid_grupo==null && mid_unidadadministrativa!= null)
+            if (mid_grupo=="" && mid_unidadadministrativa!="")
             {
                 
                 id_unidadadministrativa=Integer.parseInt(mid_unidadadministrativa);
                 
             }
             
-            if (mid_grupo==null && mid_unidadadministrativa== null)
+            if (mid_grupo=="" && mid_unidadadministrativa=="")
             {
                 
                 
@@ -274,11 +269,23 @@ public class ControladorReportes extends HttpServlet
                 //param.put("id_delegacion", id_delegacion);
                 //param.put("id_mecanica", id_mecanica);
                 
-                if (mid_grupo!=null && mid_unidadadministrativa!= null)
+                if (mid_grupo!="" && mid_unidadadministrativa!="")
                 {
-                   // param.put("sql","where U.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and U.id_grupo='"+id_grupo+"'");
+                    param.put("sql","where U.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and U.id_grupo='"+id_grupo+"'");
                     
                 }
+                if (mid_grupo=="" && mid_unidadadministrativa!="")
+                {
+                    param.put("sql","where U.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"'");
+                    
+                }
+                
+                if (mid_grupo=="" && mid_unidadadministrativa=="")
+                {
+                    param.put("sql","");
+                
+                }
+                
                 byte[] bytes = null;
                 //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
                 //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);
