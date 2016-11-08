@@ -96,7 +96,7 @@
 	<header>
             
             <div id="subheader">
-		<div id="logotipo"><a href="">SEDUVI <span class="secre"><br/>Secretaría de Desarrollo Urbano y Vivienda</span></a></div>
+		<div id="logotipo">SEDUVI <span class="secre"><br/>Secretaría de Desarrollo Urbano y Vivienda</span></a></div>
                 <div id="sistema">Ventanilla Única de Gestión<br/> de Trámites y Servicios<br/>
                     <span class="secre" style="font-size: 12px; color:grey "><SPAN STYLE="font-weight: bold">USUARIO:</span>
                       

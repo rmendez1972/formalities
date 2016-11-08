@@ -409,9 +409,9 @@ input:required:valid, textarea:required:valid{
 
 
 
-            #logotipo a:hover{text-decoration: none; /*Efecto para cuando el mouse se posicione en el area logotipo*/
-                text-shadow: 0 0 0.08em #ffffff, 0 0 0.08em #ffffff
-            }
+           /* #logotipo a:hover{text-decoration: none; /*Efecto para cuando el mouse se posicione en el area logotipo*/
+               /* text-shadow: 0 0 0.08em #ffffff, 0 0 0.08em #ffffff
+            } */ 
 
 
 
