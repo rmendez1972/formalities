@@ -103,7 +103,7 @@
                         
                         <c:choose>
                                 <c:when test="${seguimientos.estatus=='TURNADO'}">
-                                    <td width="10%" style="font-size: 8px"><div class="statusTurnado"><c:out value="${seguimientos.estatus}"/></td>
+                                    <td width="10%" style="font-size: 8px"><div class="statusTurnado"></div><c:out value="${seguimientos.estatus}"/></td>
                                 </c:when>
                                     
                                 <c:when test="${seguimientos.estatus=='TRAMITE'}">

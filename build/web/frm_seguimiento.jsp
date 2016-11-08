@@ -152,7 +152,7 @@
    </tr>
   <tr>
     <td width="20">&nbsp;</td>
-    <td><input type="date" name="fecha_t" id="fecha_t" required style="width: 400px"  /> </td>
+    <td><input type="date" name="fecha_t" id="fecha_t" required /> </td>
     <td><textarea name="observaciones" id="observaciones"   col="10" rows="4" pattern="([a-zA-Z ]{10,400})" required maxlength="400" placeholder="ingresa tus observaciones..." ></textarea></td>
     <td><select name="id_status" id="id_status">
       <c:forEach  var="status" items="${requestScope.status}">

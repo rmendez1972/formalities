@@ -289,7 +289,7 @@ public class ControladorSeguimiento extends HttpServlet
             //datos del seguimiento
             SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                       
-            TimeZone timeZone = TimeZone.getTimeZone("America/Bogota");
+            TimeZone timeZone = TimeZone.getTimeZone("America/Cancun");
             Calendar calendar = Calendar.getInstance(timeZone);
             int hour = calendar.get(Calendar.HOUR_OF_DAY);
             int min = calendar.get(Calendar.MINUTE);
