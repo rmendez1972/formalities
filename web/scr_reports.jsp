@@ -110,21 +110,21 @@
                         <tr>
                             <td width="30%">
                                 <button value="controladorreportes?operacion=frm_reporteusuarios" id="rep_usuarios" >
-                                        <img src="imagenes/myspace alt2122.png" class="btn-report" alt="usuarios" title="Usuarios Sistema"/>
+                                        <img src="imagenes/myspace alt2122.png" class="btn-report"  title="Usuarios Sistema"/>
                                         <p>Usuarios de sistema</p>
                                 </button>
                             </td>
                             <td width="30%">
                                 <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
                                         titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                        <img src="imagenes/listar.png" class="btn-report" alt="Tramites" title="Trámites"/>
+                                        <img src="imagenes/listar.png" class="btn-report"  title="Trámites"/>
                                         <p>Trámites de la SEDUVI</p>
                                 </button>
                             </td>
                             <td width="30%">
                                 <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
                                         titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                        <img src="imagenes/requisitos.png" class="btn-report" alt="requisitos" title="Requisitos"/>
+                                        <img src="imagenes/requisitos.png" class="btn-report" title="Requisitos"/>
                                         <p>Requisitos por Trámite</p>
                                 </button>
                             </td>
