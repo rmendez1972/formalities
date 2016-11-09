@@ -121,7 +121,7 @@
                     }
 
                     // run the effect
-                    $( "#divimprimiendo" ).show( selectedEffect, options, 2000, callback );
+                    $( "#divimprimiendo" ).show( selectedEffect, options, 1000, callback );
                 };
 
                 //callback function to bring a hidden box back
