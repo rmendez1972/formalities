@@ -22,16 +22,16 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band height="49" splitType="Stretch">
+		<band height="42" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="06d7dbe0-d4e4-45ca-a2f8-c681c6933dc0" x="197" y="7" width="360" height="20"/>
+				<reportElement uuid="06d7dbe0-d4e4-45ca-a2f8-c681c6933dc0" x="197" y="1" width="360" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ventanilla Unica de Gestión de Trámites y Servicios]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="79fbb0a4-c1df-4ff5-979d-0db4bfa2ad84" x="197" y="29" width="360" height="20"/>
+				<reportElement uuid="79fbb0a4-c1df-4ff5-979d-0db4bfa2ad84" x="197" y="17" width="360" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12"/>
 				</textElement>
@@ -40,16 +40,16 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="38" splitType="Stretch">
+		<band height="31" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="34f772ec-45ef-4cd0-8c68-77ab61757df8" x="6" y="7" width="77" height="20"/>
+				<reportElement uuid="34f772ec-45ef-4cd0-8c68-77ab61757df8" x="6" y="2" width="77" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="12" isBold="false" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="716750bd-0467-4efd-8620-21d6c05c8d45" x="83" y="7" width="662" height="20"/>
+				<reportElement uuid="716750bd-0467-4efd-8620-21d6c05c8d45" x="83" y="2" width="662" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="12" isBold="false" isItalic="true"/>
 				</textElement>
