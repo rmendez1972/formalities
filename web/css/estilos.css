@@ -21,7 +21,7 @@
         padding-top: 10px;
         margin-bottom: 10px;
         border: 0;
-        color: #ef9c00;/*#953b39;*/
+        color: #459cc1;/*#ef9c00 anarankado_ultimo ;#953b39;*/
         border-bottom: 1px solid #e5e5e5;
         border-bottom-style: groove;
     }
@@ -39,7 +39,7 @@
      margin:  10px;
      background-image: url(../imagenes/tools.png);
      background-repeat:no-repeat;
-     background-position: 5px 5px;
+     background-position: 5px 59px;
      /*height: 65px;*/
      width: 91%;
      float: left;
@@ -58,6 +58,7 @@
        background-color: rgb(122, 139, 139); /*Gris*/
        background-color: rgb(139, 69, 0); /*Cafe*/
        background-color: rgb(139, 115, 85);/*Cafe opaco*/
+       background-color: #459cc1;/*Verde bandera*/
        border-radius: 10px;
        opacity: 1;
    
@@ -382,48 +383,27 @@ input:required:valid, textarea:required:valid{
     #subheader {width: 960px; margin: auto;}
 
         #logotipo { /*Div contenedor para el logotipo SEDUVI*/
+                background:url(../imagenes/LogoSEDUVI.png);
                 float: left;
                 width: 190px;
                 height: 120px;
                 padding: 0px 0px;
-
                 border-right: solid 2px ;
                 border-right-style: groove;
-               
+                              
                 }
-
-            #logotipo a { /*Estilo el logotipo SEDUVI */
-                    font-family: helveticanueblackext;
-                    font-size: 35px;
-                    color: #7F8C8D;
-
-            }
-
-            #logotipo .secre{ /*Aplicación de estilo para la frase "Secretretaría de Desaroollo..."*/
-                    font-family: helveticanuelightcond;
-                    font-size: 21px;
-                    color: #bdc3c7;
-                    line-height: 15px;
-
-                    }
-
-
-
-           /* #logotipo a:hover{text-decoration: none; /*Efecto para cuando el mouse se posicione en el area logotipo*/
-               /* text-shadow: 0 0 0.08em #ffffff, 0 0 0.08em #ffffff
-            } */ 
-
-
-
+      
         #sistema {/*Estilo para el nombre del sistema "Ventanilla Única de Gestión..."*/
             float: left;
             width: 320px;
             font-family:helveticanuethinext;
             font-size: 24px;
             color: #ffffff;
-            line-height: 25px;	
+            /*line-height: 25px;*/	
             padding-top: 20px;
             padding-left: 5px;
+            /*border-right: solid 2px ;
+            border-right-style: groove;*/
         }
 
     /*--- MENU principal---*/
@@ -432,7 +412,7 @@ input:required:valid, textarea:required:valid{
             float: left;
             width: 440px;
             padding: 10px 0px;
-            opacity: 0.3; /*Reduce su intencidad de color a un 0.3*/
+            opacity: 0.2; /*Reduce su intencidad de color a un 0.3*/
 
 
     }
@@ -547,7 +527,7 @@ footer {
     .menuhorizontal ul{list-style:none;float:left;padding: 1%;width:95%;}
     /*.menuhorizontal ul:hover{list-style:none;float:left;padding: 1%;width:95%;background-color: #28921f;}*/
     .menuhorizontal ul li{
-        float:left; margin-right: 20px;margin-bottom: 10px;background: #ef9c00;
+        float:left; margin-right: 20px;margin-bottom: 10px;background: #706b67; /*#ef9c00;*/
         padding:5px; border-radius:5px;
         transition:all 1s linear;
         /*width: 120px;*/
@@ -834,7 +814,7 @@ CONTROLES
 	float: left;
 	margin-right: 20px;
 	margin-bottom: 10px;
-	background: #ef9c00;
+	background: #459cc1; /*#ef9c00;*/
 	padding: 5px;
 	border-radius: 5px;
 	/*transition:all 1s linear;
