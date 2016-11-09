@@ -121,7 +121,7 @@
                     }
 
                     // run the effect
-                    $( "#divimprimiendo" ).show( selectedEffect, options, 2000, callback );
+                    $( "#divimprimiendo" ).show( selectedEffect, options, 1000, callback );
                 };
 
                 //callback function to bring a hidden box back
@@ -141,17 +141,18 @@
                     mshow.style.display="block";
                     var mid_grupo=$('#id_grupo').val();
                     var mid_unidadadministrativa=$('#unidadadtva').val();
-                    alert('url '+'controladorreportes?operacion=usuarios&id_grupo='+mid_grupo+'&id_unidadadministrativa='+mid_unidadadministrativa);
+                    //alert('Reporte Generado Exitosamente');
                     
                     $.ajax(
                     {
-                    
+                        
                         url: $('#show').attr('src','controladorreportes?operacion=usuarios&id_grupo='+mid_grupo+'&id_unidadadministrativa='+mid_unidadadministrativa),
                         type: 'POST',
                         data: $(this).serialize(),
                         async: false,
                         success: function (resultado) 
                         {
+                            
                             $('#frm_reporteusuarios').css('display','none');
                               
                         },
@@ -211,6 +212,6 @@
         </section>
         
         <div id="divimprimiendo" class="divimprimiendo"><p>Generando Reporte ...</p></div>
-        <iframe  name="show" id="show" align="middle" frameborder="0" marginwidth="0" marginheight="0" width="95%" height="85%" scrolling="no"  title="En la parte inferior derecha boton para imprimir..." style="display:none; margin: 10px" ></iframe>    
+        <iframe  name="show" id="show" align="middle" frameborder="0" marginwidth="0" marginheight="0" width="95%" height="85%" scrolling="no"  title="En la parte superior derecha boton para imprimir..." style="display:none; margin: 10px" ></iframe>    
     </body>
 </html>
