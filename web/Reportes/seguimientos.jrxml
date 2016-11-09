@@ -23,9 +23,9 @@
 	</background>
 	<title>
 		<band height="67" splitType="Stretch">
-			<image hAlign="Center">
+			<image scaleImage="RealHeight" hAlign="Center">
 				<reportElement uuid="26bdebd4-80af-4d7c-ab23-15496ca8ea17" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="752" height="67"/>
-				<imageExpression><![CDATA["..\\imagenes\\headerreporte.png"]]></imageExpression>
+				<imageExpression><![CDATA["..\\imagenes\\seduvi.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
