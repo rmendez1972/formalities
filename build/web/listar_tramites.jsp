@@ -75,7 +75,7 @@
                 <tr>
                     <th width="40%">Nombre</th>
                     <th width="10%">Días de resolución</th>
-                    <th width="15%">Unidad responsable</th>
+                    <th width="15%">Subsecretarías</th>
                     <th width="15%">Direccion</th>
                     <th width="20%">Acciones</th>
                 </tr>

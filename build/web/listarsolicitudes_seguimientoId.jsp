@@ -79,7 +79,7 @@
             <tr>
                 <td width="90%" align="right"> 
                     <h1>Listado de Solicitudes</h1>
-                    <p>Unidad Administrativa:  ${nombreunidadadministrativa}</p>
+                    <p>Subsecretaría:  ${nombreunidadadministrativa}</p>
                 </td>
                 <td width="8%" align="right">
                     <div class="btn-catalogo">

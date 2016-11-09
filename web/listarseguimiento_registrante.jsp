@@ -52,6 +52,7 @@
             <tr>
                 <td width="80%" align="left"> 
                     <h1>Listado de Seguimientos de la Solicitud</h1>
+                    <p style="padding:0.1em"><strong>Núm. Solicitud: </strong>${solicitud.id_solicitud}</p>
                     <p style="padding:0.1em">Tramite: ${tramite.nombre}</p>
                     <p style="padding:0.1em">Solicitante: ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
                     <p style="padding:0.1em">Unidad Administrativa: ${tramite.unidadAdministrativa}</p>
@@ -70,7 +71,7 @@
         
         <table id="seguimientos"  class="tablesorter" width="98%" >
             <thead>
-            <tr><th >Fecha</th><th>Observaciones</th><th>Usuario</th><th>Estatus</th>
+            <tr><th >Fecha de Seguimiento</th><th>Observaciones</th><th>Usuario que Reporta</th><th>Estatus</th>
             </thead>
             <tbody>
                 <c:forEach var="seguimientos" items="${requestScope.seguimientos}" varStatus="loop"> 

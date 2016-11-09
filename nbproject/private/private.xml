@@ -3,7 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/index.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionDirecciones.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Direcciones.java</file>
@@ -48,15 +47,6 @@
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_modificatramite.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listarseguimiento_registrante.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorBase.java</file>
-=======
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorReportes.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/index.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/fondo.html</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/login.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionUnidadAdministrativa.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/css/estilos.css</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorUnidadAdtva.java</file>
->>>>>>> ismael
         </group>
     </open-files>
 </project-private>

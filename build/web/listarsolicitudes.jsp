@@ -201,9 +201,9 @@
         <table id="solicitudes"  class="tablesorter" width="98%">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Núm. Solicitud</th>
                     <th>Ingreso</th>
-                    <th>Unidad Administrativa</th>
+                    <th>Subsecretaría</th>
                     <th>Trámite</th>
                     <th>Solicitante</th>
                     <th>Estatus</th>

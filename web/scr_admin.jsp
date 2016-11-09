@@ -63,7 +63,7 @@
             
                     <ul>
                         <li onclick="cargar('controladorusuario?operacion=listar','#admin')"><a href="#">Usuarios</a></li>
-                        <li onclick="cargar('controladorunidadadtva?operacion=listar','#admin')"><a href="#">Unidad Adtva.</a></li>
+                        <li onclick="cargar('controladorunidadadtva?operacion=listar','#admin')"><a href="#">Subsecretaría</a></li>
                         <li onclick="cargar('controladordirecciones?operacion=listar','#admin')"><a href="#">Direcciones</a></li>
                         <li onclick="cargar('controladortramite?operacion=listar','#admin')"><a href="#">Trámites</a></li>
                         <li onclick="cargar('controladorrequisito?operacion=listar','#admin')"><a href="#">Requisitos</a></li>

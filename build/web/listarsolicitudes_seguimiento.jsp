@@ -106,7 +106,7 @@
             <tr>
                 <td width="80%" align="right"> 
                     <h1>Listado de Solicitudes</h1>
-                    <p style="padding:0.1em;">Unidad Administrativa:  ${nombreunidadadministrativa}</p>
+                    <p style="padding:0.1em;">Subsecretaría:  ${nombreunidadadministrativa}</p>
                     <p style="padding:0.1em;">Dirección:  ${direccion}</p>
                 </td>
                 <td width="20%" align="right">
@@ -127,7 +127,7 @@
             
             <table border="0" widht="100%">
                 <tr><td width="20px"></td>
-                    <td width="200px"><p>Introduce núm. solicitud:</p></td>
+                    <td width="200px"><p>Introduce Núm. solicitud:</p></td>
                     <td width="220px">
                         <input id="mns" type="text" name="id_solicitud" required validate pattern="([0-9]{1,10})" >
                         
@@ -148,7 +148,7 @@
         
         <table id="solicitudes"  class="tablesorter" width="98%">
             <thead>
-            <tr><th>ID</th><th>Ingreso</th><th>Trámite</th><th>Solicitante</th><th>Estatus</th><th>Acciones</th></tr>
+            <tr><th>Núm. Solicitud</th><th>Ingreso</th><th>Trámite</th><th>Solicitante</th><th>Estatus</th><th>Acciones</th></tr>
             </thead>
             <tbody>
                 <c:forEach var="solicitudes" items="${requestScope.solicitudes}" varStatus="loop"> 
