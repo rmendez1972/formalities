@@ -128,11 +128,9 @@
             
             $(document).ready(function(){ 
                 $("#solicitudes").tablesorter();
-<<<<<<< HEAD
-                $("#editar,#eliminar,#listar,#requisitos,#mail, #acuse").click(function(event) //Al oprimir un boton
-=======
-                $("#editar,#eliminar,#listar,#requisitos,#mail,#notificacion").click(function(event) //Al oprimir un boton
->>>>>>> e29fbf69bf27e1dab6b43aeef31dee51b30630e4
+
+                $("#editar,#eliminar,#listar,#requisitos,#mail, #acuse,#notificacion").click(function(event) //Al oprimir un boton
+
                 { 
                    event.preventDefault();
                    titulo=$(this,"button").attr("titulo");//Se obtiene el id del botón para presentarlo como titulo del confirm

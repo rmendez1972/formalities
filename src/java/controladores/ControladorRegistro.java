@@ -605,6 +605,7 @@ public class ControladorRegistro extends HttpServlet
             String fecha_solicitud = sdf.format(fecha_ingreso);
             
             
+            
             GestionSolicitante gsol=new GestionSolicitante();
             Solicitante solicitante=gsol.obtenerPorId(id_solicitante);
             String email =solicitante.getEmail();
@@ -612,16 +613,18 @@ public class ControladorRegistro extends HttpServlet
             String apellido_paterno=solicitante.getApellido_paterno();
             String apellido_materno=solicitante.getApellido_materno();
             
-            GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa();
-            UnidadAdministrativa ua = gua.obtenerPorId(id_unidadadministrativa);
-            String emailua=ua.getEmail();
-            String nombreua=ua.getNombre();
-            
             GestionTramite modelo=new GestionTramite();
             Tramite t=modelo.obtenerPorId(id_tramite);
             String nombretramite = t.getNombre();
             unidadadministrativanombre=t.getUnidadAdministrativa();
-        
+            Integer mid_unidadadministrativa=t.getId_unidadadministrativa();
+            
+            GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa();
+            UnidadAdministrativa ua = gua.obtenerPorId(mid_unidadadministrativa);
+            String emailua=ua.getEmail();
+            String nombreua=ua.getNombre();
+            
+            
             GestionRequisito mod_req=new GestionRequisito();
             ArrayList req=mod_req.obtenerPorTramite(id_tramite);
             ArrayList noreq=mod_req.obtenerSinTramite(id_tramite);
@@ -635,7 +638,7 @@ public class ControladorRegistro extends HttpServlet
             Integer i=1;
                        
             cuerpocorreo=cuerpocorreo+"<br>Atentamente<br><br><b>Administrador del Sistema</b><br>";
-            resultado=correo.send(email, "Ingreso de Nueva solicitud en Ventanilla Unica de Trámites y Servicios de la SEDUVI", cuerpocorreo);
+            resultado=correo.send(emailua, "Ingreso de Nueva solicitud en Ventanilla Unica de Trámites y Servicios de la SEDUVI", cuerpocorreo);
               
           }
           if(resultado==true)
