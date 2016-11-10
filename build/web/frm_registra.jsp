@@ -155,7 +155,7 @@
 
 <table width="920" border="0" align="center">
   <tr>
-    <td width="404">Unidad Administrativa:</td>
+    <td width="404">Subsecretaría:</td>
     <td width="502" colspan="2">Trámite:</td>
     </tr>
   <tr>

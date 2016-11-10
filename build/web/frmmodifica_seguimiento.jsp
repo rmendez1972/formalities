@@ -125,10 +125,10 @@
 
 <table width="920" border="0" align="center">
   <tr>
-    <td width="320"style="color: #FFF;background-color: rgba(23,34,56,.1">Unidad Administrativa:</td><td width="3"></td>
+    <td width="320"style="color: #FFF;background-color: rgba(23,34,56,.1">Subsecretaría:</td><td width="3"></td>
     <td width="500"style="color: #FFF;background-color: rgba(23,34,56,.1">Trámite:</td><td width="3"></td>
     <td width="94"style="color: #FFF;background-color: rgba(23,34,56,.1">F. registro:</td>
-    </tr>
+  </tr>
  <tr style="font-size: 14px">
     <td>${uatramite.nombre}</td><td width="3"></td>
     <td>${tramite.nombre}</td><td width="3"></td>

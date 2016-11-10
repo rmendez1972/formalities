@@ -223,7 +223,7 @@
             <fieldset>
                 <legend>Parametriza tu reporte</legend>
                 <p><label for="fecha_inicial">Fecha Inicial:</label> <input id="fecha_inicial"  name="fecha_inicial" type="date"  title="Ingresa fecha inicial de registro de la solicitud" required><label for="fecha_final">Fecha Final:</label> <input id="fecha_final"  name="fecha_final" type="date"  title="Ingresa fecha final de registro de la solicitud" required></p>
-                    <p><label for="unidadadtva">Unidad Administrativa:</label> 
+                    <p><label for="unidadadtva">Subsecretaría:</label> 
                         <select name="unidadadtva" id="unidadadtva" title="Seleccione la Unidad Adtva.">
                             <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
                             <c:forEach  var="ua" items="${requestScope.ua}">

@@ -515,6 +515,9 @@ public class ControladorRegistro extends HttpServlet
             Solicitud solicitud= gs.obtenerPorId(id_solicitud);
             id_tramite=solicitud.getId_tramite();
             id_solicitante=solicitud.getId_solicitante();
+            Date fecha=solicitud.getFecha_ingreso();
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+            String fecha_solicitud = sdf.format(fecha);
             
             
             GestionSolicitante gsol=new GestionSolicitante();
@@ -558,6 +561,89 @@ public class ControladorRegistro extends HttpServlet
           }else
           {
               mensaje="No pudieron ser enviados los requisitos del trámite por correo";
+          
+          }
+          
+          if (id_grupo==1)
+          {    
+                solicitudes=gs.obtenerSolicitudes();
+                request.setAttribute("solicitudes",solicitudes);
+                request.setAttribute("mensaje",mensaje);
+                RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes.jsp");
+                rd.forward(request,response);
+          }
+          
+        }
+       
+       
+       
+       if(operacion.equals("enviarcorreosubsec"))
+        {
+            Boolean resultado=false;
+            Usuario usuario;
+            UnidadAdministrativa unidadadministrativa;
+            ArrayList solicitudes;
+            String mensaje,unidadadministrativanombre;
+            //recupero el usuario de la sesion 
+            HttpSession objSession = request.getSession(); 
+            usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+            Integer id_grupo=usuario.getId_grupo();
+            Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
+            
+            String midtramite,midsolicitud;   
+            midsolicitud = request.getParameter("id_solicitud");  
+            Integer id_solicitud,id_solicitante,id_tramite,id_unidadaministrativa;
+            id_solicitud=Integer.parseInt(midsolicitud);
+            
+            GestionSolicitud gs= new GestionSolicitud();
+            Solicitud solicitud= gs.obtenerPorId(id_solicitud);
+            id_tramite=solicitud.getId_tramite();
+            id_solicitante=solicitud.getId_solicitante();
+            Date fecha_ingreso=solicitud.getFecha_ingreso();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            String fecha_solicitud = sdf.format(fecha_ingreso);
+            
+            
+            GestionSolicitante gsol=new GestionSolicitante();
+            Solicitante solicitante=gsol.obtenerPorId(id_solicitante);
+            String email =solicitante.getEmail();
+            String nombre_solicitante=solicitante.getNombre();
+            String apellido_paterno=solicitante.getApellido_paterno();
+            String apellido_materno=solicitante.getApellido_materno();
+            
+            GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa();
+            UnidadAdministrativa ua = gua.obtenerPorId(id_unidadadministrativa);
+            String emailua=ua.getEmail();
+            String nombreua=ua.getNombre();
+            
+            GestionTramite modelo=new GestionTramite();
+            Tramite t=modelo.obtenerPorId(id_tramite);
+            String nombretramite = t.getNombre();
+            unidadadministrativanombre=t.getUnidadAdministrativa();
+        
+            GestionRequisito mod_req=new GestionRequisito();
+            ArrayList req=mod_req.obtenerPorTramite(id_tramite);
+            ArrayList noreq=mod_req.obtenerSinTramite(id_tramite);
+            
+          if(!emailua.equals("") || !emailua.equals("NULL"))
+          {    
+            mail correo = new mail();
+            Iterator iterator=req.listIterator();
+            String cuerpocorreo="<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>C. Subsecretari@ <br>P R E S E N T E:</b><br><br>"+"Por este medio te notificamos de un nuevo trámite de: (<b>"+nombretramite+"</b>), con fecha: "+fecha_solicitud+" con <b>Núm. de Solicitud: "+midsolicitud+"</b> que ha sido ingresado al Sistema de Ventanilla Unica de Gestrión de Trámites y Servicios de la SEDUVI <br><br>";
+            //resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDUVI <br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
+            Integer i=1;
+                       
+            cuerpocorreo=cuerpocorreo+"<br>Atentamente<br><br><b>Administrador del Sistema</b><br>";
+            resultado=correo.send(email, "Ingreso de Nueva solicitud en Ventanilla Unica de Trámites y Servicios de la SEDUVI", cuerpocorreo);
+              
+          }
+          if(resultado==true)
+          {
+              mensaje="Notifiación de nueva solicitud enviada por correo exitosamente";
+          }else
+          {
+              mensaje="No pudo ser enviado la notiticación de nueva solicitud por correo";
           
           }
           

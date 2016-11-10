@@ -190,7 +190,7 @@
 
 <table width="920" border="0" align="center">
   <tr>
-    <td width="398">Unidad Administrativa:</td>
+    <td width="398">Subsecretaría:</td>
     <td colspan="2">Trámite:</td>
     </tr>
   <tr>

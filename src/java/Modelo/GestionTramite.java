@@ -54,7 +54,7 @@ public class GestionTramite {
     
     public ArrayList obtenerTodos(){
         ArrayList tramites=new ArrayList();
-        ResultSet res=Conexion.ejecutarConsulta("select T.*, UA.nombre as unidadAdministrativa, D.nombre as direccion from tramite T inner join unidadadministrativa UA on T.id_unidadadministrativa=UA.id_unidadadministrativa inner join direcciones D on T.id_direccion=D.id_direccion order by T.nombre asc",null);
+        ResultSet res=Conexion.ejecutarConsulta("select T.*, UA.nombre as unidadAdministrativa, D.nombre as direccion from tramite T inner join unidadadministrativa UA on T.id_unidadadministrativa=UA.id_unidadadministrativa inner join direcciones D on T.id_direccion=D.id_direccion order by unidadAdministrativa,T.nombre asc",null);
         //ResultSet res=Conexion.ejecutarConsulta("select T.id_tramite, T.dias_resolucion, T.id_unidadadministrativa, T.id_direccion, T.nombre, UA.nombreU as unidadAdministrativa from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa inner join direcciones D on U.id_direccion=D.id_direccion order by nombre asc", null);
        // ResultSet res=Conexion.ejecutarConsulta("select T.id_tramite, T.dias_resolucion, T.id_unidadadministrativa, T.id_direccion, T.nombre, UA.nombreU as unidadAdministrativa from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa order by nombre asc", null);
         try{
