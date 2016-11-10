@@ -128,7 +128,7 @@
             
             $(document).ready(function(){ 
                 $("#solicitudes").tablesorter();
-                $("#editar,#eliminar,#listar,#requisitos,#mail").click(function(event) //Al oprimir un boton
+                $("#editar,#eliminar,#listar,#requisitos,#mail,#notificacion").click(function(event) //Al oprimir un boton
                 { 
                    event.preventDefault();
                    titulo=$(this,"button").attr("titulo");//Se obtiene el id del botón para presentarlo como titulo del confirm
@@ -215,7 +215,7 @@
                 <c:forEach var="solicitudes" items="${requestScope.solicitudes}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}">
                         <td width="6%"><c:out value="${solicitudes.id_solicitud}"/></td> 
-                        <td width="13%"><c:out value="${solicitudes.fecha_ingreso}"/></td> 
+                        <td width="9%"><c:out value="${solicitudes.fecha_ingreso}"/></td> 
                         <td width="18%"><c:out value="${solicitudes.unidadadministrativa}" /></td> 
                         <td width="20%"><c:out value="${solicitudes.tramite}" /></td> 
                         <td width="17%"><a href="#"><c:out value="${solicitudes.solicitante}" /></a></td>
@@ -235,7 +235,7 @@
                                 </c:otherwise>
                             </c:choose>
                         
-                        <td width="24%">
+                        <td width="28%">
                             <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
                                     titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
                                     <img src="imagenes/editar.png" class="btn-tabla" alt="edicion" title="Editar solicitud."/>
@@ -246,6 +246,11 @@
                                 <img src="imagenes/eliminar.png" class="btn-tabla" alt="eliminacion"  title="Eliminar solicitud"/>
                             </button>
                                     
+                            <button value="controladorregistro?operacion=enviarcorreosubsec&id_solicitud=${solicitudes.id_solicitud}" id="notificacion"
+                                    titulo="Confirme el envío de notificación" mensaje="Está Ud. seguro de enviar la notificación por email!">
+                                <img src="imagenes/notificacion.png"  class="btn-tabla" width="24" height="24" alt="Enviar notificación por correo"  title="Enviar notificación por correo"/> 
+                            </button> 
+                                    
                             <button value="controladorseguimiento?operacion=listar&id_solicitud=${solicitudes.id_solicitud}" id="listar" 
                                     titulo="Confirme listado de seguimiento." mensaje="Está Ud. seguro de listar los seguimientos de esta solicitud!">
                                 <img src="imagenes/listar.png" class="btn-tabla" alt="lista" title="Listar seguimientos de la solicitud"/>
@@ -255,7 +260,8 @@
                                     titulo="Confirme listado de Requisitos." mensaje="Está Ud. seguro de listar los requisitos de esta solicitud!">
                                 <img src="imagenes/requisitos.png" class="btn-tabla" alt="requisitos" title="Listar Requisitos de la solicitud"/>
                             </button>
-                                    
+                            
+                                      
                             <button value="controladorregistro?operacion=enviarcorreo&id_solicitud=${solicitudes.id_solicitud}" id="mail"
                                     titulo="Confirme el envió." mensaje="Está Ud. seguro de enviar los requisitos por email!">
                                 <img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar requisitos por correo"  title="Enviar requisitos por correo"/> 

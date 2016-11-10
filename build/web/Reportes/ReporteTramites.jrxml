@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[select T.nombre as tramite, T.dias_resolucion, U.nombre as unidad, D.nombre as direccion from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa inner join direcciones D on T.id_direccion=D.id_direccion order by T.nombre asc]]>
+		<![CDATA[select T.nombre as tramite, T.dias_resolucion, U.nombre as unidad, D.nombre as direccion from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa inner join direcciones D on T.id_direccion=D.id_direccion order by unidad,tramite asc]]>
 	</queryString>
 	<field name="tramite" class="java.lang.String"/>
 	<field name="dias_resolucion" class="java.lang.Integer"/>
