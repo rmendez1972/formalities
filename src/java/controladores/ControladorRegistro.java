@@ -572,6 +572,71 @@ public class ControladorRegistro extends HttpServlet
           
         }  
          
+       
+        if(operacion.equals("acuse"))
+        {
+           /*Usuario usuario;
+            HttpSession objSession = request.getSession(); 
+            usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+            Integer id_grupo=usuario.getId_grupo();
+            Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();*/
+            
+            Integer id_solicitud;   
+            Solicitud solicitud=null;
+            
+            Usuario usuario;
+            HttpSession objSession = request.getSession(); 
+            usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+            id_solicitud = Integer.parseInt(request.getParameter("id_solicitud"));
+            
+            try {
+                 cn=conectaMysql.getConnection();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+                       
+            ServletOutputStream servletOutputStream = response.getOutputStream();
+            File reportFile=null;
+            reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/acuse.jasper"));
+            
+            try
+            {
+                
+                Map param = new HashMap(); //inicializo un objeto HashMap variable,valor
+                //param.put("id_delegacion", id_delegacion);
+                //param.put("id_mecanica", id_mecanica);
+                
+                 param.put("sql","where S.id_solicitud='"+id_solicitud+"'");
+                    
+                 
+                byte[] bytes = null;
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);
+                bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
+                response.setContentType("application/pdf");
+                
+                response.setContentLength(bytes.length);
+                servletOutputStream.write(bytes, 0, bytes.length);
+                
+                servletOutputStream.flush();
+                servletOutputStream.close();
+            }
+            catch (JRException e)
+            {
+                // display stack trace in the browser
+                StringWriter stringWriter = new StringWriter();
+                PrintWriter printWriter = new PrintWriter(stringWriter);
+                e.printStackTrace(printWriter);
+                response.setContentType("text/plain");
+                response.getOutputStream().print(stringWriter.toString());
+            } 
+              
+         
+    }
+       
          
          if(operacion.equals("imprimir"))
         {
