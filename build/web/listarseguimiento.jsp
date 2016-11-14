@@ -74,7 +74,7 @@
                     <p style="padding:0.1em"><strong>Núm. Solicitud: </strong>${solicitud.id_solicitud}</p>
                     <p style="padding:0.1em"><strong>Tramite: </strong>${tramite.nombre}</p>
                     <p style="padding:0.1em"><strong>Solicitante:</strong> ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
-                    <p style="padding:0.1em"><strong>Unidad Administrativa: </strong>${tramite.unidadAdministrativa}</p>
+                    <p style="padding:0.1em"><strong>Subsecretaría: </strong>${tramite.unidadAdministrativa}</p>
                     <p style="padding:0.1em"><strong>Dirección:</strong> ${tramite.direccion}</p>
                 </td>
                 <td width="20%" align="right"> 

@@ -74,28 +74,28 @@
         
         
         <script type="text/javascript">
+            function actualizaDir(id){
+                
+                document.getElementById('direccion').style.display = 'block';
+                
+                var params=new Object();
+                params.id_unidadadministrativa=id;
+                                
+                $.post("controladordirecciones?operacion=listarPorunidad", params, function(datos){
+                    
+                        $("#direccion").find('option').remove();
+                        $("#direccion").append('<option value="">'+'Selecciona una opción del catálogo...'+'</option>');
+                        $.each(datos, function(i,v){
+                            $("#direccion").append('<option value="'+v.id_direccion+'">'+v.nombre+'</option>');
+                        });
+                    },"json");
+                
+                    return false;
+                }
+            
             $(function()
             {
-                
-                
-                
-                //agregando tooltips para los que tienen title
-               /* $( document ).tooltip({
-                    position: {
-                      my: "center bottom-20",
-                      at: "center top",
-                      using: function( position, feedback ) {
-                        $( this ).css( position );
-                        $( "<div>" )
-                          .addClass( "arrow" )
-                          .addClass( feedback.vertical )
-                          .addClass( feedback.horizontal )
-                          .appendTo( this );
-                      }
-                    }
-                });*/
-                
-                
+               
                 $( "input[type=submit], button, input[type=reset] " ) // estilo de botones con jquery-ui
                     .button()
                     .click(function( event ) {
@@ -132,28 +132,30 @@
                 };
                 
                 
-                $("form#frm_reporteusuarios").submit(function(event)
+                
+                
+                
+                $("form#frm_reportetramites").submit(function(event)
                 {
                     event.preventDefault();
                     
                     runEffect();
                     var mshow= document.getElementById('show');
                     mshow.style.display="block";
-                    var mid_grupo=$('#id_grupo').val();
+                    var mid_direccion=$('#direccion').val();
                     var mid_unidadadministrativa=$('#unidadadtva').val();
-                    //alert('Reporte Generado Exitosamente');
-                    
+                                        
                     $.ajax(
                     {
                         
-                        url: $('#show').attr('src','controladorreportes?operacion=usuarios&id_grupo='+mid_grupo+'&id_unidadadministrativa='+mid_unidadadministrativa),
+                        url: $('#show').attr('src','controladorreportes?operacion=tramites&id_direccion='+mid_direccion+'&id_unidadadministrativa='+mid_unidadadministrativa),
                         type: 'POST',
                         data: $(this).serialize(),
                         async: false,
                         success: function (resultado) 
                         {
                             
-                            $('#frm_reporteusuarios').css('display','none');
+                            $('#frm_reportetramites').css('display','none');
                               
                         },
                         beforeSend: function()
@@ -165,8 +167,8 @@
                         contentType: false,
                         processData: false
                     });
-                    var mfrm_reporteusuarios= document.getElementById('frm_reporteusuarios');
-                    mfrm_reporteusuarios.style.display="none";
+                    var mfrm_reportetramites= document.getElementById('frm_reportetramites');
+                    mfrm_reportetramites.style.display="none";
                     return false;
 
                 });
@@ -182,28 +184,28 @@
     
        
     <body>
-        <h1>Reporte de Usuarios</h1>
+        <h1>Reporte de Trámites</h1>
         <secttion id="wrapper_frm_reportes">
-            <form name="frm_reporteusuarios" id="frm_reporteusuarios"  >
+            <form name="frm_reportetramites" id="frm_reportetramites"  >
             <fieldset>
                 <legend>Parametriza tu reporte</legend>
                 
-                <p><label for="unidadadtva">Subsecretaría:</label> 
-                        <select name="unidadadtva" id="unidadadtva" title="Seleccione la Unidad Adtva.">
-                            <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
-                            <c:forEach  var="ua" items="${requestScope.ua}">
-                                <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
-                            </c:forEach>
-                        </select>
+                <p>
+                    <label for="unidadadtva">Subsecretaría:</label> 
+                    <select name="unidadadtva" id="unidadadtva" title="Seleccione una Subsecretaría" onchange="actualizaDir(this.value)">
+                        <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
+                        <c:forEach  var="ua" items="${requestScope.ua}">
+                            <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
+                        </c:forEach>
+                    </select>
                 </p>
                 
-                <p><label for="id_grupo">Nivel Usuario:</label>
-                        <select name="id_grupo" id="id_grupo" title="Seleccione un nivel de usuario...">
-                            <option value="" selected="selected">Todos los niveles...</option>
-                            <c:forEach  var="grupos" items="${requestScope.gp}">
-                                <OPTION VALUE="${grupos.id_grupo}">${grupos.nombre}</OPTION>
-                            </c:forEach>
-                        </select>
+                <p>
+                    <label for="direccion">Dirección:</label>
+                    <select id="direccion"  style="width: 300px;">
+                        <option value="">Seleccione una opción del catálogo...</option>
+                               
+                    </select>
                 </p>
                 <p><input type="submit" id="imprimir" value="Imprimir"  /><input type="reset" value="Cancelar" class="frm-btn" /></p>
             </fieldset>    
