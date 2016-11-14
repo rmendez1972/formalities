@@ -337,7 +337,7 @@ public class ControladorReportes extends HttpServlet
         
          
          
-<<<<<<< HEAD
+
         }
         
         
@@ -383,7 +383,56 @@ public class ControladorReportes extends HttpServlet
             ServletOutputStream servletOutputStream = response.getOutputStream();
             File reportFile=null;
             reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/ReporteTramitesParam.jasper"));
-=======
+            
+            try
+            {
+                
+                Map param = new HashMap(); //inicializo un objeto HashMap variable,valor
+
+                                
+                if (mid_direccion!="" && mid_unidadadministrativa!="")
+                {
+                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and D.id_direccion='"+id_direccion.toString()+"'");
+                    
+                }
+                if (mid_direccion=="" && mid_unidadadministrativa!="")
+                {
+                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"'");
+                    
+                }
+                
+                if (mid_direccion=="" && mid_unidadadministrativa=="")
+                {
+                    param.put("sql","");
+                
+                }
+                
+                byte[] bytes = null;
+
+                
+                
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);
+
+                bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
+                response.setContentType("application/pdf");
+                
+                response.setContentLength(bytes.length);
+                servletOutputStream.write(bytes, 0, bytes.length);
+                
+                servletOutputStream.flush();
+                servletOutputStream.close();
+            }
+            catch (JRException e)
+            {
+                // display stack trace in the browser
+                StringWriter stringWriter = new StringWriter();
+                PrintWriter printWriter = new PrintWriter(stringWriter);
+                e.printStackTrace(printWriter);
+                response.setContentType("text/plain");
+                response.getOutputStream().print(stringWriter.toString());
+            } 
+            
         } 
         
         if(operacion.equals("imprimirseguimientos"))
@@ -421,75 +470,13 @@ public class ControladorReportes extends HttpServlet
                        
             ServletOutputStream servletOutputStream = response.getOutputStream();
             File reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/seguimientos.jasper"));
->>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
-            
-            
-            try
-            {
-                
-                Map param = new HashMap(); //inicializo un objeto HashMap variable,valor
-<<<<<<< HEAD
-                                
-                if (mid_direccion!="" && mid_unidadadministrativa!="")
-                {
-                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and D.id_direccion='"+id_direccion.toString()+"'");
-                    
-                }
-                if (mid_direccion=="" && mid_unidadadministrativa!="")
-                {
-                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"'");
-                    
-                }
-                
-                if (mid_direccion=="" && mid_unidadadministrativa=="")
-                {
-                    param.put("sql","");
-                
-                }
-                
-                byte[] bytes = null;
-=======
-                
-                //if (id_grupo==1)
-                //{    
-                    //param.put("sql","");
-                //}else
-                //{
-                    param.put("sql","where O.id_solicitud='"+id_solicitud+"'");
-                    
-                //}
-                byte[] bytes = null;
-                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
-                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);
->>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
-                bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
-                response.setContentType("application/pdf");
-                
-                response.setContentLength(bytes.length);
-                servletOutputStream.write(bytes, 0, bytes.length);
-                
-                servletOutputStream.flush();
-                servletOutputStream.close();
-            }
-            catch (JRException e)
-            {
-                // display stack trace in the browser
-                StringWriter stringWriter = new StringWriter();
-                PrintWriter printWriter = new PrintWriter(stringWriter);
-                e.printStackTrace(printWriter);
-                response.setContentType("text/plain");
-                response.getOutputStream().print(stringWriter.toString());
-            } 
-        
-         
-         
-<<<<<<< HEAD
+
         }
-=======
+
     }
->>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
+
          
          
    
-    }
+   
 }
