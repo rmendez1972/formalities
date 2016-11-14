@@ -63,8 +63,8 @@
 				<text><![CDATA[Ventanilla Unica de Gestión de Trámites y Servicios]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="239" y="26" width="274" height="20"/>
-				<textElement>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="239" y="30" width="274" height="20"/>
+				<textElement textAlignment="Justified">
 					<font fontName="Tahoma" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Seguimiento a Trámites]]></text>
