@@ -55,7 +55,7 @@
                     <p style="padding:0.1em"><strong>Núm. Solicitud: </strong>${solicitud.id_solicitud}</p>
                     <p style="padding:0.1em">Tramite: ${tramite.nombre}</p>
                     <p style="padding:0.1em">Solicitante: ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
-                    <p style="padding:0.1em">Unidad Administrativa: ${tramite.unidadAdministrativa}</p>
+                    <p style="padding:0.1em">Subsecretaría: ${tramite.unidadAdministrativa}</p>
                     <p style="padding:0.1em">Dirección: ${tramite.direccion}</p>
                 </td>
                 <td width="20%" align="right"> 

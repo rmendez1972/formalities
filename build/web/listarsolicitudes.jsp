@@ -217,8 +217,8 @@
                 <c:forEach var="solicitudes" items="${requestScope.solicitudes}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}">
                         <td width="6%"><c:out value="${solicitudes.id_solicitud}"/></td> 
-                        <td width="9%"><c:out value="${solicitudes.fecha_ingreso}"/></td> 
-                        <td width="18%"><c:out value="${solicitudes.unidadadministrativa}" /></td> 
+                        <td width="8%"><c:out value="${solicitudes.fecha_ingreso}"/></td> 
+                        <td width="17%"><c:out value="${solicitudes.unidadadministrativa}" /></td> 
                         <td width="20%"><c:out value="${solicitudes.tramite}" /></td> 
                         <td width="17%"><a href="#"><c:out value="${solicitudes.solicitante}" /></a></td>
                         
@@ -237,10 +237,10 @@
                                 </c:otherwise>
                             </c:choose>
                         
-                        <td width="28%">
+                        <td width="30%">
                             <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
                                     titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                    <img src="imagenes/editar.png" class="btn-tabla" alt="edicion" title="Editar solicitud."/>
+                                    <img src="imagenes/editar.png" class="btn-tabla" alt="edicion" title="Editar solicitud"/>
                             </button>
                                                           
                             <button value="controladorregistro?operacion=borrar&id_solicitud=${solicitudes.id_solicitud}" id="eliminar"

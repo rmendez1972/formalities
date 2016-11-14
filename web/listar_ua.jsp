@@ -37,7 +37,7 @@
     <body>
         <table width="960" border="0">
   <tr>
-    <td width="750"><h3>Unidades Administrativas</h3></td>
+    <td width="750"><h3>Subsecretarías</h3></td>
     <td width="210"><div style="display:table; margin-bottom: 5px;">
             <div class="btn-catalogo" onclick="cargar('controladorunidadadtva?operacion=nuevo','#admin')">
                 <img src="imagenes/agregar.png" />

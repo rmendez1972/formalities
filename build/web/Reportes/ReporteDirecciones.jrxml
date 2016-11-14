@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[select D.*, UA.nombre as unidadadministrativa from direcciones D inner join unidadadministrativa UA on D.id_unidadadministrativa=UA.id_unidadadministrativa order by nombre asc]]>
+		<![CDATA[select D.*, UA.nombre as unidadadministrativa from direcciones D inner join unidadadministrativa UA on D.id_unidadadministrativa=UA.id_unidadadministrativa order by nombre,unidadadministrativa asc]]>
 	</queryString>
 	<field name="id_direccion" class="java.lang.Long"/>
 	<field name="nombre" class="java.lang.String"/>
@@ -60,7 +60,7 @@
 				<textElement>
 					<font fontName="Tahoma" size="12" isBold="false" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Unidad Administrativa]]></text>
+				<text><![CDATA[Subsecretaría]]></text>
 			</staticText>
 			<line>
 				<reportElement uuid="cad955ba-dcff-413e-960d-ab868370b9b8" x="0" y="29" width="572" height="1"/>

@@ -63,7 +63,7 @@
                 <tr>
                     <th>Usuario</th>
                     <th>Nombre</th>
-                    <th>Unidad responsable</th>
+                    <th>Subsecretaría</th>
                     <th>Dirección</th>
                     <th>Grupo</th>
                     <th width="80">Acciones</th>
