@@ -104,7 +104,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$V{id_solicitud_1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{id_solicitud}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" style="table" mode="Opaque" x="6" y="58" width="73" height="20" backcolor="#CCCCCC"/>

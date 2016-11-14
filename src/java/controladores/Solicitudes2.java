@@ -15,7 +15,9 @@ import java.io.StringWriter;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -67,14 +69,26 @@ public class Solicitudes2 extends HttpServlet
                 //Tramite tramites = new Tramite();
                 Solicitud solicitudes = new Solicitud();
                 Integer id_unidadAdministrativa;
+                
+                //SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+                //Date fecha_inicial,fecha_final = null;
+                
+                //fecha_inicial = sdf.parse(request.getParameter("fecha_inicial"));
+                //fecha_final = sdf.parse(request.getParameter("fecha_final"));
+                
                 if (request.getParameter("id_unidadAdministrativa")==""){
                     id_unidadAdministrativa=0;
                 }else
                 {    
                     id_unidadAdministrativa = Integer.parseInt(request.getParameter("id_unidadAdministrativa").toString());
+                    
                 }
+                
+                
+                
+                
                 //ArrayList tm = tramite.obtenerPorUnidadAdministrativa(id_unidadAdministrativa);
-                ArrayList sl = solicitud.obtenerPorUnidad2(id_unidadAdministrativa);
+                ArrayList sl = solicitud.obtenerPorUnidad2(id_unidadAdministrativa, request.getParameter("fecha_inicial"), request.getParameter("fecha_final"));
                 if (sl.size() != 0) 
                 {
                     lista = "\"" + "Solicitudes" + "\":" + "[";

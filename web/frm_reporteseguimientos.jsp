@@ -107,11 +107,13 @@
                 //evento change del selector unidadadtva
                 $("#unidadadtva").change(function()
                 {
-                    //la respuesta viene del servlet tramites2
+                    //la respuesta viene del servlet solicitudes2
                     $.getJSON("solicitudes2", 
                     {
                         //evaluar el id de unidad administrativa del lado del modelo
-                        id_unidadAdministrativa: $(this).val(),    
+                        id_unidadAdministrativa: $(this).val(),
+                        fecha_inicial: $("#fecha_inicial").val(),
+                        fecha_final: $("#fecha_final").val(),
                         ajax: 'true'
                     },
                     function(data)
@@ -120,15 +122,10 @@
                         //limpiamos el selector para poblar
                         //$("#solicitudes").html(" ");
                           
-                        //x=1;
+                  
                           $.each(data.Solicitudes, function(i,item){
-                          $("#solicitudes").append("<option value='"+item.id_solicitud+"'>"+item.nombre+"</option>");
-                          //document.getElementById('descripciontramite').value =item.nombre;
-                          //kaka=item.nombre;
-                          z[i]=item.id_solicitud;
-                          y[i]=item.nombre;
-                          kaka=y[i];
-                          //x=x+1;
+                          $("#solicitudes").append("<option value='"+item.id_solicitud+"'>Núm.Solicitud:"+item.id_solicitud+"-Tramite:"+item.nombre+"</option>");
+                                                   
                         });
                     });
                 });
@@ -178,7 +175,7 @@
                     if ((mid_solicitud==null) || (mid_solicitud==""))mid_solicitud=0;
                     
                     //var controlador="controladorreportes?operacion=solicitudes&id_unidadadministrativa="+mid_unidadadministrativa+"&fecha_inicial="+mfecha_inicial+"&fecha_final="+mfecha_final+"&id_tramite="+mid_tramite;
-                    var controlador="controladorseguimiento?operacion=imprimir&id_solicitud="+mid_solicitud;
+                    var controlador="controladorreportes?operacion=imprimirseguimientos&id_solicitud="+mid_solicitud+"&fecha_inicial="+mfecha_inicial+"&fecha_final="+mfecha_final;
                     
                     
                     $.ajax(
@@ -212,24 +209,9 @@
                 //$('#fecha_inicial').datepicker();
                 //$('#fecha_final').datepicker(); 
                 
-           
-                
            });
            document.getElementById('fecha_inicial').value=fechaActual();  
            document.getElementById('fecha_final').value=fechaActual(); 
-         
-    function describe(){
-           atx= document.getElementById('solicitudes').value;
-           
-           //document.getElementById('descripciontramite').value =kaka;
-          //for (var i=0; i<solic.length; i++) { msgForNormal = msgForNormal + dato[i] + ' - '; }
-           //for (x=0;x<z.length;x++){
-              // if (z[x]===atx){
-              document.getElementById('descripciontramite').value =atx;
-            //}
-       //}
-     }
-            
            
         </script>
         
@@ -258,7 +240,7 @@
                             </select>
                         </p>
                         <p><label for="solicitudes">Solicitud:</label>
-                            <select name="solicitudes" id="solicitudes" style="width:500px;" onchange="describe()">
+                            <select name="solicitudes" id="solicitudes" style="width:500px;">
                                 <option value="" selected="selected">Selecciona una opción del catálogo...</option>
                            
                             </select>
