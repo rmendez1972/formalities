@@ -101,6 +101,23 @@ public class ControladorReportes extends HttpServlet
             rd.forward(request,response);
         }
         
+         if(operacion.equals("frm_reporteseguimientos"))
+        {
+            GestionUnidadAdministrativa oper1=new GestionUnidadAdministrativa();
+            ArrayList ua=oper1.obtenerTodos();
+            
+            GestionStatus gstatus = new GestionStatus();
+            ArrayList status = gstatus.obtenerTodos();
+            
+            GestionSolicitud soli=new GestionSolicitud();
+            ArrayList sol=soli.obtenerSolicitudes();
+            
+            request.setAttribute("ua",ua);
+            request.setAttribute("status",status);
+            request.setAttribute("sol",sol);
+            RequestDispatcher rd=request.getRequestDispatcher("frm_reporteseguimientos.jsp");
+            rd.forward(request,response);
+        }
         
         if(operacion.equals("frm_reporteusuarios"))
         {
@@ -109,7 +126,7 @@ public class ControladorReportes extends HttpServlet
             
             GestionGrupo gpo=new GestionGrupo();
             ArrayList gp=gpo.obtenerTodos();
-            
+                                   
             request.setAttribute("ua",ua);
             request.setAttribute("gp",gp);
             RequestDispatcher rd=request.getRequestDispatcher("frm_reporteusuarios.jsp");
@@ -320,6 +337,7 @@ public class ControladorReportes extends HttpServlet
         
          
          
+<<<<<<< HEAD
         }
         
         
@@ -365,12 +383,52 @@ public class ControladorReportes extends HttpServlet
             ServletOutputStream servletOutputStream = response.getOutputStream();
             File reportFile=null;
             reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/ReporteTramitesParam.jasper"));
+=======
+        } 
+        
+        if(operacion.equals("imprimirseguimientos"))
+        {
+            Usuario usuario;
+            HttpSession objSession = request.getSession(); 
+            usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            Integer id_solicitud;
+            Integer id_grupo=usuario.getId_grupo();
+            Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
+            
+            String midsolicitud;   
+            midsolicitud = request.getParameter("id_solicitud");  
+            id_solicitud=Integer.parseInt(midsolicitud);
+            
+            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+            Date fecha_inicial,fecha_final = null;
+            try {
+                fecha_inicial = sdf.parse(request.getParameter("fecha_inicial"));
+                } catch (ParseException ex) {
+                Logger.getLogger(ControladorReportes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            try {
+                fecha_final = sdf.parse(request.getParameter("fecha_final"));
+            } catch (ParseException ex) {
+                Logger.getLogger(ControladorReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            try {
+                 cn=conectaMysql.getConnection();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+                       
+            ServletOutputStream servletOutputStream = response.getOutputStream();
+            File reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/seguimientos.jasper"));
+>>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
             
             
             try
             {
                 
                 Map param = new HashMap(); //inicializo un objeto HashMap variable,valor
+<<<<<<< HEAD
                                 
                 if (mid_direccion!="" && mid_unidadadministrativa!="")
                 {
@@ -390,6 +448,20 @@ public class ControladorReportes extends HttpServlet
                 }
                 
                 byte[] bytes = null;
+=======
+                
+                //if (id_grupo==1)
+                //{    
+                    //param.put("sql","");
+                //}else
+                //{
+                    param.put("sql","where O.id_solicitud='"+id_solicitud+"'");
+                    
+                //}
+                byte[] bytes = null;
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);
+>>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
                 bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
                 response.setContentType("application/pdf");
                 
@@ -411,7 +483,11 @@ public class ControladorReportes extends HttpServlet
         
          
          
+<<<<<<< HEAD
         }
+=======
+    }
+>>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
          
          
    
