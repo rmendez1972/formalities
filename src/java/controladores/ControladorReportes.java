@@ -101,6 +101,23 @@ public class ControladorReportes extends HttpServlet
             rd.forward(request,response);
         }
         
+         if(operacion.equals("frm_reporteseguimientos"))
+        {
+            GestionUnidadAdministrativa oper1=new GestionUnidadAdministrativa();
+            ArrayList ua=oper1.obtenerTodos();
+            
+            GestionStatus gstatus = new GestionStatus();
+            ArrayList status = gstatus.obtenerTodos();
+            
+            GestionSolicitud soli=new GestionSolicitud();
+            ArrayList sol=soli.obtenerSolicitudes();
+            
+            request.setAttribute("ua",ua);
+            request.setAttribute("status",status);
+            request.setAttribute("sol",sol);
+            RequestDispatcher rd=request.getRequestDispatcher("frm_reporteseguimientos.jsp");
+            rd.forward(request,response);
+        }
         
         if(operacion.equals("frm_reporteusuarios"))
         {
@@ -109,7 +126,7 @@ public class ControladorReportes extends HttpServlet
             
             GestionGrupo gpo=new GestionGrupo();
             ArrayList gp=gpo.obtenerTodos();
-            
+                                   
             request.setAttribute("ua",ua);
             request.setAttribute("gp",gp);
             RequestDispatcher rd=request.getRequestDispatcher("frm_reporteusuarios.jsp");

@@ -49,6 +49,26 @@ public class GestionSolicitud {
         return sol;
     }
     
+    public ArrayList obtenerPorUnidad2(int id_unidadadministrativa){ //igh 11/11/2016
+        ArrayList sol=new ArrayList();
+        Object params[]={id_unidadadministrativa};
+        ResultSet res=Conexion.ejecutarConsulta("select S.id_solicitud, S.fecha_ingreso, S.fecha_termino, S.id_tramite, S.id_solicitante, S.id_usuario_ingreso, S.id_usuario_seguimiento, S.id_status, T.nombre as tramite, concat(P.nombre,' ',P.apellido_paterno,' ',P.apellido_materno) as solicitante, ST.nombre as status, UA.nombre as ua from solicitud S inner join tramite T on S.id_tramite=T.id_tramite inner join solicitante P on S.id_solicitante=P.id_solicitante inner join status ST on S.id_status=ST.id_status inner join unidadadministrativa UA on T.id_unidadadministrativa=UA.id_unidadadministrativa  where T.id_unidadadministrativa=? order by S.fecha_Ingreso desc", params);
+       // ResultSet res=Conexion.ejecutarConsulta("select S.id_solicitud, S.fecha_ingreso, S.id_tramite, T.nombre as tramite, UA.nombre as ua from solicitud S inner join tramite T on S.id_tramite=T.id_tramite inner join unidadadministrativa UA on T.id_unidadadministrativa=UA.id_unidadadministrativa where T.id_unidadadministrativa=? order by S.fecha_Ingreso desc", params);
+        try{
+            while(res.next()){
+                Solicitud s=new Solicitud(res.getInt("id_solicitud"), res.getTimestamp("fecha_ingreso"), 
+                        res.getDate("fecha_termino"), res.getInt("id_tramite"), res.getInt("id_solicitante"), 
+                        res.getInt("id_usuario_ingreso"), res.getInt("id_usuario_seguimiento"), 
+                        res.getInt("id_status"), res.getString("tramite"), res.getString("solicitante"), 
+                        res.getString("status"),res.getString("ua"));
+                sol.add(s);
+            }
+            res.close();
+        }catch(Exception e){}
+        return sol;
+    }
+    
+    
     public Solicitud obtenerPorId(int id_solicitud){
         Solicitud sol=null;
         Object params[]={id_solicitud};
@@ -92,4 +112,6 @@ public class GestionSolicitud {
         }
         return res;
     }
+
+    
 }

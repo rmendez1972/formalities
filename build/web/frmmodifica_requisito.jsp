@@ -25,7 +25,7 @@
         </script>
     </head>
     <body>
-        <h1>Modificar Requisito</h1>
+        <h1>Modificar Requisitox</h1>
         <form id="form_UA" onsubmit="return registrar()">
             <input type="hidden" id="id_requisito" name="id_requisito" value="${req.id_requisito}" />
             <table border="0" align="center">
