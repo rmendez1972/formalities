@@ -47,7 +47,16 @@
 	<variable name="id_solicitud_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
 		<variableExpression><![CDATA[$F{id_solicitud}]]></variableExpression>
 	</variable>
+<<<<<<< HEAD
 >>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
+=======
+	<variable name="id_solicitud_2" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{id_solicitud}]]></variableExpression>
+	</variable>
+	<variable name="id_solicitud_3" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{id_solicitud}]]></variableExpression>
+	</variable>
+>>>>>>> 5d12476c13f28e67a52b0a15eb19b9762b9352f2
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -173,6 +182,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
 			</textField>
+<<<<<<< HEAD
 			<textField evaluationTime="Page">
 				<reportElement uuid="fbb10f4d-dbcc-4837-9923-54b80505c2a5" style="table" x="83" y="58" width="87" height="20"/>
 				<textElement verticalAlignment="Middle">
@@ -189,6 +199,8 @@
 				<text><![CDATA[Nú.Solicitud:]]></text>
 			</staticText>
 >>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
+=======
+>>>>>>> 5d12476c13f28e67a52b0a15eb19b9762b9352f2
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -242,7 +254,7 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="12" splitType="Stretch"/>
+		<band height="11" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="31" splitType="Stretch">

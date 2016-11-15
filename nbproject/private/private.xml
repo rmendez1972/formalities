@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/scr_admin.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Usuario.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frmmodifica_seguimiento.jsp</file>
@@ -54,6 +55,15 @@
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listarsolicitudes.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Seguimiento.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listarseguimiento_registrante.jsp</file>
+=======
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorReportes.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_reportesolicitudes.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionTramite.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionGrupo.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/scr_reports.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorDirecciones.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionSolicitud.java</file>
+>>>>>>> 5d12476c13f28e67a52b0a15eb19b9762b9352f2
         </group>
     </open-files>
 </project-private>
