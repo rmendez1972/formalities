@@ -84,7 +84,7 @@
                 
                 
                 //agregando tooltips para los que tienen title
-                $( document ).tooltip({
+                /*$( document ).tooltip({
                     position: {
                       my: "center bottom-20",
                       at: "center top",
@@ -97,7 +97,7 @@
                           .appendTo( this );
                       }
                     }
-                });
+                });*/
                 
                 
                 $( "input[type=submit], button, input[type=reset] " ) // estilo de botones con jquery-ui
@@ -121,7 +121,8 @@
                     {
                                                 
                         //limpiamos el selector para poblar
-                        //$("#tramites").html(" ");
+                        $("#tramites").find('option').remove();
+                        $("#tramites").append('<option value="">'+'Selecciona una opción del catálogo...'+'</option>');
                         $.each(data.Tramites, function(i,item){
                             $("#tramites").append("<option value='"+item.id_tramite+"'>"+item.nombre+"</option>");
                         });

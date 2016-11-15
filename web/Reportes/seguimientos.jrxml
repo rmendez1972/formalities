@@ -28,26 +28,35 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select S.fecha,S.observaciones,S.id_solicitud,S.id_status,T.nombre as estatus,O.id_tramite,O.id_solicitud,O.id_solicitante,M.nombre as tramite,M.id_tramite, concat(A.nombre,A.apellido_paterno,A.apellido_materno)as solicitante,A.id_solicitante from seguimiento S inner join status T on S.id_status=T.id_status inner join solicitud O on O.id_solicitud=S.id_solicitud inner join tramite M on M.id_tramite=O.id_tramite inner join solicitante A on A.id_solicitante=O.id_solicitante $P!{sql} order by S.fecha desc]]>
+		<![CDATA[select S.fecha,S.observaciones,S.id_solicitud,S.id_status, UA.nombre as nombreunidad, D.nombre as direccion,T.nombre as estatus,O.id_tramite,O.id_solicitud,O.id_solicitante,M.nombre as tramite,M.id_tramite, concat(A.nombre,A.apellido_paterno,A.apellido_materno)as solicitante,A.id_solicitante, O.id_solicitud from seguimiento S inner join status T on S.id_status=T.id_status inner join solicitud O on O.id_solicitud=S.id_solicitud inner join tramite M on M.id_tramite=O.id_tramite inner join solicitante A on A.id_solicitante=O.id_solicitante inner join unidadadministrativa UA on M.id_unidadadministrativa=UA.id_unidadadministrativa  inner join direcciones D on M.id_direccion=D.id_direccion $P!{sql}  order by S.fecha desc]]>
 	</queryString>
 	<field name="fecha" class="java.sql.Timestamp"/>
 	<field name="observaciones" class="java.lang.String"/>
 	<field name="id_solicitud" class="java.lang.Integer"/>
 	<field name="id_status" class="java.lang.Integer"/>
+	<field name="nombreunidad" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
 	<field name="estatus" class="java.lang.String"/>
 	<field name="id_tramite" class="java.lang.Integer"/>
+	<field name="id_solicitante" class="java.lang.Integer"/>
 	<field name="tramite" class="java.lang.String"/>
 	<field name="solicitante" class="java.lang.String"/>
+<<<<<<< HEAD
+=======
 	<field name="id_solicitante" class="java.lang.Integer"/>
 	<variable name="id_solicitud_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
 		<variableExpression><![CDATA[$F{id_solicitud}]]></variableExpression>
 	</variable>
+<<<<<<< HEAD
+>>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
+=======
 	<variable name="id_solicitud_2" class="java.lang.Integer" resetType="Page" calculation="Sum">
 		<variableExpression><![CDATA[$F{id_solicitud}]]></variableExpression>
 	</variable>
 	<variable name="id_solicitud_3" class="java.lang.Integer" resetType="Page" calculation="Sum">
 		<variableExpression><![CDATA[$F{id_solicitud}]]></variableExpression>
 	</variable>
+>>>>>>> 5d12476c13f28e67a52b0a15eb19b9762b9352f2
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -60,30 +69,55 @@
 		</band>
 	</title>
 	<pageHeader>
+<<<<<<< HEAD
+		<band height="148" splitType="Stretch">
+=======
 		<band height="111" splitType="Stretch">
+>>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="196" y="7" width="360" height="20"/>
-				<textElement>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="0" y="7" width="752" height="20"/>
+				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ventanilla Unica de Gestión de Trámites y Servicios]]></text>
 			</staticText>
 			<staticText>
+<<<<<<< HEAD
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="0" y="26" width="752" height="20"/>
+				<textElement textAlignment="Center">
+=======
 				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="239" y="30" width="274" height="20"/>
 				<textElement textAlignment="Justified">
+>>>>>>> 41d44153c9db4258100f23b96ff96172b165d250
 					<font fontName="Tahoma" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Seguimiento a Trámites]]></text>
 			</staticText>
 			<staticText>
+<<<<<<< HEAD
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="0" y="67" width="53" height="28"/>
+				<textElement>
+					<font fontName="Tahoma" size="12" isBold="true"/>
+=======
 				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" style="table" mode="Opaque" x="6" y="82" width="73" height="20" backcolor="#CCCCCC"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10" isBold="true"/>
 					<paragraph leftIndent="5"/>
+>>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
 				</textElement>
 				<text><![CDATA[Trámite:]]></text>
 			</staticText>
 			<textField>
+<<<<<<< HEAD
+				<reportElement uuid="a9ddba04-4785-4162-856a-0d5420ae963c" x="105" y="67" width="602" height="28"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tramite}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="0" y="82" width="73" height="28"/>
+				<textElement>
+					<font fontName="Tahoma" size="12" isBold="true"/>
+=======
 				<reportElement uuid="a9ddba04-4785-4162-856a-0d5420ae963c" style="table" x="82" y="82" width="667" height="20"/>
 				<textElement>
 					<paragraph leftIndent="5"/>
@@ -95,16 +129,78 @@
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10" isBold="true"/>
 					<paragraph leftIndent="5"/>
+>>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
 				</textElement>
 				<text><![CDATA[Solicitante:]]></text>
 			</staticText>
 			<textField>
+<<<<<<< HEAD
+				<reportElement uuid="9a6e95ee-99bd-468c-a4e8-cef2c1635b38" x="105" y="82" width="581" height="28"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="0" y="51" width="97" height="28"/>
+				<textElement>
+					<font fontName="Tahoma" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Núm. Solicitud:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a9ddba04-4785-4162-856a-0d5420ae963c" x="105" y="51" width="83" height="28"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{id_solicitud}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="0" y="97" width="100" height="28"/>
+				<textElement>
+					<font fontName="Tahoma" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subsecretaría:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9a6e95ee-99bd-468c-a4e8-cef2c1635b38" x="105" y="98" width="581" height="28"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombreunidad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="1" y="111" width="100" height="28"/>
+				<textElement>
+					<font fontName="Tahoma" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9a6e95ee-99bd-468c-a4e8-cef2c1635b38" x="105" y="113" width="581" height="28"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+=======
 				<reportElement uuid="9a6e95ee-99bd-468c-a4e8-cef2c1635b38" style="table" x="259" y="58" width="490" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
 			</textField>
+<<<<<<< HEAD
+			<textField evaluationTime="Page">
+				<reportElement uuid="fbb10f4d-dbcc-4837-9923-54b80505c2a5" style="table" x="83" y="58" width="87" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_solicitud}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" style="table" mode="Opaque" x="6" y="58" width="73" height="20" backcolor="#CCCCCC"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Nú.Solicitud:]]></text>
+			</staticText>
+>>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
+=======
+>>>>>>> 5d12476c13f28e67a52b0a15eb19b9762b9352f2
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -121,7 +217,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10" isBold="true" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Fecha de Reporte]]></text>
+				<text><![CDATA[Fecha de Seguimiento]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" style="table" x="595" y="3" width="154" height="20"/>
@@ -134,9 +230,15 @@
 	</columnHeader>
 	<detail>
 		<band height="26" splitType="Stretch">
+<<<<<<< HEAD
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="b9a4cfd7-cfc1-4e53-8dfc-da045aa08095" x="6" y="6" width="158" height="20"/>
+				<textElement/>
+=======
 			<textField>
 				<reportElement uuid="b9a4cfd7-cfc1-4e53-8dfc-da045aa08095" x="6" y="6" width="89" height="20"/>
 				<textElement verticalAlignment="Middle"/>
+>>>>>>> edf57c79b28b7ab60c7bd4161ae52dad9d3f9f38
 				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
 			<textField>

@@ -33,41 +33,48 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch">
+		<band height="46" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="196" y="7" width="360" height="20"/>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="196" y="5" width="360" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ventanilla Unica de Gestión de Trámites y Servicios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="196" y="24" width="360" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Solicitudes]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="41" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="275" y="2" width="138" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="279" y="0" width="138" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Tramite]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="240d2834-c42e-4c69-8b77-a06e991f4456" x="5" y="2" width="87" height="20"/>
+				<reportElement uuid="240d2834-c42e-4c69-8b77-a06e991f4456" x="0" y="0" width="87" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de Ingreso]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="472" y="3" width="160" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="472" y="0" width="160" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Solicitante]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="643" y="3" width="102" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="644" y="0" width="102" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
@@ -77,11 +84,11 @@
 				<reportElement uuid="91bfc418-7516-4b9c-be06-27b7354fd954" x="2" y="23" width="747" height="2"/>
 			</line>
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="97" y="3" width="165" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="92" y="0" width="165" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Unidad Administrativa]]></text>
+				<text><![CDATA[Subsecretaria]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -95,26 +102,26 @@
 				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="ea4844ab-78f1-4b60-8469-720342dcea98" x="639" y="2" width="64" height="20"/>
+				<reportElement uuid="ea4844ab-78f1-4b60-8469-720342dcea98" x="644" y="4" width="64" height="20"/>
 				<textElement textAlignment="Right">
 					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="7c51dd18-3905-47fc-a264-102d5cfc6f9d" x="99" y="4" width="168" height="20"/>
+				<reportElement uuid="7c51dd18-3905-47fc-a264-102d5cfc6f9d" x="94" y="4" width="168" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{ua}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement uuid="2329a89d-964c-45be-91a7-e557fa3c292b" x="10" y="4" width="77" height="20"/>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement uuid="2329a89d-964c-45be-91a7-e557fa3c292b" x="0" y="4" width="77" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_ingreso}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="19e6a203-fa15-4a81-baa6-4bc3a114ab3a" x="281" y="4" width="178" height="20"/>
+				<reportElement uuid="19e6a203-fa15-4a81-baa6-4bc3a114ab3a" x="279" y="4" width="178" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 				</textElement>
@@ -141,7 +148,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<textField pattern="dd/MM/yyyy">
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
 				<reportElement uuid="c5a8dcd2-c6da-456e-bfe4-a77fd0f14e6f" x="82" y="4" width="108" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>

@@ -59,6 +59,7 @@
                         <tr>
                             <td width="30%">
                                 <button value="controladorreportes?operacion=frm_reportesolicitudes" id="rep_solicitudes" >
+
                                         <img src="imagenes/reporte_solicitudes.png" class="btn-report" alt="Primer Reporte" title="Reporte solicitudes"/>
                                         <p>Solicitudes</p>
                                 </button>
@@ -68,12 +69,13 @@
                                         <img src="imagenes/reporte_seguimiento.png" class="btn-report" alt="Reporte de seguimientos a solicitudes"/>
                                         <p>Seguimiento</p>
                                         
+
                                 </button>
                             </td>
                             <td width="30%">
                                 <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
                                         titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                        <img src="imagenes/editar.png" class="btn-report" alt="Primer Reporte" title="Primer Reporte"/>
+                                        <img src="imagenes/editar.png" class="btn-report"  />
                                         <p>Tercer Reporte</p>
                                 </button>
                             </td>
@@ -82,21 +84,21 @@
                             <td width="30%">
                                 <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
                                         titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                        <img src="imagenes/editar.png" class="btn-report" alt="Primer Reporte" title="Primer Reporte"/>
+                                        <img src="imagenes/editar.png" class="btn-report" />
                                         <p>Cuarto Reporte</p>
                                 </button>
                             </td>
                             <td width="30%">
                                 <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
                                         titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                        <img src="imagenes/editar.png" class="btn-report" alt="Primer Reporte" title="Primer Reporte"/>
+                                        <img src="imagenes/editar.png" class="btn-report" />
                                         <p>Quinto Reporte</p>
                                 </button>
                             </td>
                             <td width="30%">
                                 <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
                                         titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                        <img src="imagenes/editar.png" class="btn-report" alt="Primer Reporte" title="Primer Reporte"/>
+                                        <img src="imagenes/editar.png" class="btn-report" />
                                         <p>Sexto Reporte</p>
                                 </button>
                             </td>
@@ -115,10 +117,9 @@
                                 </button>
                             </td>
                             <td width="30%">
-                                <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
-                                        titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                        <img src="imagenes/listar.png" class="btn-report"  title="Trámites"/>
-                                        <p>Trámites de la SEDUVI</p>
+                                <button value="controladorreportes?operacion=frm_reportetramites" id="rep_tramites">
+                                        <img src="imagenes/listar.png" class="btn-report"  title="Trámites por Subsecretaría"/>
+                                        <p>Trámites por Subsecretaría</p>
                                 </button>
                             </td>
                             <td width="30%">

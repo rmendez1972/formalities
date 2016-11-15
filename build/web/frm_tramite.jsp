@@ -97,11 +97,9 @@
                     </td>
                     
                     <td>
-                        <select id="direccion" required style="width: 300px;display:none">
+                        <select id="direccion" required style="width: 300px;">
                             <option value="">Seleccione una Dirección</option>
-                            <c:forEach  var="dir" items="${requestScope.dir}">
-                                    <OPTION VALUE="${dir.id_direccion}" ${dir.id_direccion == usr.id_direccion ? 'selected':''}>${dir.nombre}</OPTION>
-                            </c:forEach>   
+                               
                         </select>
                     </td>
                 </tr>

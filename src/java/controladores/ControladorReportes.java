@@ -133,6 +133,16 @@ public class ControladorReportes extends HttpServlet
             rd.forward(request,response);
         }
          
+        if(operacion.equals("frm_reportetramites"))
+        {
+            GestionUnidadAdministrativa oper1=new GestionUnidadAdministrativa();
+            ArrayList ua=oper1.obtenerTodos();
+            
+                        
+            request.setAttribute("ua",ua);
+            RequestDispatcher rd=request.getRequestDispatcher("frm_reportetramites.jsp");
+            rd.forward(request,response);
+        }
           
          
          
@@ -187,26 +197,26 @@ public class ControladorReportes extends HttpServlet
                 //param.put("id_mecanica", id_mecanica);
                 if (id_status==0 && id_unidadadministrativa==0){
                 
-                    param.put("sql","where (S.fecha_ingreso between "+request.getParameter("fecha_inicial")+" and "+request.getParameter("fecha_final")+")");
+                    param.put("sql","where DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' and '"+request.getParameter("fecha_final")+"'");
                 }
                 
                 if (id_status!=0 && id_unidadadministrativa==0){
                    
-                    param.put("sql","where (S.fecha_ingreso between "+request.getParameter("fecha_inicial")+" and "+request.getParameter("fecha_final")+" ST.id_status='"+id_status.toString()+"'");
+                    param.put("sql","where DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' and '"+request.getParameter("fecha_final")+"' AND ST.id_status='"+id_status.toString()+"'");
                 }
                 
-                 if (id_status==0 && id_unidadadministrativa!=0){
+                if (id_status==0 && id_unidadadministrativa!=0){
                     
-                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"'");
+                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' AND '"+request.getParameter("fecha_final")+"'");
                 }
                 if (id_status!=0 && id_unidadadministrativa!=0){
                     
-                    param.put("sql","where ST.id_status='"+id_status.toString()+"' and UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"'");
+                    param.put("sql","where ST.id_status='"+id_status.toString()+"' and UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' AND '"+request.getParameter("fecha_final")+"'");
                 }
                 
                 if (id_status==0 && id_unidadadministrativa!=0 && id_tramite!=0){
                     
-                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and T.id_tramite='"+id_tramite.toString()+"'");
+                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and T.id_tramite='"+id_tramite.toString()+"' and DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' AND '"+request.getParameter("fecha_final")+"'");
                 }
                 
                 byte[] bytes = null;
@@ -327,6 +337,102 @@ public class ControladorReportes extends HttpServlet
         
          
          
+
+        }
+        
+        
+        
+        if(operacion.equals("tramites"))
+        {
+            
+            Integer id_unidadadministrativa=0;
+            Integer id_direccion=0;
+            
+            try {
+                 cn=conectaMysql.getConnection();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            //recuperando parametros del reporte multipart
+            
+            
+            String mid_direccion  = request.getParameter("id_direccion");
+            String mid_unidadadministrativa  = request.getParameter("id_unidadadministrativa");
+            
+            
+            if (mid_direccion!="" && mid_unidadadministrativa!="")
+            {
+                id_direccion=Integer.parseInt(mid_direccion);
+                id_unidadadministrativa=Integer.parseInt(mid_unidadadministrativa);
+            }
+            
+            if (mid_direccion=="" && mid_unidadadministrativa!="")
+            {
+                
+                id_unidadadministrativa=Integer.parseInt(mid_unidadadministrativa);
+                
+            }
+            
+            if (mid_direccion=="" && mid_unidadadministrativa=="")
+            {
+                
+                
+            }
+            
+            ServletOutputStream servletOutputStream = response.getOutputStream();
+            File reportFile=null;
+            reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/ReporteTramitesParam.jasper"));
+            
+            try
+            {
+                
+                Map param = new HashMap(); //inicializo un objeto HashMap variable,valor
+
+                                
+                if (mid_direccion!="" && mid_unidadadministrativa!="")
+                {
+                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"' and D.id_direccion='"+id_direccion.toString()+"'");
+                    
+                }
+                if (mid_direccion=="" && mid_unidadadministrativa!="")
+                {
+                    param.put("sql","where UA.id_unidadadministrativa='"+id_unidadadministrativa.toString()+"'");
+                    
+                }
+                
+                if (mid_direccion=="" && mid_unidadadministrativa=="")
+                {
+                    param.put("sql","");
+                
+                }
+                
+                byte[] bytes = null;
+
+                
+                
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);
+
+                bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
+                response.setContentType("application/pdf");
+                
+                response.setContentLength(bytes.length);
+                servletOutputStream.write(bytes, 0, bytes.length);
+                
+                servletOutputStream.flush();
+                servletOutputStream.close();
+            }
+            catch (JRException e)
+            {
+                // display stack trace in the browser
+                StringWriter stringWriter = new StringWriter();
+                PrintWriter printWriter = new PrintWriter(stringWriter);
+                e.printStackTrace(printWriter);
+                response.setContentType("text/plain");
+                response.getOutputStream().print(stringWriter.toString());
+            } 
+            
         } 
         
         if(operacion.equals("imprimirseguimientos"))
@@ -364,48 +470,13 @@ public class ControladorReportes extends HttpServlet
                        
             ServletOutputStream servletOutputStream = response.getOutputStream();
             File reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/seguimientos.jasper"));
-            
-            
-            try
-            {
-                
-                Map param = new HashMap(); //inicializo un objeto HashMap variable,valor
-                
-                //if (id_grupo==1)
-                //{    
-                    //param.put("sql","");
-                //}else
-                //{
-                    param.put("sql","where O.id_solicitud='"+id_solicitud+"'");
-                    
-                //}
-                byte[] bytes = null;
-                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
-                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);
-                bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
-                response.setContentType("application/pdf");
-                
-                response.setContentLength(bytes.length);
-                servletOutputStream.write(bytes, 0, bytes.length);
-                
-                servletOutputStream.flush();
-                servletOutputStream.close();
-            }
-            catch (JRException e)
-            {
-                // display stack trace in the browser
-                StringWriter stringWriter = new StringWriter();
-                PrintWriter printWriter = new PrintWriter(stringWriter);
-                e.printStackTrace(printWriter);
-                response.setContentType("text/plain");
-                response.getOutputStream().print(stringWriter.toString());
-            } 
-        
-         
-         
+
+        }
+
     }
+
          
          
    
-    }
+   
 }

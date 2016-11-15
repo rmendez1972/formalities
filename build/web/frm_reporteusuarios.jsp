@@ -80,7 +80,7 @@
                 
                 
                 //agregando tooltips para los que tienen title
-                $( document ).tooltip({
+               /* $( document ).tooltip({
                     position: {
                       my: "center bottom-20",
                       at: "center top",
@@ -93,7 +93,7 @@
                           .appendTo( this );
                       }
                     }
-                });
+                });*/
                 
                 
                 $( "input[type=submit], button, input[type=reset] " ) // estilo de botones con jquery-ui
@@ -165,8 +165,8 @@
                         contentType: false,
                         processData: false
                     });
-                    //var mfrm_reporteusuarios= document.getElementById('frm_reporteusuarios');
-                    //mfrm_reporteusuarios.style.display="none";
+                    var mfrm_reporteusuarios= document.getElementById('frm_reporteusuarios');
+                    mfrm_reporteusuarios.style.display="none";
                     return false;
 
                 });
@@ -188,7 +188,7 @@
             <fieldset>
                 <legend>Parametriza tu reporte</legend>
                 
-                <p><label for="unidadadtva">Unidad Administrativa:</label> 
+                <p><label for="unidadadtva">Subsecretaría:</label> 
                         <select name="unidadadtva" id="unidadadtva" title="Seleccione la Unidad Adtva.">
                             <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
                             <c:forEach  var="ua" items="${requestScope.ua}">
