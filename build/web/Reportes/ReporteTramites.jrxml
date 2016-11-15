@@ -53,7 +53,7 @@
 				<textElement>
 					<font fontName="Tahoma" size="12" isBold="false" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Unidad responsable]]></text>
+				<text><![CDATA[Subsecretaría]]></text>
 			</staticText>
 			<line>
 				<reportElement uuid="cad955ba-dcff-413e-960d-ab868370b9b8" x="0" y="29" width="752" height="1"/>
