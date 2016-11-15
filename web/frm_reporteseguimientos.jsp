@@ -232,15 +232,15 @@
                         <input id="fecha_final"  name="fecha_final" type="date" required>
                     </p> 
                         <p><label for="unidadadtva">Subsecretaría:</label> 
-                            <select name="unidadadtva" id="unidadadtva">
-                                <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
+                            <select name="unidadadtva" id="unidadadtva" required>
+                                <option value="" selected="selected">Selecciona una opción del catálogo...</option>
                                 <c:forEach  var="ua" items="${requestScope.ua}">
                                     <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
                                 </c:forEach>
                             </select>
                         </p>
                         <p><label for="solicitudes">Solicitud:</label>
-                            <select name="solicitudes" id="solicitudes" style="width:500px;">
+                            <select name="solicitudes" id="solicitudes" style="width:500px;" required>
                                 <option value="" selected="selected">Selecciona una opción del catálogo...</option>
                            
                             </select>
