@@ -94,7 +94,7 @@
         
         <table id="seguimientos"  class="tablesorter" width="98%">
             <thead>
-                <tr><th >Fecha de Seguimiento</th><th>Observaciones</th><th>Estatus</th><th>Archivo adjunto</th><th>Usuario que Reporta</th><th>Acciones</th></tr>
+                <tr><th >Fecha de Seguimiento</th><th>Observaciones</th><th>Estatus</th><th>Adjuntos?</th><th>Usuario que Reporta</th><th>Acciones</th></tr>
             </thead>
             <tbody>
                 <c:forEach var="seguimientos" items="${requestScope.seguimientos}" varStatus="loop"> 
@@ -123,15 +123,19 @@
                         
                     
                         
-                        <td width="15%"><a href="${requestScope.pathadjuntos}${seguimientos.adjunto}" download="${seguimientos.adjunto}" ><c:out value="${seguimientos.adjunto}" /></a></td>
+                        <td width="10%"><a href="${requestScope.pathadjuntos}${seguimientos.adjunto}" download="${seguimientos.adjunto}" ><c:out value="${seguimientos.adjunto}" /></a></td>
                         <td width="10%"><c:out value="${seguimientos.usuario}" /></td>
-                        <td width="12%">
+                        <td width="17%">
                             <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
                                 <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
                             </button>
                             <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
                                 <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
                             </button>
+                            <button value="controladoradjunto?operacion=listar&id_seguimiento=${seguimientos.id_seguimiento}" id="listar" titulo="Confirme el listado de adjuntos" mensaje="Está Ud. seguro de listar los adjuntos de este seguimiento!">
+                                <img src="imagenes/listar.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
+                            </button>    
+                            
                             <button value="controladorseguimiento?operacion=enviarcorreo&id_seguimiento=${seguimientos.id_seguimiento}" id="mail" titulo="Confirme el envio por correo." mensaje="Está Ud. seguro de enviar por correo este seguimiento!"><img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar correo"  title="enviar correo" />
                             </button>
                         </td>

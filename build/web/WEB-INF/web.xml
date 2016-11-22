@@ -43,6 +43,11 @@
         <servlet-class>controladores.ControladorRequisito</servlet-class>
         
     </servlet>
+    <servlet>
+        <servlet-name>ControladorAdjunto</servlet-name>
+        <servlet-class>controladores.ControladorAdjunto</servlet-class>
+        
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorSesion</servlet-name>
         <url-pattern>/controladorsesion</url-pattern>
@@ -79,6 +84,10 @@
     <servlet-mapping>
         <servlet-name>ControladorRequisito</servlet-name>
         <url-pattern>/controladorrequisito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorAdjunto</servlet-name>
+        <url-pattern>/controladoradjunto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

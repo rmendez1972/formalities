@@ -1,5 +1,5 @@
 <%-- 
-    Document   : listarseguimiento
+    Document   : listaradjunto
     Created on : 21/11/2013, 02:32:54 PM
     Author     : Rafael Mendez
 --%>
@@ -70,12 +70,14 @@
         <table border=0 width="98%">
             <tr>
                 <td width="80%" align="left"> 
-                    <h1>Listado de Seguimientos de la Solicitud</h1>
+                    <h1>Listado de Adjuntos del Seguimiento</h1>
                     <p style="padding:0.1em"><strong>Núm. Solicitud: </strong>${solicitud.id_solicitud}</p>
                     <p style="padding:0.1em"><strong>Tramite: </strong>${tramite.nombre}</p>
                     <p style="padding:0.1em"><strong>Solicitante:</strong> ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
                     <p style="padding:0.1em"><strong>Subsecretaría: </strong>${tramite.unidadAdministrativa}</p>
-                    <p style="padding:0.1em"><strong>Dirección:</strong> ${tramite.direccion}</p>
+                    <p style="padding:0.1em"><strong>Dirección:</strong> ${tramite.direccion}</p><br>
+                    <p style="padding:0.1em"><strong>Seguimiento:</strong> ${seguimiento.observaciones}</p>
+                    <p style="padding:0.1em"><strong>Fecha de Seguimiento:</strong> ${seguimiento.fecha}</p>
                 </td>
                 <td width="20%" align="right"> 
                     <div class="btn-catalogo">
@@ -92,52 +94,21 @@
              
         </table>
         
-        <table id="seguimientos"  class="tablesorter" width="98%">
+        <table id="adjuntos"  class="tablesorter" width="98%">
             <thead>
-                <tr><th >Fecha de Seguimiento</th><th>Observaciones</th><th>Estatus</th><th>Adjuntos?</th><th>Usuario que Reporta</th><th>Acciones</th></tr>
+                <tr><th >Nombre del Archivo Adjunto</th><th >Usuario que Adjunta</th><th >Acciones</th></tr>
             </thead>
             <tbody>
-                <c:forEach var="seguimientos" items="${requestScope.seguimientos}" varStatus="loop"> 
+                <c:forEach var="adjunto" items="${requestScope.adjuntos}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td width="13%"><c:out value="${seguimientos.fecha}" /></td> 
-                        <td width="40%"><c:out value="${seguimientos.observaciones}" /></td>
-                        
-                        <c:choose>
-                                <c:when test="${seguimientos.estatus=='TURNADO'}">
-                                    <td width="10%" style="font-size: 8px"><div class="statusTurnado"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>
-                                    
-                                <c:when test="${seguimientos.estatus=='TRAMITE'}">
-                                    <td width="10%" style="font-size: 8px"><div class="statusTramite"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>
-                                    
-                                <c:when test="${seguimientos.estatus=='CONCLUIDO'}">
-                                    <td width="10%" style="font-size: 8px"><div class="statusConcluido"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>
-                                    
-                                <c:otherwise>
-                                    <td width="10%" style="font-size: 8px"><c:out value="${seguimientos.estatus}"/>
-                                </c:otherwise>
-                                        
-                            </c:choose>
-                        
-                    
-                        
-                        <td width="10%"><a href="${requestScope.pathadjuntos}${seguimientos.adjunto}" download="${seguimientos.adjunto}" ><c:out value="${seguimientos.adjunto}" /></a></td>
-                        <td width="10%"><c:out value="${seguimientos.usuario}" /></td>
-                        <td width="17%">
-                            <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
-                                <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
-                            </button>
-                            <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
-                                <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
-                            </button>
-                            <button value="controladoradjunto?operacion=listar&id_seguimiento=${seguimientos.id_seguimiento}" id="listar" titulo="Confirme el listado de adjuntos" mensaje="Está Ud. seguro de listar los adjuntos de este seguimiento!">
-                                <img src="imagenes/listar.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
-                            </button>    
+                        <td width="50%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><c:out value="${adjunto.nombre}" /></a></td> 
+                        <td width="30%"><c:out value="${adjunto.nombreusuario}" /></td> 
+                        <td width="20%">
                             
-                            <button value="controladorseguimiento?operacion=enviarcorreo&id_seguimiento=${seguimientos.id_seguimiento}" id="mail" titulo="Confirme el envio por correo." mensaje="Está Ud. seguro de enviar por correo este seguimiento!"><img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar correo"  title="enviar correo" />
+                            <button value="controladoradjunto?operacion=eliminar&id_adjunto=${adjunto.id_adjunto}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este adjunto!">
+                                <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar adjunto" />
                             </button>
+                            
                         </td>
                     </tr>
 
