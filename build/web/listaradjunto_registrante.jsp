@@ -84,11 +84,7 @@
                         <a href="controladoradjunto?operacion=imprimir&id_seguimiento=${seguimiento.id_seguimiento}" target="new"><img  src="imagenes/reportesb.png"  width="30" height="30"alt="Imprimir"/><p>Imprimir</p></a>
                     </div>
                     
-                    <div class="btn-catalogo">
-                        <button value="controladoradjunto?operacion=nuevo&id_seguimiento=${seguimiento.id_seguimiento}" id="agregar" titulo="Confirme la adición." mensaje="Está Ud. seguro de agregar un adjunto!"><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></button>
-                        
-                        
-                    </div>
+                    
                 </td>
             </tr>
              
@@ -96,20 +92,14 @@
         
         <table id="adjuntos"  class="tablesorter" width="98%">
             <thead>
-                <tr><th ><strong>Nombre del Archivo Adjunto</strong></th><th><strong>Usuario que Adjunta</strong></th><th ><strong>Acciones</strong></th></tr>
+                <tr><th><strong>Nombre del Archivo Adjunto</strong></th><th><strong>Usuario que Adjunta</strong></th></tr>
             </thead>
             <tbody>
                 <c:forEach var="adjunto" items="${requestScope.adjuntos}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td width="50%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><c:out value="${adjunto.nombre}" /></a></td> 
+                        <td width="70%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><c:out value="${adjunto.nombre}" /></a></td> 
                         <td width="30%"><c:out value="${adjunto.nombreusuario}" /></td> 
-                        <td width="20%">
-                            
-                            <button value="controladoradjunto?operacion=eliminar&id_adjunto=${adjunto.id_adjunto}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este adjunto!">
-                                <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar adjunto" />
-                            </button>
-                            
-                        </td>
+                       
                     </tr>
 
                 </c:forEach>

@@ -71,15 +71,34 @@
         
         <table id="seguimientos"  class="tablesorter" width="98%" >
             <thead>
-            <tr><th >Fecha de Seguimiento</th><th>Observaciones</th><th>Usuario que Reporta</th><th>Estatus</th>
+                <tr><th >Fecha de Seguimiento</th><th>Observaciones</th><th>Usuario que Reporta</th><th>Adjuntos?</th><th>Estatus</th><th>Acciones</th></tr>
             </thead>
             <tbody>
                 <c:forEach var="seguimientos" items="${requestScope.seguimientos}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td width="20%"><c:out value="${seguimientos.fecha}" /></td> <td width="50%"><c:out value="${seguimientos.observaciones}" /></td> <td width="20%"><c:out value="${seguimientos.usuario}" /></td><td width="10%"><c:out value="${seguimientos.estatus}" /></td>  
+                        <td width="25%"><c:out value="${seguimientos.fecha}" /></td> <td width="45%"><c:out value="${seguimientos.observaciones}" /></td> <td width="15%"><c:out value="${seguimientos.usuario}" /></td><c:choose>
+                             <c:when test="${seguimientos.adjunto==true}">
+                                    <td width="10%" style="font-size: 8px;text-align:center"><img src="imagenes/ok.png"    title="seguimiento con archivos adjuntos"/></td>
+                            </c:when>
+                                    
+                            <c:when test="${seguimientos.adjunto==false}">
+                                    <td width="10%" style="font-size: 8px;text-align:center"><img src="imagenes/mal.png"   title="seguimiento sin archivos adjuntos"/></td>
+                            </c:when>
+                                    
+                                
+                                        
+                        </c:choose><td width="10%"><c:out value="${seguimientos.estatus}" /></td>  
+                        <td width="5%">
+                            
+                            <button value="controladoradjunto?operacion=listar&id_seguimiento=${seguimientos.id_seguimiento}" id="listar" titulo="Confirme el listado de adjuntos" mensaje="Está Ud. seguro de listar los adjuntos de este seguimiento!">
+                                <img src="imagenes/adjunto.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
+                            </button>    
+                            
+                        </td>
                     </tr>
 
                 </c:forEach>
+                
            </tbody>
         </table>
 

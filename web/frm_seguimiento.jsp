@@ -167,14 +167,14 @@
  <table width="920" border="0" align="center" style="background-color: rgba(255, 255,0,.3)">  
      <tr>
         <td width="20"></td>
-        <td width="300">Adjuntar Archivo: </td>
+        <!--<td width="300">Adjuntar Archivo: </td>-->
         <td width="300">&nbsp;</td>
         <td width="300">&nbsp;</td>
      </tr>
      <tr>
         <td width="20"></td>
      
-        <td><div class="uploadx"><input  name="adjunto" type="file"></div></td>
+        <!--<td><div class="uploadx"><input  name="adjunto" type="file"></div></td>-->
      
         <td>&nbsp; </td>
         <td width="300"><input   type="submit" name="enviarrequisitos" class="botona" value="Agregar seguimiento"></td>

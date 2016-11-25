@@ -123,7 +123,20 @@
                         
                     
                         
-                        <td width="10%"><a href="${requestScope.pathadjuntos}${seguimientos.adjunto}" download="${seguimientos.adjunto}" ><c:out value="${seguimientos.adjunto}" /></a></td>
+                        
+                        <c:choose>
+                             <c:when test="${seguimientos.adjunto==true}">
+                                    <td width="10%" style="font-size: 8px;text-align:center"><img src="imagenes/ok.png"    title="seguimiento con archivos adjuntos"/></td>
+                            </c:when>
+                                    
+                            <c:when test="${seguimientos.adjunto==false}">
+                                    <td width="10%" style="font-size: 8px;text-align:center"><img src="imagenes/mal.png"   title="seguimiento sin archivos adjuntos"/></td>
+                            </c:when>
+                                    
+                                
+                                        
+                        </c:choose>
+                        
                         <td width="10%"><c:out value="${seguimientos.usuario}" /></td>
                         <td width="17%">
                             <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
@@ -133,7 +146,7 @@
                                 <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
                             </button>
                             <button value="controladoradjunto?operacion=listar&id_seguimiento=${seguimientos.id_seguimiento}" id="listar" titulo="Confirme el listado de adjuntos" mensaje="Está Ud. seguro de listar los adjuntos de este seguimiento!">
-                                <img src="imagenes/listar.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
+                                <img src="imagenes/adjunto.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
                             </button>    
                             
                             <button value="controladorseguimiento?operacion=enviarcorreo&id_seguimiento=${seguimientos.id_seguimiento}" id="mail" titulo="Confirme el envio por correo." mensaje="Está Ud. seguro de enviar por correo este seguimiento!"><img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar correo"  title="enviar correo" />

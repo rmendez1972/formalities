@@ -18,12 +18,12 @@ public class Seguimiento {
     private int id_solicitud;
     private int id_status;
     private String estatus;
-    private String adjunto;
+    private Boolean adjunto;
     private String usuario;
 
     
     
-    public Seguimiento(int id_seguimiento, Date fecha, String observaciones, int id_usuario, int id_solicitud, int id_status, String adjunto){
+    public Seguimiento(int id_seguimiento, Date fecha, String observaciones, int id_usuario, int id_solicitud, int id_status, Boolean adjunto){
         this.id_seguimiento=id_seguimiento;
         this.fecha=fecha;
         this.observaciones=observaciones;
@@ -33,7 +33,7 @@ public class Seguimiento {
         this.adjunto=adjunto;
     }
     
-    public Seguimiento(int id_seguimiento, Date fecha, String observaciones, int id_usuario, int id_solicitud, int id_status, String estatus,String adjunto){
+    public Seguimiento(int id_seguimiento, Date fecha, String observaciones, int id_usuario, int id_solicitud, int id_status, String estatus,Boolean adjunto){
         this.id_seguimiento=id_seguimiento;
         this.fecha=fecha;
         this.observaciones=observaciones;
@@ -104,11 +104,11 @@ public class Seguimiento {
         this.estatus = estatus;
     }
     
-    public String getAdjunto() {
+    public Boolean getAdjunto() {
         return adjunto;
     }
 
-    public void setAdjunto(String adjunto) {
+    public void setAdjunto(Boolean adjunto) {
         this.adjunto = adjunto;
     }
     

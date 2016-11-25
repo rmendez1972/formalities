@@ -165,14 +165,14 @@
  <table width="920" border="0" align="center" style="background-color: rgba(255, 255,0,.3)">  
      <tr>
         <td width="20"></td>
-        <td width="300">Archivo Adjunto actual: </td>
-        <td width="300">Nuevo archivo Adjunto:</td>
+        <!--<td width="300">Archivo Adjunto actual: </td>
+        <td width="300">Nuevo archivo Adjunto:</td>-->
         <td width="300">&nbsp;</td>
      </tr>
      <tr>
         <td width="20"></td>
-        <td style="font-size: 14px;color: blue"> ${seguimiento.adjunto}<input name="adjunto" id="adjunto" type="hidden" value="${seguimiento.adjunto}" > </td>
-        <td><input  name="adjuntonuevo" type="file" id="adjuntonuevo"/> </td>
+        <!--<td style="font-size: 14px;color: blue"> ${seguimiento.adjunto}<input name="adjunto" id="adjunto" type="hidden" value="${seguimiento.adjunto}" > </td>
+        <td><input  name="adjuntonuevo" type="file" id="adjuntonuevo"/> </td>-->
         <td width="300"><input type="submit" name="enviarrequisitos" class="botona" value="Modificar Seguimiento" id="hazlo"></td>
         
      </tr>

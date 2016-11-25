@@ -81,12 +81,12 @@
                 </td>
                 <td width="20%" align="right"> 
                     <div class="btn-catalogo">
-                        <a href="controladorseguimiento?operacion=imprimir&id_solicitud=${solicitud.id_solicitud}" target="new"><img  src="imagenes/reportesb.png"  width="30" height="30"alt="Imprimir"/><p>Imprimir</p></a>
+                        <a href="controladoradjunto?operacion=imprimir&id_seguimiento=${seguimiento.id_seguimiento}" target="new"><img  src="imagenes/reportesb.png"  width="30" height="30"alt="Imprimir"/><p>Imprimir</p></a>
                     </div>
                     
                     <div class="btn-catalogo">
-                        <button value="controladorseguimiento?operacion=capturar&id_solicitud=${solicitud.id_solicitud}" id="agregar" titulo="Confirme la adición." mensaje="Está Ud. seguro de agregar este seguimiento!"><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></button>
-                        <!--<a href= value="controladorseguimiento?operacion=capturar&id_solicitud=${solicitud.id_solicitud}" id="agregar" ><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></a>!-->
+                        <button value="controladoradjunto?operacion=nuevo&id_seguimiento=${seguimiento.id_seguimiento}" id="agregar" titulo="Confirme la adición." mensaje="Está Ud. seguro de agregar un adjunto!"><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></button>
+                        
                         
                     </div>
                 </td>
@@ -96,7 +96,7 @@
         
         <table id="adjuntos"  class="tablesorter" width="98%">
             <thead>
-                <tr><th >Nombre del Archivo Adjunto</th><th >Usuario que Adjunta</th><th >Acciones</th></tr>
+                <tr><th ><strong>Nombre del Archivo Adjunto</strong></th><th><strong>Usuario que Adjunta</strong></th><th ><strong>Acciones</strong></th></tr>
             </thead>
             <tbody>
                 <c:forEach var="adjunto" items="${requestScope.adjuntos}" varStatus="loop"> 
