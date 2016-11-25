@@ -7,16 +7,27 @@ package Modelo;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import javabeans.Adjunto;
+import javabeans.Seguimiento;
+import javabeans.Solicitud;
 
 /**
  *
  * @author arturo
  */
 public class GestionAdjunto {
-    /*public boolean registroStatus(Status stat){
-        Object params[]={stat.getNombre()};
-        return Conexion.ejecutar("insert into status (nombre) values (?)", params);
-    }*/
+    public boolean registroAdjunto(Adjunto adj){
+        boolean res=false;
+        //Seguimiento seguimiento;
+        //Solicitud solicitud;
+        Integer id_usuario=adj.getId_usuario();
+        Integer id_seguimiento=adj.getId_seguimiento();
+        String nombre=adj.getNombre();
+          
+        Object params[]={nombre,id_seguimiento,id_usuario};
+        res=Conexion.ejecutar("insert into adjunto (nombre, id_seguimiento, id_usuario) values (?,?,?)", params);
+        
+        return res;
+    }
     
     public Adjunto obtenerPorId(int id_adjunto){
         Object params[]={id_adjunto};

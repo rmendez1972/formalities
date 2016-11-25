@@ -237,7 +237,8 @@ public class ControladorSeguimiento extends HttpServlet
             Tramite tramite;
             Usuario usuario;
             Integer id_seguimiento,id_solicitud,id_solicitante,id_tramite,id_unidadaministrativa,id_unidadadministrativatramite,id_status;
-            String clave,mensaje,nombreadjunto=null;
+            String clave,mensaje;
+            Boolean nombreadjunto=false;
                     
             HttpSession objSession = request.getSession(); 
             usuario = (Usuario)(objSession.getAttribute("usuario")); 
@@ -246,9 +247,10 @@ public class ControladorSeguimiento extends HttpServlet
             Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
             Integer id_usuario=usuario.getId_usuario();
             
-            Part p1 = request.getPart("adjunto");  
-            nombreadjunto = getFileName(p1);
-            Boolean adjuntosubido=subirAdjunto(p1);
+            //Part p1 = request.getPart("adjunto");  
+            //nombreadjunto = getFileName(p1);
+            //Boolean adjuntosubido=subirAdjunto(p1);
+            
              
           
             // leer el id_solicitud q es enviado como multi part
@@ -371,13 +373,14 @@ public class ControladorSeguimiento extends HttpServlet
           Usuario usuario=null;
           Tramite tramite=null;
           Integer id_solicitud,id_tramite,id_solicitante,id_unidadadministrativa,id_grupo,id_usuario;
-          String mensaje,nombreadjuntonuevo,nombreadjunto=null;
+          String mensaje,nombreadjuntonuevo;
+          Boolean nombreadjunto=false;
           HttpSession objSession = request.getSession(); 
           usuario = (Usuario)(objSession.getAttribute("usuario")); 
           
-           Part p1 = request.getPart("adjuntonuevo");  
-           nombreadjuntonuevo = getFileName(p1);
-           Boolean adjuntosubido=subirAdjunto(p1);
+           //Part p1 = request.getPart("adjuntonuevo");  
+           //nombreadjuntonuevo = getFileName(p1);
+           //Boolean adjuntosubido=subirAdjunto(p1);
            
           
            Part p2  = request.getPart("id_solicitud");
@@ -449,13 +452,13 @@ public class ControladorSeguimiento extends HttpServlet
           seguimiento.setObservaciones(observaciones);
           seguimiento.setId_usuario(id_usuario);
           
-          if(!nombreadjuntonuevo.isEmpty())
-          {    
-            seguimiento.setAdjunto(nombreadjuntonuevo);
-          }else
-          {
+          //if(!nombreadjuntonuevo.isEmpty())
+          //{    
+          //  seguimiento.setAdjunto(nombreadjuntonuevo);
+          //}else
+          //{
               seguimiento.setAdjunto(nombreadjunto);
-          }
+          //}
             
             GestionSeguimiento gs= new GestionSeguimiento();
             resultado=gs.actualizarSeguimiento(seguimiento);
@@ -478,6 +481,7 @@ public class ControladorSeguimiento extends HttpServlet
             rd.forward(request,response);
         }
         
+                
          if(operacion.equals("localizar"))
         {
             Solicitud solicitud;
