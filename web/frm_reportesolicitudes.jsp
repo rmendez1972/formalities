@@ -218,7 +218,10 @@
     
        
     <body>
-        <h1>Reporte de Solicitudes</h1>
+        <h2>
+          <img src="imagenes/reporte_solicitudes.png" width="42" height="42"/>
+          Reporte de Solicitudes
+        </h2>
         <secttion id="wrapper_frm_reportes">
             <form name="frm_reportesolicitudes" id="frm_reportesolicitudes"  >
             <fieldset>
