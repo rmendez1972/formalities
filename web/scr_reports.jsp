@@ -73,10 +73,9 @@
                                 </button>
                             </td>
                             <td width="30%">
-                                <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
-                                        titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                        <img src="imagenes/editar.png" class="btn-report"  />
-                                        <p>Tercer Reporte</p>
+                                <button value="controladorreportes?operacion=frm_reporteadjuntos" id="rep_adjuntos"> 
+                                        <img src="imagenes/reporte_adjuntos.png" class="btn-report" alt="Reporte de adjuntos a seguimientos" />
+                                        <p>Adjuntos</p>
                                 </button>
                             </td>
                         </tr>

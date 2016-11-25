@@ -122,7 +122,8 @@
                         //limpiamos el selector para poblar
                         //$("#solicitudes").html(" ");
                           
-                  
+                         $("#solicitudes").find('option').remove();
+                        $("#solicitudes").append('<option value="">'+'Selecciona una opción del catálogo...'+'</option>'); 
                           $.each(data.Solicitudes, function(i,item){
                           $("#solicitudes").append("<option value='"+item.id_solicitud+"'>Núm.Solicitud:"+item.id_solicitud+"-Tramite:"+item.nombre+"</option>");
                                                    
