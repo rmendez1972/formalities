@@ -291,7 +291,7 @@ public class ControladorSeguimiento extends HttpServlet
             //datos del seguimiento
             SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                       
-            TimeZone timeZone = TimeZone.getTimeZone("America/Cancun");
+            TimeZone timeZone = TimeZone.getTimeZone("America/Bogota");
             Calendar calendar = Calendar.getInstance(timeZone);
             int hour = calendar.get(Calendar.HOUR_OF_DAY);
             int min = calendar.get(Calendar.MINUTE);
@@ -510,6 +510,11 @@ public class ControladorSeguimiento extends HttpServlet
             GestionSeguimiento oper7=new GestionSeguimiento(); 
             seguimiento = oper7.obtenerPorId(id_seguimiento);
             
+            //Date fechaseguimiento = new Date(seguimiento.getFecha().getTime());
+            
+            //SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
+            //String fecha_seguimiento = fecha.format(fechaseguimiento);
+            
             id_solicitud =seguimiento.getId_solicitud();
             id_status=seguimiento.getId_status();
             
@@ -547,7 +552,7 @@ public class ControladorSeguimiento extends HttpServlet
             request.setAttribute("tramite",tramite);
             request.setAttribute("tm",tm);
             
-            
+            //request.setAttribute("fecha_seguimiento",fecha_seguimiento);
             request.setAttribute("status",status);
             request.setAttribute("seguimiento",seguimiento);
             request.setAttribute("sexosolicitante",sexosolicitante);
@@ -691,7 +696,7 @@ public class ControladorSeguimiento extends HttpServlet
           id_status=seguimiento.getId_status();
           observaciones=seguimiento.getObservaciones();
           Date fecha=seguimiento.getFecha();
-          SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+          SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
           String fecha_seguimiento = sdf.format(fecha);
 
           

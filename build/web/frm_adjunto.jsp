@@ -60,7 +60,7 @@
         
     <body>
 
-        <h1><img src="imagenes/adjunto.png"/>Adjuntos a Seguimientos</h1>       
+        <h1><img src="imagenes/reporte_adjuntos.png" width="42" height="42"/>Adjuntos a Seguimientos</h1>       
 <!--<div id="frm_titulo">Datos del solicitante</div>-->
 <form name="adjunto" id="adjunto" action="controladoradjunto?operacion=grabar"  method="post" >
     

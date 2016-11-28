@@ -218,6 +218,7 @@
     <td><label>
       <input type="date" name="fecha_r" id="fecha_r" value="${solicitud.fecha_ingreso}" required>
       <input name="id_solicitud" id="id_solicitud" type="hidden" size="20" maxlength="15" value="${solicitud.id_solicitud}" >
+      <input name="id_status" id="id_status" type="hidden"  value="${solicitud.id_status}" >
     </label></td>
     <td>
       <input type="submit" name="enviarrequisitos" id="enviarrequisitos" value="Modificar solicitud" class="botona">

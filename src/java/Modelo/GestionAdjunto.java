@@ -72,8 +72,38 @@ public class GestionAdjunto {
     }
     
     public boolean eliminarPorId(int id_adjunto){
+        GestionAdjunto modelo= new GestionAdjunto();
+        Adjunto adjunto=modelo.obtenerPorId(id_adjunto);
+        int id_seguimiento=adjunto.getId_seguimiento();
+        
+        Boolean resultado=false;
         Object params[]={id_adjunto};
-        return Conexion.ejecutar("delete from adjunto where id_adjunto=?", params);
+        resultado=Conexion.ejecutar("delete from adjunto where id_adjunto=?", params);
+        if (resultado=true){
+            int cuenta=cuentaAdjuntos(id_seguimiento);
+            if (cuenta==0){
+                GestionSeguimiento gs=new GestionSeguimiento();
+                Seguimiento seguimiento=gs.obtenerPorIdDateTime(id_seguimiento);
+                seguimiento.setAdjunto(false);
+                gs.actualizarSeguimiento(seguimiento);
+            }
+        }
+        return resultado;
+    }
+    
+    public int cuentaAdjuntos(int id_seguimiento){
+        int cuenta=0;
+        Object params[]={id_seguimiento};
+        ResultSet res=Conexion.ejecutarConsulta("select count(*) as cuenta from adjunto where id_seguimiento=?", params);
+        try{
+            while(res.next()){
+                
+                cuenta=res.getInt("cuenta");
+                
+            }
+            res.close();
+        }catch(Exception e){}
+        return cuenta;
     }
     /*
     public boolean actualizar(Status status){

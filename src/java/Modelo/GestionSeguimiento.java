@@ -22,20 +22,21 @@ public class GestionSeguimiento {
         Integer id_solicitud=s.getId_solicitud();
         Integer id_status=s.getId_status();
         
+        
           
         Object params[]={s.getFecha(), s.getObservaciones(), s.getId_usuario(), s.getId_solicitud(), s.getId_status(),s.getAdjunto()};
         res=Conexion.ejecutar("insert into seguimiento (fecha, observaciones, id_usuario, id_solicitud, id_status,adjunto) values (?,?,?,?,?,?)", params);
         if(res)
         {
             GestionSolicitud gs =new GestionSolicitud();
-            solicitud=gs.obtenerPorId(id_solicitud);
+            solicitud=gs.obtenerPorIdDatetime(id_solicitud);
             solicitud.setId_status(id_status);
             res=gs.actualizarSolicitud(solicitud);
         }
         return res;
     }
     
-     public boolean actualizarSeguimiento(Seguimiento s){
+    public boolean actualizarSeguimiento(Seguimiento s){
         boolean res=false;
         Seguimiento seguimiento;
         Solicitud solicitud;
@@ -46,7 +47,25 @@ public class GestionSeguimiento {
         if(res)
         {
             GestionSolicitud gs =new GestionSolicitud();
-            solicitud=gs.obtenerPorId(id_solicitud);
+            solicitud=gs.obtenerPorIdDatetime(id_solicitud);
+            solicitud.setId_status(id_status);
+            res=gs.actualizarSolicitud(solicitud);
+        }    
+        return res;
+    }
+    
+    public boolean actualizarSeguimientoDateTime(Seguimiento s){
+        boolean res=false;
+        Seguimiento seguimiento;
+        Solicitud solicitud;
+        Integer id_solicitud=s.getId_solicitud();
+        Integer id_status=s.getId_status();
+        Object params[]={s.getFecha(), s.getObservaciones(), s.getId_usuario(), s.getId_solicitud(), s.getId_status(),s.getAdjunto(), s.getId_seguimiento()};
+        res=Conexion.ejecutar("update seguimiento set fecha=?, observaciones=?, id_usuario=?, id_solicitud=?, id_status=?, adjunto=? where id_seguimiento=?", params);
+        if(res)
+        {
+            GestionSolicitud gs =new GestionSolicitud();
+            solicitud=gs.obtenerPorIdDatetime(id_solicitud);
             solicitud.setId_status(id_status);
             res=gs.actualizarSolicitud(solicitud);
         }    
@@ -66,6 +85,19 @@ public class GestionSeguimiento {
     }
      
     public Seguimiento obtenerPorId(int id_seguimiento){
+        Seguimiento seg=null;
+        Object params[]={id_seguimiento};
+        ResultSet res=Conexion.ejecutarConsulta("select * from seguimiento where id_seguimiento=?", params);
+        try{
+            if(res.next()){
+                seg=new Seguimiento(res.getInt("id_seguimiento"), res.getDate("fecha"), res.getString("observaciones"), res.getInt("id_usuario"), res.getInt("id_solicitud"), res.getInt("id_status"), res.getBoolean("adjunto"));
+            }
+            res.close();
+        }catch(Exception e){}
+        return seg;
+    }
+    
+    public Seguimiento obtenerPorIdDateTime(int id_seguimiento){
         Seguimiento seg=null;
         Object params[]={id_seguimiento};
         ResultSet res=Conexion.ejecutarConsulta("select * from seguimiento where id_seguimiento=?", params);
