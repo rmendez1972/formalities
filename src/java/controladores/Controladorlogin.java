@@ -61,6 +61,7 @@ public class Controladorlogin extends HttpServlet
         if(operacion.equals("iniciar"))
         {
             Usuario usuario;
+            
             usuario = (Usuario)request.getAttribute("usuario");
            
             // verificando la existencia del usuario en la db
@@ -83,7 +84,8 @@ public class Controladorlogin extends HttpServlet
             {
                String mensaje="Fracaso en Login";
                request.setAttribute("mensaje",mensaje);
-
+                //RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+                //rd.forward(request,response);
                response.sendRedirect("login.jsp");
             }    
                 

@@ -228,7 +228,7 @@
                 <legend>Parametriza tu reporte</legend>
                 <p><label for="fecha_inicial">Fecha Inicial:</label> <input id="fecha_inicial"  name="fecha_inicial" type="date"  title="Ingresa fecha inicial de registro de la solicitud" required><label for="fecha_final">Fecha Final:</label> <input id="fecha_final"  name="fecha_final" type="date"  title="Ingresa fecha final de registro de la solicitud" required></p>
                     <p><label for="unidadadtva">Subsecretaría:</label> 
-                        <select name="unidadadtva" id="unidadadtva" title="Seleccione la Unidad Adtva.">
+                        <select name="unidadadtva" id="unidadadtva">
                             <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
                             <c:forEach  var="ua" items="${requestScope.ua}">
                                 <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
@@ -236,12 +236,12 @@
                         </select>
                     </p>
                     <p><label for="tramites">Trámite:</label>
-                        <select name="tramites" id="tramites" title="Seleccione un Trámite">
+                        <select name="tramites" id="tramites">
                             <option value="" selected="selected">Selecciona una opción del catálogo...</option>
                         </select>
                     </p>
                     <p><label for="id_estatus">Estatus del Trámite:</label>
-                        <select name="id_status" id="id_status" title="Seleccione un estatus de trámite">
+                        <select name="id_status" id="id_status">
                             <option value="" selected="selected">Todos los estatus...</option>
                             <c:forEach  var="status" items="${requestScope.status}">
                                 <OPTION VALUE="${status.id_status}">${status.nombre}</OPTION>
