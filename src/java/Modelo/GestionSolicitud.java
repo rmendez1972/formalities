@@ -84,6 +84,20 @@ public class GestionSolicitud {
         return sol;
     }
     
+    
+     public Solicitud obtenerPorIdDatetime(int id_solicitud){
+        Solicitud sol=null;
+        Object params[]={id_solicitud};
+        ResultSet res=Conexion.ejecutarConsulta("select S.id_solicitud, S.fecha_ingreso, S.fecha_termino, S.id_tramite, S.id_solicitante, S.id_usuario_ingreso, S.id_usuario_seguimiento, S.id_status, T.nombre as tramite, concat(P.nombre,' ',P.apellido_paterno,' ',P.apellido_materno) as solicitante, ST.nombre as status,UA.nombre as ua from solicitud S inner join tramite T on S.id_tramite=T.id_tramite inner join solicitante P on S.id_solicitante=P.id_solicitante inner join status ST on S.id_status=ST.id_status inner join unidadadministrativa UA on UA.id_unidadadministrativa=T.id_unidadadministrativa where S.id_solicitud=?", params);
+        try{
+            if(res.next()){
+                sol=new Solicitud(res.getInt("id_solicitud"), res.getTimestamp("fecha_ingreso"), res.getDate("fecha_termino"), res.getInt("id_tramite"), res.getInt("id_solicitante"), res.getInt("id_usuario_ingreso"), res.getInt("id_usuario_seguimiento"), res.getInt("id_status"), res.getString("tramite"), res.getString("solicitante"), res.getString("status"),res.getString("ua"));
+            }
+            res.close();
+        }catch(Exception e){}
+        return sol;
+    }
+    
     public ArrayList obtenerPorSolicitante(int id_solicitante){
         ArrayList sol=new ArrayList();
         Object params[]={id_solicitante};

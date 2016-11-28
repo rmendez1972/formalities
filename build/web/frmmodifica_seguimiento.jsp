@@ -69,6 +69,7 @@
                 });  
                             
             });
+            //document.getElementById('fecha_t').value=fechaActual();
             bloquea=lock();
         </script>
     </head>

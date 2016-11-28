@@ -126,9 +126,19 @@ public class ControladorRegistro extends HttpServlet
         String sexo=request.getParameter("sexo").toUpperCase();
         solicitante.setSexo(sexo);
         
+        //recuperando datos del usuario
+        HttpSession objSession = request.getSession(); 
+        Usuario usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+        Integer id_grupo=usuario.getId_grupo();
+        Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
+        Integer id_usuario=usuario.getId_usuario();
+        
         //datos de la solicitud
         Integer id_tramite=Integer.parseInt(request.getParameter("tramites"));
         solicitud.setId_tramite(id_tramite);
+        
+        Integer id_status=1;
         
         SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                       
@@ -161,9 +171,9 @@ public class ControladorRegistro extends HttpServlet
           
           // acompletando los datos de la solicitud en el javabean
           solicitud.setId_solicitante(id_solicitante);
-          solicitud.setId_usuario_ingreso(2);
+          solicitud.setId_usuario_ingreso(id_usuario);  //usuario real
           solicitud.setId_usuario_seguimiento(2);
-          solicitud.setId_status(1);
+          solicitud.setId_status(id_status);
           
           resultado2=oper2.registroSolicitud(solicitud);
           if(resultado2==true)
@@ -193,8 +203,9 @@ public class ControladorRegistro extends HttpServlet
           //solicitante = (Solicitante)request.getAttribute("solicitante");  
           
           //datos del solicitante
-          Integer id_solcitante=Integer.parseInt(request.getParameter("id_solicitante"));
-          solicitante.setId_solicitante(id_solcitante);
+          Integer id_solicitante=Integer.parseInt(request.getParameter("id_solicitante"));
+          Integer id_status=Integer.parseInt(request.getParameter("id_status"));
+          solicitante.setId_solicitante(id_solicitante);
         String nombre=request.getParameter("nombre").toUpperCase();
         solicitante.setNombre(nombre);
         String apellido_p=request.getParameter("apellido_p").toUpperCase();
@@ -211,6 +222,15 @@ public class ControladorRegistro extends HttpServlet
         solicitante.setEmail(email);
         String sexo=request.getParameter("sexo").toUpperCase();
         solicitante.setSexo(sexo);
+        
+        
+        //recuperando datos del usuario
+        HttpSession objSession = request.getSession(); 
+        Usuario usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+        Integer id_grupo=usuario.getId_grupo();
+        Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
+        Integer id_usuario=usuario.getId_usuario();
         
         //datos de la solicitud
         Integer id_solcitud=Integer.parseInt(request.getParameter("id_solicitud"));
@@ -239,6 +259,7 @@ public class ControladorRegistro extends HttpServlet
                 Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
             }
         solicitud.setFecha_ingreso(fecha_ingreso);
+        
           
         GestionSolicitante oper1=new GestionSolicitante(); 
         GestionSolicitud oper2=new GestionSolicitud();
@@ -246,14 +267,14 @@ public class ControladorRegistro extends HttpServlet
           resultado = oper1.actualizarSolicitante(solicitante); // metodo para actualzar
           
           // acompletando los datos de la solicitud en el javabean
-          solicitud.setId_solicitante(id_solcitante);
-          solicitud.setId_usuario_ingreso(2);
+          solicitud.setId_solicitante(id_solicitante);
+          solicitud.setId_usuario_ingreso(id_usuario);   //usuario real
           solicitud.setId_usuario_seguimiento(2);
-          solicitud.setId_status(1);
+          solicitud.setId_status(id_status);
           
           resultado2=oper2.actualizarSolicitud(solicitud);
           
-          if(resultado==true)
+          if(resultado2==true)
           {
               mensaje="Solicitud modificada exitosamente";
           }else
