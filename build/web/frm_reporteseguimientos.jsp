@@ -221,7 +221,9 @@
     
        
     <body>
-        <h2>Reporte de Seguimientos a Solicitudes</h2>
+        <h2>
+            <img src="imagenes/reporte_seguimiento.png" width="42" height="42"/>
+            Reporte de Seguimientos a Solicitudes</h2>
         <secttion id="wrapper_frm_reportes">
             <form name="frm_reporteseguimientos" id="frm_reporteseguimientos"  >
                 <fieldset>
