@@ -60,7 +60,7 @@
                             <td width="30%">
                                 <button value="controladorreportes?operacion=frm_reportesolicitudes" id="rep_solicitudes" >
 
-                                        <img src="imagenes/reporte_solicitudes.png" class="btn-report" alt="Primer Reporte" title="Reporte solicitudes"/>
+                                        <img src="imagenes/reporte_solicitudes.png" class="btn-report" alt="Primer Reporte"/>
                                         <p>Solicitudes</p>
                                 </button>
                             </td>

@@ -98,11 +98,10 @@
             
 
 	</style>
-
+        
 
     </head>
-    
-
+   
     <!--encapsulamiento de los datos del usuario en el Javabean-->
     <jsp:useBean id="usuario" scope="request" class="javabeans.Usuario"/>
 
