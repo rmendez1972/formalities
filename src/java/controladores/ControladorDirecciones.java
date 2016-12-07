@@ -51,6 +51,19 @@ public class ControladorDirecciones extends ControladorBase {
             response.getWriter().write(gson.toJson(dir));
             
     }
+   
+   
+    public void listarPorunidadjson(HttpServletRequest request, HttpServletResponse response) throws Exception{
+            int id_unidadadministrativa=Integer.parseInt(request.getParameter("id_unidadadministrativa"));
+            GestionDirecciones modelo=new GestionDirecciones();
+            ArrayList dir=modelo.obtenerTodosPorunidad(id_unidadadministrativa);
+            GsonBuilder builder=new GsonBuilder();
+            Gson gson=builder.create();
+            
+            response.addHeader("Content-Type", "text/html; charset=utf-8; Access-Control-Allow-Origin http://localhost:4200");
+            response.getWriter().write("{\"data\":"+gson.toJson(dir)+"}");
+            
+    }
     
     public void nuevo(HttpServletRequest request, HttpServletResponse response) throws Exception{
         GestionUnidadAdministrativa mod_ua=new GestionUnidadAdministrativa();
