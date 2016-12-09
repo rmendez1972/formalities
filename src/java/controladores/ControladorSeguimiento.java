@@ -14,6 +14,8 @@ import Modelo.GestionTramite;
 import Modelo.GestionUnidadAdministrativa;
 import Modelo.conectaMysql;
 import Modelo.mail;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -674,6 +676,77 @@ public class ControladorSeguimiento extends HttpServlet
           RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento.jsp");
           rd.forward(request,response);
         }
+        
+        
+        if(operacion.equals("listarjson"))
+        {
+            Usuario usuario;
+            ArrayList seguimientos;
+            Seguimiento seguimiento;
+            Solicitud solicitud;
+            Solicitante solicitante;
+            Tramite tramite;
+            Integer id_solicitud,id_tramite,id_solicitante;
+            String mensaje="Listado de seguimientos exitoso";
+            String pathadjuntos="build/web/adjuntos/";
+            //recupero el usuario de la sesion 
+            //HttpSession objSession = request.getSession(); 
+            //usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+            //Integer id_grupo=usuario.getId_grupo();
+            //Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
+            
+            //obetnes datos del seguimiento por id_seguimiento
+            String midsolicitud;   
+            midsolicitud = request.getParameter("id_solicitud");  
+            id_solicitud=Integer.parseInt(midsolicitud);
+            
+            GestionSolicitud gsol=new GestionSolicitud(); 
+            solicitud=gsol.obtenerPorId(id_solicitud);
+            id_tramite = solicitud.getId_tramite();
+            id_solicitante = solicitud.getId_solicitante();
+            ArrayList solic=new ArrayList();
+            solic.add(solicitud);
+            
+            GestionSolicitante gsoli= new GestionSolicitante();
+            solicitante= gsoli.obtenerPorId(id_solicitante);
+            ArrayList sol=new ArrayList();
+            sol.add(solicitante);
+                    
+            GestionTramite gtm=new GestionTramite(); 
+            tramite=gtm.obtenerPorId(id_tramite);
+            Integer id_unidadadministrativa=tramite.getId_unidadadministrativa();
+            ArrayList tram=new ArrayList();
+            tram.add(tramite);
+            
+            
+            GestionSeguimiento gs=new GestionSeguimiento(); 
+            seguimientos = gs.obtenerPorSolicitud(id_solicitud);
+            
+            
+            //request.setAttribute("mensaje",mensaje);
+            //request.setAttribute("seguimientos",seguimientos);
+            //request.setAttribute("tramite",tramite);
+            //request.setAttribute("solicitante",solicitante);
+            //request.setAttribute("solicitud",solicitud);
+            //request.setAttribute("pathadjuntos",pathadjuntos);
+            //if (id_grupo==1)
+            //{    
+                //RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento_registrante.jsp");
+                //rd.forward(request,response);
+            //}else
+            //{
+                //RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento.jsp");
+                //rd.forward(request,response);
+                
+                GsonBuilder builder=new GsonBuilder();
+                Gson gson=builder.create();
+            
+                response.addHeader("Content-Type", "text/html; charset=utf-8; Access-Control-Allow-Origin http://localhost:4200");
+                response.getWriter().write("{\"data\":"+gson.toJson(sol)+",\"solicitud\":"+gson.toJson(solic)+",\"tramite\":"+gson.toJson(tram)+",\"seguimientos\":"+gson.toJson(seguimientos)+"}");
+            
+            //}
+        } 
         
         
          if(operacion.equals("enviarcorreo"))

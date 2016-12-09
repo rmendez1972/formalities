@@ -92,12 +92,13 @@
         
         <table id="adjuntos"  class="tablesorter" width="98%">
             <thead>
-                <tr><th><strong>Nombre del Archivo Adjunto</strong></th><th><strong>Usuario que Adjunta</strong></th></tr>
+                <tr><th><strong>Nombre del Archivo Adjunto</strong></th><th></th><th><strong>Usuario que Adjunta</strong></th></tr>
             </thead>
             <tbody>
                 <c:forEach var="adjunto" items="${requestScope.adjuntos}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td width="70%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><c:out value="${adjunto.nombre}" /></a></td> 
+                        <td width="65%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><c:out value="${adjunto.nombre}" /></a></td> 
+                        <td width="5%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><img src="imagenes/download.png" width="26px" height="26px" style="text-align:right"/></a></td> 
                         <td width="30%"><c:out value="${adjunto.nombreusuario}" /></td> 
                        
                     </tr>
