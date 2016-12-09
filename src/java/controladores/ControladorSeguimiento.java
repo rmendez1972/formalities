@@ -4,6 +4,7 @@
  */
 package controladores;
 
+import Modelo.GestionAdjunto;
 import control.Tools;
 import Modelo.GestionSeguimiento;
 import Modelo.GestionSexo;
@@ -722,6 +723,7 @@ public class ControladorSeguimiento extends HttpServlet
             
             GestionSeguimiento gs=new GestionSeguimiento(); 
             seguimientos = gs.obtenerPorSolicitud(id_solicitud);
+            
             
             
             //request.setAttribute("mensaje",mensaje);
