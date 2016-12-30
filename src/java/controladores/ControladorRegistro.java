@@ -68,7 +68,9 @@ import net.sf.jasperreports.engine.JasperRunManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import javabeans.UsuarioApi;
 
 
 /**
@@ -513,86 +515,55 @@ public class ControladorRegistro extends HttpServlet
           rd.forward(request,response);
         }
          
-       if(operacion.equals("enviarcorreo"))
+         if(operacion.equals("borrar"))
         {
-            Boolean resultado=false;
-            Usuario usuario;
-            UnidadAdministrativa unidadadministrativa;
-            ArrayList solicitudes;
-            String mensaje,unidadadministrativanombre;
-            //recupero el usuario de la sesion 
-            HttpSession objSession = request.getSession(); 
-            usuario = (Usuario)(objSession.getAttribute("usuario")); 
-            
-            Integer id_grupo=usuario.getId_grupo();
-            Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
-            
-            String midtramite,midsolicitud;   
-            midsolicitud = request.getParameter("id_solicitud");  
-            Integer id_solicitud,id_solicitante,id_tramite,id_unidadaministrativa;
-            id_solicitud=Integer.parseInt(midsolicitud);
-            
-            GestionSolicitud gs= new GestionSolicitud();
-            Solicitud solicitud= gs.obtenerPorId(id_solicitud);
-            id_tramite=solicitud.getId_tramite();
-            id_solicitante=solicitud.getId_solicitante();
-            Date fecha=solicitud.getFecha_ingreso();
-            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-            String fecha_solicitud = sdf.format(fecha);
-            
-            
-            GestionSolicitante gsol=new GestionSolicitante();
-            Solicitante solicitante=gsol.obtenerPorId(id_solicitante);
-            String email =solicitante.getEmail();
-            String nombre_solicitante=solicitante.getNombre();
-            String apellido_paterno=solicitante.getApellido_paterno();
-            String apellido_materno=solicitante.getApellido_materno();
-            
-            GestionTramite modelo=new GestionTramite();
-            Tramite t=modelo.obtenerPorId(id_tramite);
-            String nombretramite = t.getNombre();
-            unidadadministrativanombre=t.getUnidadAdministrativa();
-        
-            GestionRequisito mod_req=new GestionRequisito();
-            ArrayList req=mod_req.obtenerPorTramite(id_tramite);
-            ArrayList noreq=mod_req.obtenerSinTramite(id_tramite);
-            
-          if(!email.equals("") || !email.equals("NULL"))
-          {    
-            mail correo = new mail();
-            Iterator iterator=req.listIterator();
-            String cuerpocorreo="<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>C. "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"<br>P R E S E N T E:</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDUVI <br><br><table border='1' padding='2'>";
-            //resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDUVI <br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
-            Integer i=1;
-            cuerpocorreo=cuerpocorreo+"<tr><td><b> No. </b></td><td><b>Descripción</b></td></tr>";
-             
-            while( iterator.hasNext() )
-            {
-                Requisito requisito=(Requisito) iterator.next();
-                cuerpocorreo=cuerpocorreo+"<tr><td><b>"+i+"</b></td><td>"+ requisito.getNombre()+"</td></tr>";
-                i++;
-            }
-            cuerpocorreo=cuerpocorreo+"</table><br>Atentamente<br><br><b>"+unidadadministrativanombre+"</b><br>Secretaría de Desarrollo Urbano y Vivienda";
-            resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDUVI", cuerpocorreo);
-              
-          }
+          Boolean resultado,resultado2;
+          String mensaje;
+          resultado=false;
+          resultado2=false;
+          
+          Integer id_solicitud,id_solicitante;   
+          Solicitud solicitud=null;
+          id_solicitud = Integer.parseInt(request.getParameter("id_solicitud"));  
+          
+          GestionSolicitud oper1=new GestionSolicitud(); 
+          solicitud = oper1.obtenerPorId(id_solicitud); 
+          id_solicitante=solicitud.getId_solicitante();
+          
+          GestionSolicitante oper2=new GestionSolicitante(); 
+          resultado=oper2.eliminarPorId(id_solicitante);
+          
           if(resultado==true)
           {
-              mensaje="Requisitos para trámite enviados exitosamente";
+              mensaje="Solicitud borrada exitosamente";
           }else
           {
-              mensaje="No pudieron ser enviados los requisitos del trámite por correo";
+              mensaje="Error al borrar la solicitud";
+          }    
           
-          }
-          
-          if (id_grupo==1)
-          {    
-                solicitudes=gs.obtenerSolicitudes();
-                request.setAttribute("solicitudes",solicitudes);
-                request.setAttribute("mensaje",mensaje);
-                RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes.jsp");
-                rd.forward(request,response);
-          }
+          ArrayList solicitudes=oper1.obtenerSolicitudes();
+          request.setAttribute("solicitudes",solicitudes);
+          request.setAttribute("mensaje",mensaje);
+         
+          RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes.jsp");
+          rd.forward(request,response);
+        }
+         
+        if(operacion.equals("apilogin"))
+        {
+            UsuarioApi user= new UsuarioApi(); 
+            user.setUsername("rmendez1972@hotmail.com");
+            user.setPassword("rmendez");
+            user.setFirstname("rmendez");
+            user.setLastname("mendez");
+            ArrayList usuario = new ArrayList();
+            usuario.add(user);
+            
+            GsonBuilder builder=new GsonBuilder();
+            Gson gson=builder.create();
+            
+            response.addHeader("Content-Type", "text/html; charset=utf-8; Access-Control-Allow-Origin http://localhost:4200");
+            response.getWriter().write("{\"user\":"+gson.toJson(usuario)+"}");
           
         }
        
