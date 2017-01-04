@@ -10,11 +10,11 @@ package javabeans;
  */
 public class Solicitante {
     private int id_solicitante;
-    private String nombre, apellido_paterno, apellido_materno, telefono, rfc, sexo, email, direccion;
+    private String nombre, apellido_paterno, apellido_materno, telefono, rfc, sexo, email, direccion,password;
     
     public Solicitante(){}
     
-    public Solicitante(int id_solicitante, String nombre, String apellido_paterno, String apellido_materno, String telefono, String rfc, String sexo, String email, String direccion){
+    public Solicitante(int id_solicitante, String nombre, String apellido_paterno, String apellido_materno, String telefono, String rfc, String sexo, String email, String direccion, String password){
         this.id_solicitante=id_solicitante;
         this.nombre=nombre;
         this.apellido_paterno=apellido_paterno;
@@ -24,6 +24,7 @@ public class Solicitante {
         this.sexo=sexo;
         this.email=email;
         this.direccion=direccion;
+        this.password=password;
     }
 
     public int getId_solicitante() {
@@ -96,6 +97,14 @@ public class Solicitante {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     
