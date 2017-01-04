@@ -69,6 +69,20 @@ public class GestionSolicitante {
         return sol;
     }
     
+    public Solicitante obtenerPorEmailPassword(String email, String password){
+        Solicitante sol=null;
+        Object[] params={email,password};
+        ResultSet res=Conexion.ejecutarConsulta("select * from solicitante where email=? and password=?", params);
+        try {
+            if(res.next()){
+                sol=fromResultSet(res);
+            }
+            res.close();
+        } catch (Exception ex) {}
+        
+        return sol;
+    }
+    
     public ArrayList obtenerPorNombre(String nombre){
         ArrayList solicitantes=new ArrayList();
         Object[] params={"%"+nombre+"%"};
