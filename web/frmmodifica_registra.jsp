@@ -181,6 +181,23 @@
             </select></td>
         
       </tr>
+      
+      <tr>
+        <td>PASSWORD:</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td><input name="password" id="password" type="text" size="20" pattern="([a-zA-Z0-9]{8,15})" maxlength="15" placeholder="password para api" title="password" value="${solicitante.password}" ></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        
+      </tr>
+      
+      
     </table>
  
 

@@ -70,7 +70,11 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import javabeans.UsuarioApi;
+
+
 
 
 /**
@@ -127,6 +131,8 @@ public class ControladorRegistro extends HttpServlet
         solicitante.setEmail(email);
         String sexo=request.getParameter("sexo").toUpperCase();
         solicitante.setSexo(sexo);
+        String password=request.getParameter("password").toUpperCase();
+        solicitante.setPassword(password);
         
         //recuperando datos del usuario
         HttpSession objSession = request.getSession(); 
@@ -222,6 +228,8 @@ public class ControladorRegistro extends HttpServlet
         solicitante.setTelefono(telefono);
         String email=request.getParameter("email").toLowerCase();
         solicitante.setEmail(email);
+        String password=request.getParameter("password").toUpperCase();
+        solicitante.setPassword(password);
         String sexo=request.getParameter("sexo").toUpperCase();
         solicitante.setSexo(sexo);
         
@@ -551,9 +559,14 @@ public class ControladorRegistro extends HttpServlet
          
         if(operacion.equals("apilogin"))
         {
+            
+            
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            
             UsuarioApi user= new UsuarioApi(); 
-            user.setUsername("rmendez1972@hotmail.com");
-            user.setPassword("rmendez");
+            user.setUsername(username);
+            user.setPassword(password);
             user.setFirstname("rmendez");
             user.setLastname("mendez");
             ArrayList usuario = new ArrayList();
