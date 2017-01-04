@@ -562,21 +562,28 @@ public class ControladorRegistro extends HttpServlet
             
             
             String username = request.getParameter("username");
-            String password = request.getParameter("password");
+            String password = request.getParameter("password").toUpperCase();
+            GestionSolicitante gsol=new GestionSolicitante(); 
+            Solicitante solicitante = gsol.obtenerPorEmailPassword(username, password);
             
             UsuarioApi user= new UsuarioApi(); 
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setFirstname("rmendez");
-            user.setLastname("mendez");
             ArrayList usuario = new ArrayList();
-            usuario.add(user);
+            if (solicitante != null){
+                user.setId(solicitante.getId_solicitante());
+                user.setUsername(solicitante.getEmail());
+                user.setPassword(solicitante.getPassword());
+                user.setFirstname(solicitante.getNombre());
+                user.setLastname(solicitante.getApellido_paterno()+" "+solicitante.getApellido_paterno());
+                           
+                usuario.add(user);
+            }
             
             GsonBuilder builder=new GsonBuilder();
             Gson gson=builder.create();
             
             response.addHeader("Content-Type", "text/html; charset=utf-8; Access-Control-Allow-Origin http://localhost:4200");
             response.getWriter().write("{\"user\":"+gson.toJson(usuario)+"}");
+            
           
         }
        
