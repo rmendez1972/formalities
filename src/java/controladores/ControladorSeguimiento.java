@@ -682,7 +682,7 @@ public class ControladorSeguimiento extends HttpServlet
         if(operacion.equals("listarjson"))
         {
             Usuario usuario;
-            ArrayList seguimientos;
+            ArrayList seguimientos= new ArrayList();
             Seguimiento seguimiento;
             Solicitud solicitud;
             Solicitante solicitante;
@@ -719,34 +719,33 @@ public class ControladorSeguimiento extends HttpServlet
             GestionSolicitante gsoli= new GestionSolicitante();
             solicitante= gsoli.obtenerPorId(id_solicitante);
             ArrayList sol=new ArrayList();
-            sol.add(solicitante);
+            if (Integer.parseInt(midsolicitante)==id_solicitante){
+               sol.add(solicitante);
+               
+            }else{
+               sol.add("");
+            }
+            
                     
             GestionTramite gtm=new GestionTramite(); 
             tramite=gtm.obtenerPorId(id_tramite);
             Integer id_unidadadministrativa=tramite.getId_unidadadministrativa();
             ArrayList tram=new ArrayList();
-            tram.add(tramite);
+            if (Integer.parseInt(midsolicitante)==id_solicitante){
+               tram.add(tramite);
+               
+            }else{
+               tram.add("");
+            }
+            
             
             
             GestionSeguimiento gs=new GestionSeguimiento(); 
-            seguimientos = gs.obtenerPorSolicitud(id_solicitud);
+            if (Integer.parseInt(midsolicitante)==id_solicitante){
+               seguimientos = gs.obtenerPorSolicitud(id_solicitud);
+               
+            }
             
-            
-            
-            //request.setAttribute("mensaje",mensaje);
-            //request.setAttribute("seguimientos",seguimientos);
-            //request.setAttribute("tramite",tramite);
-            //request.setAttribute("solicitante",solicitante);
-            //request.setAttribute("solicitud",solicitud);
-            //request.setAttribute("pathadjuntos",pathadjuntos);
-            //if (id_grupo==1)
-            //{    
-                //RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento_registrante.jsp");
-                //rd.forward(request,response);
-            //}else
-            //{
-                //RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento.jsp");
-                //rd.forward(request,response);
                 
                 GsonBuilder builder=new GsonBuilder();
                 Gson gson=builder.create();
