@@ -698,8 +698,9 @@ public class ControladorSeguimiento extends HttpServlet
             //Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
             
             //obetnes datos del seguimiento por id_seguimiento
-            String midsolicitud;   
-            midsolicitud = request.getParameter("id_solicitud");  
+            String midsolicitud,midsolicitante;   
+            midsolicitud = request.getParameter("id_solicitud");
+            midsolicitante=request.getParameter("id_solicitante");
             id_solicitud=Integer.parseInt(midsolicitud);
             
             GestionSolicitud gsol=new GestionSolicitud(); 
@@ -707,7 +708,13 @@ public class ControladorSeguimiento extends HttpServlet
             id_tramite = solicitud.getId_tramite();
             id_solicitante = solicitud.getId_solicitante();
             ArrayList solic=new ArrayList();
-            solic.add(solicitud);
+            if (midsolicitante==id_solicitante.toString()){
+               solic.add(solicitud);
+               
+            }else{
+               solic.add("");
+            }
+            
             
             GestionSolicitante gsoli= new GestionSolicitante();
             solicitante= gsoli.obtenerPorId(id_solicitante);
