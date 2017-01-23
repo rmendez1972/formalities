@@ -22,16 +22,16 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band height="42" splitType="Stretch">
+		<band height="62" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="06d7dbe0-d4e4-45ca-a2f8-c681c6933dc0" x="197" y="1" width="360" height="20"/>
-				<textElement>
+				<reportElement uuid="06d7dbe0-d4e4-45ca-a2f8-c681c6933dc0" x="0" y="1" width="752" height="20"/>
+				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ventanilla Unica de Gestión de Trámites y Servicios]]></text>
 			</staticText>
-			<textField>
-				<reportElement uuid="79fbb0a4-c1df-4ff5-979d-0db4bfa2ad84" x="197" y="17" width="360" height="20"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="79fbb0a4-c1df-4ff5-979d-0db4bfa2ad84" x="6" y="17" width="746" height="45"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12"/>
 				</textElement>
