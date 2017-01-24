@@ -17,6 +17,7 @@ public class Tramite {
     private String unidadAdministrativa;
     private String direccion;
     
+    
     public Tramite(){}
     
     /*public Tramite(int id_tramite, int dias_resolucion, int id_unidadadministrativa, int id_direccion, String nombre){
