@@ -17,6 +17,7 @@
                 var params=new Object();
                 params.nombre=$("#nombre").val();
                 params.dias_resolucion=$("#dias_resolucion").val();
+                params.costo=$("#costo").val();
                 params.id_unidadAdministrativa=$("#unidadAdministrativa").val();
                 params.id_direccion=$("#direccion").val();
                 
@@ -84,7 +85,7 @@
                     <td></td>-->
                 </tr>
                 <tr>
-                    <td>Unidad administrativa:</td> <td>Dirección</td>
+                    <td>Unidad administrativa:</td> <td>Dirección:</td>
                 </tr>
                 <tr>
                     <td>
@@ -104,8 +105,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Costo: </td>
                     <td> </td>
-                    <td> </td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="costo" required style="width:600;font-size: 25px" pattern="([0-9a-zA-Z .-]{1,600})" placeholder="Escriba las reglas de operación para calcular el costo" /></td>
+                    <td>&nbsp;</td>
                 </tr>
                
                 <tr>

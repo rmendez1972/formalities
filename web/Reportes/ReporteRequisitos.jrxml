@@ -61,16 +61,16 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="26" splitType="Stretch">
+		<band height="44" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="80a7765a-9f42-4270-b77c-785b21f9c810" x="6" y="6" width="77" height="20"/>
+				<reportElement uuid="80a7765a-9f42-4270-b77c-785b21f9c810" x="6" y="6" width="77" height="38"/>
 				<textElement>
 					<font fontName="Tahoma"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id_requisito}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement uuid="f9b0cca3-ec6b-4266-bb93-9c836de06e6c" x="83" y="6" width="662" height="20"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="f9b0cca3-ec6b-4266-bb93-9c836de06e6c" x="83" y="6" width="662" height="38"/>
 				<textElement>
 					<font fontName="Tahoma"/>
 				</textElement>
@@ -79,7 +79,7 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="11" splitType="Stretch"/>
+		<band height="5" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch">

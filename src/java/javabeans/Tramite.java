@@ -16,7 +16,7 @@ public class Tramite {
     private String nombre;
     private String unidadAdministrativa;
     private String direccion;
-    
+    private String costo;
     
     public Tramite(){}
     
@@ -29,14 +29,17 @@ public class Tramite {
      
     }*/
     
-     public Tramite(int id_tramite, int dias_resolucion,int id_unidadadministrativa, int id_direccion, String nombre){
+     public Tramite(int id_tramite, int dias_resolucion,int id_unidadadministrativa, int id_direccion, String nombre, String costo){
         this.id_tramite=id_tramite;
         this.dias_resolucion=dias_resolucion;
         this.id_unidadadministrativa=id_unidadadministrativa;
         this.id_direccion=id_direccion;
         this.nombre=nombre;
+        this.costo=costo;
      
     }
+
+    
 
     public int getId_tramite() {
         return id_tramite;
@@ -94,5 +97,13 @@ public class Tramite {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+    
+    public String getCosto() {
+        return costo;
+    }
+
+    public void setCosto(String costo) {
+        this.costo = costo;
     }
 }

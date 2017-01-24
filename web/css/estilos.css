@@ -36,15 +36,15 @@
  /*Fin de los estilos generales */
 
  #consola{
-     margin:  10px;
+     margin:  5px;
      background-image: url(../imagenes/tools.png);
      background-repeat:no-repeat;
      background-position: 5px 15px;
      /*height: 65px;*/
-     width: 91%;
+     width: 95%;
      float: left;
    /*background-color: #28921f;*/
-      padding-left: 70px;
+      padding-left: 60px;
       opacity: 0.3;
      
  }

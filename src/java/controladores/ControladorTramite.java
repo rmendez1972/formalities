@@ -50,17 +50,20 @@ public class ControladorTramite extends ControladorBase {
            Tramite tram=new Tramite();
            tram.setNombre(request.getParameter("nombre"));
            tram.setDias_resolucion(Integer.parseInt(request.getParameter("dias_resolucion")));
+           tram.setCosto(request.getParameter("costo"));
            tram.setId_unidadadministrativa(Integer.parseInt(request.getParameter("id_unidadAdministrativa")));
            tram.setId_direccion(Integer.parseInt(request.getParameter("id_direccion")));
            
            if(modelo.registroTramite(tram)){
                RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=listar");
-                request.setAttribute("msg", "Datos guardados");
+                request.setAttribute("msg", "Datos guardados Exitosamente!");
+                request.setAttribute("tipo_alert", "alert-success");
                 rd.forward(request,response);
             }
             else{
                 RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=nuevo");
                 request.setAttribute("msg", "Error al guardar. Intente de nuevo más tarde");
+                request.setAttribute("tipo_alert", "alert-danger");
                 rd.forward(request,response);
             }
     }
@@ -71,11 +74,13 @@ public class ControladorTramite extends ControladorBase {
            if(modelo.eliminarPorId(id)){
                RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=listar");
                 request.setAttribute("msg", "Registro eliminado");
+                request.setAttribute("tipo_alert", "alert-warning");
                 rd.forward(request,response);
            }
            else{
                RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=listar");
                 request.setAttribute("msg", "Error al eliminar. El trámite se encuentra en uso");
+                request.setAttribute("tipo_alert", "alert-danger");
                 rd.forward(request,response);
            }
     }
@@ -102,6 +107,7 @@ public class ControladorTramite extends ControladorBase {
            tramite.setId_tramite(Integer.parseInt(request.getParameter("id_tramite")));
            tramite.setNombre(request.getParameter("nombre"));
            tramite.setDias_resolucion(Integer.parseInt(request.getParameter("dias_resolucion")));
+           tramite.setCosto(request.getParameter("costo"));
            tramite.setId_unidadadministrativa(Integer.parseInt(request.getParameter("id_unidadAdministrativa")));
            tramite.setId_direccion(Integer.parseInt(request.getParameter("id_direccion")));
            
@@ -110,12 +116,14 @@ public class ControladorTramite extends ControladorBase {
            GestionTramite modelo=new GestionTramite();
            if(modelo.actualizar(tramite)){
                 RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=listar");
-                request.setAttribute("msg", "Datos actualizados");
+                request.setAttribute("msg", "Datos actualizados Exitosamente !");
+                request.setAttribute("tipo_alert", "alert-success");
                 rd.forward(request,response);
            }
            else{
                 RequestDispatcher rd=request.getRequestDispatcher("controladortramite?operacion=editar");
                 request.setAttribute("msg", "Error al guardar. Intente de nuevo más tarde");
+                request.setAttribute("tipo_alert", "alert-danger");
                 rd.forward(request,response);
             }
     }
