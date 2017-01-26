@@ -166,7 +166,7 @@ public class ControladorSeguimiento extends HttpServlet
             ArrayList ua,tm,tramites,sexo,status = null;
             Tramite tramite;
             Usuario usuario;
-            
+                                   
             HttpSession objSession = request.getSession(); 
             usuario = (Usuario)(objSession.getAttribute("usuario")); 
             
@@ -214,6 +214,8 @@ public class ControladorSeguimiento extends HttpServlet
             request.setAttribute("sexo",sexo);
             request.setAttribute("status",status);
             request.setAttribute("uatramite",uatramite);
+            
+            
           
             RequestDispatcher rd=request.getRequestDispatcher("frm_seguimiento.jsp");
             rd.forward(request,response);
@@ -236,10 +238,11 @@ public class ControladorSeguimiento extends HttpServlet
             Sexo sexosolicitante;
             UnidadAdministrativa uatramite;
             Status statusseguimiento;
-            ArrayList ua,tm,tramites,sexo,status = null;
+            ArrayList ua,tm,tramites,sexo,status= null;
             Tramite tramite;
             Usuario usuario;
             Integer id_seguimiento,id_solicitud,id_solicitante,id_tramite,id_unidadaministrativa,id_unidadadministrativatramite,id_status;
+            Float costo_t;
             String clave,mensaje;
             Boolean nombreadjunto=false;
                     
@@ -335,12 +338,24 @@ public class ControladorSeguimiento extends HttpServlet
             Part p7  = request.getPart("id_status");
             Scanner s7 = new Scanner(p7.getInputStream());
             String id_status2 = s7.nextLine();    // read filename from stream
-        
+            
+            //Agregando costo del tramite igh 24/01/2017
+            Part p8  = request.getPart("costo_t");
+            Scanner s8 = new Scanner(p8.getInputStream());
+            String costo_t2 = s8.nextLine();    // read filename from stream
+            //costo_t=Integer.parseInt(costo_t2);
+            float costox= Float.parseFloat(costo_t2);
+            solicitante.setCosto(costox);
+            
             id_status=Integer.parseInt(id_status2);
             seguimiento.setId_status(id_status);  
             seguimiento.setId_usuario(id_usuario);
             seguimiento.setAdjunto(nombreadjunto);
-        
+            
+            //Actualizando datos solicitante igh 24/01/2017
+            GestionSolicitante gso=new GestionSolicitante();
+            resultado3=gso.actualizarSolicitanteSeguimiento(solicitante);
+            
             GestionSeguimiento gs=new GestionSeguimiento(); 
             
             resultado3=gs.registroSeguimiento(seguimiento);

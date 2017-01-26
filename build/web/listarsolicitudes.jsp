@@ -224,14 +224,35 @@
                         
                             <c:choose>
                                 <c:when test="${solicitudes.status=='TURNADO'}">
-                                    <td width="8%" style="font-size: 8px"><div class="statusTurnado"></div><div class="circulo"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>
+                                    <td width="8%" style="font-size: 8px;text-align: center; color:#FF0000;">
+                                        <div class="colorturnado circulo turnado"></div>
+                                        <c:out value="${solicitudes.status}"/>
+                                    </td>
                                 </c:when>
                                 <c:when test="${solicitudes.status=='TRAMITE'}">
-                                    <td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="statusTramite"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>
+                                    <td width="8%"style="font-size: 8px;text-align: center; color:#FFBF00;">
+                                        <div class="circulo tramite"></div>
+                                        <c:out value="${solicitudes.status}"/>
+                                    </td>
                                 </c:when>
                                 <c:when test="${solicitudes.status=='CONCLUIDO'}">
-                                    <td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="circulo"></div><div class="statusConcluido"></div><c:out value="${solicitudes.status}"/></td>
-                                </c:when>    
+                                    <td width="8%"style="font-size: 8px;text-align: center; color:#00FF00;">
+                                        <div class="circulo concluido"></div>
+                                        <c:out value="${solicitudes.status}"/>
+                                    </td>
+                                </c:when> 
+                                <c:when test="${solicitudes.status=='INCONCLUSO'}">
+                                    <td width="8%"style="font-size: 8px;text-align: center; color:#2E9AFE;">
+                                        <div class="circulo inconcluso"></div>
+                                        <c:out value="${solicitudes.status}"/>
+                                    </td>
+                                </c:when> 
+                                <c:when test="${solicitudes.status=='REVERTIDO'}">
+                                    <td width="8%"style="font-size: 8px;text-align: center; color:#8258FA;">
+                                        <div class="circulo revertido"></div>
+                                        <c:out value="${solicitudes.status}"/>
+                                    </td>
+                                </c:when>         
                                 <c:otherwise>
                                     <td width="8%" ><c:out value="${solicitudes.status}"/></td>
                                 </c:otherwise>

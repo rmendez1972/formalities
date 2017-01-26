@@ -40,7 +40,7 @@
             function semaforo(){
               
             }
-                if (${solicitud.id_status}==1){
+               /* if (${solicitud.id_status}==1){
                     document.getElementById("semaforo").style.backgroundPosition="0px -195px";
             }
             
@@ -50,7 +50,7 @@
             
             if (${solicitud.id_status}==3){
                     document.getElementById("semaforo").style.backgroundPosition="0px 0px";
-            }
+            }*/
             
             
             $(function()
@@ -100,7 +100,10 @@
 
        
 <div id="numSolic" style="float: left;height: 20px;width: 200px;margin-left: 10px">
-    <p>Solicitud Núm: ${solicitud.id_solicitud}</p>
+    <button class="btn btn-primary" type="button">
+        Solicitud Núm: <span class="badge">${solicitud.id_solicitud}</span>
+    </button>
+    
 </div>
     
 
@@ -200,8 +203,7 @@
       
     </table>
  
-
-<h1>Datos del trámite</h1> <!--<p>Estatus: ${solicitud.id_status}</p>!-->
+    <h1>Datos del trámite </h1> <!--<p>Estatus: ${solicitud.id_status}</p>!-->
 
 
 
@@ -238,62 +240,45 @@
       <input name="id_status" id="id_status" type="hidden"  value="${solicitud.id_status}" >
     </label></td>
     <td>
-      <input type="submit" name="enviarrequisitos" id="enviarrequisitos" value="Modificar solicitud" class="botona">
-      
+        <input type="submit" name="enviarrequisitos" id="enviarrequisitos" value="Modificar solicitud" class="botona">
     </td>
-    <td><div id="semaforo"> </div></td>
-  
+          
+    <td>
+        <div> 
+            <c:choose>
+                <c:when test="${solicitud.id_status=='1'}">
+                    <!--<td width="8%" style="font-size: 8px"><div class="statusTurnado"></div><div class="circulo"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>-->
+                    <td style="font-size: 14px;text-align: center; color:#FF0000;"><div class="colorturnado circulo turnado"></div>Turnado</td>
+                </c:when>
+                <c:when test="${solicitud.id_status=='2'}">
+                    <!--<td width="8%"style="font-size: 8px;text-align: center;"><div class="circulo"></div><div class="statusTramite"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>-->
+                    <td style="font-size: 14px;text-align: center; color:#FFBF00;"><div class="circulo tramite"></div>Tramite</td>
+                </c:when>
+                <c:when test="${solicitud.id_status=='3'}">
+                    <!--<td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="circulo"></div><div class="statusConcluido"></div><c:out value="${solicitudes.status}"/></td>-->
+                <td style="font-size: 14px;text-align: center; color:#00FF00;"><div class="circulo concluido"></div>Concluido</td>
+                </c:when> 
+
+                <c:when test="${solicitud.id_status=='4'}">
+                    <td style="font-size: 14px;text-align: center; color:#2E9AFE;"><div class="circulo inconcluso"></div>Inconcluso</td>
+                </c:when> 
+                <c:when test="${solicitud.id_status=='5'}">
+                <td style="font-size: 14px;text-align: center; color:#8258FA;"><div class="circulo revertido"></div>Revertido</td>
+                </c:when>         
+
+                <c:otherwise>
+                    <!--<td width="8%" ><c:out value="${solicitud.id_status}"/></td>-->
+                </c:otherwise>
+            </c:choose>
+       </div>
+    </td>
+      
   </tr>
 
-  </table>
+</table>
 
 
 </form>
-      
     
-    <!--
-    
-    <div align="center"> Acciones:
-            <div id="preview" 
-                 style= "border-right:  #000 1px solid; 
-                 PADDING-RIGHT: 0px; BORDER-TOP: #000 1px solid; 
-                 PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; 
-                 WORD-SPACING: 1px; OVERFLOW: scroll; 
-                 BORDER-LEFT: #000 1px solid; WIDTH: 300px; 
-                 PADDING-TOP: 1px; BORDER-BOTTOM: #000 2px solid; 
-                 HEIGHT: 100px; TEXT-ALIGN: left">
-                <button value="controladorregistro?operacion=borrar&id_solicitud=${solicitud.id_solicitud}" id="eliminar"
-                    titulo="Confirme la eliminación." mensaje="Está Ud. seguro de borrar esta solicitud!" 
-                    onclick="$.post(document.getElementById('eliminar').value,function(resultado) {$('#contenido').html(resultado);},'html');">
-                    <img src="imagenes/eliminar.png" class="btn-tabla" alt="eliminacion"  title="Eliminar solicitud"/>
-                </button>
-                    
-                <button value="controladorseguimiento?operacion=listar&id_solicitud=${solicitud.id_solicitud}" id="listar" 
-                    titulo="Confirme listado de seguimiento." mensaje="Está Ud. seguro de listar los seguimientos de esta solicitud!"
-                    onclick="$.post(document.getElementById('listar').value,function(resultado) {$('#contenido').html(resultado);},'html');">
-                    <img src="imagenes/listar.png" class="btn-tabla" alt="lista" title="Listar seguimientos de la solicitud"/>
-                </button>
-                                    
-                <button value="controladorregistro?operacion=verRequisitos&id=${solicitud.id_solicitud}" id="requisitos" 
-                         titulo="Confirme listado de Requisitos." mensaje="Está Ud. seguro de listar los requisitos de esta solicitud!"
-                         
-                       onclick="$.post('controladorregistro?operacion=verRequisitos&id='+document.getElementById('tramites').value,function(resultado) {$('#contenido').html(resultado);},'html');">
-                      
-                         
-                     <img src="imagenes/requisitos.png" class="btn-tabla" alt="requisitos" title="Listar Requisitos de la solicitud"/>
-                </button>
-                         
-                <button value="controladorregistro?operacion=enviarcorreo&id_solicitud=${solicitud.id_solicitud}" id="mail"
-                         titulo="Confirme el envió." mensaje="Está Ud. seguro de enviar los requisitos por email!"
-                         onclick="$.post(document.getElementById('mail').value,function(resultado) {$('#contenido').html(resultado);},'html');">
-                     <img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar requisitos por correo"  title="Enviar requisitos por correo"/> 
-                </button>  
-                
-                
-            </div>
-        </div>
-    
-        !-->
-
-    </body>
+</body>
 </html>

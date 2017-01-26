@@ -73,6 +73,7 @@
                     <h1>Listado de Seguimientos de la Solicitud</h1>
                     <p style="padding:0.1em"><strong>Núm. Solicitud: </strong>${solicitud.id_solicitud}</p>
                     <p style="padding:0.1em"><strong>Tramite: </strong>${tramite.nombre}</p>
+                    <p style="padding:0.1em"><strong>Costo $: </strong>${solicitante.costo}</p>
                     <p style="padding:0.1em"><strong>Solicitante:</strong> ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
                     <p style="padding:0.1em"><strong>Subsecretaría: </strong>${tramite.unidadAdministrativa}</p>
                     <p style="padding:0.1em"><strong>Dirección:</strong> ${tramite.direccion}</p>
@@ -104,16 +105,23 @@
                         
                         <c:choose>
                                 <c:when test="${seguimientos.estatus=='TURNADO'}">
-                                    <td width="10%" style="font-size: 8px"><div class="statusTurnado"></div><c:out value="${seguimientos.estatus}"/></td>
+                                    <td width="10%" style="font-size: 8px; text-align: center; color: #FF0000;"><div class="circulo turnado"></div><c:out value="${seguimientos.estatus}"/></td>
                                 </c:when>
                                     
                                 <c:when test="${seguimientos.estatus=='TRAMITE'}">
-                                    <td width="10%" style="font-size: 8px"><div class="statusTramite"></div><c:out value="${seguimientos.estatus}"/></td>
+                                    <td width="10%" style="font-size: 8px; text-align: center; color: #FFBF00;"><div class="circulo tramite"></div><c:out value="${seguimientos.estatus}"/></td>
                                 </c:when>
                                     
                                 <c:when test="${seguimientos.estatus=='CONCLUIDO'}">
-                                    <td width="10%" style="font-size: 8px"><div class="statusConcluido"></div><c:out value="${seguimientos.estatus}"/></td>
+                                    <td width="10%" style="font-size: 8px; text-align: center; color: #00FF00;"><div class="circulo concluido"></div><c:out value="${seguimientos.estatus}"/></td>
                                 </c:when>
+                                <c:when test="${seguimientos.estatus=='INCONCLUSO'}">
+                                    <td width="10%" style="font-size: 8px; text-align: center; color: #2E9AFE;"><div class="circulo inconcluso"></div><c:out value="${seguimientos.estatus}"/></td>
+                                </c:when>
+                                <c:when test="${seguimientos.estatus=='REVERTIDO'}">
+                                    <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo revertido"></div><c:out value="${seguimientos.estatus}"/></td>
+                                </c:when>
+                                    
                                     
                                 <c:otherwise>
                                     <td width="10%" style="font-size: 8px"><c:out value="${seguimientos.estatus}"/>

@@ -133,6 +133,9 @@ public class ControladorRegistro extends HttpServlet
         solicitante.setSexo(sexo);
         String password=request.getParameter("password").toUpperCase();
         solicitante.setPassword(password);
+        //float costo=Float.parseFloat(request.getParameter("costo_t"));
+        //solicitante.setCosto(costo);
+        
         
         //recuperando datos del usuario
         HttpSession objSession = request.getSession(); 
@@ -210,6 +213,14 @@ public class ControladorRegistro extends HttpServlet
           //solicitud = (Solicitud)request.getAttribute("solicitud");  
           //solicitante = (Solicitante)request.getAttribute("solicitante");  
           
+          //recuperando datos del usuario
+        HttpSession objSession = request.getSession(); 
+        Usuario usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+        Integer id_grupo=usuario.getId_grupo();
+        Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
+        Integer id_usuario=usuario.getId_usuario();
+          
           //datos del solicitante
           Integer id_solicitante=Integer.parseInt(request.getParameter("id_solicitante"));
           Integer id_status=Integer.parseInt(request.getParameter("id_status"));
@@ -232,15 +243,14 @@ public class ControladorRegistro extends HttpServlet
         solicitante.setPassword(password);
         String sexo=request.getParameter("sexo").toUpperCase();
         solicitante.setSexo(sexo);
+        if (id_grupo==2){       
+        //Costo...
+            float costo=Float.parseFloat(request.getParameter("costo_t"));
+            solicitante.setCosto(costo);
+        }
+                
         
         
-        //recuperando datos del usuario
-        HttpSession objSession = request.getSession(); 
-        Usuario usuario = (Usuario)(objSession.getAttribute("usuario")); 
-            
-        Integer id_grupo=usuario.getId_grupo();
-        Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
-        Integer id_usuario=usuario.getId_usuario();
         
         //datos de la solicitud
         Integer id_solcitud=Integer.parseInt(request.getParameter("id_solicitud"));
@@ -273,8 +283,13 @@ public class ControladorRegistro extends HttpServlet
           
         GestionSolicitante oper1=new GestionSolicitante(); 
         GestionSolicitud oper2=new GestionSolicitud();
-          
-          resultado = oper1.actualizarSolicitante(solicitante); // metodo para actualzar
+        if (id_grupo==1){  
+            resultado = oper1.actualizarSolicitante(solicitante); // metodo para actualzar
+        }
+        
+        if (id_grupo==2){  
+            resultado = oper1.actualizarSolicitanteSeguimiento(solicitante); // metodo para actualzar
+        }
           
           // acompletando los datos de la solicitud en el javabean
           solicitud.setId_solicitante(id_solicitante);

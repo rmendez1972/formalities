@@ -30,14 +30,16 @@ public class GestionSolicitante {
             sol.setEmail(res.getString("email"));
             sol.setPassword(res.getString("password"));
             sol.setDireccion(res.getString("direccion"));
+            //sol.setCosto(res.getInt("costo"));
+            sol.setCosto (res.getFloat("costo"));
         }catch(Exception e){}
         return sol;
     }
     
     public long registroSolicitante(Solicitante sol){
-        Object params[]={ sol.getNombre(), sol.getApellido_paterno(), sol.getApellido_materno(), sol.getTelefono(), sol.getRfc(), sol.getSexo(), sol.getEmail(), sol.getDireccion(), sol.getPassword()};
+        Object params[]={ sol.getNombre(), sol.getApellido_paterno(), sol.getApellido_materno(), sol.getTelefono(), sol.getRfc(), sol.getSexo(), sol.getEmail(), sol.getDireccion(), sol.getPassword(),sol.getCosto()};
         long res=-1;
-        if(Conexion.ejecutar("insert into solicitante (nombre, apellido_paterno, apellido_materno, telefono, rfc, sexo, email, direccion, password) values(?,?,?,?,?,?,?,?,?)", params)){
+        if(Conexion.ejecutar("insert into solicitante (nombre, apellido_paterno, apellido_materno, telefono, rfc, sexo, email, direccion, password, costo) values(?,?,?,?,?,?,?,?,?,?)", params)){
             Object tmp=Conexion.ejecutarEscalar("select last_insert_id() as last_id from solicitante", null);
             if(tmp instanceof java.math.BigInteger){
                 java.math.BigInteger res2=(java.math.BigInteger)tmp;
@@ -50,7 +52,16 @@ public class GestionSolicitante {
         
     }
     
+    public boolean actualizarSolicitanteSeguimiento(Solicitante sol){
+        
+        
+        Object params[]={sol.getNombre(), sol.getApellido_paterno(), sol.getApellido_materno(), sol.getTelefono(), sol.getRfc(), sol.getSexo(), sol.getEmail(), sol.getDireccion(), sol.getPassword(), sol.getCosto(), sol.getId_solicitante()};
+        return Conexion.ejecutar("update solicitante set nombre=?, apellido_paterno=?, apellido_materno=?, telefono=?, rfc=?, sexo=?, email=?, direccion=?, password=?, costo=? where id_solicitante=?", params);
+    }
+    
     public boolean actualizarSolicitante(Solicitante sol){
+        
+        
         Object params[]={sol.getNombre(), sol.getApellido_paterno(), sol.getApellido_materno(), sol.getTelefono(), sol.getRfc(), sol.getSexo(), sol.getEmail(), sol.getDireccion(), sol.getPassword(), sol.getId_solicitante()};
         return Conexion.ejecutar("update solicitante set nombre=?, apellido_paterno=?, apellido_materno=?, telefono=?, rfc=?, sexo=?, email=?, direccion=?, password=? where id_solicitante=?", params);
     }

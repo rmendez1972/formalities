@@ -125,7 +125,7 @@
       </tr>
     </table>
  
-<h3>Datos del trámite:</h3>
+<h3>Datos del trámite:<span style="color:#000;font-size:14px;font-weight:normal;">    Costo: ${solicitante.costo}</span></h3>
 
 <table width="920" border="2" align="center" >
   <tr>
@@ -148,6 +148,7 @@
         <td width="300">Fecha de Seguimiento:</td>
         <td width="300">Observaciones:</td>
         <td width="300">Estatus del Trámite:</td>
+        <td width="300">Costo Trámite:</td>
         
    </tr>
   <tr>
@@ -160,8 +161,10 @@
       </c:forEach>
     </select>
     </td>
+    <td><input type="number" step="0.01" name="costo_t" id="costo_t" value="${solicitante.costo}"/> </td>
     
   </tr>
+  
  </table>
    
  <table width="920" border="0" align="center" style="background-color: rgba(255, 255,0,.3)">  

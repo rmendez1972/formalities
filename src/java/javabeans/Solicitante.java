@@ -10,9 +10,24 @@ package javabeans;
  */
 public class Solicitante {
     private int id_solicitante;
+    private float costo;
     private String nombre, apellido_paterno, apellido_materno, telefono, rfc, sexo, email, direccion,password;
     
     public Solicitante(){}
+    
+    public Solicitante(int id_solicitante, String nombre, String apellido_paterno, String apellido_materno, String telefono, String rfc, String sexo, String email, String direccion, String password, float costo){
+        this.id_solicitante=id_solicitante;
+        this.nombre=nombre;
+        this.apellido_paterno=apellido_paterno;
+        this.apellido_materno=apellido_materno;
+        this.telefono=telefono;
+        this.rfc=rfc;
+        this.sexo=sexo;
+        this.email=email;
+        this.direccion=direccion;
+        this.password=password;
+        this.costo=costo;
+    }
     
     public Solicitante(int id_solicitante, String nombre, String apellido_paterno, String apellido_materno, String telefono, String rfc, String sexo, String email, String direccion, String password){
         this.id_solicitante=id_solicitante;
@@ -25,6 +40,7 @@ public class Solicitante {
         this.email=email;
         this.direccion=direccion;
         this.password=password;
+       
     }
 
     public int getId_solicitante() {
@@ -105,6 +121,14 @@ public class Solicitante {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public float getCosto() {
+        return costo;
+    }
+
+    public void setCosto(float costo) {
+        this.costo = costo;
     }
     
     
