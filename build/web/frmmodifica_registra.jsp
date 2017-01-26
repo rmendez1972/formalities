@@ -100,7 +100,10 @@
 
        
 <div id="numSolic" style="float: left;height: 20px;width: 200px;margin-left: 10px">
-    <p>Solicitud Núm: ${solicitud.id_solicitud}</p>
+    <button class="btn btn-primary" type="button">
+        Solicitud Núm: <span class="badge">${solicitud.id_solicitud}</span>
+    </button>
+    
 </div>
     
 

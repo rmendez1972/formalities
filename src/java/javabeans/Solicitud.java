@@ -13,7 +13,9 @@ import java.util.Date;
 public class Solicitud {
     private int id_solicitud;
     private Date fecha_ingreso, fecha_termino;
-    private int id_tramite, id_solicitante, id_usuario_ingreso, id_usuario_seguimiento, id_status;
+
+    
+    private int id_tramite, id_solicitante, id_usuario_ingreso, id_usuario_seguimiento, id_status,dias_resolucion,dias_diferencia;
     private String tramite,solicitante,status,unidadadministrativa,direccion;
 
     
@@ -31,9 +33,10 @@ public class Solicitud {
         this.id_status=id_status;
     }
     
+      
     
     
-    public Solicitud(int id_solicitud, Date fecha_ingreso, Date fecha_termino, int id_tramite, int id_solicitante, int id_usuario_ingreso, int id_usuario_seguimiento, int id_status, String tramite, String solicitante, String status, String unidadadministrativa){
+    public Solicitud(int id_solicitud, Date fecha_ingreso, Date fecha_termino, int id_tramite, int id_solicitante, int id_usuario_ingreso, int id_usuario_seguimiento, int id_status, String tramite, String solicitante, String status, String unidadadministrativa, int dias_resolucion){
         this.id_solicitud=id_solicitud;
         this.fecha_ingreso=fecha_ingreso;
         this.fecha_termino=fecha_termino;
@@ -46,6 +49,24 @@ public class Solicitud {
         this.solicitante=solicitante;
         this.status=status;
         this.unidadadministrativa=unidadadministrativa;
+        this.dias_resolucion=dias_resolucion;
+    }
+    
+    public Solicitud(int id_solicitud, Date fecha_ingreso, Date fecha_termino, int id_tramite, int id_solicitante, int id_usuario_ingreso, int id_usuario_seguimiento, int id_status, String tramite, String solicitante, String status, String unidadadministrativa, int dias_resolucion,int dias_diferencia){
+        this.id_solicitud=id_solicitud;
+        this.fecha_ingreso=fecha_ingreso;
+        this.fecha_termino=fecha_termino;
+        this.id_tramite=id_tramite;
+        this.id_solicitante=id_solicitante;
+        this.id_usuario_ingreso=id_usuario_ingreso;
+        this.id_usuario_seguimiento=id_usuario_seguimiento;
+        this.id_status=id_status;
+        this.tramite=tramite;
+        this.solicitante=solicitante;
+        this.status=status;
+        this.unidadadministrativa=unidadadministrativa;
+        this.dias_resolucion=dias_resolucion;
+        this.dias_diferencia=dias_diferencia;
     }
     
      public Solicitud( Date fecha_ingreso, Date fecha_termino,  int id_status){
@@ -160,4 +181,20 @@ public class Solicitud {
         this.direccion = direccion;
     }
     
+    
+    public int getDias_resolucion() {
+        return dias_resolucion;
+    }
+
+    public void setDias_resolucion(int dias_resolucion) {
+        this.dias_resolucion = dias_resolucion;
+    }
+    
+    public int getDias_diferencia() {
+        return dias_diferencia;
+    }
+
+    public void setDias_diferencia(int dias_diferencia) {
+        this.dias_diferencia = dias_diferencia;
+    }
 }
