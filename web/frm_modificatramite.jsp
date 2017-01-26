@@ -16,6 +16,7 @@
                 params.id_tramite=$("#id_tramite").val();
                 params.nombre=$("#nombre").val();
                 params.dias_resolucion=$("#dias_resolucion").val();
+                params.costo=$("#costo").val();
                 params.id_unidadAdministrativa=$("#unidadAdministrativa").val();
                 params.id_direccion=$("#direccion").val();
                 
@@ -90,8 +91,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td colspan='2'>Costo:</td>
+                    <td colspan='2'>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="costo" required style="width: 600px; font-size: 14px"pattern="([0-9a-zA-Z .-]{1,600})" placeholder="Escriba la regla de operación para calcular el costo" value="${tramite.costo}" /></td>
                     <td>&nbsp;</td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Aceptar" class="frm-btn" /> <input type="reset" value="Cancelar" class="frm-btn" /></td>

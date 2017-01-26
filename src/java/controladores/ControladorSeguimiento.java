@@ -828,7 +828,7 @@ public class ControladorSeguimiento extends HttpServlet
           if(nombrestatus.equals("CONCLUIDO"))
           {    
             mail correo = new mail();
-            resultado=correo.send(email, "Notificación de Estatus de Trámite con la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te avisamos de la conclusión de tu trámite (<b>"+nombretramite+"</b>), de fecha: "+fecha_seguimiento+" con número de folio: <b>"+id_solicitud+"</b> con las siguientes observaciones: <br>"+observaciones+"<br><br>"+"Atentamente"+"<br><br>"+"<b>"+nombreunidadadministrativa+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
+            resultado=correo.send(email, "Notificación de Estatus de Trámite con la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te avisamos de la conclusión de tu trámite (<b>"+nombretramite+"</b>), de fecha: "+fecha_seguimiento+" con número de folio: <b>"+id_solicitud+"</b> con las siguientes observaciones: <br>"+observaciones+"<br><br>"+"Atentamente"+"<br><br>"+"<b>"+nombreunidadadministrativa+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
           }
           if(resultado==true)
           {

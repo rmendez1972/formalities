@@ -15,7 +15,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <link href="imagenes/valid.png"  rel="shortcut icon" />
         <!--Estilos!-->
+        <link href="css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css"/> 
+        
         <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
         
         <!-- framework jquery -->
@@ -23,6 +25,7 @@
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
         <script src="js/jquery.confirm.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         
         <!-- Librerias javaScript de la aplicacion tramites -->
         <script type="text/javascript" language="JavaScript" src="js/script_tramites.js"></script>
@@ -98,7 +101,7 @@
             <div id="subheader">
 		<div id="logotipo"></div>
                 <div id="sistema">Ventanilla Única de Gestión<br/> de Trámites y Servicios<br/>
-                    <span class="secre" style="font-size: 12px; color:#000000"><br/>USUARIO:
+                    <span  style="font-size: 12px; color:#000000; margin-bottom:10px"><br/>USUARIO:
                       
                         <script type="text/javascript">document.write(usuario+'    ');</script>
                         
