@@ -251,7 +251,7 @@
                         
                             <c:choose>
                                 <c:when test="${solicitudes.status=='TURNADO'}">
-<<<<<<< HEAD
+
                                     <td width="8%" style="font-size: 8px;text-align: center; color:#FF0000;">
                                         <div class="colorturnado circulo turnado"></div>
                                         <c:out value="${solicitudes.status}"/>
@@ -281,16 +281,6 @@
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
                                 </c:when>         
-=======
-                                    <td width="3%" style="font-size: 8px"><div class="statusTurnado"></div><div class="circulo"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>
-                                </c:when>
-                                <c:when test="${solicitudes.status=='TRAMITE'}">
-                                    <td width="3%"style="font-size: 8px"><div class="circulo"></div><div class="statusTramite"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>
-                                </c:when>
-                                <c:when test="${solicitudes.status=='CONCLUIDO'}">
-                                    <td width="3%"style="font-size: 8px"><div class="circulo"></div><div class="circulo"></div><div class="statusConcluido"></div><c:out value="${solicitudes.status}"/></td>
-                                </c:when>    
->>>>>>> 21522bc768dd6e02fd44d88a1b8557c6f69e06ef
                                 <c:otherwise>
                                     <td width="3%" ><c:out value="${solicitudes.status}"/></td>
                                 </c:otherwise>
