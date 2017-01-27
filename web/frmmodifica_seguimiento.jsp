@@ -122,7 +122,7 @@
       </tr>
     </table>
  
-<h3>Datos del Trámite:</h3></p>
+    <h3>Datos del Trámite: <span style="color:#000; font-size: 16px;">   Costo: ${solicitante.costo}</span></h3></p>
 
 <table width="920" border="0" align="center">
   <tr>

@@ -384,6 +384,7 @@ input:required:valid, textarea:required:valid{
 
         #logotipo { /*Div contenedor para el logotipo SEDUVI*/
                 background:url(../imagenes/LogoSEDUVI.png);
+                background-repeat: no-repeat;
                 float: left;
                 width: 190px;
                 height: 120px;

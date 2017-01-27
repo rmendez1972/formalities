@@ -3,16 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_registra.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/index.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimiento.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frmmodifica_seguimiento.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionSolicitud.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/javabeans/Solicitante.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarseguimiento.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_registra.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorRegistro.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/javabeans/Solicitante.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimientoId.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frmmodifica_registra.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_seguimiento.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listaradjunto.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/css/estilos.css</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionSolicitante.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorSeguimiento.java</file>
         </group>
     </open-files>

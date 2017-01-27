@@ -367,7 +367,10 @@ public class ControladorRegistro extends HttpServlet
             UnidadAdministrativa unidadadministrativa;
             ArrayList solicitudes;
             Solicitud solicitud;
+            Solicitante solicitante;//
+            Tramite tramite;//
             String mensajeloc;
+            Integer id_tramite,id_solicitante;//
             //recupero el usuario de la sesion 
             HttpSession objSession = request.getSession(); 
             usuario = (Usuario)(objSession.getAttribute("usuario")); 
@@ -382,6 +385,15 @@ public class ControladorRegistro extends HttpServlet
                 unidadadministrativa = gua.obtenerPorId(id_unidadadministrativa);
                 String nombreunidadadministrativa=unidadadministrativa.getNombre();
                 
+                GestionSolicitud gsol=new GestionSolicitud();// 
+                solicitud=gsol.obtenerPorId(id_solicitud);//
+                id_tramite = solicitud.getId_tramite();//
+                id_solicitante = solicitud.getId_solicitante();//                
+                GestionSolicitante gsoli= new GestionSolicitante();//
+                solicitante= gsoli.obtenerPorId(id_solicitante);//                
+                GestionTramite gtm=new GestionTramite();// 
+                tramite=gtm.obtenerPorId(id_tramite);//
+                
                 solicitud = oper2.obtenerPorId(id_solicitud);
                 if (solicitud==null)
                 {
@@ -390,6 +402,8 @@ public class ControladorRegistro extends HttpServlet
                 {
                     mensajeloc="Solicitud localizada exitosamente";
                 }
+                request.setAttribute("solicitante",solicitante);//
+                request.setAttribute("tramite",tramite); //
                 request.setAttribute("solicitud",solicitud);
                 request.setAttribute("mensajeloc",mensajeloc);
                 request.setAttribute("nombreunidadadministrativa",nombreunidadadministrativa);
