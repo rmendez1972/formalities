@@ -206,13 +206,13 @@
                     <th width="5%">Núm. Solicitud</th>
                     <th width="8%">Ingreso</th>
                     <th width="10%">Subsecretaría</th>
-                    <th width="20%">Trámite</th>
+                    <th width="15%">Trámite</th>
                     <th width="4%">Dias Resolución</th>
                     <th width="3%">Días Restantes</th>
                     <th width="10%">Solicitante</th>
                     <th width="3%">Estatus</th>
                     
-                    <th width="37%">Acciones</th>
+                    <th width="42%">Acciones</th>
                 </tr>
             </thead>
             
@@ -222,7 +222,7 @@
                         <td width="5%"><span class="badge"><c:out value="${solicitudes.id_solicitud}"/></span></td> 
                         <td width="8%"><c:out value="${solicitudes.fecha_ingreso}"/></td> 
                         <td width="10%"><c:out value="${solicitudes.unidadadministrativa}" /></td> 
-                        <td width="20%"><c:out value="${solicitudes.tramite}" /></td>
+                        <td width="15%"><c:out value="${solicitudes.tramite}" /></td>
                         <td width="4%"> <span class="badge"><c:out value="${solicitudes.dias_resolucion}" /></span></td>
                         <td width="3%" style="text-align: right">
                             <c:set var="dias_restantes" value="${solicitudes.dias_resolucion-solicitudes.dias_diferencia}"/>
@@ -286,7 +286,7 @@
                                 </c:otherwise>
                             </c:choose>
                         
-                        <td width="37%">
+                        <td width="42%">
                             <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
                                     titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
                                     <img src="imagenes/editar.png" class="btn-tabla" alt="edicion" title="Editar solicitud"/>

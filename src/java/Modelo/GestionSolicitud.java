@@ -45,11 +45,14 @@ public class GestionSolicitud {
     
     public ArrayList obtenerPorUnidad(int id_unidadadministrativa, int id_direccion){
         ArrayList sol=new ArrayList();
+        Date now = new Date();
         Object params[]={id_unidadadministrativa, id_direccion};
         ResultSet res=Conexion.ejecutarConsulta("select S.id_solicitud, S.fecha_ingreso, S.fecha_termino, S.id_tramite, S.id_solicitante, S.id_usuario_ingreso, S.id_usuario_seguimiento, S.id_status, T.nombre as tramite, concat(P.nombre,' ',P.apellido_paterno,' ',P.apellido_materno) as solicitante, ST.nombre as status, UA.nombre as ua, T.dias_resolucion as dias_resolucion from solicitud S inner join tramite T on S.id_tramite=T.id_tramite inner join solicitante P on S.id_solicitante=P.id_solicitante inner join status ST on S.id_status=ST.id_status inner join unidadadministrativa UA on T.id_unidadadministrativa=UA.id_unidadadministrativa  where T.id_unidadadministrativa=? and T.id_direccion=? order by S.fecha_Ingreso desc", params);
         try{
             while(res.next()){
-                Solicitud s=new Solicitud(res.getInt("id_solicitud"), res.getTimestamp("fecha_ingreso"), res.getDate("fecha_termino"), res.getInt("id_tramite"), res.getInt("id_solicitante"), res.getInt("id_usuario_ingreso"), res.getInt("id_usuario_seguimiento"), res.getInt("id_status"), res.getString("tramite"), res.getString("solicitante"), res.getString("status"),res.getString("ua"),res.getInt("dias_resolucion"));
+                Date fechaingreso = new Date(res.getTimestamp("fecha_ingreso").getTime());
+                int diffInDays = (int)( (now.getTime() - fechaingreso.getTime())/ (1000 * 60 * 60 * 24) );
+                Solicitud s=new Solicitud(res.getInt("id_solicitud"), res.getTimestamp("fecha_ingreso"), res.getDate("fecha_termino"), res.getInt("id_tramite"), res.getInt("id_solicitante"), res.getInt("id_usuario_ingreso"), res.getInt("id_usuario_seguimiento"), res.getInt("id_status"), res.getString("tramite"), res.getString("solicitante"), res.getString("status"),res.getString("ua"),res.getInt("dias_resolucion"),diffInDays);
                 sol.add(s);
             }
             res.close();
