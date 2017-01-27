@@ -148,45 +148,71 @@
         
         <table id="solicitudes"  class="tablesorter" width="98%">
             <thead>
-            <tr><th>Núm. Solicitud</th><th>Ingreso</th><th>Trámite</th><th>Solicitante</th><th>Estatus</th><th>Acciones</th></tr>
+            <tr><th width="5%">Núm. Solicitud</th><th width="8%">Ingreso</th><th width="15%">Subsecretaría</th><th width="25%">Trámite</th><th width="4%">Dias Resolución</th>
+                    <th width="3%">Días Restantes</th><th width="20%">Solicitante</th><th  width="3%">Estatus</th><th width="17%">Acciones</th></tr>
             </thead>
             <tbody>
                 <c:forEach var="solicitudes" items="${requestScope.solicitudes}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}">
-                        <td width="8%"><c:out value="${solicitudes.id_solicitud}"/></td> 
+                        <td width="5%"><span class="badge"><c:out value="${solicitudes.id_solicitud}"/></span></td> 
                         <td width="8%"><c:out value="${solicitudes.fecha_ingreso}"/></td> 
-                        <td width="31%"><c:out value="${solicitudes.tramite}" /></td> 
-                        <td width="31%"><c:out value="${solicitudes.solicitante}" /></td>
+                        <td width="15%"><c:out value="${solicitudes.unidadadministrativa}" /></td> 
+                        <td width="25%"><c:out value="${solicitudes.tramite}" /></td>
+                        <td width="4%"> <span class="badge"><c:out value="${solicitudes.dias_resolucion}" /></span></td>
+                        <td width="3%" style="text-align: right">
+                            <c:set var="dias_restantes" value="${solicitudes.dias_resolucion-solicitudes.dias_diferencia}"/>
+
+                            <c:if test="${dias_restantes>5}">
+                                <div style="font-size: 16px"> 
+                                    <span class="label label-info label-as-badge"><c:out value="${dias_restantes}" /></span>
+                               </div> 
+                            </c:if>
+                            
+                            <c:if test="${dias_restantes>=1 && dias_restantes<=5}">
+                               <div style="font-size: 16px"> 
+                                    <span class="label label-warning label-as-badge"><c:out value="${dias_restantes}" /></span>
+                               </div> 
+                            </c:if>
+                            
+                            <c:if test="${dias_restantes<=0}">
+                               <div style="font-size: 16px"> 
+                                    <span class="label label-danger label-as-badge"><c:out value="${dias_restantes}" /></span>
+                               </div> 
+                            </c:if>
+
+                        
+                        </td> 
+                        <td width="20%"><c:out value="${solicitudes.solicitante}" /></td>
                         <c:choose>
                                 <c:when test="${solicitudes.status=='TURNADO'}">
                                     <!--<td width="8%" style="font-size: 8px"><div class="statusTurnado"></div><div class="circulo"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>-->
-                                    <td width="8%" style="font-size: 8px; text-align: center; color:#FF0000;"><div class="circulo turnado"></div><c:out value="${solicitudes.status}"/></td>
+                                    <td width="3%" style="font-size: 8px; text-align: center; color:#FF0000;"><div class="circulo turnado"></div><c:out value="${solicitudes.status}"/></td>
                                 </c:when>
                                 <c:when test="${solicitudes.status=='TRAMITE'}">
                                     <!--<td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="statusTramite"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>-->
-                                    <td width="8%" style="font-size: 8px; text-align: center; color: #FFBF00;"><div class="circulo tramite"></div><c:out value="${solicitudes.status}"/></td>
+                                    <td width="3%" style="font-size: 8px; text-align: center; color: #FFBF00;"><div class="circulo tramite"></div><c:out value="${solicitudes.status}"/></td>
                                 </c:when>
                                 <c:when test="${solicitudes.status=='CONCLUIDO'}">
                                     <!--<td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="circulo"></div><div class="statusConcluido"></div><c:out value="${solicitudes.status}"/></td>-->
-                                    <td width="8%" style="font-size: 8px; text-align: center; color: #00FF00;"><div class="circulo concluido"></div><c:out value="${solicitudes.status}"/></td>
+                                    <td width="3%" style="font-size: 8px; text-align: center; color: #00FF00;"><div class="circulo concluido"></div><c:out value="${solicitudes.status}"/></td>
                                 </c:when>
                                     
                                 <c:when test="${solicitudes.status=='INCONCLUSO'}">
                                     <!--<td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="circulo"></div><div class="statusConcluido"></div><c:out value="${solicitudes.status}"/></td>-->
-                                    <td width="8%" style="font-size: 8px; text-align: center; color:#2E9AFE;"><div class="circulo inconcluso"></div><c:out value="${solicitudes.status}"/></td>
+                                    <td width="3%" style="font-size: 8px; text-align: center; color:#2E9AFE;"><div class="circulo inconcluso"></div><c:out value="${solicitudes.status}"/></td>
                                 </c:when>      
                                 <c:when test="${solicitudes.status=='REVERTIDO'}">
                                     <!--<td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="circulo"></div><div class="statusConcluido"></div><c:out value="${solicitudes.status}"/></td>-->
-                                    <td width="8%" style="font-size: 8px; text-align: center; color:#8258FA;"><div class="circulo revertido"></div><c:out value="${solicitudes.status}"/></td>
+                                    <td width="3%" style="font-size: 8px; text-align: center; color:#8258FA;"><div class="circulo revertido"></div><c:out value="${solicitudes.status}"/></td>
                                 </c:when>      
                                     
                                 <c:otherwise>
-                                    <td width="8%" style="font-size: 8px"><c:out value="${solicitudes.status}"/></td>
+                                    <td width="3%" style="font-size: 8px"><c:out value="${solicitudes.status}"/></td>
                                 </c:otherwise>
                             </c:choose>
                         
                        
-                        <td width="20%">
+                        <td width="17%">
                                 
                             <button value="controladorseguimiento?operacion=capturar&id_solicitud=${solicitudes.id_solicitud}" id="agregar">
                                 <img src="imagenes/agregar.png" class="btn-tabla" alt="Agregar" onClick="return confirm('Va a agregar un registro')" title="Agregar un seguimiento" />

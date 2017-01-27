@@ -20,7 +20,7 @@
         <!--Estilos!-->
 	<link rel="stylesheet" type="text/css" href="css/estilos.css"/> 
        
-        <title>Listado de Seguimientos</title>
+        <title>Listado de Adjuntos</title>
         
         <script>
             /*variable que trae la bandera de exito o fracaso del modelo*/
