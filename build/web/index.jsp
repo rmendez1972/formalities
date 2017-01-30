@@ -100,14 +100,14 @@
             
             <div id="subheader">
 		<div id="logotipo"></div>
-                <div id="sistema">Ventanilla Única de Gestión<br/> de Trámites y Servicios<br/>
-                    <span  style="font-size: 12px; color:#000000; margin-bottom:10px"><br/>USUARIO:
+                <div id="sistema">Ventanilla Única de Gestión<br/> de Trámites y Servicios
+                    <div  style="font-size: 12px; color:#000; margin-top: 5px"><strong>USUARIO:</strong>
                       
                         <script type="text/javascript">document.write(usuario+'    ');</script>
                         
                        
                         <a href="login.jsp"> <img src="imagenes/locked.png" class="btn-tabla" alt="Cerrar Sesión"  title="Cerrar Sesión"></a>
-                    </span>
+                    </div>
                 </div>
 
 		<nav>

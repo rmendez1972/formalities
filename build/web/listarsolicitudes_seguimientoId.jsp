@@ -79,7 +79,12 @@
             <tr>
                 <td width="90%" align="right"> 
                     <h1>Listado de Solicitudes</h1>
-                    <p>Subsecretaría:  ${nombreunidadadministrativa}</p>
+                    <p style="padding:0.1em"><strong>Núm. Solicitud: </strong>${solicitud.id_solicitud}</p>
+                    <p style="padding:0.1em"><strong>Tramite: </strong>${tramite.nombre}</p>
+                    <p style="padding:0.1em"><strong>Costo $: </strong>${solicitante.costo}</p>
+                    <p style="padding:0.1em"><strong>Solicitante:</strong> ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
+                    <p style="padding:0.1em"><strong>Subsecretaría: </strong>${tramite.unidadAdministrativa} </p>
+                    <p style="padding:0.1em"><strong>Dirección:</strong> ${tramite.direccion}</p>
                 </td>
                 <td width="8%" align="right">
                     <div class="btn-catalogo">
@@ -126,19 +131,30 @@
                         <td width="31%"><c:out value="${solicitud.tramite}" /></td> 
                         <td width="31%"><c:out value="${solicitud.solicitante}" /></td>
                         <c:choose>
-                                <c:when test="${solicitud.status=='TURNADO'}">
-                                    <td width="8%" style="font-size: 8px"><div class="statusTurnado"></div><div class="circulo"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>
-                                </c:when>
-                                <c:when test="${solicitud.status=='TRAMITE'}">
-                                    <td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="statusTramite"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>
-                                </c:when>
-                                <c:when test="${solicitud.status=='CONCLUIDO'}">
-                                    <td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="circulo"></div><div class="statusConcluido"></div><c:out value="${solicitudes.status}"/></td>
-                                </c:when>    
-                                <c:otherwise>
-                                    <td width="8%" style="font-size: 8px"><c:out value="${solicitud.status}"/></td>
-                                </c:otherwise>
-                            </c:choose>
+                <c:when test="${solicitud.id_status=='1'}">
+                    <!--<td width="8%" style="font-size: 8px"><div class="statusTurnado"></div><div class="circulo"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>-->
+                    <td style="font-size: 14px;text-align: center; color:#FF0000;"><div class="colorturnado circulo turnado"></div>Turnado</td>
+                </c:when>
+                <c:when test="${solicitud.id_status=='2'}">
+                    <!--<td width="8%"style="font-size: 8px;text-align: center;"><div class="circulo"></div><div class="statusTramite"></div><div class="circulo"></div><c:out value="${solicitudes.status}"/></td>-->
+                    <td style="font-size: 14px;text-align: center; color:#FFBF00;"><div class="circulo tramite"></div>Tramite</td>
+                </c:when>
+                <c:when test="${solicitud.id_status=='3'}">
+                    <!--<td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="circulo"></div><div class="statusConcluido"></div><c:out value="${solicitudes.status}"/></td>-->
+                <td style="font-size: 14px;text-align: center; color:#00FF00;"><div class="circulo concluido"></div>Concluido</td>
+                </c:when> 
+
+                <c:when test="${solicitud.id_status=='4'}">
+                    <td style="font-size: 14px;text-align: center; color:#2E9AFE;"><div class="circulo inconcluso"></div>Inconcluso</td>
+                </c:when> 
+                <c:when test="${solicitud.id_status=='5'}">
+                <td style="font-size: 14px;text-align: center; color:#8258FA;"><div class="circulo revertido"></div>Revertido</td>
+                </c:when>         
+
+                <c:otherwise>
+                    <!--<td width="8%" ><c:out value="${solicitud.id_status}"/></td>-->
+                </c:otherwise>
+            </c:choose>
                         
                        
                         <td width="20%">

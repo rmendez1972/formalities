@@ -73,6 +73,7 @@
                     <h1>Listado de Adjuntos del Seguimiento</h1>
                     <p style="padding:0.1em"><strong>Núm. Solicitud: </strong>${solicitud.id_solicitud}</p>
                     <p style="padding:0.1em"><strong>Tramite: </strong>${tramite.nombre}</p>
+                    <p style="padding:0.1em"><strong>Costo: </strong>${solicitante.costo}</p>
                     <p style="padding:0.1em"><strong>Solicitante:</strong> ${solicitante.nombre} ${solicitante.apellido_paterno} ${solicitante.apellido_materno}</p>
                     <p style="padding:0.1em"><strong>Subsecretaría: </strong>${tramite.unidadAdministrativa}</p>
                     <p style="padding:0.1em"><strong>Dirección:</strong> ${tramite.direccion}</p><br>
