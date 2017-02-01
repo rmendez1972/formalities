@@ -3,20 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/index.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimiento.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frmmodifica_seguimiento.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarseguimiento.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_registra.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorRegistro.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/javabeans/Solicitante.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimientoId.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frmmodifica_registra.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listaradjunto.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/css/estilos.css</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorSeguimiento.java</file>
-=======
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_modificausuario.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/scr_admin.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frmmodifica_seguimiento.jsp</file>
@@ -86,7 +72,6 @@
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Seguimiento.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Status.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listarseguimiento_registrante.jsp</file>
->>>>>>> 0a2b8ef8c6e2e22a18f85e35d4abe82385cae525
         </group>
     </open-files>
 </project-private>
