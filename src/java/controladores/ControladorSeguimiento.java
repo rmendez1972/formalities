@@ -834,12 +834,25 @@ public class ControladorSeguimiento extends HttpServlet
             mail correo = new mail();
             resultado=correo.send(email, "Notificación de Estatus de Trámite con la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te avisamos de la conclusión de tu trámite (<b>"+nombretramite+"</b>), de fecha: "+fecha_seguimiento+" con número de folio: <b>"+id_solicitud+"</b> con las siguientes observaciones: <br>"+observaciones+"<br><br>"+"Atentamente"+"<br><br>"+"<b>"+nombreunidadadministrativa+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
           }
+          
+          if(nombrestatus.equals("INCONCLUSO"))
+          {    
+            mail correo = new mail();
+            resultado=correo.send(email, "Notificación de Estatus de Trámite con la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te avisamos que tu trámite se encuentra INCONCLUSO (<b>"+nombretramite+"</b>), de fecha: "+fecha_seguimiento+" con número de folio: <b>"+id_solicitud+"</b> con las siguientes observaciones: <br>"+observaciones+"<br><br>"+"Atentamente"+"<br><br>"+"<b>"+nombreunidadadministrativa+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
+          }
+          
+          if(nombrestatus.equals("REVERTIDO"))
+          {    
+            mail correo = new mail();
+            resultado=correo.send(email, "Notificación de Estatus de Trámite con la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te avisamos que tu trámite se encuentra REVERTIDO(<b>"+nombretramite+"</b>), de fecha: "+fecha_seguimiento+" con número de folio: <b>"+id_solicitud+"</b> con las siguientes observaciones: <br>"+observaciones+"<br><br>"+"Atentamente"+"<br><br>"+"<b>"+nombreunidadadministrativa+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
+          }
+          
           if(resultado==true)
           {
               mensaje="Correo de conclusión de trámite enviado exitosamente";
           }else
           {
-              mensaje="No se envió el correo, sólo son enviados los seguimientos con estatus CONCLUIDO";
+              mensaje="No se envió el correo, sólo son enviados los seguimientos con estatus CONCLUIDO "+id_status;
           
           }
           

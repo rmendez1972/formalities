@@ -80,7 +80,7 @@
                 </tr>
                 <tr>
                     <td><input type="text" id="nombre" required pattern="([a-zA-Z ]{4,15})" placeholder="Mín.4 Máx.15 caracteres"value="${usr.nombre}" /></td>
-                    <td><input type="text" id="paterno" required pattern="([a-zA-Z ]{4,15})" placeholder="Mín.4 Máx.15 caracteres" value="${usr.apellido_paterno}" /></td>
+                    <td><input type="text" id="paterno" required pattern="([a-zA-Z ]{2,15})" placeholder="Mín.2 Máx.15 caracteres" value="${usr.apellido_paterno}" /></td>
                     <td><input type="text" id="materno" pattern="([a-zA-Z ]{4,15})" placeholder="Mín.4 Máx.15 caracteres" value="${usr.apellido_materno}" /></td>
                 </tr>
                 <tr>
