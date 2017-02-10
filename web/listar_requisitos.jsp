@@ -31,9 +31,7 @@
                 });
             }
             
-            <c:if test="${msg != null}">
-                alert('${msg}');
-            </c:if>
+
         </script>
     </head>
     <body>
@@ -72,5 +70,10 @@
                 </c:forEach>
             </tbody>
         </table>
+        <script>
+             <c:if test="${msg != null}">
+                alert('${msg}');
+            </c:if>
+        </script>
     </body>
 </html>
