@@ -31,11 +31,6 @@
                 });
             }
             
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> 4297bf9071ae1c12eefc76fe736e472737d4194b
         </script>
     </head>
     <body>
@@ -75,11 +70,7 @@
             </tbody>
         </table>
         <script>
-<<<<<<< HEAD
-             <c:if test="${msg != null}">
-=======
             <c:if test="${msg != null}">
->>>>>>> 4297bf9071ae1c12eefc76fe736e472737d4194b
                 alert('${msg}');
             </c:if>
         </script>

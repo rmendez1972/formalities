@@ -23,8 +23,8 @@
         <!-- framework jquery -->
         <script type="text/javascript" language="JavaScript" src="js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
-        <!--<script src="js/jquery.confirm.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>-->
+        <script src="js/jquery.confirm.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
         <script src="js/bootstrap.min.js"></script>
         
         <!-- Librerias javaScript de la aplicacion tramites -->
