@@ -72,7 +72,7 @@
                     <td>Dias para resolución:</td>
                 </tr>
                <tr>
-                    <td><input type="text" id="nombre" required style="width:600;font-size: 25px" pattern="([0-9a-zA-Z .-]{15,400})" placeholder="Escriba el nombre de un trámite (Mín.15 Máx.400 caracteres)" /></td>
+                    <td><input type="text" id="nombre" required style="width:600;font-size: 25px" pattern="([0-9a-zA-Z .-]{15,800})" placeholder="Escriba el nombre de un trámite (Mín.15 Máx.800 caracteres)" /></td>
                     <td><input type="number" id="dias_resolucion" required min="1" scroll="none" max="30" placeholder="de 1 a 30" style="width: 300px; font-size: 25px" /></td>
                 </tr>
                <!--<tr>
@@ -109,7 +109,11 @@
                     <td> </td>
                 </tr>
                 <tr>
+<<<<<<< HEAD
                     <td><input type="text" id="costo" required style="width:600;font-size: 25px" pattern="({1,600})" placeholder="Escriba las reglas de operación para calcular el costo" /></td>
+=======
+                    <td><input type="text" id="costo" required style="width:600;font-size: 25px" pattern="({1,800})" placeholder="Escriba las reglas de operación para calcular el costo" /></td>
+>>>>>>> 4297bf9071ae1c12eefc76fe736e472737d4194b
                     <td>&nbsp;</td>
                 </tr>
                

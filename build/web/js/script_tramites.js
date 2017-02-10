@@ -1,7 +1,7 @@
 /*Función para personalizar los alert
  * ismael*/
 
-function alertTramite(mensaje){
+/*function alertTramite(mensaje){
     var dgcTiempo=500;
     var ventanaCS='<div class="dgcAlert"><div class="dgcVentana"><div class="dgcCerrar"></div><div class="dgcMensaje">'+mensaje+'<br><div class="dgcAceptar">Aceptar</div></div></div></div></div>';
     $("body").append(ventanaCS);
@@ -17,13 +17,15 @@ function alertTramite(mensaje){
         setTimeout("$('.dgcAlert').remove()",dgcTiempo);
     });
     
-}//Fin de la función alertTramite
+}*/
+//Fin de la función alertTramite
 
 /*Script para asiganar a windows.alert de javaScript la función de alertTramite
  * ismael*/
-window.alert = function (message) {
+/*window.alert = function (message) {
     alertTramite(message);
-};//Fin del sript
+};*/
+//Fin del sript
     
 
 
