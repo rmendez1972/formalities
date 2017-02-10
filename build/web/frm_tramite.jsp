@@ -109,7 +109,7 @@
                     <td> </td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="costo" required style="width:600;font-size: 25px" pattern="([0-9a-zA-Z .-]{1,600})" placeholder="Escriba las reglas de operación para calcular el costo" /></td>
+                    <td><input type="text" id="costo" required style="width:600;font-size: 25px" pattern="({1,600})" placeholder="Escriba las reglas de operación para calcular el costo" /></td>
                     <td>&nbsp;</td>
                 </tr>
                

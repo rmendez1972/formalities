@@ -95,7 +95,7 @@
                     <td colspan='2'>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="costo" required style="width: 600px; font-size: 14px"pattern="([0-9a-zA-Z .-]{1,600})" placeholder="Escriba la regla de operación para calcular el costo" value="${tramite.costo}" /></td>
+                    <td><input type="text" id="costo" required style="width: 600px; font-size: 14px"pattern="({1,600})" placeholder="Escriba la regla de operación para calcular el costo" value="${tramite.costo}" /></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
