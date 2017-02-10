@@ -95,11 +95,9 @@ public class ControladorAdjunto extends ControladorBase {
                 String ruta="/adjuntos";
                 // ruta relativa a donde subo el archivo adjunto
                 //String outputfile = this.getServletContext().getRealPath("/adjuntos/");  // get path on the server
-<<<<<<< HEAD
+
                 String outputfile = "c:/users/Administrador/documents/netbeansprojects/tramites/web/adjuntos";
-=======
-                String outputfile = "c:/users/rmendez1972/documents/netbeansprojects/tramites/web/adjuntos";
->>>>>>> 4297bf9071ae1c12eefc76fe736e472737d4194b
+
                 File saveFile = new File(outputfile+"/" + filename);
                 FileOutputStream os = new FileOutputStream (saveFile);
             
