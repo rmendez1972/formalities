@@ -56,7 +56,7 @@
     </head>
     <body>
         <!--<div id="adminnav">!-->
-            <div id="consola"><h1>Consola del administrador</h1>
+            <div id="consola" ><h1 style="color:#fff;">Consola del administrador</h1>
             <!--<div id="tituloconsola" style="float:left;padding-top: 20px;width: 800px">Consola del Administrador
             </div>!-->
                 <div class="menuhorizontal">
