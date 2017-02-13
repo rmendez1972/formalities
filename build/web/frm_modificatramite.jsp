@@ -57,7 +57,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre" required style="width: 600px; font-size: 14px"pattern="([0-9a-zA-Z .-]{15,800})" placeholder="Escriba el nombre de un trámite (Mín.15 Máx.800 caracteres)" value="${tramite.nombre}" /></td>
+                    <td><input type="text" id="nombre" required style="width: 600px; font-size: 14px"pattern="({15,800})" placeholder="Escriba el nombre de un trámite (Mín.15 Máx.800 caracteres)" value="${tramite.nombre}" /></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -95,11 +95,9 @@
                     <td colspan='2'>&nbsp;</td>
                 </tr>
                 <tr>
-<<<<<<< HEAD
-                    <td><input type="text" id="costo" required style="width: 600px; font-size: 14px"pattern="({1,600})" placeholder="Escriba la regla de operación para calcular el costo" value="${tramite.costo}" /></td>
-=======
+
                     <td><input type="text" id="costo" required style="width: 600px; font-size: 14px"pattern="({1,800})" placeholder="Escriba la regla de operación para calcular el costo" value="${tramite.costo}" /></td>
->>>>>>> 4297bf9071ae1c12eefc76fe736e472737d4194b
+
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
