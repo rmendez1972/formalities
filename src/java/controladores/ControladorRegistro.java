@@ -623,6 +623,34 @@ public class ControladorRegistro extends HttpServlet
             
           
         }
+        
+        if(operacion.equals("apiSolicitanteCambioPassword"))
+        {
+            
+            
+            Integer id_solicitante = Integer.parseInt(request.getParameter("id_solicitante"));
+            String password = request.getParameter("password").toUpperCase();
+            GestionSolicitante gsol=new GestionSolicitante(); 
+            Boolean result = gsol.actualizarSolicitantePassworrd(id_solicitante, password);
+                         
+            ArrayList resultado = new ArrayList();
+            if (result != null){
+                                          
+                resultado.add(result);
+            }
+            
+            GsonBuilder builder=new GsonBuilder();
+            Gson gson=builder.create();
+            
+            //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+            response.setHeader("Access-Control-Allow-Origin", "*");
+            response.setHeader("Access-Control-Allow-Methods", "POST, GET");
+            response.setHeader("Access-Control-Max-Age", "3600");
+            response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+            response.getWriter().write("{\"resultado\":"+gson.toJson(resultado)+"}");
+            
+          
+        }
        
        
        

@@ -3,14 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/index.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listar_requisitos.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/scr_admin.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/js/script_tramites.js</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_tramite.jsp</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/css/estilos.css</file>
-=======
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_modificausuario.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/scr_admin.jsp</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frmmodifica_seguimiento.jsp</file>
@@ -84,7 +76,6 @@
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Seguimiento.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/javabeans/Status.java</file>
             <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listarseguimiento_registrante.jsp</file>
->>>>>>> 4ecfa42f325f4175ea89041c4e343fa39461b27a
         </group>
     </open-files>
 </project-private>
