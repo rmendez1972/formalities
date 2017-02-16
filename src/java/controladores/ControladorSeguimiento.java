@@ -899,7 +899,7 @@ public class ControladorSeguimiento extends HttpServlet
                 
                 if (id_grupo==1)
                 {    
-                    param.put("sql","");
+                    param.put("sql","where O.id_solicitud='"+id_solicitud+"'");
                 }else
                 {
                     param.put("sql","where O.id_solicitud='"+id_solicitud+"'");
