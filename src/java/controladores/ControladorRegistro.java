@@ -606,7 +606,7 @@ public class ControladorRegistro extends HttpServlet
                 user.setUsername(solicitante.getEmail());
                 user.setPassword(solicitante.getPassword());
                 user.setFirstname(solicitante.getNombre());
-                user.setLastname(solicitante.getApellido_paterno()+" "+solicitante.getApellido_paterno());
+                user.setLastname(solicitante.getApellido_paterno()+" "+solicitante.getApellido_materno());
                            
                 usuario.add(user);
             }
@@ -629,7 +629,7 @@ public class ControladorRegistro extends HttpServlet
             
             
             Integer id_solicitante = Integer.parseInt(request.getParameter("id_solicitante"));
-            String password = request.getParameter("password").toUpperCase();
+            String password = request.getParameter("new_password").toUpperCase();
             GestionSolicitante gsol=new GestionSolicitante(); 
             Boolean result = gsol.actualizarSolicitantePassworrd(id_solicitante, password);
                          
