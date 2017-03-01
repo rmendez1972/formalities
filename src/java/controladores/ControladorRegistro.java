@@ -606,10 +606,11 @@ public class ControladorRegistro extends HttpServlet
                 user.setUsername(solicitante.getEmail());
                 user.setPassword(solicitante.getPassword());
                 user.setFirstname(solicitante.getNombre());
-                user.setLastname(solicitante.getApellido_paterno()+" "+solicitante.getApellido_paterno());
+                user.setLastname(solicitante.getApellido_paterno()+" "+solicitante.getApellido_materno());
                            
                 usuario.add(user);
             }
+                
             
             GsonBuilder builder=new GsonBuilder();
             Gson gson=builder.create();
@@ -620,6 +621,35 @@ public class ControladorRegistro extends HttpServlet
             response.setHeader("Access-Control-Max-Age", "3600");
             response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
             response.getWriter().write("{\"user\":"+gson.toJson(usuario)+"}");
+            
+          
+        }
+        
+        if(operacion.equals("apiSolicitanteCambioPassword"))
+        {
+            
+            
+            Integer id_solicitante = Integer.parseInt(request.getParameter("id_solicitante"));
+            String password = request.getParameter("new_password").toUpperCase();
+            GestionSolicitante gsol=new GestionSolicitante(); 
+            Boolean result = gsol.actualizarSolicitantePassworrd(id_solicitante, password);
+                         
+            ArrayList resultado = new ArrayList();
+            if (result != null){
+                                          
+                resultado.add(result);
+            }
+            
+            GsonBuilder builder=new GsonBuilder();
+            Gson gson=builder.create();
+            
+            //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+            response.setHeader("Access-Control-Allow-Origin", "*");
+            response.setHeader("Access-Control-Allow-Methods", "POST, GET");
+            response.setHeader("Content-Type", "application/json; charset=UTF-8");
+            response.setHeader("Access-Control-Max-Age", "3600");
+            response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Charset");
+            response.getWriter().write("{\"resultado\":"+gson.toJson(resultado)+"}");
             
           
         }

@@ -66,6 +66,13 @@ public class GestionSolicitante {
         return Conexion.ejecutar("update solicitante set nombre=?, apellido_paterno=?, apellido_materno=?, telefono=?, rfc=?, sexo=?, email=?, direccion=?, password=? where id_solicitante=?", params);
     }
     
+    public boolean actualizarSolicitantePassworrd(int id_solicitante, String password){
+        
+        
+        Object[] params={password,id_solicitante};
+        return Conexion.ejecutar("update solicitante set password=? where id_solicitante=?", params);
+    }
+    
     public Solicitante obtenerPorId(int id_solicitante){
         Solicitante sol=null;
         Object[] params={id_solicitante};

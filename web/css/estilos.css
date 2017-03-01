@@ -36,33 +36,27 @@
  /*Fin de los estilos generales */
 
  #consola{
-     margin:  5px;
+     margin-top:  10px;
      background-image: url(../imagenes/tools.png);
      background-repeat:no-repeat;
      background-position: 5px 15px;
-     /*height: 65px;*/
-     width: 95%;
-     float: left;
-   /*background-color: #28921f;*/
-      padding-left: 60px;
+     height: 100px;
+     width: 98%;
+     /*float: left;*/
+    
+
+      padding-left: 70px;
       opacity: 0.3;
+      margin: 0 auto;
+      margin-top:  10px;
      
  }
  
   #consola:hover{
-   
-      /*background-color: #004e20;*/
-       background-color: #28921f;/*Verde bandera*/
-       background-color: rgb(0,255,127);
-       background-color: rgb(124, 252, 0); /*Verde vegija*/
-       background-color: rgb(122, 139, 139); /*Gris*/
-       background-color: rgb(139, 69, 0); /*Cafe*/
-       background-color: rgb(139, 115, 85);/*Cafe opaco*/
        background-color: #459cc1;/*Verde bandera*/
        border-radius: 10px;
        opacity: 1;
-   
- }
+        }
  
  #reports{
      margin:  10px;
@@ -625,7 +619,8 @@ MEDIA QUERIES
         display: block;
         width: 100%;
         height: 100%;
-        float:right;
+        margin: 0 auto;
+        /*float:right;*/
         /*background: url(http://www.dgcmedia.es/recursosExternos/fondoAlert.png) repeat;*/
         background-color: rgba(71, 71, 71, 0.8); /*color gris*/
     text-align:center; display:none; z-index:999999999999999;
@@ -634,11 +629,12 @@ MEDIA QUERIES
     .dgcAlert .dgcVentana{
         width: 500px;
         //margin-left: 200px;
-        top: 100px;
+        
         background: white;
         min-height: 150px;
-        position: fixed;
-        margin-left: 400px;
+        /*position: fixed;*/
+        margin: 0 auto;
+        margin-top: 100px;
         color: black;
         padding: 10px;
         border-radius: 10px;
