@@ -451,10 +451,11 @@ public class ControladorAdjunto extends ControladorBase {
     
     
     public void grabarfromApp(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET");
         response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
         
         //HttpSession objSession = request.getSession(); 
         //Usuario usuario = (Usuario)(objSession.getAttribute("usuario")); 
@@ -463,9 +464,9 @@ public class ControladorAdjunto extends ControladorBase {
         Integer id_grupo=3;
         //Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
         Integer id_unidadadministrativa;
-        Integer id_usuario=22;
+        Integer id_usuario=20;
             
-        Part p1 = request.getPart("adjunto");  
+        Part p1 = request.getPart("single");  
         String nombreadjunto = getFileName(p1);
         Boolean adjuntosubido=subirAdjunto(p1);
         
