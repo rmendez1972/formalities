@@ -451,11 +451,19 @@ public class ControladorAdjunto extends ControladorBase {
     
     
     public void grabarfromApp(HttpServletRequest request, HttpServletResponse response) throws Exception{
+<<<<<<< HEAD
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         response.setHeader("Access-Control-Allow-Credentials", "true");
+=======
+        
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Max-Age", "3600");
+        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+>>>>>>> e0567746a87b319e049481acf0a20635f64a3990
         
         //HttpSession objSession = request.getSession(); 
         //Usuario usuario = (Usuario)(objSession.getAttribute("usuario")); 
@@ -466,16 +474,26 @@ public class ControladorAdjunto extends ControladorBase {
         Integer id_unidadadministrativa;
         Integer id_usuario=20;
             
+<<<<<<< HEAD
         Part p1 = request.getPart("single");  
         String nombreadjunto = getFileName(p1);
         Boolean adjuntosubido=subirAdjunto(p1);
+=======
+        //Part p1 = request.getPart("single");  
+        //String nombreadjunto = getFileName(p1);
+        //Boolean adjuntosubido=subirAdjunto(p1);
+        
+           
+        int id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));  
+        String nombreadjunto= request.getParameter("filename");
+>>>>>>> e0567746a87b319e049481acf0a20635f64a3990
         
         // leer el id_seguimiento q es enviado como multi part
         //Part p2  = request.getPart("id_seguimiento");
         //Scanner s2 = new Scanner(p2.getInputStream()); //la clase Scanner es utilizada para leer datos de un dispostivo de entrada o stream
         //String midseguimiento = s2.nextLine();    // lectura del stream como cadena de caracteres
         //int id_seguimiento=Integer.parseInt(midseguimiento); // pareseo el string a integer
-          int id_seguimiento=1;   
+             
           
         Adjunto adjunto = new Adjunto();   
         adjunto.setNombre(nombreadjunto);
@@ -497,7 +515,7 @@ public class ControladorAdjunto extends ControladorBase {
             mensaje="Problemas al grabar adjunto";
         }
             
-        GestionSeguimiento gs=new GestionSeguimiento(); 
+        /*GestionSeguimiento gs=new GestionSeguimiento(); 
         Seguimiento seguimiento = gs.obtenerPorId(id_seguimiento);
         int id_solicitud = seguimiento.getId_solicitud();
         
@@ -518,7 +536,7 @@ public class ControladorAdjunto extends ControladorBase {
             
             
         GestionAdjunto gad=new GestionAdjunto(); 
-        ArrayList adjuntos = gad.obtenerPorSeguimiento(id_seguimiento);
+        ArrayList adjuntos = gad.obtenerPorSeguimiento(id_seguimiento);*/
             
             
         /*request.setAttribute("mensaje",mensaje);
