@@ -450,33 +450,54 @@ public class ControladorAdjunto extends ControladorBase {
             
         }
     }
-    /*
-    public void editar(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        int id=Integer.parseInt(request.getParameter("id"));
-        GestionStatus modelo=new GestionStatus();
-        Status status=modelo.obtenerPorId(id);
-        request.setAttribute("status", status);
-        RequestDispatcher rd=request.getRequestDispatcher("frm_modificastatus.jsp");
-        rd.forward(request,response);
-    }
     
-    public void editarGuardar(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        GestionStatus modelo=new GestionStatus();
-        Status status=new Status();
-        status.setId_status(Integer.parseInt(request.getParameter("id_status")));
-        status.setNombre(request.getParameter("nombre"));
-        if(modelo.actualizar(status))
-            request.setAttribute("msg", "Datos guardados");
-        else
-            request.setAttribute("msg", "Error al guardar, intente de nuevo más tarde");
-        RequestDispatcher rd=request.getRequestDispatcher("controladorestatus?operacion=listar");
-        rd.forward(request,response);
-    }
     
-    public void reporte(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        Map param = new HashMap();
-        generarReporte("ReporteStatus.jasper", param, request, response);
-    }*/
+    public void grabarfromApp(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        Integer id_unidadadministrativa;
+        Integer id_usuario=22;
+                      
+        int id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));  
+        String nombreadjunto= request.getParameter("filename");
+         
+        Adjunto adjunto = new Adjunto();   
+        adjunto.setNombre(nombreadjunto);
+        adjunto.setId_usuario(id_usuario);
+        adjunto.setId_seguimiento(id_seguimiento);
+            
+        GestionAdjunto adj=new GestionAdjunto(); 
+        Boolean res=  adj.registroAdjunto(adjunto);
+        String mensaje=null;
+        
+        ArrayList resultado = new ArrayList();
+        if (res != null){
+                                       
+            resultado.add(res);
+        }
+            
+        
+        if(res==true )
+        {
+            mensaje="Adjunto grabado exitosamente";
+            
+            GestionSeguimiento modelo=new GestionSeguimiento();
+            Boolean actualizaseguimiento=modelo.actualizarSeguimientoAdjunto(id_seguimiento);
+        }else
+        {
+            mensaje="Problemas al grabar adjunto";
+        }
+        
+        GsonBuilder builder=new GsonBuilder();
+        Gson gson=builder.create();
+            
+        //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET");
+        response.setHeader("Content-Type", "application/json; charset=UTF-8");
+        response.setHeader("Access-Control-Max-Age", "3600");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Charset");
+        response.getWriter().write("{\"resultado\":"+gson.toJson(resultado)+"}");
+        
+    }
     
     public void imprimir(HttpServletRequest request, HttpServletResponse response) throws Exception
     {
