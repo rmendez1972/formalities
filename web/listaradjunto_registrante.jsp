@@ -97,8 +97,23 @@
             <tbody>
                 <c:forEach var="adjunto" items="${requestScope.adjuntos}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td width="65%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><c:out value="${adjunto.nombre}" /></a></td> 
-                        <td width="5%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><img src="imagenes/download.png" width="26px" height="26px" style="text-align:right"/></a></td> 
+                        <c:if test="${adjunto.nombreusuario != 'CIUDADANO'}">
+   
+
+                            <td width="65%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><c:out value="${adjunto.nombre}" /></a></td> 
+                            <td width="5%"><a href="${requestScope.pathadjuntos}${adjunto.nombre}" download="${adjunto.nombre}" ><img src="imagenes/download.png" width="26px" height="26px" style="text-align:right"/></a></td> 
+                                                
+                        </c:if>
+                            
+                        <c:if test="${adjunto.nombreusuario == 'CIUDADANO'}">
+   
+
+                            <td width="65%"><a href="${requestScope.pathuploads}${adjunto.nombre}" download="${requestScope.pathuploads}${adjunto.nombre}" ><c:out value="${adjunto.nombre}" /></a></td> 
+                            <td width="5%"><a href="${requestScope.pathuploads}${adjunto.nombre}" download="${requestScope.pathuploads}${adjunto.nombre}" ><img src="imagenes/upload.png" width="26px" height="26px" style="text-align:right"/></a></td> 
+                                                
+                        </c:if>
+                            
+                        
                         <td width="30%"><c:out value="${adjunto.nombreusuario}" /></td> 
                        
                     </tr>
