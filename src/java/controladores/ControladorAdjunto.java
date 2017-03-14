@@ -134,6 +134,7 @@ public class ControladorAdjunto extends ControladorBase {
         Integer id_seguimiento,id_tramite,id_solicitante,id_solicitud;
         String mensaje="Listado de archivos adjuntos exitoso";
         String pathadjuntos="adjuntos/";
+        String pathuploads="http://localhost:3001/upload/";
         //recupero el usuario de la sesion 
         HttpSession objSession = request.getSession(); 
         usuario = (Usuario)(objSession.getAttribute("usuario")); 
@@ -180,6 +181,7 @@ public class ControladorAdjunto extends ControladorBase {
         request.setAttribute("tramite",tramite);
         request.setAttribute("adjuntos",adjuntos);
         request.setAttribute("pathadjuntos",pathadjuntos);
+        request.setAttribute("pathuploads",pathuploads);
         if (id_grupo==1)
         {    
             RequestDispatcher rd=request.getRequestDispatcher("listaradjunto_registrante.jsp");
