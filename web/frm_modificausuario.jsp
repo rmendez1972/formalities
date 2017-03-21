@@ -69,8 +69,8 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="usuario" required autofocus required pattern="([a-zA-Z\0-9]{5,12})" maxlength="12" placeholder="Mín.5 Máx. 12 caracteres" value="${usr.usuario}" /></td>
-                    <td><input type="password" id="password" required pattern="([a-zA-Z\0-9]{5,12})" maxlength="12" disabled="" placeholder="Mín.5 Máx. 12 caracteres"value="******" /></td>
+                    <td><input type="text" id="usuario" required autofocus required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{5,12})" maxlength="12" placeholder="Mín.5 Máx. 12 caracteres" value="${usr.usuario}" /></td>
+                    <td><input type="password" id="password" required pattern="([a-zA-Z\0-9]{5,12})" maxlength="12" disabled="false" placeholder="Mín.5 Máx. 12 caracteres"value="******" /></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -79,9 +79,9 @@
                     <td>Apellido materno:</td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre" required pattern="([a-zA-Z ]{4,15})" placeholder="Mín.4 Máx.15 caracteres"value="${usr.nombre}" /></td>
-                    <td><input type="text" id="paterno" required pattern="([a-zA-Z ]{2,15})" placeholder="Mín.2 Máx.15 caracteres" value="${usr.apellido_paterno}" /></td>
-                    <td><input type="text" id="materno" pattern="([a-zA-Z ]{4,15})" placeholder="Mín.4 Máx.15 caracteres" value="${usr.apellido_materno}" /></td>
+                    <td><input type="text" id="nombre" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{4,15})" placeholder="Mín.4 Máx.15 caracteres"value="${usr.nombre}" /></td>
+                    <td><input type="text" id="paterno" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{2,15})" placeholder="Mín.2 Máx.15 caracteres" value="${usr.apellido_paterno}" /></td>
+                    <td><input type="text" id="materno" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{4,15})" placeholder="Mín.4 Máx.15 caracteres" value="${usr.apellido_materno}" /></td>
                 </tr>
                 <tr>
                     <td>Unidad administrativa:</td>
