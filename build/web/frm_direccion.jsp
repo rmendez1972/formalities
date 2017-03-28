@@ -33,7 +33,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre" pattern="([a-zA-ZñÑçÇáéíóúüÁÉÍÓÚÜ ]{15,50})"  placeholder="Mínimo 15 caracteres" required style="width: 500px; font-size: 14px" /></td>
+                    <td><input type="text" id="nombre" pattern="([a-zA-ZñÑçÇáéíóúüÁÉÍÓÚÜ ]{15,100})"  placeholder="Mínimo 15 caracteres" required style="width: 500px; font-size: 14px" /></td>
                     <td></td>
                 </tr>
                 <tr>

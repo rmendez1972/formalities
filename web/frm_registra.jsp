@@ -115,10 +115,10 @@
       </tr>
       
       <tr>
-        <td><input name="nombre" id="nombre"  type="text" size="20" maxlength="15" autofocus required pattern="([a-zA-Z ]{3,15})" placeholder="Mínimo 3 caracteres"></td>
-        <td><input name="apellido_p" id="apellido_p" type="text" size="20" pattern="([a-zA-Z ]{2,15})"  maxlength="15" required placeholder="Mínimo 2, max. 15 letras"></td>
-        <td><input name="apellido_m" id="apellido_m" type="text" size="20" pattern="([a-zA-Z ]{2,15})"  maxlength="15" placeholder="Mínimo 2, max. 15 letras"></td>
-        <td><textarea type="text" name="domicilio" id="domicilio" rows="4" pattern="([a-zA-Z ]{20,150})"  maxlength="150"required  placeholder="solo letras" title="No es una dirección válida"></textarea></td>
+        <td><input name="nombre" id="nombre"  type="text" size="20" maxlength="30" autofocus required  placeholder="Mínimo 3 caracteres"></td>
+        <td><input name="apellido_p" id="apellido_p" type="text" size="20"  maxlength="15" required placeholder="Mínimo 2, max. 15 letras"></td>
+        <td><input name="apellido_m" id="apellido_m" type="text" size="20" maxlength="15" placeholder="Mínimo 2, max. 15 letras"></td>
+        <td><textarea type="text" name="domicilio" id="domicilio" rows="4" maxlength="200"required  placeholder="Solo letras" title="No es una dirección válida"></textarea></td>
        
       </tr>
      
@@ -155,7 +155,7 @@
       </tr>
       
       <tr>
-        <td><input name="password" id="password" type="text" size="20" pattern="([a-zA-Z0-9]{8,15})" maxlength="15" placeholder="password para api" title="password para api"></td>
+        <td><input name="password" id="password" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{8,15})" maxlength="15" placeholder="Password para api" title="Password para api"></td>
         <td></td>
         <td></td>
         <td></td>
