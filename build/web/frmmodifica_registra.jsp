@@ -19,6 +19,7 @@
         <!-- framework jquery -->
         <script type="text/javascript" language="JavaScript" src="js/jquery-1.10.2.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+        <link rel="stylesheet" href="css/select2.min.css">
    
         
         
@@ -30,6 +31,7 @@
         
         <!-- Librerias javaScript de la aplicacion tramites -->
         <script type="text/javascript" language="JavaScript" src="js/script_tramites.js"></script>
+        <script src="js/select2.full.min.js"></script>
     
         
         
@@ -56,6 +58,10 @@
             $(function()
             {
                 
+                var $select3 = $('.select2').select2({
+                    containerCssClass: "wrap"
+                })
+        
                 //evento change del selector unidadadtva
                 $("#unidadadtva").change(function()
                 {
@@ -213,12 +219,12 @@
     <td colspan="2">Trámite:</td>
     </tr>
   <tr>
-    <td><select name="unidadadtva" id="unidadadtva">
+    <td><select name="unidadadtva" id="unidadadtva" class="select2 narrow wrap">
       <c:forEach  var="ua" items="${requestScope.ua}">
         <OPTION VALUE="${ua.id_unidadAdministrativa}" ${tramite.id_unidadadministrativa == ua.id_unidadAdministrativa ? 'selected' : ''}>${ua.nombre}</OPTION>
       </c:forEach>
     </select></td>
-    <td colspan="2"><select name="tramites" id="tramites">
+    <td colspan="2"><select name="tramites" id="tramites" class="select2 narrow wrap">
       <c:forEach  var="tm" items="${requestScope.tm}">
         <OPTION VALUE="${tm.id_tramite}" ${tramite.id_tramite == tm.id_tramite ? 'selected' : ''} >${tm.nombre}</OPTION>
       </c:forEach>

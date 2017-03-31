@@ -24,6 +24,10 @@
             $(function()
             {
                 
+                var $select2 = $('.select2').select2({
+                    containerCssClass: "wrap"
+                })
+                
                 //evento change del selector unidadadtva
                 $("#unidadadtva").change(function()
                 {
@@ -174,13 +178,13 @@
     <td width="502" colspan="2">Trámite:</td>
     </tr>
   <tr>
-    <td><select name="unidadadtva" id="unidadadtva" required>
+    <td><select name="unidadadtva" id="unidadadtva" required class="select2 narrow wrap">
       <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
       <c:forEach  var="ua" items="${requestScope.ua}">
         <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
       </c:forEach>
     </select></td>
-    <td colspan="2"><select name="tramites" id="tramites" required >
+    <td colspan="2"><select name="tramites" id="tramites" required class="select2 narrow wrap">
       <option value="" selected="selected">Selecciona una opción del catálogo...</option>
     </select>    
     </tr>
