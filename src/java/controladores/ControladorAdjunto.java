@@ -134,7 +134,7 @@ public class ControladorAdjunto extends ControladorBase {
         Integer id_seguimiento,id_tramite,id_solicitante,id_solicitud;
         String mensaje="Listado de archivos adjuntos exitoso";
         String pathadjuntos="adjuntos/";
-        String pathuploads="http://localhost:3001/upload/";
+        String pathuploads="http://10.50.1.8:3001/upload/";
         //recupero el usuario de la sesion 
         HttpSession objSession = request.getSession(); 
         usuario = (Usuario)(objSession.getAttribute("usuario")); 
@@ -456,7 +456,7 @@ public class ControladorAdjunto extends ControladorBase {
     
     public void grabarfromApp(HttpServletRequest request, HttpServletResponse response) throws Exception{
         Integer id_unidadadministrativa;
-        Integer id_usuario=23;
+        Integer id_usuario=30;
                       
         int id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));  
         String nombreadjunto= request.getParameter("filename");
