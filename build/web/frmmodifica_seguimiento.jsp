@@ -152,7 +152,7 @@
    <tr>
        <td width="20">&nbsp;</td> 
        <td><input type="date" name="fecha_t" id="fecha_t" value="${seguimiento.fecha}" /><input name="id_seguimiento" id="id_seguimiento" type="hidden" value="${seguimiento.id_seguimiento}" > </td>
-        <td><textarea name="observaciones" id="observaciones"  cols="30" rows="5" pattern="([a-zA-Z ]{10,400})" required maxlength="400"  >${seguimiento.observaciones}</textarea></td>
+        <td><textarea name="observaciones" id="observaciones"  cols="30" rows="5" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9 ]{10,400})" required maxlength="400"  >${seguimiento.observaciones}</textarea></td>
         <td><select name="id_status" id="id_status">
             <c:forEach  var="status" items="${requestScope.status}">
                 <OPTION VALUE="${status.id_status}" ${seguimiento.id_status == status.id_status ? 'selected' : ''}>${status.nombre}</OPTION>

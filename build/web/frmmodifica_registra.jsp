@@ -161,10 +161,10 @@
       </tr>
       
       <tr>
-        <td><input name="nombre" id="nombre" type="text" size="20" maxlength="15" autofocus required pattern="([a-zA-Z ]{3,15})" placeholder="Mínimo 3 caracteres" value="${solicitante.nombre}" ><input name="id_solicitante" id="id_solicitante" type="hidden" size="20" maxlength="15" value="${solicitante.id_solicitante}" ></td>
-        <td><input name="apellido_p" id="apellido_p" type="text" size="20" pattern="([a-zA-Z ]{2,15})" maxlength="15" required placeholder="Mínimo 2, max. 15 letras" value="${solicitante.apellido_paterno}"></td>
-        <td><input name="apellido_m" id="apellido_m" type="text" size="20" pattern="([a-zA-Z ]{2,15})"  maxlength="15" placeholder="Mínimo 2, max. 15 letras" value="${solicitante.apellido_materno}"></td>
-        <td><textarea name="domicilio" id="domicilio"  rows="4" pattern="([a-zA-Z ]{20,150})" required maxlength="150" placeholder="Escriba una dirección válida" title="No es una dirección válida" >${solicitante.direccion}</textarea></td>
+        <td><input name="nombre" id="nombre" type="text" size="20" maxlength="15" autofocus required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{3,15})" placeholder="Mínimo 3 caracteres" value="${solicitante.nombre}" ><input name="id_solicitante" id="id_solicitante" type="hidden" size="20" maxlength="15" value="${solicitante.id_solicitante}" ></td>
+        <td><input name="apellido_p" id="apellido_p" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{2,15})" maxlength="15" required placeholder="Mínimo 2, max. 15 letras" value="${solicitante.apellido_paterno}"></td>
+        <td><input name="apellido_m" id="apellido_m" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{2,15})"  maxlength="15" placeholder="Mínimo 2, max. 15 letras" value="${solicitante.apellido_materno}"></td>
+        <td><textarea name="domicilio" id="domicilio"  rows="4" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{20,150})" required maxlength="150" placeholder="Escriba una dirección válida" title="No es una dirección válida" >${solicitante.direccion}</textarea></td>
       </tr>
      
       <tr height="5">
@@ -199,7 +199,7 @@
       </tr>
       
       <tr>
-        <td><input name="password" id="password" type="text" size="20" pattern="([a-zA-Z0-9]{8,15})" maxlength="15" placeholder="password para api" title="password" value="${solicitante.password}" ></td>
+        <td><input name="password" id="password" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{8,15})" maxlength="15" placeholder="Password para api. 8 caracteres" title="password" value="${solicitante.password}" ></td>
         <td></td>
         <td></td>
         <td></td>

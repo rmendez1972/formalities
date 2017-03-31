@@ -95,7 +95,7 @@ public class ControladorAdjunto extends ControladorBase {
                 String ruta="/adjuntos";
                 // ruta relativa a donde subo el archivo adjunto
                 //String outputfile = this.getServletContext().getRealPath("/adjuntos/");  // get path on the server
-                String outputfile = "c:/users/rmendez1972/documents/netbeansprojects/tramites/web/adjuntos";
+                String outputfile = "c:/users/usuario/documents/netbeansprojects/tramites/web/adjuntos";
                 File saveFile = new File(outputfile+"/" + filename);
                 FileOutputStream os = new FileOutputStream (saveFile);
             
@@ -453,12 +453,12 @@ public class ControladorAdjunto extends ControladorBase {
     
     
     public void grabarfromApp(HttpServletRequest request, HttpServletResponse response) throws Exception{
+
         Integer id_unidadadministrativa;
-        Integer id_usuario=22;
+        Integer id_usuario=20;
                       
         int id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));  
         String nombreadjunto= request.getParameter("filename");
-         
         Adjunto adjunto = new Adjunto();   
         adjunto.setNombre(nombreadjunto);
         adjunto.setId_usuario(id_usuario);

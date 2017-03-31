@@ -37,7 +37,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre" pattern="([a-zA-ZñÑçÇáéíóúüÁÉÍÓÚÜ ]{15,60})"  placeholder="Mínimo 15 caracteres" required style=" width: 500px; font-size: 14px" value="${ua.nombre}" /></td>
+                    <td><input type="text" id="nombre" pattern="([a-zA-ZñÑçÇáéíóúüÁÉÍÓÚÜ ]{15,100})"  placeholder="Mínimo 15 caracteres" required style=" width: 500px; font-size: 14px" value="${ua.nombre}" /></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -45,7 +45,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="email" required style="text-transform:none; width: 300px; font-size: 13px" value="${ua.email}" /></td>
+                    <td><input type="email" id="email" required style="text-transform:none; width: 300px; font-size: 13px" value="${ua.email}" /></td>
                     <td></td>
                 </tr>
                 <tr>
