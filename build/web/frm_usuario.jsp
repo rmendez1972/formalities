@@ -80,9 +80,9 @@
                     <td>Repetir contraseña:</td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="usuario" required autofocus required pattern="([a-zA-Z\0-9]{5,12})" placeholder="Mín.5 Máx.12 caracteres" maxlength="12"/></td>
-                    <td><input type="password" id="password" required pattern="([a-zA-Z\0-9]{5,12})" placeholder="Mín.5 Máx. 12 caracteres"maxlength="12"/></td>
-                    <td><input type="password" id="password_rep" required pattern="([a-zA-Z\0-9]{5,12})" placeholder="Repita su password"maxlength="12"/></td>
+                    <td><input type="text" id="usuario" required autofocus required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9\0-9]{5,12})" placeholder="Mín.5 Máx.12 caracteres" maxlength="12"/></td>
+                    <td><input type="password" id="password" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9\0-9]{5,12})" placeholder="Mín.5 Máx. 12 caracteres"maxlength="12"/></td>
+                    <td><input type="password" id="password_rep" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9\0-9]{5,12})" placeholder="Repita su password"maxlength="12"/></td>
                 </tr>
                 <tr>
                     <td>Nombre:</td>
@@ -90,9 +90,9 @@
                     <td>Apellido materno:</td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre" required pattern="([a-zA-Z ]{4,15})" placeholder="Mín.4 Máx.15 caracteres" maxlength="15"/></td>
-                    <td><input type="text" id="paterno" required pattern="([a-zA-Z ]{2,15})" placeholder="Mín.2 Máx.15 caracteres" maxlength="15"/></td>
-                    <td><input type="text" id="materno" pattern="([a-zA-Z ]{2,15})" placeholder="Mín.2 Máx.15 caracteres" maxlength="15"/></td>
+                    <td><input type="text" id="nombre" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9 ]{4,15})" placeholder="Mín.4 Máx.15 caracteres" maxlength="15"/></td>
+                    <td><input type="text" id="paterno" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{2,15})" placeholder="Mín.2 Máx.15 caracteres" maxlength="15"/></td>
+                    <td><input type="text" id="materno" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{2,15})" placeholder="Mín.2 Máx.15 caracteres" maxlength="15"/></td>
                 </tr>
                 <tr>
                     <td>Unidad administrativa:</td>

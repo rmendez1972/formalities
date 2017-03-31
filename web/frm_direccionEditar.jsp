@@ -37,7 +37,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre" pattern="([a-zA-ZñÑçÇáéíóúüÁÉÍÓÚÜ ]{10,50})"  placeholder="Mínimo 10 caracteres" required style=" width: 500px; font-size: 14px" value="${di.nombre}" /></td>
+                    <td><input type="text" id="nombre" pattern="([a-zA-ZñÑçÇáéíóúüÁÉÍÓÚÜ ]{10,100})"  placeholder="Mínimo 10 caracteres" required style=" width: 500px; font-size: 14px" value="${di.nombre}" /></td>
                     <td></td>
                 </tr>
                 <tr>

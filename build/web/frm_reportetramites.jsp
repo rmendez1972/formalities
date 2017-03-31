@@ -214,6 +214,6 @@
         </section>
         
         <div id="divimprimiendo" class="divimprimiendo"><p>Generando Reporte ...</p></div>
-        <iframe  name="show" id="show" align="middle" frameborder="0" marginwidth="0" marginheight="0" width="95%" height="85%" scrolling="no"  title="En la parte superior derecha boton para imprimir..." style="display:none; margin: 10px" ></iframe>    
+        <!--<iframe  name="show" id="show" align="middle" frameborder="0" marginwidth="0" marginheight="0" width="95%" height="85%" scrolling="no"  title="En la parte superior derecha boton para imprimir..." style="display:none; margin: 10px" ></iframe>-->    
     </body>
 </html>

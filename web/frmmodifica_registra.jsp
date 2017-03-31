@@ -19,6 +19,7 @@
         <!-- framework jquery -->
         <script type="text/javascript" language="JavaScript" src="js/jquery-1.10.2.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+        <link rel="stylesheet" href="css/select2.min.css">
    
         
         
@@ -30,6 +31,7 @@
         
         <!-- Librerias javaScript de la aplicacion tramites -->
         <script type="text/javascript" language="JavaScript" src="js/script_tramites.js"></script>
+        <script src="js/select2.full.min.js"></script>
     
         
         
@@ -56,6 +58,10 @@
             $(function()
             {
                 
+                var $select3 = $('.select2').select2({
+                    containerCssClass: "wrap"
+                })
+        
                 //evento change del selector unidadadtva
                 $("#unidadadtva").change(function()
                 {
@@ -155,10 +161,10 @@
       </tr>
       
       <tr>
-        <td><input name="nombre" id="nombre" type="text" size="20" maxlength="15" autofocus required pattern="([a-zA-Z ]{3,15})" placeholder="Mínimo 3 caracteres" value="${solicitante.nombre}" ><input name="id_solicitante" id="id_solicitante" type="hidden" size="20" maxlength="15" value="${solicitante.id_solicitante}" ></td>
-        <td><input name="apellido_p" id="apellido_p" type="text" size="20" pattern="([a-zA-Z ]{2,15})" maxlength="15" required placeholder="Mínimo 2, max. 15 letras" value="${solicitante.apellido_paterno}"></td>
-        <td><input name="apellido_m" id="apellido_m" type="text" size="20" pattern="([a-zA-Z ]{2,15})"  maxlength="15" placeholder="Mínimo 2, max. 15 letras" value="${solicitante.apellido_materno}"></td>
-        <td><textarea name="domicilio" id="domicilio"  rows="4" pattern="([a-zA-Z ]{20,150})" required maxlength="150" placeholder="Escriba una dirección válida" title="No es una dirección válida" >${solicitante.direccion}</textarea></td>
+        <td><input name="nombre" id="nombre" type="text" size="20" maxlength="15" autofocus required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{3,15})" placeholder="Mínimo 3 caracteres" value="${solicitante.nombre}" ><input name="id_solicitante" id="id_solicitante" type="hidden" size="20" maxlength="15" value="${solicitante.id_solicitante}" ></td>
+        <td><input name="apellido_p" id="apellido_p" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{2,15})" maxlength="15" required placeholder="Mínimo 2, max. 15 letras" value="${solicitante.apellido_paterno}"></td>
+        <td><input name="apellido_m" id="apellido_m" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{2,15})"  maxlength="15" placeholder="Mínimo 2, max. 15 letras" value="${solicitante.apellido_materno}"></td>
+        <td><textarea name="domicilio" id="domicilio"  rows="4" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ ]{20,150})" required maxlength="150" placeholder="Escriba una dirección válida" title="No es una dirección válida" >${solicitante.direccion}</textarea></td>
       </tr>
      
       <tr height="5">
@@ -193,7 +199,7 @@
       </tr>
       
       <tr>
-        <td><input name="password" id="password" type="text" size="20" pattern="([a-zA-Z0-9]{8,15})" maxlength="15" placeholder="password para api" title="password" value="${solicitante.password}" ></td>
+        <td><input name="password" id="password" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{8,15})" maxlength="15" placeholder="Password para api. 8 caracteres" title="password" value="${solicitante.password}" ></td>
         <td></td>
         <td></td>
         <td></td>
@@ -213,12 +219,12 @@
     <td colspan="2">Trámite:</td>
     </tr>
   <tr>
-    <td><select name="unidadadtva" id="unidadadtva">
+    <td><select name="unidadadtva" id="unidadadtva" class="select2 narrow wrap">
       <c:forEach  var="ua" items="${requestScope.ua}">
         <OPTION VALUE="${ua.id_unidadAdministrativa}" ${tramite.id_unidadadministrativa == ua.id_unidadAdministrativa ? 'selected' : ''}>${ua.nombre}</OPTION>
       </c:forEach>
     </select></td>
-    <td colspan="2"><select name="tramites" id="tramites">
+    <td colspan="2"><select name="tramites" id="tramites" class="select2 narrow wrap">
       <c:forEach  var="tm" items="${requestScope.tm}">
         <OPTION VALUE="${tm.id_tramite}" ${tramite.id_tramite == tm.id_tramite ? 'selected' : ''} >${tm.nombre}</OPTION>
       </c:forEach>
