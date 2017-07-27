@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe145593-eaf5-49dc-971a-1de1a3559efe">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -195,15 +195,15 @@
 				<textElement textAlignment="Justified">
 					<font size="10" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Por este conducto se le informa que su trámite ha sido ingresado correctamente a la Ventanilla Única de trámites y Servicios de la SEDUVI, con los datos que acontinuación se detallan:]]></text>
+				<text><![CDATA[Por este conducto se le informa que su trámite ha sido ingresado correctamente a la Ventanilla Única de trámites y Servicios de la SEDETUS, con los datos que acontinuación se detallan:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="192" width="501" height="41"/>
+				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="192" width="501" height="28"/>
 				<textElement textAlignment="Justified">
 					<font size="8" isBold="false" isUnderline="false"/>
 					<paragraph firstLineIndent="35"/>
 				</textElement>
-				<text><![CDATA[ Es muy importante que conserve el número de solicitud, pues es reqsuisito indispensable para el seguimiento de su trámite a través de la página de la SEDUVI con dirección electrónica http://seduvi.qroo.gob.mx y a través de nuestra aplicación móvil.]]></text>
+				<text><![CDATA[ Es muy importante que conserve el número de solicitud, pues es reqsuisito indispensable para el seguimiento de su trámite a través de la página de la SEDETUS con dirección electrónica http://qroo.gob.mx/sedetus y a través de nuestra aplicación móvil.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="220" width="501" height="21"/>
@@ -234,7 +234,7 @@
 				<textElement textAlignment="Center">
 					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Secretaría de Desarrollo Urbano y Vivienda]]></text>
+				<text><![CDATA[Secretaría de Desarrollo Territorial Urbano Sustentable]]></text>
 			</staticText>
 		</band>
 	</detail>
