@@ -457,11 +457,9 @@ public class ControladorAdjunto extends ControladorBase {
     public void grabarfromApp(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
         Integer id_unidadadministrativa;
-<<<<<<< HEAD
+
         Integer id_usuario=30;
-=======
-        Integer id_usuario=20;
->>>>>>> 4ab40955ea4b08fbce18baec812cff06f6120226
+
                       
         int id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));  
         String nombreadjunto= request.getParameter("filename");
