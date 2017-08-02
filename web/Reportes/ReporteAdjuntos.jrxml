@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe145593-eaf5-49dc-971a-1de1a3559efe">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="73"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="sql" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -25,8 +25,8 @@
 	</background>
 	<title>
 		<band height="67" splitType="Stretch">
-			<image scaleImage="RealHeight" hAlign="Center">
-				<reportElement uuid="26bdebd4-80af-4d7c-ab23-15496ca8ea17" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="752" height="67"/>
+			<image hAlign="Center">
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="749" height="67"/>
 				<imageExpression><![CDATA["..\\imagenes\\headerreporte.png"]]></imageExpression>
 			</image>
 		</band>

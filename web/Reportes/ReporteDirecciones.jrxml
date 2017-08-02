@@ -35,7 +35,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Reporte de Direcciones]]></text>
+				<text><![CDATA[Reporte de Direcciones por Unidad Administrativa]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
