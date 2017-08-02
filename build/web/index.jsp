@@ -127,6 +127,7 @@
 
 	<section id="wrap"><!--Contenedor principal-->
             <section id="main"><!--Seccion Principal-->
+                
                 <div id="contenido"></div> <!--Vertedero princiapl-->
                 
             </section>
