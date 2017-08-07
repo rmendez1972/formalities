@@ -53,6 +53,7 @@ public class Controladorlogin extends HttpServlet
     public Connection cn;
     @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+            
     {
         //almacena la operacion que debe gestionar el controlador
         String operacion=request.getParameter("operacion");

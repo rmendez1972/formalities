@@ -5,6 +5,7 @@
 package Modelo;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Locale;
 import javabeans.Usuario;
 /**
  *
@@ -12,8 +13,8 @@ import javabeans.Usuario;
  */
 public class GestionUsuario {
     public boolean registroUsuario(Usuario usr){
-        Object params[]={usr.getUsuario(), usr.getPassword(), usr.getNombre(), usr.getApellido_paterno(), usr.getApellido_materno(), usr.getId_unidadadministrativa(), usr.getId_grupo(), usr.getId_direccion()};
-        return Conexion.ejecutar("insert into usuario (usuario, password, nombre, apellido_paterno, apellido_materno, id_unidadAdministrativa, id_grupo, id_direccion) values (UPPER(?),md5(?),UPPER(?),UPPER(?),UPPER(?),?,?,?)", params);
+        Object params[]={usr.getUsuario().toUpperCase(), usr.getPassword().toUpperCase(), usr.getNombre().toUpperCase(), usr.getApellido_paterno().toUpperCase(), usr.getApellido_materno().toUpperCase(), usr.getId_unidadadministrativa(), usr.getId_grupo(), usr.getId_direccion()};
+        return Conexion.ejecutar("insert into usuario (usuario, password, nombre, apellido_paterno, apellido_materno, id_unidadAdministrativa, id_grupo, id_direccion) values (?,md5(?),?,?,?,?,?,?)", params);
     }
     
     public Usuario obtenerPorId(int id_usuario){
@@ -57,8 +58,11 @@ public class GestionUsuario {
     }
     
     public boolean actualizarUsuario(Usuario usr){
-        Object params[]={usr.getUsuario(), usr.getNombre(), usr.getApellido_paterno(), usr.getApellido_materno(), usr.getId_unidadadministrativa(), usr.getId_grupo(), usr.getId_direccion(), usr.getId_usuario()};
-        return Conexion.ejecutar("update usuario set usuario=?, nombre=UPPER(?), apellido_paterno=UPPER(?), apellido_materno=UPPER(?), id_unidadadministrativa=?, id_grupo=?, id_direccion=? where id_usuario=?", params);
+        //Object params[]={usr.getUsuario(), usr.getNombre(), usr.getApellido_paterno(), usr.getApellido_materno(), usr.getId_unidadadministrativa(), usr.getId_grupo(), usr.getId_direccion(), usr.getId_usuario()};
+        //return Conexion.ejecutar("update usuario set usuario=?, nombre=UPPER(?), apellido_paterno=UPPER(?), apellido_materno=UPPER(?), id_unidadadministrativa=?, id_grupo=?, id_direccion=? where id_usuario=?", params);
+        
+        Object params[]={usr.getUsuario().toUpperCase(), usr.getPassword().toUpperCase(), usr.getNombre().toUpperCase(), usr.getApellido_paterno().toUpperCase(), usr.getApellido_materno().toUpperCase(), usr.getId_unidadadministrativa(), usr.getId_grupo(), usr.getId_direccion(),usr.getId_usuario()};
+        return Conexion.ejecutar("update usuario set usuario=?, password=md5(?), nombre=?, apellido_paterno=?, apellido_materno=?, id_unidadAdministrativa=?, id_grupo=?, id_direccion=? where id_usuario=?", params);
     }
     
     public ArrayList obtenerPermisos(int id_usuario){
