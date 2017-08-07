@@ -140,11 +140,19 @@
      <script>
             
             id_grupo='${requestScope.id_grupo}';
+            alert('id_grupo'+id_grupo);
             if (id_grupo==2){
                 document.getElementById("consolaadmin").style.display="none";
                 document.getElementById("registro").style.display="none";
                     
             }
+            
+            if (id_grupo==4){
+                document.getElementById("consolaadmin").style.display="none";
+                document.getElementById("reportes").style.display="none";
+                    
+            }
+            
         </script>
     </body>
 </html>

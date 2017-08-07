@@ -15,12 +15,20 @@
                 var params=new Object();
                 params.id_usuario=$("#id_usuario").val();
                 params.usuario=$("#usuario").val();
+                params.password=$("#password").val();
+                params.repass=$("#password_rep").val();
+                
                 params.nombre=$("#nombre").val();
                 params.apellido_paterno=$("#paterno").val();
                 params.apellido_materno=$("#materno").val();
                 params.id_unidadadministrativa=$("#unidadAdministrativa").val();
                 params.id_direccion=$("#direccion").val();
                 params.id_grupo=$("#grupo").val();
+                
+                if(params.password != params.repass){
+                    alert("Las contraseñas no coinciden");
+                    return false;
+                }
                 
                 if(params.id_unidadadministrativa == 0){
                     alert("Seleccione una unidad administrativa");
@@ -61,7 +69,7 @@
     <body>
         <form id="form_UA" onsubmit="return registrar()">
             <input type="hidden" name="id_usuario" id="id_usuario" value="${usr.id_usuario}" />
-            <h1>Modificar usuario.</h1>
+            <h1>Modificar usuario.XX</h1>
             <table border="0" align="center">
                 <tr>
                     <td>Usuario:</td>
@@ -70,7 +78,10 @@
                 </tr>
                 <tr>
                     <td><input type="text" id="usuario" required autofocus required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{5,12})" maxlength="12" placeholder="Mín.5 Máx. 12 caracteres" value="${usr.usuario}" /></td>
-                    <td><input type="password" id="password" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{5,12})" maxlength="12" disabled="false" placeholder="Mín.5 Máx. 12 caracteres"value="******" /></td>
+                    <!--<td><input type="password" id="password" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{5,12})" maxlength="12" placeholder="Mín.5 Máx. 12 caracteres"value="******" /></td>-->
+                    <td><input type="password" id="password" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9\0-9]{5,12})" placeholder="Mín.5 Máx. 12 caracteres"maxlength="12" value="${usr.password}"/></td>
+                    <td><input type="password" id="password_rep" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9\0-9]{5,12})" placeholder="Repita su password"maxlength="12" value="${usr.password}"/></td>
+                    
                     <td></td>
                 </tr>
                 <tr>

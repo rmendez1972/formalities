@@ -301,11 +301,20 @@
                                     titulo="Confirme el envío de notificación" mensaje="Está Ud. seguro de enviar la notificación por email!">
                                 <img src="imagenes/notificacion.png"  class="btn-tabla" width="24" height="24" alt="Enviar notificación por correo"  title="Enviar notificación por correo"/> 
                             </button> 
+                             
+                            <c:choose>
+                                <c:when test="${requestScope.id_grupo!=4}">
+
+                                     <button value="controladorseguimiento?operacion=listar&id_solicitud=${solicitudes.id_solicitud}" id="listar" 
+                                        titulo="Confirme listado de seguimiento." mensaje="Está Ud. seguro de listar los seguimientos de esta solicitud!">
+                                        <img src="imagenes/listar.png" class="btn-tabla" alt="lista" title="Listar seguimientos de la solicitud"/>
+                                    </button>
+                                </c:when>
                                     
-                            <button value="controladorseguimiento?operacion=listar&id_solicitud=${solicitudes.id_solicitud}" id="listar" 
-                                    titulo="Confirme listado de seguimiento." mensaje="Está Ud. seguro de listar los seguimientos de esta solicitud!">
-                                <img src="imagenes/listar.png" class="btn-tabla" alt="lista" title="Listar seguimientos de la solicitud"/>
-                            </button>
+                            
+                            </c:choose>       
+                                    
+                  
                                     
                            <button value="controladorregistro?operacion=verRequisitos&id=${solicitudes.id_tramite}" id="requisitos" 
                                     titulo="Confirme listado de Requisitos." mensaje="Está Ud. seguro de listar los requisitos de esta solicitud!">
@@ -331,10 +340,10 @@
                 </c:forEach>
            </tbody>
         </table>
-
+    
     </center>
         <script>
-                //doSearch();
+             //doSearch();
         </script>
  </body>
 </html>

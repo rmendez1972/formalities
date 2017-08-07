@@ -75,11 +75,12 @@ public class ControladorUsuario extends ControladorBase {
         Usuario usr=new Usuario();
             usr.setId_usuario(Integer.parseInt(request.getParameter("id_usuario")));
             usr.setNombre(request.getParameter("nombre"));
+            usr.setPassword(request.getParameter("password"));
             usr.setApellido_paterno(request.getParameter("apellido_paterno"));
             usr.setApellido_materno(request.getParameter("apellido_materno"));
             usr.setId_unidadadministrativa(Integer.parseInt(request.getParameter("id_unidadadministrativa")));
             usr.setId_grupo(Integer.parseInt(request.getParameter("id_grupo")));
-             usr.setId_direccion(Integer.parseInt(request.getParameter("id_direccion")));
+            usr.setId_direccion(Integer.parseInt(request.getParameter("id_direccion")));
             usr.setUsuario(request.getParameter("usuario"));
             
             GestionUsuario modelo=new GestionUsuario();

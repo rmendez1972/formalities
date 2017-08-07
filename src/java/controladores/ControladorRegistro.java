@@ -328,13 +328,17 @@ public class ControladorRegistro extends HttpServlet
             Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
             Integer id_direccion=usuario.getId_direccion();
             GestionSolicitud oper2=new GestionSolicitud();
-            if (id_grupo==1)
+            if (id_grupo==1 || id_grupo==4)
             {    
                 
     
                 solicitudes=oper2.obtenerSolicitudes();
                 request.setAttribute("solicitudes",solicitudes);
                 request.setAttribute("mensaje",mensaje);
+                
+                HttpSession session = request.getSession();
+                session.setAttribute("usuario", usuario);
+                request.setAttribute("id_grupo", id_grupo);
                 
                 
                 RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes.jsp");
