@@ -69,7 +69,7 @@
     <body>
         <form id="form_UA" onsubmit="return registrar()">
             <input type="hidden" name="id_usuario" id="id_usuario" value="${usr.id_usuario}" />
-            <h1>Modificar usuario.XX</h1>
+            <h1>Modificar usuario.</h1>
             <table border="0" align="center">
                 <tr>
                     <td>Usuario:</td>
