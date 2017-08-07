@@ -9,7 +9,7 @@
 
     body {
         font-family: helveticanuelightext;
-        background-image: url(../imagenes/seduvi2.png);
+        background-image: url(../imagenes/fondo.jpg);
 
     }
     header a{text-decoration: none;color:#fff;}
@@ -1044,4 +1044,14 @@ div.upload input {
             
         }
         
-       
+       .select2.narrow {
+            width: 500px;
+        }
+        .wrap.select2-selection--single {
+            height: 100%;
+        }
+        .select2-container .wrap.select2-selection--single .select2-selection__rendered {
+            word-wrap: break-word;
+            text-overflow: inherit;
+            //white-space: normal;
+        }

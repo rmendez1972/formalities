@@ -37,6 +37,17 @@
                     alert("Seleccione un requisito");
             }
             
+            
+            $(document).ready(function(){ 
+                    var $select2 = $('.select2').select2({
+                    containerCssClass: "wrap"
+                })
+                
+            });
+            
+            
+            
+            
             <c:if test="${msg != null}">
                 alert('${msg}');
             </c:if>
@@ -63,18 +74,22 @@
 </table>
     
     <div id="d_nuevoRequisito" style="display:none; padding: 15px; margin:10px; border:1px solid #CDCDCD; font-size:13px">
+        
         Nuevo requisito: 
         <input type="hidden" id="id_tram" value="${tramite.id_tramite}" />
         <br />
-        <select id="nuevoRequisito">
-            <option value="0">Seleccione uno</option>
+        <select id="nuevoRequisito" class="select2 narrow wrap">
+            <option value="0">Seleccione un requisito</option>
             <c:forEach var="req" items="${requestScope.noreq}"> 
-                        <option value="${req.id_requisito}"><c:out value="${req.nombre}" /></option>
-                </c:forEach>
+                <option value="${req.id_requisito}"><c:out value="${req.nombre}" /></option>
+            </c:forEach>
         </select>
-        <br />
+        <br>
+        <br>
+        
         <input type="button" value="Agregar" class="frm-btn" onclick="guardarRequisito()" /> 
         <input type="button" value="Cancelar" class="frm-btn" onclick="$('#d_nuevoRequisito').slideUp()" />
+        
     </div>
     
     <table id="requisitos" class="tablesorter" style="margin:auto; width:60%">
