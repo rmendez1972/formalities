@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe145593-eaf5-49dc-971a-1de1a3559efe">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="144"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -74,7 +74,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select S.id_solicitud, S.fecha_ingreso, S.fecha_termino, S.id_tramite, S.id_solicitante, S.id_usuario_ingreso, S.id_usuario_seguimiento, S.id_status, T.nombre as tramite, concat(P.nombre,' ',P.apellido_paterno,' ',P.apellido_materno) as solicitante, ST.nombre as status, UA.nombre as ua from solicitud S inner join tramite T on S.id_tramite=T.id_tramite inner join solicitante P on S.id_solicitante=P.id_solicitante inner join status ST on S.id_status=ST.id_status inner join unidadadministrativa UA on T.id_unidadadministrativa=UA.id_unidadadministrativa $P!{sql};]]>
+		<![CDATA[select S.id_solicitud, S.fecha_ingreso, S.fecha_termino, S.id_tramite, S.id_solicitante, S.id_usuario_ingreso, S.id_usuario_seguimiento, S.id_status, T.nombre as tramite, concat(P.nombre,' ',P.apellido_paterno,' ',P.apellido_materno) as solicitante, P.email as email, P.password as password, ST.nombre as status, UA.nombre as ua from solicitud S inner join tramite T on S.id_tramite=T.id_tramite inner join solicitante P on S.id_solicitante=P.id_solicitante inner join status ST on S.id_status=ST.id_status inner join unidadadministrativa UA on T.id_unidadadministrativa=UA.id_unidadadministrativa $P!{sql};]]>
 	</queryString>
 	<field name="id_solicitud" class="java.lang.Integer"/>
 	<field name="fecha_ingreso" class="java.sql.Timestamp"/>
@@ -86,6 +86,8 @@
 	<field name="id_status" class="java.lang.Integer"/>
 	<field name="tramite" class="java.lang.String"/>
 	<field name="solicitante" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="password" class="java.lang.String"/>
 	<field name="status" class="java.lang.String"/>
 	<field name="ua" class="java.lang.String"/>
 	<background>
@@ -114,7 +116,7 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="307" splitType="Stretch">
+		<band height="328" splitType="Stretch">
 			<staticText>
 				<reportElement uuid="4a90db53-c263-45c8-8ba9-b1b7e74939e3" style="table" x="37" y="55" width="111" height="20"/>
 				<textElement verticalAlignment="Middle">
@@ -206,7 +208,7 @@
 				<text><![CDATA[ Es muy importante que conserve el número de solicitud, pues es reqsuisito indispensable para el seguimiento de su trámite a través de la página de la SEDETUS con dirección electrónica http://qroo.gob.mx/sedetus y a través de nuestra aplicación móvil.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="220" width="501" height="21"/>
+				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="281" width="501" height="21"/>
 				<textElement textAlignment="Center">
 					<font size="10" isBold="true"/>
 				</textElement>
@@ -230,12 +232,40 @@
 				<text><![CDATA[Nota:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="233" width="501" height="21"/>
+				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="296" width="501" height="21"/>
 				<textElement textAlignment="Center">
 					<font size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Secretaría de Desarrollo Territorial Urbano Sustentable]]></text>
 			</staticText>
+			<staticText>
+				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="220" width="501" height="14"/>
+				<textElement>
+					<font size="8" isBold="false" isUnderline="false"/>
+					<paragraph firstLineIndent="35"/>
+				</textElement>
+				<text><![CDATA[Usted podrá acceder a dicha aplicación con los siguientes datos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3c5405ea-96af-42e0-83b6-48c74a935ead" x="72" y="234" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1adb6899-20cc-4461-afd1-f7962ccc2f7a" x="172" y="234" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b87e386c-734e-47dd-9157-36b3103efb46" x="72" y="255" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Contraseña:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3d4d2f2f-bf4f-4a81-898e-ceba9ecc1b62" x="172" y="255" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{password}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
