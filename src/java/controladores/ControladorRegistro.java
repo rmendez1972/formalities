@@ -780,6 +780,7 @@ public class ControladorRegistro extends HttpServlet
             String nombre_solicitante=solicitante.getNombre();
             String apellido_paterno=solicitante.getApellido_paterno();
             String apellido_materno=solicitante.getApellido_materno();
+            String password=solicitante.getPassword();
             
             GestionTramite modelo=new GestionTramite();
             Tramite t=modelo.obtenerPorId(id_tramite);
@@ -811,7 +812,7 @@ public class ControladorRegistro extends HttpServlet
                 requisitos+="<tr><td width='10%'>"+num.toString()+"</td><td width='90%'>"+requisito.getNombre()+"</td></tr>";
                 num++;
             }
-            resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDETUS", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDETUS <br><br><table border='2' align='left' width='100%'><thead><tr><th width='20%'>No.</th><th width='80%'>Descripción</th></tr></thead><tbody>"+requisitos+"</tbody></table><br><br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"<br>Secretaría de Desarrollo Territorial Urbano Sustentable</b>");
+            resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDETUS", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDETUS <br><br><table border='2' align='left' width='100%'><thead><tr><th width='20%'>No.</th><th width='80%'>Descripción</th></tr></thead><tbody>"+requisitos+"</tbody></table><br>"+"<br><br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"<br>Secretaría de Desarrollo Territorial Urbano Sustentable</b>");
             //Integer i=1;
                        
             //cuerpocorreo=cuerpocorreo+"<br>Atentamente<br><br><b>Administrador del Sistema</b><br>";
