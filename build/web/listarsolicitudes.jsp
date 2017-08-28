@@ -207,8 +207,8 @@
                     <th width="8%">Ingreso</th>
                     <th width="10%">Subsecretaría</th>
                     <th width="15%">Trámite</th>
-                    <th width="4%">Dias Resolución</th>
-                    <th width="3%">Días Restantes</th>
+                    <th width="4%">Dias Resolución (laborables)</th>
+                    <th width="3%">Días Restantes (naturales)</th>
                     <th width="10%">Solicitante</th>
                     <th width="3%">Estatus</th>
                     
@@ -225,7 +225,23 @@
                         <td width="15%"><c:out value="${solicitudes.tramite}" /></td>
                         <td width="4%"> <span class="badge"><c:out value="${solicitudes.dias_resolucion}" /></span></td>
                         <td width="3%" style="text-align: right">
-                            <c:set var="dias_restantes" value="${solicitudes.dias_resolucion-solicitudes.dias_diferencia}"/>
+                            
+      
+                            <c:choose>
+         
+                                <c:when test = "${solicitudes.dias_resolucion == 30}">
+                                    <c:set var="dias_restantes" value="${(solicitudes.dias_resolucion+8)-solicitudes.dias_diferencia}"/>
+                                </c:when>
+                                    
+                                <c:when test = "${solicitudes.dias_resolucion == 7}">
+                                    <c:set var="dias_restantes" value="${(solicitudes.dias_resolucion+2)-solicitudes.dias_diferencia}"/>
+                                </c:when>
+         
+                                <c:otherwise>
+                                    <c:set var="dias_restantes" value="${solicitudes.dias_resolucion-solicitudes.dias_diferencia}"/>
+                                </c:otherwise>
+                            </c:choose>
+                            
 
                             <c:if test="${dias_restantes>5}">
                                 <div style="font-size: 16px"> 

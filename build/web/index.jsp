@@ -134,7 +134,9 @@
             
             <footer> <!--Pie de página!-->
                 <p>Sistema: Ventanilla Única de Gestión de Trámites y Servicios.<br>
-                        Derechos reservados SEDUVI. Subsecretaría de Técnica, Chetumal, Q.Roo 2016.</p>
+                    Derechos reservados SEDETUS. Subsecretaría de Técnica, Dirección de Informática. Departamento de Sistemas Chetumal, Q.Roo 2017.
+                    
+                </p>
             </footer> <!--fin del pie de página-->
 	            
 	</section> <!--fin del wrap, contenedor princiapal!-->
