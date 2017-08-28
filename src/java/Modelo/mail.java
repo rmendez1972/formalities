@@ -20,10 +20,10 @@ public class mail {
         properties.put("mail.smtp.starttls.enable", "true");
          /*properties.put("mail.smtp.port", 587);*/
         properties.put("mail.smtp.port",587);
-        properties.put("mail.smtp.mail.sender", "seduviqroo@gmail.com");
-        properties.put("mail.smtp.password", "seduviqroo01");
+        properties.put("mail.smtp.mail.sender", "sedetusqroo@gmail.com");
+        properties.put("mail.smtp.password", "sedetus01");
         /* properties.put("mail.smtp.password", "veronica1972");*/
-        properties.put("mail.smtp.user", "seduviqroo@gmail.com");
+        properties.put("mail.smtp.user", "sedetusqroo@gmail.com");
         properties.put("mail.smtp.auth", "true");
         session = Session.getDefaultInstance(properties);
     }

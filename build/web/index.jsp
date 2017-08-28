@@ -143,7 +143,7 @@
      <script>
             
             id_grupo='${requestScope.id_grupo}';
-     
+
             if (id_grupo==2){
                 document.getElementById("consolaadmin").style.display="none";
                 document.getElementById("registro").style.display="none";

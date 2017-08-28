@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe145593-eaf5-49dc-971a-1de1a3559efe">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="144"/>
+	<property name="ireport.y" value="150"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -120,7 +120,7 @@
 			<staticText>
 				<reportElement uuid="4a90db53-c263-45c8-8ba9-b1b7e74939e3" style="table" x="37" y="55" width="111" height="20"/>
 				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Núm. Solicitud:]]></text>
@@ -128,6 +128,7 @@
 			<textField>
 				<reportElement uuid="3a42879a-36f5-4257-9aea-1e8b2b6c78ba" style="table" x="151" y="55" width="100" height="20"/>
 				<textElement verticalAlignment="Middle">
+					<font size="8"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id_solicitud}]]></textFieldExpression>
@@ -135,7 +136,7 @@
 			<staticText>
 				<reportElement uuid="d4ba0a8f-dedd-469f-858c-c7136da3b1f8" style="table" x="37" y="79" width="111" height="20"/>
 				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Feha de ingreso:]]></text>
@@ -143,6 +144,7 @@
 			<textField>
 				<reportElement uuid="17d75ec6-d43b-449d-8d7f-a516025ce9cb" style="table" x="151" y="79" width="100" height="20"/>
 				<textElement verticalAlignment="Middle">
+					<font size="8"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_ingreso}]]></textFieldExpression>
@@ -150,7 +152,7 @@
 			<staticText>
 				<reportElement uuid="395cb002-516d-476c-8174-5d416e4b5009" style="table" x="37" y="103" width="111" height="20"/>
 				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Trámite:]]></text>
@@ -158,6 +160,7 @@
 			<textField>
 				<reportElement uuid="52f805eb-3d00-4b24-a12a-cce9296f4752" style="table" x="151" y="103" width="390" height="36"/>
 				<textElement>
+					<font size="8"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tramite}]]></textFieldExpression>
@@ -165,7 +168,7 @@
 			<staticText>
 				<reportElement uuid="87a6065b-3509-4e65-8873-5ff13691711a" style="table" x="37" y="143" width="111" height="20"/>
 				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Solicitante:]]></text>
@@ -173,6 +176,7 @@
 			<textField>
 				<reportElement uuid="14d35f96-10ad-43c4-b914-24246d125048" style="table" x="151" y="143" width="390" height="20"/>
 				<textElement verticalAlignment="Middle">
+					<font size="8"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
@@ -180,7 +184,7 @@
 			<staticText>
 				<reportElement uuid="d9800a44-1cde-499d-aa31-726c9edc76e7" style="table" x="37" y="167" width="111" height="20"/>
 				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Subsecretaría:]]></text>
@@ -188,6 +192,7 @@
 			<textField>
 				<reportElement uuid="28dd880a-da13-41a7-93c3-60f202c8bdc6" style="table" x="151" y="167" width="390" height="20"/>
 				<textElement verticalAlignment="Middle">
+					<font size="8"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ua}]]></textFieldExpression>
@@ -195,7 +200,7 @@
 			<staticText>
 				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="23" width="504" height="32"/>
 				<textElement textAlignment="Justified">
-					<font size="10" isBold="false"/>
+					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Por este conducto se le informa que su trámite ha sido ingresado correctamente a la Ventanilla Única de trámites y Servicios de la SEDETUS, con los datos que acontinuación se detallan:]]></text>
 			</staticText>
@@ -208,20 +213,24 @@
 				<text><![CDATA[ Es muy importante que conserve el número de solicitud, pues es reqsuisito indispensable para el seguimiento de su trámite a través de la página de la SEDETUS con dirección electrónica http://qroo.gob.mx/sedetus y a través de nuestra aplicación móvil.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="281" width="501" height="21"/>
+				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="238" width="501" height="21"/>
 				<textElement textAlignment="Center">
-					<font size="10" isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[A t e n t a m e n t e]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="284" y="1" width="211" height="20"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[Chetumal, Quintana Roo., a]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy">
 				<reportElement uuid="9d2c8d86-5546-4126-9f0d-feadb11ef69e" x="480" y="1" width="58" height="20"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -232,38 +241,38 @@
 				<text><![CDATA[Nota:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="296" width="501" height="21"/>
+				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="259" width="501" height="21"/>
 				<textElement textAlignment="Center">
-					<font size="10" isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Secretaría de Desarrollo Territorial Urbano Sustentable]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="56839f40-8c46-4cb3-ab09-2577284eb73d" x="37" y="220" width="501" height="14"/>
+				<reportElement uuid="3c5405ea-96af-42e0-83b6-48c74a935ead" x="37" y="216" width="36" height="20"/>
 				<textElement>
-					<font size="8" isBold="false" isUnderline="false"/>
-					<paragraph firstLineIndent="35"/>
+					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Usted podrá acceder a dicha aplicación con los siguientes datos:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="3c5405ea-96af-42e0-83b6-48c74a935ead" x="72" y="234" width="100" height="20"/>
-				<textElement/>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="1adb6899-20cc-4461-afd1-f7962ccc2f7a" x="172" y="234" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="1adb6899-20cc-4461-afd1-f7962ccc2f7a" x="73" y="216" width="152" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="b87e386c-734e-47dd-9157-36b3103efb46" x="72" y="255" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="b87e386c-734e-47dd-9157-36b3103efb46" x="225" y="216" width="48" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[Contraseña:]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="3d4d2f2f-bf4f-4a81-898e-ceba9ecc1b62" x="172" y="255" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="3d4d2f2f-bf4f-4a81-898e-ceba9ecc1b62" x="274" y="216" width="100" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{password}]]></textFieldExpression>
 			</textField>
 		</band>
