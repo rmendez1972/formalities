@@ -143,11 +143,7 @@
      <script>
             
             id_grupo='${requestScope.id_grupo}';
-<<<<<<< HEAD
-          
-=======
-     
->>>>>>> 3a3aa24cb56eddf5a0a10a3559d32112d1ff87a6
+
             if (id_grupo==2){
                 document.getElementById("consolaadmin").style.display="none";
                 document.getElementById("registro").style.display="none";
