@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteUsuarios" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d49dae9-11de-4574-8c56-721e2087b1fe">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="0.9090909090909091"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
@@ -16,23 +16,23 @@
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image scaleImage="RealHeight" hAlign="Center">
+			<image hAlign="Center">
 				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="752" height="79"/>
-				<imageExpression><![CDATA["..\\imagenes\\seduvi.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["..\\imagenes\\headerreporte.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="49" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="06d7dbe0-d4e4-45ca-a2f8-c681c6933dc0" x="175" y="7" width="402" height="20"/>
-				<textElement textAlignment="Justified">
+				<reportElement uuid="06d7dbe0-d4e4-45ca-a2f8-c681c6933dc0" x="0" y="7" width="752" height="20"/>
+				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ventanilla Unica de Gestión de Trámites y Servicios]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="0503b35f-acc0-4832-a848-290874a81fd8" x="175" y="27" width="402" height="20"/>
+				<reportElement uuid="0503b35f-acc0-4832-a848-290874a81fd8" x="0" y="27" width="752" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 				</textElement>

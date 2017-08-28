@@ -328,13 +328,17 @@ public class ControladorRegistro extends HttpServlet
             Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
             Integer id_direccion=usuario.getId_direccion();
             GestionSolicitud oper2=new GestionSolicitud();
-            if (id_grupo==1)
+            if (id_grupo==1 || id_grupo==4)
             {    
                 
     
                 solicitudes=oper2.obtenerSolicitudes();
                 request.setAttribute("solicitudes",solicitudes);
                 request.setAttribute("mensaje",mensaje);
+                
+                HttpSession session = request.getSession();
+                session.setAttribute("usuario", usuario);
+                request.setAttribute("id_grupo", id_grupo);
                 
                 
                 RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes.jsp");
@@ -712,12 +716,12 @@ public class ControladorRegistro extends HttpServlet
           {    
             mail correo = new mail();
             Iterator iterator=req.listIterator();
-            String cuerpocorreo="<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>C. Subsecretari@ <br>P R E S E N T E:</b><br><br>"+"Por este medio te notificamos de un nuevo trámite de: (<b>"+nombretramite+"</b>), con fecha: "+fecha_solicitud+" con <b>Núm. de Solicitud: "+midsolicitud+"</b> que ha sido ingresado al Sistema de Ventanilla Unica de Gestión de Trámites y Servicios de la SEDUVI para su atención. <br><br>";
+            String cuerpocorreo="<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>C. Subsecretari@ <br>P R E S E N T E:</b><br><br>"+"Por este medio te notificamos de un nuevo trámite de: (<b>"+nombretramite+"</b>), con fecha: "+fecha_solicitud+" con <b>Núm. de Solicitud: "+midsolicitud+"</b> que ha sido ingresado al Sistema de Ventanilla Unica de Gestión de Trámites y Servicios de la SEDETUS para su atención. <br><br>";
             //resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDUVI <br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
             Integer i=1;
                        
             cuerpocorreo=cuerpocorreo+"<br>Atentamente<br><br><b>Administrador del Sistema</b><br>";
-            resultado=correo.send(emailua, "Ingreso de Nueva Solicitud en Ventanilla Unica de Trámites y Servicios de la SEDUVI", cuerpocorreo);
+            resultado=correo.send(emailua, "Ingreso de Nueva Solicitud en Ventanilla Unica de Trámites y Servicios de la SEDETUS", cuerpocorreo);
               
           }
           if(resultado==true)
@@ -776,6 +780,7 @@ public class ControladorRegistro extends HttpServlet
             String nombre_solicitante=solicitante.getNombre();
             String apellido_paterno=solicitante.getApellido_paterno();
             String apellido_materno=solicitante.getApellido_materno();
+            String password=solicitante.getPassword();
             
             GestionTramite modelo=new GestionTramite();
             Tramite t=modelo.obtenerPorId(id_tramite);
@@ -807,7 +812,7 @@ public class ControladorRegistro extends HttpServlet
                 requisitos+="<tr><td width='10%'>"+num.toString()+"</td><td width='90%'>"+requisito.getNombre()+"</td></tr>";
                 num++;
             }
-            resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDUVI <br><br><table border='2' align='left' width='100%'><thead><tr><th width='20%'>No.</th><th width='80%'>Descripción</th></tr></thead><tbody>"+requisitos+"</tbody></table><br><br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"<br>Secretaría de Desarrollo Urbano y Vivienda</b>");
+            resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDETUS", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://localhost:8080/tramites/imagenes/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDETUS <br><br><table border='2' align='left' width='100%'><thead><tr><th width='20%'>No.</th><th width='80%'>Descripción</th></tr></thead><tbody>"+requisitos+"</tbody></table><br>"+"<br><br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"<br>Secretaría de Desarrollo Territorial Urbano Sustentable</b>");
             //Integer i=1;
                        
             //cuerpocorreo=cuerpocorreo+"<br>Atentamente<br><br><b>Administrador del Sistema</b><br>";

@@ -16,9 +16,9 @@
 	</background>
 	<title>
 		<band height="71" splitType="Stretch">
-			<image scaleImage="RealHeight" hAlign="Center" isUsingCache="false">
-				<reportElement uuid="8676692b-b2ba-4855-81b8-c55d33c58926" x="6" y="0" width="732" height="63"/>
-				<imageExpression><![CDATA["..\\imagenes\\seduvi.jpg"]]></imageExpression>
+			<image hAlign="Center">
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="752" height="71"/>
+				<imageExpression><![CDATA["..\\imagenes\\headerreporte.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -36,7 +36,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Reporte de Trámites]]></text>
+				<text><![CDATA[Reporte de Trámites por Unidad Administrativa]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

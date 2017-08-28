@@ -159,10 +159,14 @@
                 $("form#frm_reportesolicitudes").submit(function(event)
                 {
                     event.preventDefault();
+                    
                     $(":submit",this).attr("disabled", "disabled"); //desactivo el submit para no reenviar
+                    
                     runEffect();
                     var mshow= document.getElementById('show');
+                    
                     mshow.style.display="block";
+                    
                     var mid_status=$('#id_status').val();
                     var mfecha_inicial=$('#fecha_inicial').val();
                     var mfecha_final=$('#fecha_final').val();
@@ -173,9 +177,7 @@
                     if ((mid_unidadadministrativa==null) || (mid_unidadadministrativa==""))mid_unidadadministrativa=0;
                     if ((mid_tramite==null) || (mid_tramite==""))mid_tramite=0;
                     
-                    var controlador="controladorreportes?operacion=solicitudes&id_unidadadministrativa="+mid_unidadadministrativa+"&id_status="+mid_status+"&fecha_inicial="+mfecha_inicial+"&fecha_final="+mfecha_final+"&id_tramite="+mid_tramite;
-                    
-                    
+                    var controlador="controladorreportes?operacion=solicitudes&id_status="+mid_status+"&fecha_inicial="+mfecha_inicial+"&fecha_final="+mfecha_final+"&id_unidadadministrativa="+mid_unidadadministrativa+"&id_tramite="+mid_tramite;
                     $.ajax(
                     {
                     
@@ -197,6 +199,7 @@
                         contentType: false,
                         processData: false
                     });
+                                        
                     var mfrm_reportesolicitudes= document.getElementById('frm_reportesolicitudes');
                     mfrm_reportesolicitudes.style.display="none";
                     return false;
@@ -255,6 +258,6 @@
         </section>
         
         <div id="divimprimiendo" class="divimprimiendo"><p>Generando Reporte ...</p></div>
-        <!--<iframe  name="show" id="show" align="middle" frameborder="0" marginwidth="0" marginheight="0" width="95%" height="85%" scrolling="no"  title="En la parte inferior derecha boton para imprimir..." style="display:none; margin: 10px" ></iframe>-->    
+        <iframe  name="show" id="show" align="middle" frameborder="0" marginwidth="0" marginheight="0" width="95%" height="85%" scrolling="no"  title="En la parte superior derecha boton para imprimir..." style="display:none; margin: 10px" ></iframe>    
     </body>
 </html>

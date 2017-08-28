@@ -77,6 +77,7 @@
                width: 200px;
                margin-left: 25%;
                margin-top: 10%;
+               text-transform: uppercase;
               
             }
             #password{
@@ -85,6 +86,7 @@
                margin-left: 25%;
                margin-top: 5%;
                margin-bottom: 10px;
+               text-transform: uppercase;
               
             }
            #boton{
@@ -137,12 +139,12 @@
                     <div id="campos">
                         <div id="user">
                             <label for="user"></label>
-                            <input type="text" name="user"   placeholder="Usuario" required>
+                            <input type="text" name="user"   placeholder="Usuario" required style="text-transform: uppercase;">
                             <input type="hidden" name="nombre">
                         </div>
                         <div id="password"
                             <label for="password"></label>
-                            <input type="password" name="password"  placeholder="contraseña" required>
+                            <input type="password" name="password"  placeholder="contraseña" required style="text-transform: uppercase;">
                           
                         </div>
                     </div>
