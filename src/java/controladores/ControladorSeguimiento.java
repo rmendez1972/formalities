@@ -200,7 +200,11 @@ public class ControladorSeguimiento extends HttpServlet
             sexo= oper5.obtenerTodos();
             
             GestionStatus oper6 =new GestionStatus();
-            status= oper6.obtenerTodos();
+            if (id_grupo==4 || id_grupo==2){ //ismael status por grupo
+                status=oper6.obtenerTodosGrupo(id_grupo);
+            }else {
+            status= oper6.obtenerTodos(); //Todos los estatus
+            }
             
             GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa(); 
             ua = gua.obtenerTodos();
@@ -560,7 +564,15 @@ public class ControladorSeguimiento extends HttpServlet
             sexosolicitante=oper5.obtenerPorId(clave);
             
             GestionStatus oper6 =new GestionStatus();
-            status= oper6.obtenerTodos();
+            
+            if (id_grupo==4 || id_grupo==2){ //ismael status por grupo
+                status=oper6.obtenerTodosGrupo(id_grupo);
+            }else {
+            status= oper6.obtenerTodos(); //Todos los estatus
+            }
+            
+            
+            //status= oper6.obtenerTodos();
             
             //obtenemos datos del seguimiento
             

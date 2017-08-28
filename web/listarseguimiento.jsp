@@ -121,7 +121,14 @@
                                 <c:when test="${seguimientos.estatus=='REVERTIDO'}">
                                     <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo revertido"></div><c:out value="${seguimientos.estatus}"/></td>
                                 </c:when>
-                                    
+                                
+                                <c:when test="${seguimientos.estatus=='CANCELADO'}">
+                                    <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo cancelado"></div><c:out value="${seguimientos.estatus}"/></td>
+                                </c:when>
+                                
+                                <c:when test="${seguimientos.estatus=='ENTREGADO'}">
+                                    <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo entregado"></div><c:out value="${seguimientos.estatus}"/></td>
+                                </c:when>    
                                     
                                 <c:otherwise>
                                     <td width="10%" style="font-size: 8px"><c:out value="${seguimientos.estatus}"/>
@@ -159,6 +166,7 @@
                             
                             <button value="controladorseguimiento?operacion=enviarcorreo&id_seguimiento=${seguimientos.id_seguimiento}" id="mail" titulo="Confirme el envio por correo." mensaje="Está Ud. seguro de enviar por correo este seguimiento!"><img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar correo"  title="enviar correo" />
                             </button>
+                            
                         </td>
                     </tr>
 

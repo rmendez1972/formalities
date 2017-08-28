@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javabeans.Status;
+import javabeans.Usuario;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -20,7 +22,12 @@ import javax.servlet.http.HttpServletResponse;
 public class ControladorEstatus extends ControladorBase {
 
     public void listar(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        HttpSession objSession = request.getSession();
+        Usuario usuario;
+        usuario = (Usuario)(objSession.getAttribute("usuario")); 
+        Integer mid_grupo=usuario.getId_grupo();
         GestionStatus modelo=new GestionStatus();
+        
         ArrayList status=modelo.obtenerTodos();
         request.setAttribute("status", status);
         RequestDispatcher rd=request.getRequestDispatcher("listar_status.jsp");

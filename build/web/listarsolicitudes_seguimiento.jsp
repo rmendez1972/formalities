@@ -204,7 +204,21 @@
                                 <c:when test="${solicitudes.status=='REVERTIDO'}">
                                     <!--<td width="8%"style="font-size: 8px"><div class="circulo"></div><div class="circulo"></div><div class="statusConcluido"></div><c:out value="${solicitudes.status}"/></td>-->
                                     <td width="3%" style="font-size: 8px; text-align: center; color:#8258FA;"><div class="circulo revertido"></div><c:out value="${solicitudes.status}"/></td>
-                                </c:when>      
+                                </c:when>
+                                
+                                <c:when test="${solicitudes.status=='CANCELADO'}">
+                                    <td width="8%"style="font-size: 8px;text-align: center; color:#BBB;">
+                                        <div class="circulo cancelado"></div>
+                                        <c:out value="${solicitudes.status}"/>
+                                    </td>
+                                </c:when>     
+                                
+                                <c:when test="${solicitudes.status=='ENTREGADO'}">
+                                    <td width="8%"style="font-size: 8px;text-align: center; color:#BBB;">
+                                        <div class="circulo entregado"></div>
+                                        <c:out value="${solicitudes.status}"/>
+                                    </td>
+                                </c:when>  
                                     
                                 <c:otherwise>
                                     <td width="3%" style="font-size: 8px"><c:out value="${solicitudes.status}"/></td>

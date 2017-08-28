@@ -164,7 +164,7 @@
         <br>
         <table id="menuListarSolicitudes" border=0 width="100%"> <!--Tabla que contendrá el menú de listar solicitudes!-->
             <tr>
-                <td width="80%" align="right"><h1>Listado de Solicitudes</h1></td>
+                <td width="80%" align="right"><h1>Listado de Solicitudes ventanilla</h1></td>
                 <td width="20%" align="right">
                     <div class="btn-catalogo"> <!--Icono para imprimir!-->
                         <a href="controladorregistro?operacion=imprimir" target="new"><img src="imagenes/reportesb.png" width="30" height="30" alt="Imprimir"/><p>Imprimir</p></a>
@@ -275,12 +275,28 @@
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
                                 </c:when> 
+                                    
+                                 <c:when test="${solicitudes.status=='CANCELADO'}">
+                                    <td width="8%"style="font-size: 8px;text-align: center; color:#fff;">
+                                        <div class="circulo cancelado"></div>
+                                        <c:out value="${solicitudes.status}"/>
+                                    </td>
+                                </c:when>
+                                    
                                 <c:when test="${solicitudes.status=='REVERTIDO'}">
                                     <td width="8%"style="font-size: 8px;text-align: center; color:#8258FA;">
                                         <div class="circulo revertido"></div>
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
-                                </c:when>         
+                                </c:when>
+                                   
+                                <c:when test="${solicitudes.status=='ENTREGADO'}">
+                                    <td width="8%"style="font-size: 8px;text-align: center; color:#bbb;">
+                                        <div class="circulo entregado"></div>
+                                        <c:out value="${solicitudes.status}"/>
+                                    </td>
+                                </c:when>    
+                                    
                                 <c:otherwise>
                                     <td width="3%" ><c:out value="${solicitudes.status}"/></td>
                                 </c:otherwise>
@@ -288,7 +304,7 @@
                         
                         <td width="42%">
                             <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
-                                    titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
+                                    titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!xxx">
                                     <img src="imagenes/editar.png" class="btn-tabla" alt="edicion" title="Editar solicitud"/>
                             </button>
                                                           
@@ -299,20 +315,16 @@
                                     
                             <button value="controladorregistro?operacion=enviarcorreosubsec&id_solicitud=${solicitudes.id_solicitud}" id="notificacion"
                                     titulo="Confirme el envío de notificación" mensaje="Está Ud. seguro de enviar la notificación por email!">
-                                <img src="imagenes/notificacion.png"  class="btn-tabla" width="24" height="24" alt="Enviar notificación por correo"  title="Enviar notificación por correo"/> 
+                                <img src="imagenes/notificacion.png"  class="btn-tabla" width="24" height="24" alt="Enviar notificación por correo"  title="Enviar notificación por correoxxx"/> 
                             </button> 
                              
-                            <c:choose>
-                                <c:when test="${requestScope.id_grupo!=4}">
+
 
                                      <button value="controladorseguimiento?operacion=listar&id_solicitud=${solicitudes.id_solicitud}" id="listar" 
                                         titulo="Confirme listado de seguimiento." mensaje="Está Ud. seguro de listar los seguimientos de esta solicitud!">
                                         <img src="imagenes/listar.png" class="btn-tabla" alt="lista" title="Listar seguimientos de la solicitud"/>
                                     </button>
-                                </c:when>
-                                    
-                            
-                            </c:choose>       
+                     
                                     
                   
                                     
