@@ -7,6 +7,7 @@
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarseguimiento.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_seguimiento.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorRegistro.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/css/estilos.css</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorSeguimiento.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionStatus.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimientoId.jsp</file>
@@ -14,7 +15,6 @@
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimiento.jsp</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/UploadServlet.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorEstatus.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarseguimiento_registrante.jsp</file>
         </group>
     </open-files>
 </project-private>
