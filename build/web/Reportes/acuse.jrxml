@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe145593-eaf5-49dc-971a-1de1a3559efe">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="211"/>
+	<property name="ireport.y" value="444"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -106,7 +106,7 @@
 			<staticText>
 				<reportElement x="13" y="1" width="545" height="20" uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="10" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Acuse de Recibo de Ingreso a la Ventanilla Única de Trámites y Servicios]]></text>
 			</staticText>
@@ -116,209 +116,209 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="423" splitType="Stretch">
+		<band height="574" splitType="Stretch">
 			<staticText>
-				<reportElement style="table" x="37" y="55" width="111" height="20" uuid="4a90db53-c263-45c8-8ba9-b1b7e74939e3"/>
+				<reportElement style="table" x="37" y="122" width="111" height="20" uuid="4a90db53-c263-45c8-8ba9-b1b7e74939e3"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
+					<font size="9" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Núm. Solicitud:]]></text>
 			</staticText>
 			<textField>
-				<reportElement style="table" x="151" y="55" width="100" height="20" uuid="3a42879a-36f5-4257-9aea-1e8b2b6c78ba"/>
+				<reportElement style="table" x="151" y="122" width="100" height="20" uuid="3a42879a-36f5-4257-9aea-1e8b2b6c78ba"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8"/>
+					<font size="9"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id_solicitud}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="table" x="37" y="79" width="111" height="20" uuid="d4ba0a8f-dedd-469f-858c-c7136da3b1f8"/>
+				<reportElement style="table" x="37" y="146" width="111" height="20" uuid="d4ba0a8f-dedd-469f-858c-c7136da3b1f8"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
+					<font size="9" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Feha de ingreso:]]></text>
 			</staticText>
 			<textField>
-				<reportElement style="table" x="151" y="79" width="100" height="20" uuid="17d75ec6-d43b-449d-8d7f-a516025ce9cb"/>
+				<reportElement style="table" x="151" y="146" width="100" height="20" uuid="17d75ec6-d43b-449d-8d7f-a516025ce9cb"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8"/>
+					<font size="9"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_ingreso}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="table" x="37" y="103" width="111" height="20" uuid="395cb002-516d-476c-8174-5d416e4b5009"/>
+				<reportElement style="table" x="37" y="170" width="111" height="20" uuid="395cb002-516d-476c-8174-5d416e4b5009"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
+					<font size="9" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Trámite:]]></text>
 			</staticText>
 			<textField>
-				<reportElement style="table" x="151" y="103" width="390" height="36" uuid="52f805eb-3d00-4b24-a12a-cce9296f4752"/>
+				<reportElement style="table" x="151" y="170" width="390" height="36" uuid="52f805eb-3d00-4b24-a12a-cce9296f4752"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tramite}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="table" x="37" y="143" width="111" height="20" uuid="87a6065b-3509-4e65-8873-5ff13691711a"/>
+				<reportElement style="table" x="37" y="210" width="111" height="20" uuid="87a6065b-3509-4e65-8873-5ff13691711a"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
+					<font size="9" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Solicitante:]]></text>
 			</staticText>
 			<textField>
-				<reportElement style="table" x="151" y="143" width="390" height="20" uuid="14d35f96-10ad-43c4-b914-24246d125048"/>
+				<reportElement style="table" x="151" y="210" width="390" height="20" uuid="14d35f96-10ad-43c4-b914-24246d125048"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8"/>
+					<font size="9"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="table" x="37" y="167" width="111" height="20" uuid="d9800a44-1cde-499d-aa31-726c9edc76e7"/>
+				<reportElement style="table" x="37" y="234" width="111" height="20" uuid="d9800a44-1cde-499d-aa31-726c9edc76e7"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
+					<font size="9" isBold="true"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<text><![CDATA[Subsecretaría:]]></text>
 			</staticText>
 			<textField>
-				<reportElement style="table" x="151" y="167" width="390" height="20" uuid="28dd880a-da13-41a7-93c3-60f202c8bdc6"/>
+				<reportElement style="table" x="151" y="234" width="390" height="20" uuid="28dd880a-da13-41a7-93c3-60f202c8bdc6"/>
 				<textElement verticalAlignment="Middle">
-					<font size="8"/>
+					<font size="9"/>
 					<paragraph leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ua}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="37" y="23" width="504" height="32" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
+				<reportElement x="37" y="73" width="504" height="32" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
 				<textElement textAlignment="Justified">
-					<font size="8" isBold="false"/>
+					<font size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Por este conducto se le informa que su trámite ha sido ingresado correctamente a la Ventanilla Única de trámites y Servicios de la SEDETUS, con los datos que acontinuación se detallan:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="37" y="192" width="501" height="28" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
+				<reportElement x="37" y="273" width="501" height="37" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
 				<textElement textAlignment="Justified">
-					<font size="8" isBold="false" isUnderline="false"/>
+					<font size="9" isBold="false" isUnderline="false"/>
 					<paragraph firstLineIndent="35"/>
 				</textElement>
 				<text><![CDATA[ Es muy importante que conserve el número de solicitud, pues es reqsuisito indispensable para el seguimiento de su trámite a través de la página de la SEDETUS con dirección electrónica http://qroo.gob.mx/sedetus y a través de nuestra aplicación móvil.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="371" width="501" height="21" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
+				<reportElement x="39" y="373" width="501" height="21" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[A t e n t a m e n t e]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="284" y="1" width="211" height="20" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
+				<reportElement x="284" y="27" width="211" height="20" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
 				<textElement textAlignment="Right">
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Chetumal, Quintana Roo., a]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy">
-				<reportElement x="480" y="1" width="58" height="20" uuid="9d2c8d86-5546-4126-9f0d-feadb11ef69e"/>
+				<reportElement x="480" y="27" width="58" height="20" uuid="9d2c8d86-5546-4126-9f0d-feadb11ef69e"/>
 				<textElement textAlignment="Right">
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="37" y="192" width="38" height="20" uuid="936e50d1-7007-46a5-b881-218f6a9a2776"/>
+				<reportElement x="37" y="273" width="38" height="20" uuid="936e50d1-7007-46a5-b881-218f6a9a2776"/>
 				<textElement>
 					<font size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nota:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="392" width="501" height="21" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
+				<reportElement x="39" y="394" width="501" height="21" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Secretaría de Desarrollo Territorial Urbano Sustentable]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="349" width="36" height="20" uuid="3c5405ea-96af-42e0-83b6-48c74a935ead"/>
+				<reportElement x="38" y="315" width="36" height="20" uuid="3c5405ea-96af-42e0-83b6-48c74a935ead"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="76" y="349" width="152" height="20" uuid="1adb6899-20cc-4461-afd1-f7962ccc2f7a"/>
+				<reportElement x="74" y="315" width="152" height="20" uuid="1adb6899-20cc-4461-afd1-f7962ccc2f7a"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="228" y="349" width="48" height="20" uuid="b87e386c-734e-47dd-9157-36b3103efb46"/>
+				<reportElement x="226" y="315" width="48" height="20" uuid="b87e386c-734e-47dd-9157-36b3103efb46"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Contraseña:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="277" y="349" width="100" height="20" uuid="3d4d2f2f-bf4f-4a81-898e-ceba9ecc1b62"/>
+				<reportElement x="275" y="315" width="100" height="20" uuid="3d4d2f2f-bf4f-4a81-898e-ceba9ecc1b62"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{password}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="40" y="241" width="498" height="53" uuid="642573a0-72f0-4f7a-885e-52cda624fbb1"/>
+				<reportElement x="43" y="470" width="498" height="53" uuid="642573a0-72f0-4f7a-885e-52cda624fbb1"/>
 				<textElement textAlignment="Justified">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[En cumplimiento a Ley General de Protección de Datos Personales en Posesión de los Sujetos Obligados y a la Ley de Protección de Datos Personales en Posesión de Sujetos Obligados de Quintana Roo, la SEDETUS, con domicilio en la av. Álvaro Obregon No. 474, col Centro, código postal 77000, de la Ciudad de Chetumal, Quintana Roo, en su calidad de Sujeto Obligado informa que es responsable del tratamiento de los Datos Personales que nos proporcione, los cuales serán protegidos de conformidad a los dispuesto por la citada ley y demás normatividad que resulte aplicable.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="296" width="498" height="29" uuid="4853f6c5-d001-45e3-80d2-223f4196d4f5"/>
-				<textElement textAlignment="Justified">
-					<font size="7"/>
-				</textElement>
-				<text><![CDATA[Los Datos Personales que recabamos de Usted, los utilizaremos principalmente para la emisión y envío de Trámites y Servicios, para el control interno, la elaboracion de informes sobre el servicio brindado y con fines estadísticos; asumiendo la obligación de cumplir con las medidas legales y de seguridad suficientes para proteger los Datos Personales que se hayan recabado. Para mayor detalle consulte, nuestro]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="225" width="341" height="14" uuid="0aabae1a-3eca-403c-9725-ae0bcda21ff4"/>
+				<reportElement x="125" y="454" width="341" height="14" uuid="0aabae1a-3eca-403c-9725-ae0bcda21ff4"/>
 				<textElement textAlignment="Justified">
 					<font size="8" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Aviso de Privacidad Simplificado: Ventanilla Única de Gestión de Trámites y Servicios]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="405" y="314" width="102" height="13" uuid="c0200c01-2db4-47a5-89e4-f837466d977a"/>
-				<textElement>
-					<font size="7" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Aviso de Privacidad Integral]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="40" y="324" width="266" height="16" uuid="1f545701-7820-4cc4-ade6-f33cbc0c11db"/>
+				<reportElement x="43" y="553" width="266" height="16" uuid="1f545701-7820-4cc4-ade6-f33cbc0c11db"/>
 				<textElement>
 					<font size="7" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[ www.qroo.gob.mx/sedetus]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="130" y="324" width="266" height="16" uuid="3fd0f37a-e413-46d6-8449-4f793699c5aa"/>
+				<reportElement x="133" y="553" width="266" height="16" uuid="3fd0f37a-e413-46d6-8449-4f793699c5aa"/>
 				<textElement>
 					<font size="7" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[en la sección "Datos Personales"]]></text>
+				<text><![CDATA[en la sección "Avisos de Privacidad"]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="509" y="314" width="17" height="11" uuid="66200668-8df2-4f7b-86f1-5c17de6dcd2e"/>
+				<reportElement x="43" y="525" width="498" height="29" uuid="4853f6c5-d001-45e3-80d2-223f4196d4f5"/>
+				<textElement textAlignment="Justified">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Los Datos Personales que recabamos de Usted, los utilizaremos principalmente para la emisión y envío de Trámites y Servicios, para el control interno, la elaboracion de informes sobre el servicio brindado y con fines estadísticos; asumiendo la obligación de cumplir con las medidas legales y de seguridad suficientes para proteger los Datos Personales que se hayan recabado. Para mayor detalle consulte, nuestro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="543" width="102" height="13" uuid="c0200c01-2db4-47a5-89e4-f837466d977a"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aviso de Privacidad Integral]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="512" y="543" width="17" height="11" uuid="66200668-8df2-4f7b-86f1-5c17de6dcd2e"/>
 				<textElement>
 					<font size="7"/>
 				</textElement>
