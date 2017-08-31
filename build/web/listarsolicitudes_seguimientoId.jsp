@@ -149,7 +149,15 @@
                 </c:when> 
                 <c:when test="${solicitud.id_status=='5'}">
                 <td style="font-size: 14px;text-align: center; color:#8258FA;"><div class="circulo revertido"></div>Revertido</td>
-                </c:when>         
+                </c:when>
+                
+                <c:when test="${seguimientos.estatus=='CANCELADO'}">
+                        <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo cancelado"></div><c:out value="${seguimientos.estatus}"/></td>
+                </c:when>
+
+                <c:when test="${seguimientos.estatus=='ENTREGADO'}">
+                    <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo entregado"></div><c:out value="${seguimientos.estatus}"/></td>
+                </c:when>  
 
                 <c:otherwise>
                     <!--<td width="8%" ><c:out value="${solicitud.id_status}"/></td>-->

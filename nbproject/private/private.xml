@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarseguimiento.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_seguimiento.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorRegistro.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/css/estilos.css</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorSeguimiento.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionStatus.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimientoId.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorUsuario.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimiento.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/UploadServlet.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorEstatus.java</file>
+        </group>
+>>>>>>> 5ce17581129316df26bf01af9d7ae15d9031a51e
     </open-files>
 </project-private>
