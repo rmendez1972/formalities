@@ -504,7 +504,7 @@ public class ControladorRegistro extends HttpServlet
                 request.setAttribute("sexo",sexo);
                 request.setAttribute("status",status);
 
-                if (id_grupo==1)
+                if (id_grupo==1 || id_grupo==4)
                 {    
                     RequestDispatcher rd=request.getRequestDispatcher("frmmodifica_registra.jsp");
                     rd.forward(request,response);

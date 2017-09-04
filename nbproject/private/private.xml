@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Administrador/Documents/netbeansProjects/tramites/src/java/Modelo/GestionUsuario.java</file>
             <file>file:/C:/Users/Administrador/Documents/netbeansProjects/tramites/src/java/controladores/ControladorUsuario.java</file>
             <file>file:/C:/Users/Administrador/Documents/netbeansProjects/tramites/web/frm_modificausuario.jsp</file>
@@ -14,6 +15,21 @@
             <file>file:/C:/Users/Administrador/Documents/netbeansProjects/tramites/src/java/controladores/ControladorAdjunto.java</file>
             <file>file:/C:/Users/Administrador/Documents/netbeansProjects/tramites/web/index.jsp</file>
             <file>file:/C:/Users/Administrador/Documents/netbeansProjects/tramites/src/java/controladores/ControladorSeguimiento.java</file>
+=======
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarseguimiento.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/frm_seguimiento.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorRegistro.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimientoId.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorEstatus.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/css/estilos.css</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorSeguimiento.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/Modelo/GestionStatus.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorUsuario.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarsolicitudes_seguimiento.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/UploadServlet.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/web/listarseguimiento_registrante.jsp</file>
+>>>>>>> 229eedb4bd4e0bddc8da18bdee2ac74b66de05a3
         </group>
     </open-files>
 </project-private>

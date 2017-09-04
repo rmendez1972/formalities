@@ -200,7 +200,11 @@ public class ControladorSeguimiento extends HttpServlet
             sexo= oper5.obtenerTodos();
             
             GestionStatus oper6 =new GestionStatus();
-            status= oper6.obtenerTodos();
+            if (id_grupo==4 || id_grupo==2){ //ismael status por grupo
+                status=oper6.obtenerTodosGrupo(id_grupo);
+            }else {
+            status= oper6.obtenerTodos(); //Todos los estatus
+            }
             
             GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa(); 
             ua = gua.obtenerTodos();
@@ -394,7 +398,13 @@ public class ControladorSeguimiento extends HttpServlet
           String mensaje,nombreadjuntonuevo;
           Boolean nombreadjunto=false;
           HttpSession objSession = request.getSession(); 
-          usuario = (Usuario)(objSession.getAttribute("usuario")); 
+          usuario = (Usuario)(objSession.getAttribute("usuario"));
+          
+          
+          //HttpSession objSession = request.getSession(); 
+          //  usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+            //Integer id_grupo=usuario.getId_grupo();
           
            //Part p1 = request.getPart("adjuntonuevo");  
            //nombreadjuntonuevo = getFileName(p1);
@@ -495,6 +505,7 @@ public class ControladorSeguimiento extends HttpServlet
             request.setAttribute("solicitante",solicitante);
             request.setAttribute("solicitud",solicitud);
             request.setAttribute("mensaje",mensaje);
+            request.setAttribute("id_grupo",id_grupo);
             RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento.jsp");
             rd.forward(request,response);
         }
@@ -560,7 +571,15 @@ public class ControladorSeguimiento extends HttpServlet
             sexosolicitante=oper5.obtenerPorId(clave);
             
             GestionStatus oper6 =new GestionStatus();
-            status= oper6.obtenerTodos();
+            
+            if (id_grupo==4 || id_grupo==2){ //ismael status por grupo
+                status=oper6.obtenerTodosGrupo(id_grupo);
+            }else {
+            status= oper6.obtenerTodos(); //Todos los estatus
+            }
+            
+            
+            //status= oper6.obtenerTodos();
             
             //obtenemos datos del seguimiento
             
@@ -595,7 +614,10 @@ public class ControladorSeguimiento extends HttpServlet
             String pathadjuntos="build/web/adjuntos/";
             //recupero el usuario de la sesion 
             HttpSession objSession = request.getSession(); 
-            usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            usuario = (Usuario)(objSession.getAttribute("usuario"));
+            
+            /*HttpSession objSession = request.getSession(); 
+            usuario = (Usuario)(objSession.getAttribute("usuario")); */
             
             Integer id_grupo=usuario.getId_grupo();
             Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
@@ -629,6 +651,8 @@ public class ControladorSeguimiento extends HttpServlet
             request.setAttribute("solicitante",solicitante);
             request.setAttribute("solicitud",solicitud);
             request.setAttribute("pathadjuntos",pathadjuntos);
+            request.setAttribute("id_grupo",id_grupo);
+            
             if (id_grupo==1)
             {    
                 RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento_registrante.jsp");
@@ -649,19 +673,33 @@ public class ControladorSeguimiento extends HttpServlet
           Solicitud solicitud;
           Solicitante solicitante;
           Tramite tramite;
+          Usuario usuario;
           Integer id_solicitud,id_tramite,id_solicitante,id_unidadadministrativa;
           resultado=false;
           resultado2=false;
           String mensaje;
           
           Integer id_seguimiento;   
-          id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));  
+          id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));
+          
+          //recupero el usuario de la sesion 
+            HttpSession objSession = request.getSession(); 
+            usuario = (Usuario)(objSession.getAttribute("usuario"));
+            Integer id_grupo=usuario.getId_grupo();
           
           GestionSeguimiento gs=new GestionSeguimiento();
           seguimiento= gs.obtenerPorId(id_seguimiento);
           id_solicitud=seguimiento.getId_solicitud();
-          resultado = gs.eliminarPorId(id_seguimiento); 
+          Integer mstatus=seguimiento.getId_status();
+          if (mstatus==3 || mstatus==7){ //Si el estatus es concluido o entregado no se borrara.
+              mensaje="Imposible borrarlo con este estatus";
+              }else {
+             resultado = gs.eliminarPorId(id_seguimiento);  
+          }
+          
+          //resultado = gs.eliminarPorId(id_seguimiento); 
           seguimientos = gs.obtenerPorSolicitud(id_solicitud);
+         
          
                      
           GestionSolicitud gsol=new GestionSolicitud(); 
@@ -684,11 +722,16 @@ public class ControladorSeguimiento extends HttpServlet
           
           }
           
+          if (mstatus==3 || mstatus==7){
+              mensaje="Imposible borrarlo con este estatus";
+            }
+          
           request.setAttribute("mensaje",mensaje);
           request.setAttribute("seguimientos",seguimientos);
           request.setAttribute("tramite",tramite);
           request.setAttribute("solicitante",solicitante);
           request.setAttribute("solicitud",solicitud);
+          request.setAttribute("id_grupo",id_grupo);
           RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento.jsp");
           rd.forward(request,response);
         }
