@@ -398,7 +398,13 @@ public class ControladorSeguimiento extends HttpServlet
           String mensaje,nombreadjuntonuevo;
           Boolean nombreadjunto=false;
           HttpSession objSession = request.getSession(); 
-          usuario = (Usuario)(objSession.getAttribute("usuario")); 
+          usuario = (Usuario)(objSession.getAttribute("usuario"));
+          
+          
+          //HttpSession objSession = request.getSession(); 
+          //  usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+            //Integer id_grupo=usuario.getId_grupo();
           
            //Part p1 = request.getPart("adjuntonuevo");  
            //nombreadjuntonuevo = getFileName(p1);
@@ -499,6 +505,7 @@ public class ControladorSeguimiento extends HttpServlet
             request.setAttribute("solicitante",solicitante);
             request.setAttribute("solicitud",solicitud);
             request.setAttribute("mensaje",mensaje);
+            request.setAttribute("id_grupo",id_grupo);
             RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento.jsp");
             rd.forward(request,response);
         }
