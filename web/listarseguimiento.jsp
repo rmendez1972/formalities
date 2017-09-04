@@ -155,11 +155,16 @@
                         <td width="10%"><c:out value="${seguimientos.usuario}" /></td>
                         <td width="17%">
                             <c:choose>   
-                            <c:when test="${requestScope.id_grupo!=4}">
-                                <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
-                                    <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
-                                </button>
-                            </c:when>
+                                <c:when test="${requestScope.id_grupo!=4 && seguimientos.estatus!='ENTREGADO'}">
+                                    <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
+                                        <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
+                                    </button>
+                                </c:when>
+                                <c:when test="${requestScope.id_grupo==4 && seguimientos.estatus=='ENTREGADO'}">
+                                    <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
+                                        <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
+                                    </button>
+                                </c:when>
                             </c:choose>
                             
                             <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
