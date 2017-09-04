@@ -82,7 +82,7 @@
                 <tr>
                     <td><input type="text" id="usuario" required autofocus required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9\0-9]{5,12})" placeholder="Mín.5 Máx.12 caracteres" maxlength="12"/></td>
                     <td><input type="password" id="password" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9\0-9]{5,12})" placeholder="Mín.5 Máx. 12 caracteres"maxlength="12"/></td>
-                    <td><input type="password" id="password_rep" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9\0-9]{5,12})" placeholder="Repita su password"maxlength="12"/></td>
+                    <td><input type="password" id="password_rep" required pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9\0-9]{5,12})" placeholder="Repita su password" maxlength="12"/></td>
                 </tr>
                 <tr>
                     <td>Nombre:</td>
