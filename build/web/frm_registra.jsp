@@ -31,6 +31,7 @@
                 //evento change del selector unidadadtva
                 $("#unidadadtva").change(function()
                 {
+                    
                     //la respuesta viene del servlet tramites2
                     $.getJSON("tramites2", 
                     {

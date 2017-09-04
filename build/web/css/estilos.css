@@ -1031,7 +1031,9 @@ div.upload input {
         .tramite{background-color: #FFBF00; /*amarillo#F4FA58 naranja#FFBF00"*/}
         .concluido{background-color: #00FF00; /*verde*/}
         .inconcluso{background-color: #2E9AFE;/*azul*/}
-        .revertido{background-color: #8258FA; /*Morado*/}
+        .revertido{background-color: #8258FA;}
+        .cancelado{background-color: #FF4000;}
+        .entregado{background-color: #FE2E64;}
         /*#FF0000;#FFBF00;#00FF00;#2E9AFE;#8258FA;*/
         
         #semaforo{

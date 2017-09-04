@@ -164,7 +164,7 @@
         <br>
         <table id="menuListarSolicitudes" border=0 width="100%"> <!--Tabla que contendrá el menú de listar solicitudes!-->
             <tr>
-                <td width="80%" align="right"><h1>Listado de Solicitudes ventanilla</h1></td>
+                <td width="80%" align="right"><h1>Listado de Solicitudes.</h1></td>
                 <td width="20%" align="right">
                     <div class="btn-catalogo"> <!--Icono para imprimir!-->
                         <a href="controladorregistro?operacion=imprimir" target="new"><img src="imagenes/reportesb.png" width="30" height="30" alt="Imprimir"/><p>Imprimir</p></a>
@@ -335,13 +335,13 @@
                             </button> 
                              
 
-
+                                    
                                      <button value="controladorseguimiento?operacion=listar&id_solicitud=${solicitudes.id_solicitud}" id="listar" 
                                         titulo="Confirme listado de seguimiento." mensaje="Está Ud. seguro de listar los seguimientos de esta solicitud!">
                                         <img src="imagenes/listar.png" class="btn-tabla" alt="lista" title="Listar seguimientos de la solicitud"/>
                                     </button>
                      
-                                    
+                                   
                   
                                     
                            <button value="controladorregistro?operacion=verRequisitos&id=${solicitudes.id_tramite}" id="requisitos" 

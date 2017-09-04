@@ -84,7 +84,8 @@
                             <c:when test="${seguimientos.adjunto==false}">
                                     <td width="10%" style="font-size: 8px;text-align:center"><img src="imagenes/mal.png"   title="seguimiento sin archivos adjuntos"/></td>
                             </c:when>
-                                    
+                        
+                       
                                 
                                         
                         </c:choose><td width="10%"><c:out value="${seguimientos.estatus}" /></td>  
