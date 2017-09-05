@@ -99,7 +99,7 @@
                      <c:if test="${requestScope.id_grupo==4 && solicitud.id_status!=7}">
                         <div class="btn-catalogo">
                             <button value="controladorseguimiento?operacion=capturar&id_solicitud=${solicitud.id_solicitud}" id="agregar" titulo="Confirme la adición." mensaje="Está Ud. seguro de agregar este seguimiento!"><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></button>
-                    </div>
+                        </div>
                     </c:if>
                     
                 </td>

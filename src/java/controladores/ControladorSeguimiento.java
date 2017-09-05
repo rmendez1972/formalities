@@ -372,6 +372,8 @@ public class ControladorSeguimiento extends HttpServlet
                 mensaje="Errror al grabar seguimiento";
             }
             
+            
+            solicitud = oper1.obtenerPorId(id_solicitud);
            
             ArrayList seguimientos=gs.obtenerPorSolicitud(id_solicitud);
             request.setAttribute("mensaje",mensaje);
