@@ -90,7 +90,16 @@
                                         
                         </c:choose><td width="10%"><c:out value="${seguimientos.estatus}" /></td>  
                         <td width="5%">
-                            
+                            <c:choose>   
+                                
+                                <c:when test="${requestScope.id_grupo==1 && seguimientos.estatus=='ENTREGADO'}">
+                                    
+                                    <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
+                                        <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
+                                    </button>
+                                </c:when>
+                                
+                            </c:choose>
                             <button value="controladoradjunto?operacion=listar&id_seguimiento=${seguimientos.id_seguimiento}" id="listar" titulo="Confirme el listado de adjuntos" mensaje="Está Ud. seguro de listar los adjuntos de este seguimiento!">
                                 <img src="imagenes/adjunto.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
                             </button>    
