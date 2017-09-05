@@ -697,6 +697,11 @@ public class ControladorSeguimiento extends HttpServlet
              resultado = gs.eliminarPorId(id_seguimiento);  
           }
           
+          if ( mstatus==7 && id_grupo==1){
+              mensaje="Seguimiento borrado exitosamente";
+              resultado = gs.eliminarPorId(id_seguimiento);
+          }
+          
           //resultado = gs.eliminarPorId(id_seguimiento); 
           seguimientos = gs.obtenerPorSolicitud(id_solicitud);
          

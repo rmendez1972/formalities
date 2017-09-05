@@ -159,17 +159,29 @@
                                     <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
                                         <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
                                     </button>
+                                    <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
+                                        <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
+                                    </button>
                                 </c:when>
                                 <c:when test="${requestScope.id_grupo==4 && seguimientos.estatus=='ENTREGADO'}">
                                     <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
                                         <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
                                     </button>
+                                    <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
+                                        <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
+                                    </button>
+                                </c:when>
+                                <c:when test="${requestScope.id_grupo==2 && seguimientos.estatus!='ENTREGADO'}">
+                                    <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
+                                        <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
+                                    </button>
+                                    <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
+                                        <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
+                                    </button>
                                 </c:when>
                             </c:choose>
                             
-                            <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
-                                <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
-                            </button>
+                            
                            
                             <button value="controladoradjunto?operacion=listar&id_seguimiento=${seguimientos.id_seguimiento}" id="listar" titulo="Confirme el listado de adjuntos" mensaje="Está Ud. seguro de listar los adjuntos de este seguimiento!">
                                 <img src="imagenes/adjunto.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
