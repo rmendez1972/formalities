@@ -84,12 +84,13 @@
                     <div class="btn-catalogo">
                         <a href="controladoradjunto?operacion=imprimir&id_seguimiento=${seguimiento.id_seguimiento}" target="new"><img  src="imagenes/reportesb.png"  width="30" height="30"alt="Imprimir"/><p>Imprimir</p></a>
                     </div>
-                    
-                    <div class="btn-catalogo">
-                        <button value="controladoradjunto?operacion=nuevo&id_seguimiento=${seguimiento.id_seguimiento}" id="agregar" titulo="Confirme la adición." mensaje="Está Ud. seguro de agregar un adjunto!"><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></button>
+                    <!-- Si el grupo es que registra nivel ventanilla entonces puede agregar adjuntos -->
+                    <c:if test="${requestScope.id_grupo==2 && solicitud.id_status!=7}">
+                        <div class="btn-catalogo">
+                            <button value="controladoradjunto?operacion=nuevo&id_seguimiento=${seguimiento.id_seguimiento}" id="agregar" titulo="Confirme la adición." mensaje="Está Ud. seguro de agregar un adjunto!"><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></button>
+                        </div>
+                    </c:if>    
                         
-                        
-                    </div>
                 </td>
             </tr>
              

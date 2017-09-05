@@ -182,6 +182,7 @@ public class ControladorAdjunto extends ControladorBase {
         request.setAttribute("adjuntos",adjuntos);
         request.setAttribute("pathadjuntos",pathadjuntos);
         request.setAttribute("pathuploads",pathuploads);
+        request.setAttribute("id_grupo",id_grupo);
         if (id_grupo==1)
         {    
             RequestDispatcher rd=request.getRequestDispatcher("listaradjunto_registrante.jsp");
