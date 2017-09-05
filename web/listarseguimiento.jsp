@@ -83,11 +83,25 @@
                         <a href="controladorseguimiento?operacion=imprimir&id_solicitud=${solicitud.id_solicitud}" target="new"><img  src="imagenes/reportesb.png"  width="30" height="30"alt="Imprimir"/><p>Imprimir</p></a>
                     </div>
                     
-                    <div class="btn-catalogo">
-                        <button value="controladorseguimiento?operacion=capturar&id_solicitud=${solicitud.id_solicitud}" id="agregar" titulo="Confirme la adición." mensaje="Está Ud. seguro de agregar este seguimiento!"><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></button>
+                    <c:if test="${requestScope.id_grupo==2 && solicitud.id_status!=7}">
+                        <div class="btn-catalogo">
+                           
+                            <button value="controladorseguimiento?operacion=capturar&id_solicitud=${solicitud.id_solicitud}" id="agregar" titulo="Confirme la adición." mensaje="Está Ud. seguro de agregar este seguimiento!"><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></button>
                         <!--<a href= value="controladorseguimiento?operacion=capturar&id_solicitud=${solicitud.id_solicitud}" id="agregar" ><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></a>!-->
                         
                     </div>
+                    </c:if>
+                    
+                    <!--Validación para agregar seguimientos, siempre y cuando el usario
+                        pertenezca al grupo 4 (ventanilla) y el estatus de la solicitud sea
+                        diferente a entregado (7)-->
+                    
+                     <c:if test="${requestScope.id_grupo==4 && solicitud.id_status!=7}">
+                        <div class="btn-catalogo">
+                            <button value="controladorseguimiento?operacion=capturar&id_solicitud=${solicitud.id_solicitud}" id="agregar" titulo="Confirme la adición." mensaje="Está Ud. seguro de agregar este seguimiento!"><img  src="imagenes/agregar.png" width="30" height="30" alt="agregar" title="agregar" /><p>Agregar</p></button>
+                    </div>
+                    </c:if>
+                    
                 </td>
             </tr>
              
@@ -104,92 +118,87 @@
                         <td width="40%"><c:out value="${seguimientos.observaciones}" /></td>
                         
                         <c:choose>
-                                <c:when test="${seguimientos.estatus=='TURNADO'}">
-                                    <td width="10%" style="font-size: 8px; text-align: center; color: #FF0000;"><div class="circulo turnado"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>
-                                    
-                                <c:when test="${seguimientos.estatus=='TRAMITE'}">
-                                    <td width="10%" style="font-size: 8px; text-align: center; color: #FFBF00;"><div class="circulo tramite"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>
-                                    
-                                <c:when test="${seguimientos.estatus=='CONCLUIDO'}">
-                                    <td width="10%" style="font-size: 8px; text-align: center; color: #00FF00;"><div class="circulo concluido"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>
-                                <c:when test="${seguimientos.estatus=='INCONCLUSO'}">
-                                    <td width="10%" style="font-size: 8px; text-align: center; color: #2E9AFE;"><div class="circulo inconcluso"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>
-                                <c:when test="${seguimientos.estatus=='REVERTIDO'}">
-                                    <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo revertido"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>
-                                
-                                <c:when test="${seguimientos.estatus=='CANCELADO'}">
-                                    <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo cancelado"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>
-                                
-                                <c:when test="${seguimientos.estatus=='ENTREGADO'}">
-                                    <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo entregado"></div><c:out value="${seguimientos.estatus}"/></td>
-                                </c:when>    
-                                    
-                                <c:otherwise>
-                                    <td width="10%" style="font-size: 8px"><c:out value="${seguimientos.estatus}"/>
-                                </c:otherwise>
-                                        
-                            </c:choose>
-                        
-                    
-                        
-                        
-                        <c:choose>
-                             <c:when test="${seguimientos.adjunto==true}">
-                                    <td width="10%" style="font-size: 8px;text-align:center"><img src="imagenes/ok.png"    title="seguimiento con archivos adjuntos"/></td>
+                            <c:when test="${seguimientos.estatus=='TURNADO'}">
+                                <td width="10%" style="font-size: 8px; text-align: center; color: #FF0000;"><div class="circulo turnado"></div><c:out value="${seguimientos.estatus}"/></td>
                             </c:when>
-                                    
-                            <c:when test="${seguimientos.adjunto==false}">
-                                    <td width="10%" style="font-size: 8px;text-align:center"><img src="imagenes/mal.png"   title="seguimiento sin archivos adjuntos"/></td>
+
+                            <c:when test="${seguimientos.estatus=='TRAMITE'}">
+                                <td width="10%" style="font-size: 8px; text-align: center; color: #FFBF00;"><div class="circulo tramite"></div><c:out value="${seguimientos.estatus}"/></td>
                             </c:when>
-                                    
-                                
+
+                            <c:when test="${seguimientos.estatus=='CONCLUIDO'}">
+                                <td width="10%" style="font-size: 8px; text-align: center; color: #00FF00;"><div class="circulo concluido"></div><c:out value="${seguimientos.estatus}"/></td>
+                            </c:when>
+                            <c:when test="${seguimientos.estatus=='INCONCLUSO'}">
+                                <td width="10%" style="font-size: 8px; text-align: center; color: #2E9AFE;"><div class="circulo inconcluso"></div><c:out value="${seguimientos.estatus}"/></td>
+                            </c:when>
+                            <c:when test="${seguimientos.estatus=='REVERTIDO'}">
+                                <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo revertido"></div><c:out value="${seguimientos.estatus}"/></td>
+                            </c:when>
+
+                            <c:when test="${seguimientos.estatus=='CANCELADO'}">
+                                <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo cancelado"></div><c:out value="${seguimientos.estatus}"/></td>
+                            </c:when>
+
+                            <c:when test="${seguimientos.estatus=='ENTREGADO'}">
+                                <td width="10%" style="font-size: 8px; text-align: center; color: #8258FA;"><div class="circulo entregado"></div><c:out value="${seguimientos.estatus}"/></td>
+                            </c:when>    
+
+                            <c:otherwise>
+                                <td width="10%" style="font-size: 8px"><c:out value="${seguimientos.estatus}"/>
+                            </c:otherwise>
                                         
                         </c:choose>
                         
+                        
+                        <c:choose>
+                            
+                             <c:when test="${seguimientos.adjunto==true}">
+                                    <td width="10%" style="font-size: 8px;text-align:center"><img src="imagenes/ok.png"    title="seguimiento con archivos adjuntos"/></td>
+                            </c:when>                                    
+                            <c:when test="${seguimientos.adjunto==false}">
+                                    <td width="10%" style="font-size: 8px;text-align:center"><img src="imagenes/mal.png"   title="seguimiento sin archivos adjuntos"/></td>
+                            </c:when> 
+                                    
+                        </c:choose>
+                         
                         <td width="10%"><c:out value="${seguimientos.usuario}" /></td>
                         <td width="17%">
-                            <c:choose>   
-                                <c:when test="${requestScope.id_grupo!=4 && seguimientos.estatus!='ENTREGADO'}">
-                                    <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
-                                        <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
-                                    </button>
-                                    <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
-                                        <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
-                                    </button>
+                        
+                        <!--igh Validación para que se muestren las acciones si el 
+                            estatus es diferente a "ENTREGADO" y el grupo diferente 
+                            ventanilla (4)-->
+                        <c:choose>   
+                            <c:when test="${solicitud.id_status!=7 && requestScope.id_grupo!=4}">
+                                <!--Editar-->
+                                <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
+                                    <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
+                                </button>
+                                <!--Eliminar-->    
+                                <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
+                                    <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
+                                </button>
+                                 <!--lista adjuntos-->  
+                                <button value="controladoradjunto?operacion=listar&id_seguimiento=${seguimientos.id_seguimiento}" id="listar" titulo="Confirme el listado de adjuntos" mensaje="Está Ud. seguro de listar los adjuntos de este seguimiento!">
+                                    <img src="imagenes/adjunto.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
+                                </button>  
+                                <!-- enviar correo-->    
+                                <button value="controladorseguimiento?operacion=enviarcorreo&id_seguimiento=${seguimientos.id_seguimiento}" id="mail" titulo="Confirme el envio por correo." mensaje="Está Ud. seguro de enviar por correo este seguimiento!"><img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar correo"  title="enviar correo" />
+                                </button>
+                            </c:when>
+                        </c:choose> 
+                        <!--igh Validación para cuando estatus sea "entregado" el nivel 
+                            ventanilla (grupo 4) pueda editar su registro-->
+                                                   
+                            <c:choose>
+                                <c:when test="${seguimientos.estatus=='ENTREGADO' && requestScope.id_grupo==4}">
+                                <!--Editar-->
+                                <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
+                                    <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
+                                </button>
                                 </c:when>
-                                <c:when test="${requestScope.id_grupo==4 && seguimientos.estatus=='ENTREGADO'}">
-                                    <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
-                                        <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
-                                    </button>
-                                    <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
-                                        <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
-                                    </button>
-                                </c:when>
-                                <c:when test="${requestScope.id_grupo==2 && seguimientos.estatus!='ENTREGADO'}">
-                                    <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
-                                        <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
-                                    </button>
-                                    <button value="controladorseguimiento?operacion=borrar&id_seguimiento=${seguimientos.id_seguimiento}" id="eliminar" titulo="Confirme la eliminación." mensaje="Está Ud. seguro de eliminar este seguimiento!">
-                                        <img src="imagenes/eliminar.png"  class="btn-tabla" width="24" height="24" alt="Eliminar"  title="borrar seguimiento" />
-                                    </button>
-                                </c:when>
-                            </c:choose>
-                            
-                            
+                            </c:choose>    
                            
-                            <button value="controladoradjunto?operacion=listar&id_seguimiento=${seguimientos.id_seguimiento}" id="listar" titulo="Confirme el listado de adjuntos" mensaje="Está Ud. seguro de listar los adjuntos de este seguimiento!">
-                                <img src="imagenes/adjunto.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
-                            </button>    
-                            
-                            <button value="controladorseguimiento?operacion=enviarcorreo&id_seguimiento=${seguimientos.id_seguimiento}" id="mail" titulo="Confirme el envio por correo." mensaje="Está Ud. seguro de enviar por correo este seguimiento!"><img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar correo"  title="enviar correo" />
-                            </button>
-                            
                         </td>
                     </tr>
 

@@ -654,6 +654,7 @@ public class ControladorSeguimiento extends HttpServlet
             request.setAttribute("pathadjuntos",pathadjuntos);
             request.setAttribute("id_grupo",id_grupo);
             
+            
             if (id_grupo==1)
             {    
                 RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento_registrante.jsp");
