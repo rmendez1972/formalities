@@ -379,6 +379,7 @@ public class ControladorSeguimiento extends HttpServlet
             request.setAttribute("tramite",tramite);
             request.setAttribute("solicitante",solicitante);
             request.setAttribute("solicitud",solicitud);
+            request.setAttribute("id_grupo",id_grupo);
             RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento.jsp");
             rd.forward(request,response);
         } 
@@ -737,7 +738,13 @@ public class ControladorSeguimiento extends HttpServlet
           request.setAttribute("solicitante",solicitante);
           request.setAttribute("solicitud",solicitud);
           request.setAttribute("id_grupo",id_grupo);
-          RequestDispatcher rd=request.getRequestDispatcher("listarseguimiento.jsp");
+          RequestDispatcher rd;
+          if(id_grupo!=1){
+            rd=request.getRequestDispatcher("listarseguimiento.jsp");
+          }else{
+            rd=request.getRequestDispatcher("listarseguimiento_registrante.jsp");
+          }
+              
           rd.forward(request,response);
         }
         
