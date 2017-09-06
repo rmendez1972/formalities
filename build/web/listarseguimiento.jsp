@@ -82,7 +82,7 @@
                     <div class="btn-catalogo">
                         <a href="controladorseguimiento?operacion=imprimir&id_solicitud=${solicitud.id_solicitud}" target="new"><img  src="imagenes/reportesb.png"  width="30" height="30"alt="Imprimir"/><p>Imprimir</p></a>
                     </div>
-                    g:${requestScope.id_grupo} S: ${solicitud.id_status}
+                    
                     
                     
                     
