@@ -331,7 +331,7 @@
                                     
                             <button value="controladorregistro?operacion=enviarcorreosubsec&id_solicitud=${solicitudes.id_solicitud}" id="notificacion"
                                     titulo="Confirme el envío de notificación" mensaje="Está Ud. seguro de enviar la notificación por email!">
-                                <img src="imagenes/notificacion.png"  class="btn-tabla" width="24" height="24" alt="Enviar notificación por correo"  title="Enviar notificación por correoxxx"/> 
+                                <img src="imagenes/notificacion.png"  class="btn-tabla" width="24" height="24" alt="Enviar notificación por correo"  title="Enviar notificación por correo"/> 
                             </button> 
                              
 
