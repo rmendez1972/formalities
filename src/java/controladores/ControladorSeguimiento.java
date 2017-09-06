@@ -404,16 +404,6 @@ public class ControladorSeguimiento extends HttpServlet
           usuario = (Usuario)(objSession.getAttribute("usuario"));
           
           
-          //HttpSession objSession = request.getSession(); 
-          //  usuario = (Usuario)(objSession.getAttribute("usuario")); 
-            
-            //Integer id_grupo=usuario.getId_grupo();
-          
-           //Part p1 = request.getPart("adjuntonuevo");  
-           //nombreadjuntonuevo = getFileName(p1);
-           //Boolean adjuntosubido=subirAdjunto(p1);
-           
-          
            Part p2  = request.getPart("id_solicitud");
            Scanner s2 = new Scanner(p2.getInputStream()); //la clase Scanner es utilizada para leer datos de un dispostivo de entrada o stream
            String midsolicitud = s2.nextLine();    // lectura del stream como cadena de caracteres
@@ -671,7 +661,7 @@ public class ControladorSeguimiento extends HttpServlet
          
         if(operacion.equals("borrar"))
         {
-          Boolean resultado,resultado2;
+          Boolean resultado,resultado2,resultado3;
           ArrayList seguimientos;
           Seguimiento seguimiento;
           Solicitud solicitud;
@@ -681,6 +671,7 @@ public class ControladorSeguimiento extends HttpServlet
           Integer id_solicitud,id_tramite,id_solicitante,id_unidadadministrativa;
           resultado=false;
           resultado2=false;
+          resultado3=false;
           String mensaje;
           
           Integer id_seguimiento;   
@@ -695,6 +686,7 @@ public class ControladorSeguimiento extends HttpServlet
           seguimiento= gs.obtenerPorId(id_seguimiento);
           id_solicitud=seguimiento.getId_solicitud();
           Integer mstatus=seguimiento.getId_status();
+          
           if (mstatus==3 || mstatus==7){ //Si el estatus es concluido o entregado no se borrara.
               mensaje="Imposible borrarlo con este estatus";
               }else {
@@ -702,13 +694,12 @@ public class ControladorSeguimiento extends HttpServlet
           }
           
           if ( mstatus==7 && id_grupo==1){
-              mensaje="Seguimiento borrado exitosamente";
+              
               resultado = gs.eliminarPorId(id_seguimiento);
           }
           
           //resultado = gs.eliminarPorId(id_seguimiento); 
           seguimientos = gs.obtenerPorSolicitud(id_solicitud);
-         
          
                      
           GestionSolicitud gsol=new GestionSolicitud(); 
@@ -722,18 +713,27 @@ public class ControladorSeguimiento extends HttpServlet
           GestionTramite gtm=new GestionTramite(); 
           tramite=gtm.obtenerPorId(id_tramite);
           id_unidadadministrativa=tramite.getId_unidadadministrativa();
+          
+          //if (mstatus==3 || mstatus==7){
+          //    mensaje="Imposible borrarlo con este estatus";
+         //}
+          
           if(resultado==true)
           {
-              mensaje="Seguimeinto borrado exitosamente";
+              mensaje="Seguimiento borrado exitosamente, ";
+              if (id_grupo==1){ //Si el usuario tiene privilegio de administrador.
+                resultado3=gsol.actualizarPorId(id_solicitud);
+                if(resultado3==true){
+                  mensaje=mensaje+" y la solicitud ha quedado actualizada";
+                }
+              }
           }else
           {
               mensaje="Error al borrar seguimiento";
           
           }
           
-          if (mstatus==3 || mstatus==7){
-              mensaje="Imposible borrarlo con este estatus";
-            }
+          
           
           request.setAttribute("mensaje",mensaje);
           request.setAttribute("seguimientos",seguimientos);

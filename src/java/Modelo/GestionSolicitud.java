@@ -24,6 +24,11 @@ public class GestionSolicitud {
         return Conexion.ejecutar("update solicitud set fecha_ingreso=?, fecha_termino=?, id_tramite=?, id_solicitante=?, id_usuario_ingreso=?, id_usuario_seguimiento=?, id_status=? where id_solicitud=?", params);
     }
     
+    public boolean actualizarPorId(int id_solicitud){
+        Object params[]={id_solicitud};
+        return Conexion.ejecutar("update solicitud set id_status=3 where id_solicitud=?", params);
+    }
+    
     public ArrayList obtenerSolicitudes(){
         ArrayList sol=new ArrayList();
         
