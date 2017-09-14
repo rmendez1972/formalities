@@ -108,7 +108,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Acuse de Recibo de Ingreso a la Ventanilla Única de Trámites y Servicios]]></text>
+				<text><![CDATA[Acuse de Recibo ]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -202,7 +202,7 @@
 				<textElement textAlignment="Justified">
 					<font size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Por este conducto se le informa que su trámite ha sido ingresado correctamente a la Ventanilla Única de trámites y Servicios de la SEDETUS, con los datos que acontinuación se detallan:]]></text>
+				<text><![CDATA[Por este conducto se le informa que su trámite ha sido ingresado correctamente a la SEDETUS, con los datos que acontinuación se detallan:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="37" y="273" width="501" height="37" uuid="56839f40-8c46-4cb3-ab09-2577284eb73d"/>
@@ -284,10 +284,10 @@
 			</staticText>
 			<staticText>
 				<reportElement x="125" y="454" width="341" height="14" uuid="0aabae1a-3eca-403c-9725-ae0bcda21ff4"/>
-				<textElement textAlignment="Justified">
+				<textElement textAlignment="Center">
 					<font size="8" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[Aviso de Privacidad Simplificado: Ventanilla Única de Gestión de Trámites y Servicios]]></text>
+				<text><![CDATA[Aviso de Privacidad Simplificado: Trámites y Servicios]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="43" y="553" width="266" height="16" uuid="1f545701-7820-4cc4-ade6-f33cbc0c11db"/>

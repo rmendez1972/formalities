@@ -102,7 +102,7 @@
             
             <div id="subheader">
 		<div id="logotipo"></div>
-                <div id="sistema">Ventanilla Única de Gestión<br/> de Trámites y Servicios
+                <div id="sistema"> Trámites y Servicios
                     <div  style="font-size: 12px; color:#000; margin-top: 5px"><strong>USUARIO:</strong>
                       
                         <script type="text/javascript">document.write(usuario+'    ');</script>
@@ -133,7 +133,7 @@
             </section>
             
             <footer> <!--Pie de página!-->
-                <p>Sistema: Ventanilla Única de Gestión de Trámites y Servicios.<br>
+                <p>Sistema: Trámites y Servicios.<br>
                     Derechos reservados SEDETUS. Subsecretaría de Técnica, Dirección de Informática. Departamento de Sistemas Chetumal, Q.Roo 2017.
                     
                 </p>
