@@ -132,7 +132,7 @@
             <!--<a href="#" onclick="javascript:document.body.style.backgroundColor='none'; 
                 document.body.style.backgroundImage='url(imagenes/backg2.png)';">Rojo</a>!-->
             <center>
-                <h4 style="color: #459cc1; text-shadow: white 0.1em 0.1em 0.2em">Ventanilla Única de Gestión de Trámites y Servicios<br> Versión 1.0</h4>
+                <h4 style="color: #459cc1; text-shadow: white 0.1em 0.1em 0.2em">Trámites y Servicios<br> Versión 1.0</h4>
                 <!--<img SRC="imagenes\loginicon.png">!-->
 		
                 <form name="login" id="login"   method="post">

@@ -716,12 +716,12 @@ public class ControladorRegistro extends HttpServlet
           {    
             mail correo = new mail();
             Iterator iterator=req.listIterator();
-            String cuerpocorreo="<table border='0' align='center' width='90%'><tr><td><img src=\"http://189.221.153.178:4200/assets/img/headerreporte.png\" /></td></tr></table><br><b>C. Subsecretari@ <br>P R E S E N T E:</b><br><br>"+"Por este medio te notificamos de un nuevo trámite de: (<b>"+nombretramite+"</b>), con fecha: "+fecha_solicitud+" con <b>Núm. de Solicitud: "+midsolicitud+"</b> que ha sido ingresado al Sistema de Ventanilla Unica de Gestión de Trámites y Servicios de la SEDETUS para su atención. <br><br>";
+            String cuerpocorreo="<table border='0' align='center' width='90%'><tr><td><img src=\"http://189.221.153.178:4200/assets/img/headerreporte.png\" /></td></tr></table><br><b>C. Subsecretari@ <br>P R E S E N T E:</b><br><br>"+"Por este medio te notificamos de un nuevo trámite de: (<b>"+nombretramite+"</b>), con fecha: "+fecha_solicitud+" con <b>Núm. de Solicitud: "+midsolicitud+"</b> que ha sido ingresado para su atención. <br><br>";
             //resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDUVI", "<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDUVI <br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"</b><br>Secretaría de Desarrollo Urbano y Vivienda");
             Integer i=1;
                        
             cuerpocorreo=cuerpocorreo+"<br>Atentamente<br><br><b>Administrador del Sistema</b><br>";
-            resultado=correo.send(emailua, "Ingreso de Nueva Solicitud en Ventanilla Unica de Trámites y Servicios de la SEDETUS", cuerpocorreo);
+            resultado=correo.send(emailua, "Ingreso de Nueva Solicitud a la SEDETUS", cuerpocorreo);
               
           }
           if(resultado==true)
