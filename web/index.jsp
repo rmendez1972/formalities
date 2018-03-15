@@ -65,7 +65,12 @@
                 
                 $("#consolaadmin").click(function (event) {
                     event.preventDefault();
-                    cargar('scr_admin.jsp','#contenido');
+                    cargar('controladoradministrador?operacion=mostrarAdmin','#contenido');
+                });
+                
+                $("#consolaadminventanilla").click(function (event) {
+                    event.preventDefault();
+                    cargar('controladoradministrador?operacion=mostrarVentanilla','#contenido');
                 });
                 
                 $("#reportes").click(function (event) {
@@ -117,6 +122,7 @@
                   
                     <div class="reporte" id="reportes"><a href="#">Reportes</a></div> 
                     <div class="admin" id="consolaadmin"><a href="#">Admin</a></div>
+                    <div class="admin" id="consolaadminventanilla" style="display:none"><a href="#">Admin</a></div>
                     <div class="consulta" id="consultar"><a href="#">Consulta</a></div>
                     <div class="registra" id="registro" ><a href="#" >Registra</a></div>
                 </nav>
@@ -155,7 +161,7 @@
             if (id_grupo==4){
                 document.getElementById("consolaadmin").style.display="none";
                 document.getElementById("reportes").style.display="none";
-                    
+                document.getElementById("consolaadminventanilla").style.display="inline";
             }
             
         </script>

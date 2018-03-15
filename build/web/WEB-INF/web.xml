@@ -48,6 +48,11 @@
         <servlet-class>controladores.ControladorAdjunto</servlet-class>
         
     </servlet>
+    <servlet>
+        <servlet-name>ControladorAdministrador</servlet-name>
+        <servlet-class>controladores.ControladorAdministrador</servlet-class>
+        
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorSesion</servlet-name>
         <url-pattern>/controladorsesion</url-pattern>
@@ -88,6 +93,10 @@
     <servlet-mapping>
         <servlet-name>ControladorAdjunto</servlet-name>
         <url-pattern>/controladoradjunto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorAdministrador</servlet-name>
+        <url-pattern>/controladoradministrador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
