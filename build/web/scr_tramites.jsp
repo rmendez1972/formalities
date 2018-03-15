@@ -1,8 +1,9 @@
 <%-- 
-    Document   : scr_consulta
-    Created on : 27/11/2013, 09:49:17 AM
-    Author     : Ismael García Hernández (igh1@hotmail.com)
+    Document   : scr_tramites
+    Created on : 15/03/2018, 11:23:09 AM
+    Author     : SEDUVI
 --%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -56,21 +57,14 @@
     </head>
     <body>
         <!--<div id="adminnav">!-->
-            <div id="consola" ><h1 style="color:#fff;">Consola del administrador</h1>
+            <div id="consola" ><h1 style="color:#fff;">Consola de la ventanilla</h1>
             <!--<div id="tituloconsola" style="float:left;padding-top: 20px;width: 800px">Consola del Administrador
             </div>!-->
             
                 <div class="menuhorizontal">
                     
-                    <ul>
-                        <li onclick="cargar('controladorusuario?operacion=listar','#admin')"><a href="#">Usuarios</a></li>
-                        <li onclick="cargar('controladorunidadadtva?operacion=listar','#admin')"><a href="#">Subsecretarías</a></li>
-                        <li onclick="cargar('controladordirecciones?operacion=listar','#admin')"><a href="#">Direcciones</a></li>
-                        <li onclick="cargar('controladortramite?operacion=listar','#admin')"><a href="#">Trámites</a></li>
-                        <li onclick="cargar('controladorrequisito?operacion=listar','#admin')"><a href="#">Requisitos</a></li>
-                        <li onclick="cargar('controladorestatus?operacion=listar','#admin')"><a href="#">Estatus</a></li>
-                        <li onclick="cargar('controladorpermiso?operacion=listar','#admin')"><a href="#">Permisos</a></li>
-                        
+                    <ul>                  
+                        <li onclick="cargar('controladortramite?operacion=listarVentanilla','#admin')"><a href="#">Trámites</a></li>                      
                     </ul>
                 </div>
                    
@@ -84,3 +78,4 @@
         
     </body>
 </html>
+

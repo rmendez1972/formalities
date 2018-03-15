@@ -59,8 +59,9 @@
             <div id="consola" ><h1 style="color:#fff;">Consola del administrador</h1>
             <!--<div id="tituloconsola" style="float:left;padding-top: 20px;width: 800px">Consola del Administrador
             </div>!-->
-                <div class="menuhorizontal">
             
+                <div class="menuhorizontal">
+                    
                     <ul>
                         <li onclick="cargar('controladorusuario?operacion=listar','#admin')"><a href="#">Usuarios</a></li>
                         <li onclick="cargar('controladorunidadadtva?operacion=listar','#admin')"><a href="#">Subsecretarías</a></li>
@@ -69,9 +70,12 @@
                         <li onclick="cargar('controladorrequisito?operacion=listar','#admin')"><a href="#">Requisitos</a></li>
                         <li onclick="cargar('controladorestatus?operacion=listar','#admin')"><a href="#">Estatus</a></li>
                         <li onclick="cargar('controladorpermiso?operacion=listar','#admin')"><a href="#">Permisos</a></li>
-
+                        
                     </ul>
                 </div>
+                   
+                
+                    
             </div>
         <!--</div>!-->
         
