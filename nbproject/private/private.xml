@@ -2,25 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_tramitesVentanilla.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listar_tramites.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/index.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/scr_admin.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/Modelo/GestionSolicitante.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorTramite.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/frm_registra.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listarseguimiento.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorRegistro.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listarsolicitudes.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/scr_tramites.jsp</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/src/java/controladores/ControladorAdministrador.java</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/js/script_tramites.js</file>
-            <file>file:/C:/Users/rmendez1972/Documents/NetBeansProjects/Tramites/web/listarsolicitudes_seguimiento.jsp</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorRegistro.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/Solicitudes2.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorTramite.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/tramites/src/java/controladores/ControladorReportes.java</file>
         </group>
->>>>>>> 47393c3e78765444adec4374a5a4c4f543547a55
     </open-files>
 </project-private>
