@@ -39,15 +39,21 @@ public class GestionSolicitante {
     public long registroSolicitante(Solicitante sol){
         Object params[]={ sol.getNombre(), sol.getApellido_paterno(), sol.getApellido_materno(), sol.getTelefono(), sol.getRfc(), sol.getSexo(), sol.getEmail(), sol.getDireccion(), sol.getPassword(),sol.getCosto()};
         long res=-1;
-        if(Conexion.ejecutar("insert into solicitante (nombre, apellido_paterno, apellido_materno, telefono, rfc, sexo, email, direccion, password, costo) values(?,?,?,?,?,?,?,?,?,?)", params)){
-            Object tmp=Conexion.ejecutarEscalar("select last_insert_id() as last_id from solicitante", null);
-            if(tmp instanceof java.math.BigInteger){
-                java.math.BigInteger res2=(java.math.BigInteger)tmp;
-                res=res2.longValue();
+        Solicitante solicitante=null;
+        solicitante = this.obtenerPorEmailPassword(sol.getEmail(),sol.getPassword());
+        if (solicitante==null)
+        {    
+            if(Conexion.ejecutar("insert into solicitante (nombre, apellido_paterno, apellido_materno, telefono, rfc, sexo, email, direccion, password, costo) values(?,?,?,?,?,?,?,?,?,?)", params)){
+                Object tmp=Conexion.ejecutarEscalar("select last_insert_id() as last_id from solicitante", null);
+                if(tmp instanceof java.math.BigInteger){
+                    java.math.BigInteger res2=(java.math.BigInteger)tmp;
+                    res=res2.longValue();
+                }
+                else
+                    res=(Long)tmp;
             }
-            else
-                res=(Long)tmp;
         }
+        
         return res;
         
     }

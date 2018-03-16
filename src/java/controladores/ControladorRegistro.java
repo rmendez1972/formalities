@@ -177,22 +177,27 @@ public class ControladorRegistro extends HttpServlet
           GestionSolicitud oper2=new GestionSolicitud(); 
           resultado = oper1.registroSolicitante(solicitante); // metodo para grabar
           Integer id_solicitante = (int)(long)resultado;
-          Solicitante msolicitante = oper1.obtenerPorId( id_solicitante);
           
-          
-          // acompletando los datos de la solicitud en el javabean
-          solicitud.setId_solicitante(id_solicitante);
-          solicitud.setId_usuario_ingreso(id_usuario);  //usuario real
-          solicitud.setId_usuario_seguimiento(2);
-          solicitud.setId_status(id_status);
-          
-          resultado2=oper2.registroSolicitud(solicitud);
-          if(resultado2==true)
-          {
-              mensaje="Solicitud grabada exitosamente";
-          }else
-          {
-              mensaje="Error al grabar solicitud";
+          if (id_solicitante > 0){
+            Solicitante msolicitante = oper1.obtenerPorId( id_solicitante);
+
+
+            // acompletando los datos de la solicitud en el javabean
+            solicitud.setId_solicitante(id_solicitante);
+            solicitud.setId_usuario_ingreso(id_usuario);  //usuario real
+            solicitud.setId_usuario_seguimiento(2);
+            solicitud.setId_status(id_status);
+
+            resultado2=oper2.registroSolicitud(solicitud);
+            if(resultado2==true)
+            {
+                mensaje="Solicitud grabada exitosamente";
+            }else
+            {
+                mensaje="Error al grabar solicitud";
+            }
+          }else{
+              mensaje="No se grabó la solicitud, por que ya existe este Email con este Password, intente con otra contraseña";
           }
           request.setAttribute("mensaje",mensaje);
            

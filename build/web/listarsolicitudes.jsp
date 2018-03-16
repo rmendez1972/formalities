@@ -10,14 +10,17 @@
 <html>
     <head>
         <!-- framework jquery -->
-        <script type="text/javascript" language="JavaScript" src="js/jquery-1.7.2.js"></script>
+         <!--<script type="text/javascript" language="JavaScript" src="js/jquery-1.7.2.js"></script>-->
+        <script src="js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
         <script src="js/jquery.confirm.js"></script>
+        <script type="text/javascript" charset="utf-8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
         
         <!-- Librerias javaScript de la aplicacion tramites -->
         <script type="text/javascript" language="JavaScript" src="js/script_tramites.js"></script>
         
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
@@ -127,7 +130,9 @@
             
             
             $(document).ready(function(){ 
-                $("#solicitudes").tablesorter();
+                $("#solicitud").tablesorter();
+                
+                //$('#solicitud').DataTable();
 
                 $("#editar,#eliminar,#listar,#requisitos,#mail, #acuse,#notificacion").click(function(event) //Al oprimir un boton
 
@@ -143,7 +148,7 @@
                    //alert ($(this).attr('value'));
                   var url = $(this).attr('value'); //Obteniendo la opcion que ejecutará el controlador.
                   //alert(url);
-              
+                  
                   //Invocamos al confirm personalizado pasandole parametros
                   confirma(url, titulo,mensaje,logo,
                                 function(url)
@@ -160,11 +165,11 @@
         
     </head>
     <body>
-        <center> 
+        
         <br>
         <table id="menuListarSolicitudes" border=0 width="100%"> <!--Tabla que contendrá el menú de listar solicitudes!-->
             <tr>
-                <td width="80%" align="right"><h1>Listado de Solicitudes.</h1></td>
+                <td width="80%" align="right"><h1>Listado de Solicitudes para Niveles Admon. y Ventanilla</h1></td>
                 <td width="20%" align="right">
                     <div class="btn-catalogo"> <!--Icono para imprimir!-->
                         <a href="controladorregistro?operacion=imprimir" target="new"><img src="imagenes/reportesb.png" width="30" height="30" alt="Imprimir"/><p>Imprimir</p></a>
@@ -200,7 +205,7 @@
             
          </div>
         
-        <table id="solicitudes"  class="tablesorter" width="98%">
+        <table id="solicitud" class="tablesorter"  style="margin:auto; width:50%" >
             <thead>
                 <tr>
                     <th width="5%">Núm. Solicitud</th>
@@ -268,46 +273,46 @@
                             <c:choose>
                                 <c:when test="${solicitudes.status=='TURNADO'}">
 
-                                    <td width="8%" style="font-size: 8px;text-align: center; color:#FF0000;">
+                                    <td width="3%" style="font-size: 8px;text-align: center; color:#FF0000;">
                                         <div class="colorturnado circulo turnado"></div>
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
                                 </c:when>
                                 <c:when test="${solicitudes.status=='TRAMITE'}">
-                                    <td width="8%"style="font-size: 8px;text-align: center; color:#FFBF00;">
+                                    <td width="3%"style="font-size: 8px;text-align: center; color:#FFBF00;">
                                         <div class="circulo tramite"></div>
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
                                 </c:when>
                                 <c:when test="${solicitudes.status=='CONCLUIDO'}">
-                                    <td width="8%"style="font-size: 8px;text-align: center; color:#00FF00;">
+                                    <td width="3%"style="font-size: 8px;text-align: center; color:#00FF00;">
                                         <div class="circulo concluido"></div>
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
                                 </c:when> 
                                 <c:when test="${solicitudes.status=='INCONCLUSO'}">
-                                    <td width="8%"style="font-size: 8px;text-align: center; color:#2E9AFE;">
+                                    <td width="3%"style="font-size: 8px;text-align: center; color:#2E9AFE;">
                                         <div class="circulo inconcluso"></div>
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
                                 </c:when> 
                                     
                                  <c:when test="${solicitudes.status=='CANCELADO'}">
-                                    <td width="8%"style="font-size: 8px;text-align: center; color:#fff;">
+                                    <td width="3%"style="font-size: 8px;text-align: center; color:#fff;">
                                         <div class="circulo cancelado"></div>
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
                                 </c:when>
                                     
                                 <c:when test="${solicitudes.status=='REVERTIDO'}">
-                                    <td width="8%"style="font-size: 8px;text-align: center; color:#8258FA;">
+                                    <td width="3%"style="font-size: 8px;text-align: center; color:#8258FA;">
                                         <div class="circulo revertido"></div>
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
                                 </c:when>
                                    
                                 <c:when test="${solicitudes.status=='ENTREGADO'}">
-                                    <td width="8%"style="font-size: 8px;text-align: center; color:#bbb;">
+                                    <td width="3%"style="font-size: 8px;text-align: center; color:#bbb;">
                                         <div class="circulo entregado"></div>
                                         <c:out value="${solicitudes.status}"/>
                                     </td>
@@ -369,9 +374,6 @@
            </tbody>
         </table>
     
-    </center>
-        <script>
-             //doSearch();
-        </script>
+   
  </body>
 </html>
