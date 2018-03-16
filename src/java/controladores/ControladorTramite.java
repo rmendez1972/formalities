@@ -190,4 +190,31 @@ public class ControladorTramite extends ControladorBase {
         param.put("sql", "where id_requisito in (select id_requisito from tramite_requisito where id_tramite='"+id_tramite+"')");
         generarReporte("ReporteRequisitos.jasper", param, request, response);
     }
+    
+    public void listarVentanilla(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        GestionTramite modelo=new GestionTramite();
+        ArrayList tramites=modelo.obtenerTodos();
+        request.setAttribute("tramites",tramites);
+        
+            
+        RequestDispatcher rd=request.getRequestDispatcher("listar_tramitesVentanilla.jsp");
+        rd.forward(request,response);
+    }
+    
+    public void verRequisitosVentanilla(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        int id2=Integer.parseInt(request.getParameter("id"));
+        GestionTramite modelo=new GestionTramite();
+        Tramite t=modelo.obtenerPorId(id2);
+        
+        GestionRequisito mod_req=new GestionRequisito();
+        ArrayList req=mod_req.obtenerPorTramite(id2);
+        ArrayList noreq=mod_req.obtenerSinTramite(id2);
+        
+        request.setAttribute("tramite", t);
+        request.setAttribute("req", req);
+        request.setAttribute("noreq", noreq);
+        
+        RequestDispatcher rd=request.getRequestDispatcher("listar_requisitosTramiteVentanilla.jsp");
+        rd.forward(request,response);
+    }
 }

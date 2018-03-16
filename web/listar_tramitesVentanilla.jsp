@@ -1,8 +1,9 @@
 <%-- 
-    Document   : listar_tramites
-    Created on : 2/12/2013, 12:13:41 PM
-    Author     : arturo
+    Document   : listar_tramitesVentanilla
+    Created on : 15/03/2018, 11:57:55 AM
+    Author     : Marlon
 --%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,7 +32,7 @@
             function verRequisitos(id){
                 var params=new Object();
                 params.id=id;
-                $.post("controladortramite?operacion=verRequisitos", params, function(datos){
+                $.post("controladortramite?operacion=verRequisitosVentanilla", params, function(datos){
                     $("#admin").html(datos);
                 },"html");
             }
@@ -51,10 +52,10 @@
     <body>
         <table width="960" border="0">
             <tr>
-                <td width="753"><h3>Listado de Trámites</h3></td>
+                <td width="753"><h3>Listado de Trámites:</h3></td>
                 <td width="197">
                     <div style="display:table; margin-bottom: 5px;">
-                        <div class="btn-catalogo" onclick="cargar('controladortramite?operacion=nuevo','#admin')">
+                        <!--<div class="btn-catalogo" onclick="cargar('controladortramite?operacion=nuevo','#admin')">
                                 <img src="imagenes/agregar.png" />
                                 <p>Agregar</p>
                         </div>
@@ -63,7 +64,7 @@
                                 <img src="imagenes/reportesb.png" />
                                 <p>Imprimir</p>
                             </div>
-                        </a>
+                        </a>-->
                     </div>  
                 </td>
             </tr>
@@ -97,9 +98,9 @@
                         <td width="15%"><c:out value="${tram.unidadAdministrativa}" /></td>
                         <td width="15%"><c:out value="${tram.direccion}" /></td>
                         <td width="15%">
-                            <img src="imagenes/editar.png" class="btn-tabla" title="Editar Trámite" onclick="editarTramite(${tram.id_tramite});" />
+                            <!--<img src="imagenes/editar.png" class="btn-tabla" title="Editar Trámite" onclick="editarTramite(${tram.id_tramite});" />-->
                             <img src="imagenes/listar.png" class="btn-tabla" title="Ver requisitos" onclick="verRequisitos(${tram.id_tramite});" />
-                            <img src="imagenes/eliminar.png" class="btn-tabla" title="Eliminar Trámite" onclick="eliminarTramite(${tram.id_tramite})" />
+                            <!--<img src="imagenes/eliminar.png" class="btn-tabla" title="Eliminar Trámite" onclick="eliminarTramite(${tram.id_tramite})" />-->
                         </td>
                     </tr>
                 </c:forEach>
@@ -107,3 +108,4 @@
         </table>
     </body>
 </html>
+

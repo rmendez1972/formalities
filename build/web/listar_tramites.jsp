@@ -36,6 +36,11 @@
                 },"html");
             }
             
+            $(document).ready(function(){
+            
+                $('#tramitestab').DataTable();
+            });
+            
             <c:if test="${msg != null}">
                 console.log('${msg}');
                 //alert('${msg}');
@@ -72,7 +77,7 @@
             
              
         
-        <table id="tramitestab" class="tablesorter" style="margin:auto; width:95%">
+        <table id="tramitestab"  style="margin:auto; width:95%">
             <thead>
                 <tr>
                     <th width="30%">Nombre</th>

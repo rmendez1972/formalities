@@ -19,15 +19,17 @@
 	<link rel="stylesheet" type="text/css" href="css/estilos.css"/> 
         
         <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
         <link rel="stylesheet" href="css/select2.min.css">
         
         <!-- framework jquery -->
-        <script type="text/javascript" language="JavaScript" src="js/jquery-1.10.2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
         <script src="js/jquery.confirm.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/select2.full.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
         
         <!-- Librerias javaScript de la aplicacion tramites -->
         <script type="text/javascript" language="JavaScript" src="js/script_tramites.js"></script>
@@ -65,7 +67,12 @@
                 
                 $("#consolaadmin").click(function (event) {
                     event.preventDefault();
-                    cargar('scr_admin.jsp','#contenido');
+                    cargar('controladoradministrador?operacion=mostrarAdmin','#contenido');
+                });
+                
+                $("#consolaadminventanilla").click(function (event) {
+                    event.preventDefault();
+                    cargar('controladoradministrador?operacion=mostrarVentanilla','#contenido');
                 });
                 
                 $("#reportes").click(function (event) {
@@ -117,6 +124,7 @@
                   
                     <div class="reporte" id="reportes"><a href="#">Reportes</a></div> 
                     <div class="admin" id="consolaadmin"><a href="#">Admin</a></div>
+                    <div class="admin" id="consolaadminventanilla" style="display:none"><a href="#">Admin</a></div>
                     <div class="consulta" id="consultar"><a href="#">Consulta</a></div>
                     <div class="registra" id="registro" ><a href="#" >Registra</a></div>
                 </nav>
@@ -155,7 +163,7 @@
             if (id_grupo==4){
                 document.getElementById("consolaadmin").style.display="none";
                 document.getElementById("reportes").style.display="none";
-                    
+                document.getElementById("consolaadminventanilla").style.display="inline";
             }
             
         </script>

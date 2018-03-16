@@ -105,7 +105,7 @@
         <table border=0 width="98%">
             <tr>
                 <td width="80%" align="right"> 
-                    <h1>Listado de Solicitudes</h1>
+                    <h1>Listado de Solicitudes para Nivel Seguimiento</h1>
                     <p style="padding:0.1em;">Subsecretaría:  ${nombreunidadadministrativa}</p>
                     <p style="padding:0.1em;">Dirección:  ${direccion}</p>
                 </td>
