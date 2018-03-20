@@ -914,7 +914,12 @@ public class ControladorRegistro extends HttpServlet
         {
            Usuario usuario;
             HttpSession objSession = request.getSession(); 
-            usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            usuario = (Usuario)(objSession.getAttribute("usuario"));
+            //Date fechaActual = new Date();
+            SimpleDateFormat sdf2= new  SimpleDateFormat("yyyy-MM-dd");
+            
+            String fechaActual=(sdf2.format(new Date()));
+            
             
             Integer id_grupo=usuario.getId_grupo();
             Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
@@ -932,7 +937,11 @@ public class ControladorRegistro extends HttpServlet
             {    
                 reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/solicitudes.jasper"));
             }
-            else
+            if (id_grupo==4)
+            {    
+                reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/solicitudesVentanilla.jasper"));
+            }
+            if (id_grupo==2)
             {
                 
                 reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/solicitudes_unidadadministrativa.jasper"));
@@ -948,7 +957,13 @@ public class ControladorRegistro extends HttpServlet
                 if (id_grupo==1)
                 {    
                     param.put("sql","");
-                }else
+                }
+                if (id_grupo==4)
+                {    
+                    param.put("sql","where DATE(S.fecha_ingreso)='"+fechaActual+"'");
+                    //param.put("sql","");
+                }
+                 if (id_grupo==2)
                 {
                     param.put("sql","where T.id_unidadadministrativa='"+id_unidadadministrativa+"'");
                     
