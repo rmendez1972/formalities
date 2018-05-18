@@ -37,6 +37,7 @@ public class mail {
             message.setContent(mensaje,"text/html");
             //message.setText("Texto");
             Transport t = session.getTransport("smtp");
+            
             t.connect((String) properties.get("mail.smtp.user"), (String) properties.get("mail.smtp.password"));
             
             t.sendMessage(message, message.getAllRecipients());
