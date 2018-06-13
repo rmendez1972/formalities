@@ -657,16 +657,24 @@ public class ControladorRegistro extends HttpServlet
             String password = request.getParameter("password").toUpperCase();
             GestionSolicitante gsol=new GestionSolicitante(); 
             Solicitante solicitante = gsol.obtenerPorEmailPassword(username, password);
+            GestionSolicitud  gsolic=new GestionSolicitud();
             
             UsuarioApi user= new UsuarioApi(); 
             ArrayList usuario = new ArrayList();
             if (solicitante != null){
+                ArrayList solicitud=gsolic.obtenerPorSolicitante(solicitante.getId_solicitante());
+                Solicitud solic = (Solicitud)solicitud.get(0);
+                Integer id_solicitud=solic.getId_solicitud();
+                Integer id_solicitante=solicitante.getId_solicitante();
+                
                 user.setId(solicitante.getId_solicitante());
                 user.setUsername(solicitante.getEmail());
                 user.setPassword(solicitante.getPassword());
                 user.setFirstname(solicitante.getNombre());
                 user.setLastname(solicitante.getApellido_paterno()+" "+solicitante.getApellido_materno());
                 user.setId_grupo(3);
+                user.setId_solicitante(id_solicitante);
+                user.setId_solicitud(id_solicitud);
                            
                 usuario.add(user);
             }else{
