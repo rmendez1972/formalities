@@ -13,6 +13,7 @@ import Modelo.GestionStatus;
 import Modelo.GestionTramite;
 import Modelo.GestionUnidadAdministrativa;
 import Modelo.GestionDirecciones;
+import Modelo.GestionUsuario;
 import Modelo.conectaMysql;
 import Modelo.mail;
 import java.io.File;
@@ -665,8 +666,25 @@ public class ControladorRegistro extends HttpServlet
                 user.setPassword(solicitante.getPassword());
                 user.setFirstname(solicitante.getNombre());
                 user.setLastname(solicitante.getApellido_paterno()+" "+solicitante.getApellido_materno());
+                user.setId_grupo(3);
                            
                 usuario.add(user);
+            }else{
+                GestionUsuario guser=new GestionUsuario();
+                Usuario usr = guser.obtenerPorEmailPassword(username, password);
+                if (usr != null){
+                    user.setId(usr.getId_usuario());
+                    user.setUsername(usr.getUsuario());
+                    user.setPassword(usr.getPassword());
+                    user.setFirstname(usr.getNombre());
+                    user.setLastname(usr.getApellido_paterno()+" "+usr.getApellido_materno());
+                    user.setId_grupo(usr.getId_grupo());
+                    user.setId_unidadadministrativa(usr.getId_unidadadministrativa());
+                    user.setId_unidadadministrativa(usr.getId_unidadadministrativa());
+                    user.setId_direccion(usr.getId_direccion());
+                                       
+                    usuario.add(user);
+                }
             }
                 
             
