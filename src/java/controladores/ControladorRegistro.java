@@ -369,6 +369,55 @@ public class ControladorRegistro extends HttpServlet
             }
             
         }
+         if(operacion.equals("listarjson"))
+        {
+            //Usuario usuario;
+            UnidadAdministrativa unidadadministrativa = new UnidadAdministrativa();
+            ArrayList solicitudes=new ArrayList();
+            Direcciones direccion =new Direcciones();
+            //String mensaje="Listado de Solicitudes exitoso";
+            //recupero el usuario de la sesion 
+            //HttpSession objSession = request.getSession(); 
+            
+            String usuario,midsolicitud,id_grupo,id_unidadadministrativa,id_direccion;
+            usuario =  request.getParameter("id_usuario"); 
+            midsolicitud =  request.getParameter("id_solicitud");
+            id_grupo= request.getParameter("id_grupo");
+            id_unidadadministrativa=request.getParameter("id_unidadadministrativa");
+            id_direccion=request.getParameter("id_direccion");
+            
+            GestionSolicitud oper2=new GestionSolicitud();
+            if (Integer.parseInt(id_grupo)==1 || Integer.parseInt(id_grupo)==4)
+            {   
+                solicitudes=oper2.obtenerSolicitudes();
+                
+            }else
+            {
+                GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa(); 
+                unidadadministrativa = gua.obtenerPorId(Integer.parseInt(id_unidadadministrativa));
+                
+                
+                GestionDirecciones mod_dir=new GestionDirecciones(); 
+                direccion = mod_dir.obtenerPorId(Integer.parseInt(id_direccion));
+                solicitudes = oper2.obtenerPorUnidad(Integer.parseInt(id_unidadadministrativa), Integer.parseInt(id_direccion));
+                
+           
+            }
+            
+            GsonBuilder builder=new GsonBuilder();
+            Gson gson=builder.create();
+            
+            //response.addHeader("Content-Type", "text/html; charset=utf-8; Access-Control-Allow-Origin http://localhost:4200");
+            response.setHeader("Access-Control-Allow-Origin", "*");
+            response.setHeader("Access-Control-Allow-Methods", "POST, GET");
+            response.setHeader("Content-Type", "application/json; charset=UTF-8");
+            response.setHeader("Access-Control-Max-Age", "3600");
+            response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Charset");
+            //response.setCharacterEncoding("UTF-8");
+            response.getWriter().write("{\"solicitudes\":"+gson.toJson(solicitudes)+",\"unidadadministrativa\":"+gson.toJson(unidadadministrativa)+",\"direccion\":"+gson.toJson(direccion)+"}");
+            
+            
+        }
          
        
        if(operacion.equals("listarId"))
