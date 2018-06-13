@@ -679,7 +679,10 @@ public class ControladorRegistro extends HttpServlet
                     user.setFirstname(usr.getNombre());
                     user.setLastname(usr.getApellido_paterno()+" "+usr.getApellido_materno());
                     user.setId_grupo(usr.getId_grupo());
-                    
+                    user.setId_unidadadministrativa(usr.getId_unidadadministrativa());
+                    user.setId_unidadadministrativa(usr.getId_unidadadministrativa());
+                    user.setId_direccion(usr.getId_direccion());
+                                       
                     usuario.add(user);
                 }
             }

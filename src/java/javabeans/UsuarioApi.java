@@ -20,8 +20,10 @@ public class UsuarioApi {
     private String firstname;
     private String lastname;
     private int id_grupo;
+    private int id_unidadadministrativa;
+    private int id_direccion;
 
-    
+      
     
     
     
@@ -80,5 +82,22 @@ public class UsuarioApi {
     public void setId_grupo(int id_grupo) {
         this.id_grupo = id_grupo;
     }
+    
+    public int getId_unidadadministrativa() {
+        return id_unidadadministrativa;
+    }
+
+    public void setId_unidadadministrativa(int id_unidadadministrativa) {
+        this.id_unidadadministrativa = id_unidadadministrativa;
+    }
+
+    public int getId_direccion() {
+        return id_direccion;
+    }
+
+    public void setId_direccion(int id_direccion) {
+        this.id_direccion = id_direccion;
+    }
+
     
 }
