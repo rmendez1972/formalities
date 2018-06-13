@@ -13,6 +13,7 @@ import Modelo.GestionStatus;
 import Modelo.GestionTramite;
 import Modelo.GestionUnidadAdministrativa;
 import Modelo.GestionDirecciones;
+import Modelo.GestionUsuario;
 import Modelo.conectaMysql;
 import Modelo.mail;
 import java.io.File;
@@ -368,6 +369,55 @@ public class ControladorRegistro extends HttpServlet
             }
             
         }
+         if(operacion.equals("listarjson"))
+        {
+            //Usuario usuario;
+            UnidadAdministrativa unidadadministrativa = new UnidadAdministrativa();
+            ArrayList solicitudes=new ArrayList();
+            Direcciones direccion =new Direcciones();
+            //String mensaje="Listado de Solicitudes exitoso";
+            //recupero el usuario de la sesion 
+            //HttpSession objSession = request.getSession(); 
+            
+            String usuario,midsolicitud,id_grupo,id_unidadadministrativa,id_direccion;
+            usuario =  request.getParameter("id_usuario"); 
+            midsolicitud =  request.getParameter("id_solicitud");
+            id_grupo= request.getParameter("id_grupo");
+            id_unidadadministrativa=request.getParameter("id_unidadadministrativa");
+            id_direccion=request.getParameter("id_direccion");
+            
+            GestionSolicitud oper2=new GestionSolicitud();
+            if (Integer.parseInt(id_grupo)==1 || Integer.parseInt(id_grupo)==4)
+            {   
+                solicitudes=oper2.obtenerSolicitudes();
+                
+            }else
+            {
+                GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa(); 
+                unidadadministrativa = gua.obtenerPorId(Integer.parseInt(id_unidadadministrativa));
+                
+                
+                GestionDirecciones mod_dir=new GestionDirecciones(); 
+                direccion = mod_dir.obtenerPorId(Integer.parseInt(id_direccion));
+                solicitudes = oper2.obtenerPorUnidad(Integer.parseInt(id_unidadadministrativa), Integer.parseInt(id_direccion));
+                
+           
+            }
+            
+            GsonBuilder builder=new GsonBuilder();
+            Gson gson=builder.create();
+            
+            //response.addHeader("Content-Type", "text/html; charset=utf-8; Access-Control-Allow-Origin http://localhost:4200");
+            response.setHeader("Access-Control-Allow-Origin", "*");
+            response.setHeader("Access-Control-Allow-Methods", "POST, GET");
+            response.setHeader("Content-Type", "application/json; charset=UTF-8");
+            response.setHeader("Access-Control-Max-Age", "3600");
+            response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Charset");
+            //response.setCharacterEncoding("UTF-8");
+            response.getWriter().write("{\"solicitudes\":"+gson.toJson(solicitudes)+",\"unidadadministrativa\":"+gson.toJson(unidadadministrativa)+",\"direccion\":"+gson.toJson(direccion)+"}");
+            
+            
+        }
          
        
        if(operacion.equals("listarId"))
@@ -607,17 +657,42 @@ public class ControladorRegistro extends HttpServlet
             String password = request.getParameter("password").toUpperCase();
             GestionSolicitante gsol=new GestionSolicitante(); 
             Solicitante solicitante = gsol.obtenerPorEmailPassword(username, password);
+            GestionSolicitud  gsolic=new GestionSolicitud();
             
             UsuarioApi user= new UsuarioApi(); 
             ArrayList usuario = new ArrayList();
             if (solicitante != null){
+                ArrayList solicitud=gsolic.obtenerPorSolicitante(solicitante.getId_solicitante());
+                Solicitud solic = (Solicitud)solicitud.get(0);
+                Integer id_solicitud=solic.getId_solicitud();
+                Integer id_solicitante=solicitante.getId_solicitante();
+                
                 user.setId(solicitante.getId_solicitante());
                 user.setUsername(solicitante.getEmail());
                 user.setPassword(solicitante.getPassword());
                 user.setFirstname(solicitante.getNombre());
                 user.setLastname(solicitante.getApellido_paterno()+" "+solicitante.getApellido_materno());
+                user.setId_grupo(3);
+                user.setId_solicitante(id_solicitante);
+                user.setId_solicitud(id_solicitud);
                            
                 usuario.add(user);
+            }else{
+                GestionUsuario guser=new GestionUsuario();
+                Usuario usr = guser.obtenerPorEmailPassword(username, password);
+                if (usr != null){
+                    user.setId(usr.getId_usuario());
+                    user.setUsername(usr.getUsuario());
+                    user.setPassword(usr.getPassword());
+                    user.setFirstname(usr.getNombre());
+                    user.setLastname(usr.getApellido_paterno()+" "+usr.getApellido_materno());
+                    user.setId_grupo(usr.getId_grupo());
+                    user.setId_unidadadministrativa(usr.getId_unidadadministrativa());
+                    user.setId_unidadadministrativa(usr.getId_unidadadministrativa());
+                    user.setId_direccion(usr.getId_direccion());
+                                       
+                    usuario.add(user);
+                }
             }
                 
             

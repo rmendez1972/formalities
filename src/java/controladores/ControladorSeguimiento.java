@@ -781,6 +781,7 @@ public class ControladorSeguimiento extends HttpServlet
             id_tramite = solicitud.getId_tramite();
             id_solicitante = solicitud.getId_solicitante();
             ArrayList solic=new ArrayList();
+            
             if (Integer.parseInt(midsolicitante)==id_solicitante){
                solic.add(solicitud);
                

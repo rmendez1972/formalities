@@ -75,4 +75,18 @@ public class GestionUsuario {
         Object params[]={id_usuario};
         return Conexion.ejecutar("delete from usuario where id_usuario=?", params);
     }
+    
+    public Usuario obtenerPorEmailPassword(String email, String password){
+        Usuario usuario=null;
+        Object[] params={email,password};
+        ResultSet res=Conexion.ejecutarConsulta("select * from usuario where usuario=? and password=md5(?)", params);
+        try {
+            if(res.next()){
+                usuario=new Usuario(res.getInt("id_usuario"), res.getString("usuario"), res.getString("password"), res.getString("nombre"), res.getString("apellido_paterno"), res.getString("apellido_materno"), res.getInt("id_unidadadministrativa"), res.getInt("id_grupo"), res.getInt("id_direccion"));
+            }
+            res.close();
+        } catch (Exception ex) {}
+        
+        return usuario;
+    }
 }
