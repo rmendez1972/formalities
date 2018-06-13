@@ -47,7 +47,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Listado General de Solicitude]]></text>
+				<text><![CDATA[Listado General de Solicitudes]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
