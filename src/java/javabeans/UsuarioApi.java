@@ -19,6 +19,7 @@ public class UsuarioApi {
     private String password;
     private String firstname;
     private String lastname;
+    private int id_grupo;
 
     
     
@@ -70,6 +71,14 @@ public class UsuarioApi {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+    
+    public int getId_grupo() {
+        return id_grupo;
+    }
+
+    public void setId_grupo(int id_grupo) {
+        this.id_grupo = id_grupo;
     }
     
 }
