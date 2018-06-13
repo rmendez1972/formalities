@@ -22,10 +22,10 @@ public class UsuarioApi {
     private int id_grupo;
     private int id_unidadadministrativa;
     private int id_direccion;
+    private int id_solicitud;
+    private int id_solicitante;
 
-      
-    
-    
+       
     
     public UsuarioApi( String username, String password){
         this.username=username;
@@ -97,6 +97,22 @@ public class UsuarioApi {
 
     public void setId_direccion(int id_direccion) {
         this.id_direccion = id_direccion;
+    }
+    
+    public int getId_solicitud() {
+        return id_solicitud;
+    }
+
+    public void setId_solicitud(int id_solicitud) {
+        this.id_solicitud = id_solicitud;
+    }
+
+    public int getId_solicitante() {
+        return id_solicitante;
+    }
+
+    public void setId_solicitante(int id_solicitante) {
+        this.id_solicitante = id_solicitante;
     }
 
     
