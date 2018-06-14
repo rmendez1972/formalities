@@ -1085,6 +1085,77 @@ public class ControladorSeguimiento extends HttpServlet
          
          
          if(operacion.equals("actualizarjson")){
+            Seguimiento seguimiento = new Seguimiento();
+            GsonBuilder builder=new GsonBuilder();
+            Gson gson=builder.create();
+            GestionSeguimiento modelo = new GestionSeguimiento();
+            ArrayList listaSeguimientos= new ArrayList();
+            
+            Integer id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));
+            seguimiento.setId_seguimiento(id_seguimiento);
+            
+            String observaciones = request.getParameter("observaciones");
+            String setObservaciones = observaciones.toUpperCase();
+            seguimiento.setObservaciones(setObservaciones);
+            
+            Integer id_solicitud = Integer.parseInt(request.getParameter("id_solicitud"));
+            seguimiento.setId_solicitud(id_solicitud);
+            
+            Integer id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
+            seguimiento.setId_usuario(id_usuario);
+            
+            Integer id_status = Integer.parseInt(request.getParameter("id_status"));
+            seguimiento.setId_status(id_status);
+            
+            String adjunto = request.getParameter("adjunto");
+            Boolean setadjunto;
+            
+            if(adjunto.equals("true")){
+                setadjunto = true;
+                seguimiento.setAdjunto(setadjunto);
+            }else if(adjunto.equals("false")){
+                setadjunto = false;
+                seguimiento.setAdjunto(setadjunto);
+            }
+            
+            
+            
+            //obteniendo fecha
+            Date fechaActual = new Date();
+            SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String fecha = sdf2.format(fechaActual);
+            Date fechaset = null;
+            try {
+                fechaset =(Date) sdf2.parse(fecha);
+            } catch (ParseException ex) {
+                Logger.getLogger(ControladorSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            seguimiento.setFecha(fechaset);
+            
+            
+            if(modelo.actualizarSeguimiento(seguimiento)){
+                
+                boolean actividad = true;
+                  //metodo para obtener la nueva lista de los seguimientos ya actualizada
+                  listaSeguimientos = modelo.obtenerPorSolicitud(id_solicitud);
+            
+                    //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+                    response.setHeader("Access-Control-Allow-Origin", "*");
+                    response.setHeader("Access-Control-Allow-Methods", "POST, GET");
+                    response.setHeader("Access-Control-Max-Age", "3600");
+                    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+                    response.getWriter().write("{\"borrarSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+"}");
+            }else{
+                boolean actividad = false;
+            
+                    //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+                    response.setHeader("Access-Control-Allow-Origin", "*");
+                    response.setHeader("Access-Control-Allow-Methods", "POST, GET");
+                    response.setHeader("Access-Control-Max-Age", "3600");
+                    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+                    response.getWriter().write("{\"borrarSeguimiento\":"+gson.toJson(actividad)+"}");
+            }
+            
              
          }
          
