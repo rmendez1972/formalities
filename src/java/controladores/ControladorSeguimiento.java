@@ -990,10 +990,11 @@ public class ControladorSeguimiento extends HttpServlet
          
     }
          
-         if(operacion.equals("grabarjson")){
+   if(operacion.equals("grabarjson")){
             Seguimiento seguimiento = new Seguimiento();
             GsonBuilder builder=new GsonBuilder();
             GestionSeguimiento resultado = new GestionSeguimiento();
+            ArrayList listaSeguimientos= new ArrayList();
 
             String observaciones = request.getParameter("observaciones");
             String setObservaciones = observaciones.toUpperCase();
@@ -1023,13 +1024,14 @@ public class ControladorSeguimiento extends HttpServlet
             if(resultado.registroSeguimiento(seguimiento)){
                 
                     boolean actividad = true;
-            
+                    //metodo para obtener la nueva lista de los seguimientos ya actualizada
+                    listaSeguimientos = resultado.obtenerPorSolicitud(id_solicitud);
                     //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
                     response.setHeader("Access-Control-Allow-Origin", "*");
                     response.setHeader("Access-Control-Allow-Methods", "POST, GET");
                     response.setHeader("Access-Control-Max-Age", "3600");
                     response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-                    response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+"}");
+                    response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+"}");
             
             }else{
                     boolean actividad = false;
@@ -1045,22 +1047,78 @@ public class ControladorSeguimiento extends HttpServlet
          
          }
          
+         //metodo que viene de la app ionic para eliminar un comentario de nivel enlace
+         if(operacion.equals("borrarjson")){
+              ArrayList listaSeguimientos= new ArrayList();
+              Integer id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));
+              Integer id_solicitud = Integer.parseInt(request.getParameter("id_solicitud"));
+              GestionSeguimiento modelo = new GestionSeguimiento();
+              GsonBuilder builder=new GsonBuilder();
+              Gson gson=builder.create();
+              
+              if(modelo.eliminarPorId(id_seguimiento)){
+                  
+                  boolean actividad = true;
+                  //metodo para obtener la nueva lista de los seguimientos ya actualizada
+                  listaSeguimientos = modelo.obtenerPorSolicitud(id_solicitud);
+            
+                    //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+                    response.setHeader("Access-Control-Allow-Origin", "*");
+                    response.setHeader("Access-Control-Allow-Methods", "POST, GET");
+                    response.setHeader("Access-Control-Max-Age", "3600");
+                    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+                    response.getWriter().write("{\"borrarSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+"}");
+              
+              }else{
+                  boolean actividad = false;
+            
+                    //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+                    response.setHeader("Access-Control-Allow-Origin", "*");
+                    response.setHeader("Access-Control-Allow-Methods", "POST, GET");
+                    response.setHeader("Access-Control-Max-Age", "3600");
+                    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+                    response.getWriter().write("{\"borrarSeguimiento\":"+gson.toJson(actividad)+"}");
+              
+              }
+                 
+         }
          
-        if(operacion.equals("grabarcomentariojson")){//Petición de la APP igh
+         
+         if(operacion.equals("actualizarjson")){
             Seguimiento seguimiento = new Seguimiento();
             GsonBuilder builder=new GsonBuilder();
-            GestionSeguimiento resultado = new GestionSeguimiento();
-
+            Gson gson=builder.create();
+            GestionSeguimiento modelo = new GestionSeguimiento();
+            ArrayList listaSeguimientos= new ArrayList();
+            
+            Integer id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));
+            seguimiento.setId_seguimiento(id_seguimiento);
+            
             String observaciones = request.getParameter("observaciones");
             String setObservaciones = observaciones.toUpperCase();
             seguimiento.setObservaciones(setObservaciones);
-            Integer id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
-            seguimiento.setId_usuario(id_usuario);
+            
             Integer id_solicitud = Integer.parseInt(request.getParameter("id_solicitud"));
             seguimiento.setId_solicitud(id_solicitud);
+            
+            Integer id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
+            seguimiento.setId_usuario(id_usuario);
+            
             Integer id_status = Integer.parseInt(request.getParameter("id_status"));
             seguimiento.setId_status(id_status);
-            seguimiento.setAdjunto(false);
+            
+            String adjunto = request.getParameter("adjunto");
+            Boolean setadjunto;
+            
+            if(adjunto.equals("true")){
+                setadjunto = true;
+                seguimiento.setAdjunto(setadjunto);
+            }else if(adjunto.equals("false")){
+                setadjunto = false;
+                seguimiento.setAdjunto(setadjunto);
+            }
+            
+            
             
             //obteniendo fecha
             Date fechaActual = new Date();
@@ -1074,32 +1132,35 @@ public class ControladorSeguimiento extends HttpServlet
             }
             seguimiento.setFecha(fechaset);
             
-            Gson gson=builder.create();
             
-            if(resultado.registroSeguimiento(seguimiento)){
+            if(modelo.actualizarSeguimiento(seguimiento)){
                 
-                    boolean actividad = true;
+                boolean actividad = true;
+                  //metodo para obtener la nueva lista de los seguimientos ya actualizada
+                  listaSeguimientos = modelo.obtenerPorSolicitud(id_solicitud);
             
                     //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
                     response.setHeader("Access-Control-Allow-Origin", "*");
                     response.setHeader("Access-Control-Allow-Methods", "POST, GET");
                     response.setHeader("Access-Control-Max-Age", "3600");
                     response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-                    response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+"}");
-            
+                    response.getWriter().write("{\"borrarSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+"}");
             }else{
-                    boolean actividad = false;
+                boolean actividad = false;
             
                     //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
                     response.setHeader("Access-Control-Allow-Origin", "*");
                     response.setHeader("Access-Control-Allow-Methods", "POST, GET");
                     response.setHeader("Access-Control-Max-Age", "3600");
                     response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-                    response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+"}");
-            
+                    response.getWriter().write("{\"borrarSeguimiento\":"+gson.toJson(actividad)+"}");
             }
-         
+            
+             
          }
+         
+         
+         
    
         
      

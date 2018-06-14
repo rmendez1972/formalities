@@ -390,6 +390,12 @@ public class ControladorRegistro extends HttpServlet
             if (Integer.parseInt(id_grupo)==1 || Integer.parseInt(id_grupo)==4)
             {   
                 solicitudes=oper2.obtenerSolicitudes();
+                GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa(); 
+                unidadadministrativa = gua.obtenerPorId(Integer.parseInt(id_unidadadministrativa));
+                
+                
+                GestionDirecciones mod_dir=new GestionDirecciones(); 
+                direccion = mod_dir.obtenerPorId(Integer.parseInt(id_direccion));
                 
             }else
             {
