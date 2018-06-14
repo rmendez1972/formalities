@@ -24,7 +24,8 @@ public class GestionSeguimiento {
         
         
           
-        Object params[]={s.getFecha(), s.getObservaciones(), s.getId_usuario(), s.getId_solicitud(), s.getId_status(),s.getAdjunto()};
+       // Object params[]={s.getFecha(), s.getObservaciones(), s.getId_usuario(), s.getId_solicitud(), s.getId_status(),s.getAdjunto()};
+          Object params[]={s.getFecha(), s.getObservaciones(), s.getId_usuario(), s.getId_solicitud(), s.getId_status(),s.getAdjunto()};
         res=Conexion.ejecutar("insert into seguimiento (fecha, observaciones, id_usuario, id_solicitud, id_status,adjunto) values (?,?,?,?,?,?)", params);
         if(res)
         {
