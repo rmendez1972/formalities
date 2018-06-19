@@ -369,7 +369,7 @@ public class ControladorRegistro extends HttpServlet
             }
             
         }
-         if(operacion.equals("listarjson"))
+         if(operacion.equals("listarjson"))//Para la app, 
         {
             //Usuario usuario;
             UnidadAdministrativa unidadadministrativa = new UnidadAdministrativa();
