@@ -1195,14 +1195,14 @@ public class ControladorSeguimiento extends HttpServlet
                 
                     boolean actividad = true;
                     //metodo para obtener la nueva lista de los seguimientos ya actualizada
-                    //listaSeguimientos = resultado.obtenerPorSolicitud(id_solicitud);
+                    listaSeguimientos = resultado.obtenerPorSolicitud(id_solicitud);
                     //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
                     response.setHeader("Access-Control-Allow-Origin", "*");
                     response.setHeader("Access-Control-Allow-Methods", "POST, GET");
                     response.setHeader("Access-Control-Max-Age", "3600");
                     response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-                    //response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+"}");
-                    response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+"}");
+                    response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+"}");
+                    //response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+"}");
             
             }else{
                     boolean actividad = false;
