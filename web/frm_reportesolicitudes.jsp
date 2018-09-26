@@ -71,8 +71,9 @@
         
         
         <!-- framework jquery -->
-        <script type="text/javascript"  src="js/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" 
+                integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/fechaActual.js"></script>
         
         <script type="text/javascript">
@@ -80,6 +81,7 @@
             
             $(document).ready(function()
             {
+                var $select2 = $('.js-example-basic-single').select2();
                
                 
                 
@@ -231,7 +233,7 @@
                 <legend>Parametriza tu reporte</legend>
                 <p><label for="fecha_inicial">Fecha Inicial:</label> <input id="fecha_inicial"  name="fecha_inicial" type="date"  title="Ingresa fecha inicial de registro de la solicitud" required><label for="fecha_final">Fecha Final:</label> <input id="fecha_final"  name="fecha_final" type="date"  title="Ingresa fecha final de registro de la solicitud" required></p>
                     <p><label for="unidadadtva">Subsecretaría:</label> 
-                        <select name="unidadadtva" id="unidadadtva">
+                        <select name="unidadadtva" id="unidadadtva" class="js-example-basic-single">
                             <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
                             <c:forEach  var="ua" items="${requestScope.ua}">
                                 <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
@@ -239,12 +241,12 @@
                         </select>
                     </p>
                     <p><label for="tramites">Trámite:</label>
-                        <select name="tramites" id="tramites">
+                        <select name="tramites" id="tramites" class="js-example-basic-single">
                             <option value="" selected="selected">Selecciona una opción del catálogo...</option>
                         </select>
                     </p>
                     <p><label for="id_estatus">Estatus del Trámite:</label>
-                        <select name="id_status" id="id_status">
+                        <select name="id_status" id="id_status" class="js-example-basic-single">
                             <option value="" selected="selected">Todos los estatus...</option>
                             <c:forEach  var="status" items="${requestScope.status}">
                                 <OPTION VALUE="${status.id_status}">${status.nombre}</OPTION>

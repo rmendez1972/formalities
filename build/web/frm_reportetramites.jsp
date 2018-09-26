@@ -69,9 +69,10 @@
         
         
         <!-- framework jquery -->
+        <!--
         <script type="text/javascript"  src="js/jquery-1.7.2.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
-        
+        -->
         
         <script type="text/javascript">
             function actualizaDir(id){

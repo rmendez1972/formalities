@@ -11,7 +11,9 @@
         <!--<link href="css/estilos.css" rel="stylesheet" type="text/css">!-->
         
         <!-- framework jquery -->
+        <!--
         <script type="text/javascript" language="JavaScript" src="js/jquery-1.7.2.js"></script>
+        -->
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>

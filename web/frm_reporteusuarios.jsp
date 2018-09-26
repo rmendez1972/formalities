@@ -16,7 +16,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>frm_reportesolicitudes</title>
-        <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
         <style>
             .ui-tooltip, .arrow:after {
               background: cadetblue;
@@ -69,8 +69,7 @@
         
         
         <!-- framework jquery -->
-        <script type="text/javascript"  src="js/jquery-1.7.2.js"></script>
-        <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+        
         
         
         <script type="text/javascript">
@@ -189,7 +188,7 @@
                 <legend>Parametriza tu reporte</legend>
                 
                 <p><label for="unidadadtva">Subsecretaría:</label> 
-                        <select name="unidadadtva" id="unidadadtva" title="Seleccione la Unidad Adtva.">
+                        <select name="unidadadtva" id="unidadadtva" title="Seleccione la Unidad Adtva." >
                             <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
                             <c:forEach  var="ua" items="${requestScope.ua}">
                                 <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
@@ -198,8 +197,8 @@
                 </p>
                 
                 <p><label for="id_grupo">Nivel Usuario:</label>
-                        <select name="id_grupo" id="id_grupo" title="Seleccione un nivel de usuario...">
-                            <option value="" selected="selected">Todos los niveles...</option>
+                        <select name="id_grupo" id="id_grupo" title="Seleccione un nivel de usuario..." >
+                            <option value="" selected="selected" >Todos los niveles...</option>
                             <c:forEach  var="grupos" items="${requestScope.gp}">
                                 <OPTION VALUE="${grupos.id_grupo}">${grupos.nombre}</OPTION>
                             </c:forEach>

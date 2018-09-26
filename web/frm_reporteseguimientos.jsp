@@ -71,14 +71,16 @@
         
         
         <!-- framework jquery -->
-        <script type="text/javascript"  src="js/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" 
+                integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/fechaActual.js"></script>
         
         <script type="text/javascript">
 
             
             $(document).ready(function() {
+                var $select2 = $('.js-example-basic-single').select2();
                 
                 //agregando tooltips para los que tienen title
                 $( document ).tooltip({
@@ -235,7 +237,7 @@
                         <input id="fecha_final"  name="fecha_final" type="date" required>
                     </p> 
                         <p><label for="unidadadtva">Subsecretaría:</label> 
-                            <select name="unidadadtva" id="unidadadtva" required>
+                            <select name="unidadadtva" id="unidadadtva" required class="js-example-basic-single">
                                 <option value="" selected="selected">Selecciona una opción del catálogo...</option>
                                 <c:forEach  var="ua" items="${requestScope.ua}">
                                     <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
@@ -243,7 +245,7 @@
                             </select>
                         </p>
                         <p><label for="solicitudes">Solicitud:</label>
-                            <select name="solicitudes" id="solicitudes" style="width:500px;" required>
+                            <select name="solicitudes" id="solicitudes" style="width:500px;" required class="js-example-basic-single">
                                 <option value="" selected="selected">Selecciona una opción del catálogo...</option>
                            
                             </select>
