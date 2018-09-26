@@ -990,12 +990,15 @@ public class ControladorSeguimiento extends HttpServlet
          
     }
          
-   if(operacion.equals("grabarjson")){
+           if(operacion.equals("grabarjson")){
             Seguimiento seguimiento = new Seguimiento();
             GsonBuilder builder=new GsonBuilder();
             GestionSeguimiento resultado = new GestionSeguimiento();
             ArrayList listaSeguimientos= new ArrayList();
-
+            GestionSolicitud gs = new GestionSolicitud();
+            Solicitud solicitud;
+            ArrayList sol = new ArrayList();
+            
             String observaciones = request.getParameter("observaciones");
             String setObservaciones = observaciones.toUpperCase();
             seguimiento.setObservaciones(setObservaciones);
@@ -1006,6 +1009,8 @@ public class ControladorSeguimiento extends HttpServlet
             Integer id_status = Integer.parseInt(request.getParameter("id_status"));
             seguimiento.setId_status(id_status);
             seguimiento.setAdjunto(false);
+            
+            
             
             //obteniendo fecha
             Date fechaActual = new Date();
@@ -1026,12 +1031,15 @@ public class ControladorSeguimiento extends HttpServlet
                     boolean actividad = true;
                     //metodo para obtener la nueva lista de los seguimientos ya actualizada
                     listaSeguimientos = resultado.obtenerPorSolicitud(id_solicitud);
+                    //peticion para recuperar el estatus del tramite en la tabla de solicitud
+                    solicitud=gs.obtenerPorId(id_solicitud);
+                    sol.add(solicitud);
                     //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
                     response.setHeader("Access-Control-Allow-Origin", "*");
                     response.setHeader("Access-Control-Allow-Methods", "POST, GET");
                     response.setHeader("Access-Control-Max-Age", "3600");
                     response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-                    response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+"}");
+                    response.getWriter().write("{\"registroSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+",\"sol\":"+gson.toJson(sol)+"}");
             
             }else{
                     boolean actividad = false;
@@ -1090,6 +1098,9 @@ public class ControladorSeguimiento extends HttpServlet
             Gson gson=builder.create();
             GestionSeguimiento modelo = new GestionSeguimiento();
             ArrayList listaSeguimientos= new ArrayList();
+            GestionSolicitud gs = new GestionSolicitud();
+            Solicitud solicitud;
+            ArrayList sol = new ArrayList();
             
             Integer id_seguimiento = Integer.parseInt(request.getParameter("id_seguimiento"));
             seguimiento.setId_seguimiento(id_seguimiento);
@@ -1136,15 +1147,18 @@ public class ControladorSeguimiento extends HttpServlet
             if(modelo.actualizarSeguimiento(seguimiento)){
                 
                 boolean actividad = true;
-                  //metodo para obtener la nueva lista de los seguimientos ya actualizada
+                  //peticion para obtener la nueva lista de los seguimientos ya actualizada
                   listaSeguimientos = modelo.obtenerPorSolicitud(id_solicitud);
+                  //peticion para recuperar el estatus del tramite en la tabla de solicitud
+                  solicitud=gs.obtenerPorId(id_solicitud);
+                  sol.add(solicitud);
             
                     //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
                     response.setHeader("Access-Control-Allow-Origin", "*");
                     response.setHeader("Access-Control-Allow-Methods", "POST, GET");
                     response.setHeader("Access-Control-Max-Age", "3600");
                     response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-                    response.getWriter().write("{\"borrarSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+"}");
+                    response.getWriter().write("{\"borrarSeguimiento\":"+gson.toJson(actividad)+",\"seguimiento\":"+gson.toJson(listaSeguimientos)+",\"sol\":"+gson.toJson(sol)+"}");
             }else{
                 boolean actividad = false;
             
@@ -1165,6 +1179,7 @@ public class ControladorSeguimiento extends HttpServlet
             GsonBuilder builder=new GsonBuilder();
             GestionSeguimiento resultado = new GestionSeguimiento();
             ArrayList listaSeguimientos= new ArrayList();
+            
 
             String observaciones = request.getParameter("observaciones");
             String setObservaciones = observaciones.toUpperCase();
@@ -1196,6 +1211,7 @@ public class ControladorSeguimiento extends HttpServlet
                     boolean actividad = true;
                     //metodo para obtener la nueva lista de los seguimientos ya actualizada
                     listaSeguimientos = resultado.obtenerPorSolicitud(id_solicitud);
+                    
                     //response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
                     response.setHeader("Access-Control-Allow-Origin", "*");
                     response.setHeader("Access-Control-Allow-Methods", "POST, GET");
