@@ -21,12 +21,11 @@
         <title>frm_registra</title>
         
         <script type="text/javascript">
-            $(function()
+            
+            $(document).ready(function()
             {
                 
-                var $select2 = $('.select2').select2({
-                    containerCssClass: "wrap"
-                })
+                var $select2 = $('.js-example-basic-single').select2();
                 
                 //evento change del selector unidadadtva
                 $("#unidadadtva").change(function()
@@ -171,21 +170,19 @@
 <p>
 <br><h3>Datos del trámite</h3></p>
 
-
-
 <table width="920" border="0" align="center">
   <tr>
     <td width="404">Subsecretaría:</td>
     <td width="502" colspan="2">Trámite:</td>
     </tr>
   <tr>
-    <td><select name="unidadadtva" id="unidadadtva" required class="select2 narrow wrap">
+    <td><select name="unidadadtva" id="unidadadtva" required class="js-example-basic-single">
       <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
       <c:forEach  var="ua" items="${requestScope.ua}">
         <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
       </c:forEach>
     </select></td>
-    <td colspan="2"><select name="tramites" id="tramites" required class="select2 narrow wrap">
+    <td colspan="2"><select name="tramites" id="tramites" required class="js-example-basic-single">
       <option value="" selected="selected">Selecciona una opción del catálogo...</option>
     </select>    
     </tr>

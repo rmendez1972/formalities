@@ -11,7 +11,7 @@
     <head>
         <!-- framework jquery -->
          <!--<script type="text/javascript" language="JavaScript" src="js/jquery-1.7.2.js"></script>-->
-        <script src="js/jquery-1.10.2.min.js"></script>
+        
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
         <script src="js/jquery.confirm.js"></script>
         <script type="text/javascript" charset="utf-8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>

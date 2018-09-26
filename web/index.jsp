@@ -15,20 +15,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <link href="imagenes/valid.png"  rel="shortcut icon" />
         <!--Estilos!-->
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        
         <link href="css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css"/> 
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" 
+                integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
         
-        <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
-        <link rel="stylesheet" href="css/select2.min.css">
+        
         
         <!-- framework jquery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
-        <script src="js/jquery.confirm.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script type="text/javascript" language="JavaScript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>     
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.full.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/select2.full.min.js"></script>
+        
         <script type="text/javascript" charset="utf-8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
         
         <!-- Librerias javaScript de la aplicacion tramites -->

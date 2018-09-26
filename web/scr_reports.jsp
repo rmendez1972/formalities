@@ -10,14 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>scr_reports</title>
-        <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+       <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
         
         <!-- framework jquery -->
-        <script type="text/javascript"  src="js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
         <style> .datepicker{}</style>
         <script>
-            $(function() {
+            $(function(){
                 $( "#tabs" ).tabs();
                 
                 $(":button").click(function(event) 

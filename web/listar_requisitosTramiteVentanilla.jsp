@@ -40,9 +40,7 @@
             
             
             $(document).ready(function(){ 
-                    var $select2 = $('.select2').select2({
-                    containerCssClass: "wrap"
-                })
+                    var $select2 = $('js-example-basic-single').select2()
                 
             });
             
@@ -80,7 +78,7 @@
         Nuevo requisito: 
         <input type="hidden" id="id_tram" value="${tramite.id_tramite}" />
         <br />
-        <select id="nuevoRequisito" class="select2 narrow wrap">
+        <select id="nuevoRequisito" class="js-example-basic-single">
             <option value="0">Seleccione un requisito</option>
             <c:forEach var="req" items="${requestScope.noreq}"> 
                 <option value="${req.id_requisito}"><c:out value="${req.nombre}" /></option>

@@ -10,7 +10,9 @@
     <head>
         
         <!-- framework jquery -->
+        <!--
         <script type="text/javascript" language="JavaScript" src="js/jquery-1.7.2.js"></script>
+        -->
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/jquery.confirm.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/script_confirm.js"></script>
