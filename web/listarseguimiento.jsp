@@ -10,12 +10,14 @@
     <head>
         
         <!-- framework jquery -->
-        <script type="text/javascript" language="JavaScript" src="js/jquery-1.7.2.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/jquery.confirm.js"></script>
         <script type="text/javascript" language="JavaScript" src="js/script_confirm.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!--<link rel="stylesheet" type="text/css" href="css/estilos.css"/>!-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.full.min.js"></script>
         
         <!--Estilos!-->
 	<link rel="stylesheet" type="text/css" href="css/estilos.css"/> 

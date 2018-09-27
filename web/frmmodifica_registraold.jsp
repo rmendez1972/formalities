@@ -17,14 +17,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- framework jquery -->
+        <!-- 
         <script type="text/javascript" language="JavaScript" src="js/jquery-1.10.2.min.js"></script>
+        -->
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
    
         
         
         <!-- framework jquery -->
+        <!-- 
       
         <script type="text/javascript" language="JavaScript" src="js/jquery-1.7.2.js"></script>
+        -->
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
         <script src="js/jquery.confirm.js"></script>
         

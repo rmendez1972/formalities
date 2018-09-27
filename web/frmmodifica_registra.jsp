@@ -17,21 +17,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- framework jquery -->
-        <script type="text/javascript" language="JavaScript" src="js/jquery-1.10.2.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
-        <link rel="stylesheet" href="css/select2.min.css">
-   
-        
-        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+       
         <!-- framework jquery -->
       
-        <script type="text/javascript" language="JavaScript" src="js/jquery-1.7.2.js"></script>
+        
         <script type="text/javascript" language="JavaScript" src="js/jquery.tablesorter.js"></script>
-        <script src="js/jquery.confirm.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>  
         
         <!-- Librerias javaScript de la aplicacion tramites -->
         <script type="text/javascript" language="JavaScript" src="js/script_tramites.js"></script>
-        <script src="js/select2.full.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.full.min.js"></script>
+        
     
         
         
@@ -55,12 +54,10 @@
             }*/
             
             
-            $(function()
+            $(document).ready(function()
             {
                 
-                var $select3 = $('.select2').select2({
-                    containerCssClass: "wrap"
-                })
+                var $select3 = $('.js-example-basic-single').select2();
         
                 //evento change del selector unidadadtva
                 $("#unidadadtva").change(function()
@@ -219,12 +216,12 @@
     <td colspan="2">Trámite:</td>
     </tr>
   <tr>
-    <td><select name="unidadadtva" id="unidadadtva" class="select2 narrow wrap">
+    <td><select name="unidadadtva" id="unidadadtva" class="js-example-basic-single">
       <c:forEach  var="ua" items="${requestScope.ua}">
         <OPTION VALUE="${ua.id_unidadAdministrativa}" ${tramite.id_unidadadministrativa == ua.id_unidadAdministrativa ? 'selected' : ''}>${ua.nombre}</OPTION>
       </c:forEach>
     </select></td>
-    <td colspan="2"><select name="tramites" id="tramites" class="select2 narrow wrap">
+    <td colspan="2"><select name="tramites" id="tramites" class="js-example-basic-single">
       <c:forEach  var="tm" items="${requestScope.tm}">
         <OPTION VALUE="${tm.id_tramite}" ${tramite.id_tramite == tm.id_tramite ? 'selected' : ''} >${tm.nombre}</OPTION>
       </c:forEach>
