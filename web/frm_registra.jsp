@@ -205,15 +205,11 @@
       <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
       <c:forEach  var="ua" items="${requestScope.ua}">
         <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
-<<<<<<< HEAD
-      </c:forEach></select>
-    </td>
-    <td colspan="2"><select name="tramites" id="tramites" required class="select2 narrow wrap">
-=======
+
       </c:forEach>
     </select></td>
     <td colspan="2"><select name="tramites" id="tramites" required class="js-example-basic-single">
->>>>>>> 3b8a0d4b7666ae5159ca54b313b34def0a190f9d
+
       <option value="" selected="selected">Selecciona una opción del catálogo...</option>
     </select></td>    
   </tr>
