@@ -4,6 +4,7 @@
  */
 package controladores;
 
+import Modelo.GestionAdjunto;
 import Modelo.GestionRequisito;
 import Modelo.GestionSeguimiento;
 import Modelo.GestionSexo;
@@ -18,6 +19,7 @@ import Modelo.conectaMysql;
 import Modelo.mail;
 import java.io.File;
 import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -45,6 +47,7 @@ import javabeans.Seguimiento;
 import javabeans.Sexo;
 import javabeans.Solicitud;
 import javabeans.Solicitante;
+import javabeans.Seguimiento;
 import javabeans.Status;
 import javabeans.Tramite;
 import javabeans.UnidadAdministrativa;
@@ -72,8 +75,14 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import javabeans.Adjunto;
 import javabeans.UsuarioApi;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
+
 
 
 
@@ -82,17 +91,82 @@ import javabeans.UsuarioApi;
  *
  * @author rmendez1972
  */
+
 @WebServlet(name = "ControladorRegistro", urlPatterns = {"/controladorregistro"})
-public class ControladorRegistro extends HttpServlet 
+@MultipartConfig
+public class ControladorRegistro extends ControladorBase 
 {
-     public Connection cn;
-    @Override
-    public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    public Connection cn;
+    
+    private String getFileName(Part part) 
     {
-        //almacena la operacion que debe gestionar el controlador
-        String operacion=request.getParameter("operacion");
-        
-         if(operacion.equals("capturar"))
+
+            String partHeader = part.getHeader("content-disposition");
+
+            //logger.info(“Part Header = ” + partHeader);
+
+            for (String cd : part.getHeader("content-disposition").split(";")) 
+            {
+
+                if (cd.trim().startsWith("filename")) 
+                {
+
+                    return cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+
+                }
+
+            }
+
+            return null;
+
+    }
+
+    private Boolean subirAdjunto(Part p1)
+    {
+            String filename = getFileName(p1);
+            if (!filename.isEmpty())
+            {    
+                // en caso de querer escupir en un PrintWriter
+                //response.setContentType("text/html;charset=UTF-8");
+                //PrintWriter out = response.getWriter();
+                try {
+
+                    InputStream is = p1.getInputStream();
+                    String ruta="/adjuntos";
+                    // ruta relativa a donde subo el archivo adjunto
+                    //String outputfile = this.getServletContext().getRealPath("/adjuntos/");  // get path on the server
+
+                    String outputfile = "C:/Users/rmendez1972/Documents/netbeansprojects/tramites/web/adjuntos";
+
+                    File saveFile = new File(outputfile+"/" + filename);
+                    FileOutputStream os = new FileOutputStream (saveFile);
+
+                    // lee bytes del archivo q esta como inputstream
+                    int ch = is.read();
+                    while (ch != -1)  //-1 significa q se alcalzó el final del stream
+                    {
+                        os.write(ch);    //grabo el archivo como un outputstream
+                        ch = is.read(); //lee de nuevo el stream de entrada
+                    }
+                    os.close();  //dejo de grabar al archivo en disco duro
+                    //out.println("<h3>Archivo adjunto subido exitosamente!</h3><a href='controladorseguimiento?operacion=listar&id_solicitud=48' ><img src='imagenes/listar.png' class='btn-tabla'  alt='Listar'  title='listar seguimientos de la solicitud'/></a>");
+                }
+                catch(Exception ex) {
+                    //out.println("Exception -->" + ex.getMessage());
+                    return false;
+                }
+                finally { 
+                    //out.close();
+                }
+                return true;
+            }
+            return false;
+
+    }
+     
+     
+     
+        public void capturar(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
             GestionUnidadAdministrativa oper1=new GestionUnidadAdministrativa();
             ArrayList ua=oper1.obtenerTodos();
@@ -104,17 +178,21 @@ public class ControladorRegistro extends HttpServlet
         }
         
          
+        
+         
         //grabación de una nueva solicitud y solicitante
-        if(operacion.equals("grabar"))
+        public void grabar(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
           long resultado;
-          Boolean resultado2;
+          Boolean resultado2,resultado3;
           Solicitud solicitud= new Solicitud();   //variable tipo solicitud en la q recibo el javabean
           Solicitante solicitante = new Solicitante();   //variable tipo solicitante en la q recibo el javabean
+          Seguimiento seguimiento = new Seguimiento();
+          Adjunto adjunto = new Adjunto();
           String mensaje;
-          //solicitud = (Solicitud)request.getAttribute("solicitud");  
-          //solicitante = (Solicitante)request.getAttribute("solicitante");  
-          
+          String pathadjuntos="adjuntos/";
+           
+                   
           //datos del solicitante
         String nombre=request.getParameter("nombre").toUpperCase();
         solicitante.setNombre(nombre);
@@ -141,6 +219,10 @@ public class ControladorRegistro extends HttpServlet
         //recuperando datos del usuario
         HttpSession objSession = request.getSession(); 
         Usuario usuario = (Usuario)(objSession.getAttribute("usuario")); 
+        
+        Part p1 = request.getPart("adjunto");  
+        String nombreadjunto = getFileName(p1);
+        Boolean adjuntosubido=subirAdjunto(p1);
             
         Integer id_grupo=usuario.getId_grupo();
         Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
@@ -175,7 +257,10 @@ public class ControladorRegistro extends HttpServlet
         solicitud.setFecha_ingreso(fecha_ingreso);
           
           GestionSolicitante oper1=new GestionSolicitante(); 
-          GestionSolicitud oper2=new GestionSolicitud(); 
+          GestionSolicitud oper2=new GestionSolicitud();
+          GestionSeguimiento oper3= new GestionSeguimiento();
+          GestionAdjunto oper4= new GestionAdjunto();
+          
           resultado = oper1.registroSolicitante(solicitante); // metodo para grabar
           Integer id_solicitante = (int)(long)resultado;
           
@@ -186,12 +271,32 @@ public class ControladorRegistro extends HttpServlet
             // acompletando los datos de la solicitud en el javabean
             solicitud.setId_solicitante(id_solicitante);
             solicitud.setId_usuario_ingreso(id_usuario);  //usuario real
-            solicitud.setId_usuario_seguimiento(2);
+            solicitud.setId_usuario_seguimiento(id_usuario);
             solicitud.setId_status(id_status);
 
             resultado2=oper2.registroSolicitud(solicitud);
             if(resultado2==true)
             {
+                ArrayList msolicitud = oper2.obtenerPorSolicitante(id_solicitante);
+                Solicitud msol= (Solicitud)msolicitud.get(0);
+                
+                //seteamos un objeto seguimiento
+                seguimiento.setId_solicitud(msol.getId_solicitud());
+                seguimiento.setFecha(fecha_ingreso);
+                seguimiento.setObservaciones("Requisitos adjunto(s) en formato .rar/.zip");
+                seguimiento.setAdjunto(true);
+                seguimiento.setId_status(1);
+                seguimiento.setId_usuario(id_usuario);
+                resultado3= oper3.registroSeguimiento(seguimiento);
+                if(resultado3==true)
+                {
+                    Seguimiento seg = oper3.obtenerPorObservaciones(msol.getId_solicitud(), "Requisitos adjunto(s) en formato .rar/.zip");
+                    adjunto.setId_seguimiento(seg.getId_seguimiento());
+                    adjunto.setId_usuario(id_usuario);
+                    adjunto.setNombre(nombreadjunto);
+                    oper4.registroAdjunto(adjunto);
+                    
+                }
                 mensaje="Solicitud grabada exitosamente";
             }else
             {
@@ -209,7 +314,7 @@ public class ControladorRegistro extends HttpServlet
         } 
         
         
-         if(operacion.equals("modificar"))
+        public void modificar(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
            
           Boolean resultado,resultado2;
@@ -320,7 +425,7 @@ public class ControladorRegistro extends HttpServlet
         }
         
         
-         if(operacion.equals("listar"))
+        public void listar(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
             Usuario usuario;
             UnidadAdministrativa unidadadministrativa;
@@ -369,7 +474,8 @@ public class ControladorRegistro extends HttpServlet
             }
             
         }
-         if(operacion.equals("listarjson"))//Para la app, 
+        
+        public void listarjson(HttpServletRequest request, HttpServletResponse response) throws Exception //Para la app, 
         {
             //Usuario usuario;
             UnidadAdministrativa unidadadministrativa = new UnidadAdministrativa();
@@ -425,7 +531,7 @@ public class ControladorRegistro extends HttpServlet
             
         }
          
-          if(operacion.equals("statusjson"))//Para la app, 
+        public void statusjson(HttpServletRequest request, HttpServletResponse response) throws Exception   //Para la app, 
         {
               GestionStatus oper =new GestionStatus();
               ArrayList status = oper.obtenerTodos();
@@ -446,7 +552,7 @@ public class ControladorRegistro extends HttpServlet
         }
          
        
-       if(operacion.equals("listarId"))
+        public void listarId(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
             Usuario usuario;
             UnidadAdministrativa unidadadministrativa;
@@ -499,7 +605,7 @@ public class ControladorRegistro extends HttpServlet
         }  
          
          
-       if(operacion.equals("verRequisitos"))
+       public void verRequisitos(HttpServletRequest request, HttpServletResponse response) throws Exception
        {
         
             Usuario usuario;
@@ -532,7 +638,7 @@ public class ControladorRegistro extends HttpServlet
             rd.forward(request,response);
        }    
          
-        if(operacion.equals("localizar"))
+        public void localizar(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
             Solicitud solicitud;
             Solicitante solicitante;
@@ -607,7 +713,7 @@ public class ControladorRegistro extends HttpServlet
             }
         } 
         
-         if(operacion.equals("borrar"))
+        public void borrar(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
           Boolean resultado,resultado2;
           String mensaje;
@@ -641,7 +747,7 @@ public class ControladorRegistro extends HttpServlet
           rd.forward(request,response);
         }
          
-         if(operacion.equals("borrar"))
+        /*if(operacion.equals("borrar"))
         {
           Boolean resultado,resultado2;
           String mensaje;
@@ -673,9 +779,9 @@ public class ControladorRegistro extends HttpServlet
          
           RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes.jsp");
           rd.forward(request,response);
-        }
+        }*/
          
-        if(operacion.equals("apilogin"))
+        public void apilogin(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
             
             
@@ -735,7 +841,7 @@ public class ControladorRegistro extends HttpServlet
           
         }
         
-        if(operacion.equals("apiSolicitanteCambioPassword"))
+        public void apiSolicitanteCambioPassword(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
             
             
@@ -766,7 +872,7 @@ public class ControladorRegistro extends HttpServlet
        
        
        
-       if(operacion.equals("enviarcorreosubsec"))
+        public void enviarcorreosubsec(HttpServletRequest request, HttpServletResponse response) throws Exception 
         {
             Boolean resultado=false;
             Usuario usuario;
@@ -851,7 +957,7 @@ public class ControladorRegistro extends HttpServlet
         }
        
        
-        if(operacion.equals("enviarcorreo"))
+        public void enviarcorreo(HttpServletRequest request, HttpServletResponse response) throws Exception 
         {
             Boolean resultado=false;
             Usuario usuario;
@@ -946,7 +1052,7 @@ public class ControladorRegistro extends HttpServlet
         }
          
        
-        if(operacion.equals("acuse"))
+        public void acuse(HttpServletRequest request, HttpServletResponse response) throws Exception 
         {
            /*Usuario usuario;
             HttpSession objSession = request.getSession(); 
@@ -1008,10 +1114,10 @@ public class ControladorRegistro extends HttpServlet
             } 
               
          
-    }
+        }
        
          
-         if(operacion.equals("imprimir"))
+        public void imprimir(HttpServletRequest request, HttpServletResponse response) throws Exception 
         {
            Usuario usuario;
             HttpSession objSession = request.getSession(); 
@@ -1093,7 +1199,7 @@ public class ControladorRegistro extends HttpServlet
         
          
          
-    }
+        }
    
-    }
+    
 }
