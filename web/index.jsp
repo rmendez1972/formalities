@@ -132,7 +132,7 @@
                   
                     <div class="reporte" id="reportes"><a href="#">Reportes</a></div> 
                     <div class="admin" id="consolaadmin"><a href="#">Admin</a></div>
-                    <div class="admin" id="consolaadminventanilla" style="display:none"><a href="#">Admin</a></div>
+                    <div class="admin" id="consolaadminventanilla" style="display:none"><a href="#">Catálogos</a></div>
                     <div class="consulta" id="consultar"><a href="#">Consulta</a></div>
                     <div class="registra" id="registro" ><a href="#" >Registra</a></div>
                 </nav>
