@@ -111,6 +111,19 @@ public class GestionSeguimiento {
         return seg;
     }
     
+    public Seguimiento obtenerPorObservaciones(int id_solicitud,String observaciones){
+        Seguimiento seg=null;
+        Object params[]={id_solicitud,observaciones};
+        ResultSet res=Conexion.ejecutarConsulta("select * from seguimiento where id_solicitud=? and observaciones=?", params);
+        try{
+            if(res.next()){
+                seg=new Seguimiento(res.getInt("id_seguimiento"), res.getTimestamp("fecha"), res.getString("observaciones"), res.getInt("id_usuario"), res.getInt("id_solicitud"), res.getInt("id_status"), res.getBoolean("adjunto"));
+            }
+            res.close();
+        }catch(Exception e){}
+        return seg;
+    }
+    
     public ArrayList obtenerPorSolicitud(int id_solicitud){
         ArrayList seg=new ArrayList();
         Object params[]={id_solicitud};
@@ -125,6 +138,8 @@ public class GestionSeguimiento {
         }catch(Exception e){}
         return seg;
     }
+    
+    
     
     public boolean eliminarPorId(int id_seguimiento){
         Object params[]={id_seguimiento};

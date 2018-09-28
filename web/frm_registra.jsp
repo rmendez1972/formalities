@@ -50,7 +50,7 @@
                 });
                 
                 
-                $('#registra').submit(function(event) 
+                /*$('#registra').submit(function(event) 
                 {  
                     event.preventDefault();  
                     var url = $(this).attr('action');  
@@ -59,7 +59,32 @@
                     {  
                         $('#contenido').html(resultado);  
                     });  
-                });  
+                });*/
+                
+                $("form#registra").submit(function()
+                {
+                
+                    var formData = new FormData($(this)[0]);
+                    $.ajax(
+                    {
+                    
+                        url: $(this).attr('action'),
+                        type: 'POST',
+                        data: formData,
+                        async: false,
+                        success: function (resultado) 
+                        {
+                        
+                            $('#contenido').html(resultado);  
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
+
+                    return false;
+                });
+                
                             
             });
             
@@ -106,7 +131,7 @@
        
 <!--<div id="frm_titulo">Datos del solicitante</div>-->
 
-<form name="registra" id="registra" action="controladorregistro?operacion=grabar"  method="post">
+<form name="registra" id="registra" action="controladorregistro?operacion=grabar"  method="post" >
     <h1>Datos del solicitante</h1>
 
   
@@ -174,33 +199,41 @@
   <tr>
     <td width="404">Subsecretaría:</td>
     <td width="502" colspan="2">Trámite:</td>
-    </tr>
+  </tr>
   <tr>
     <td><select name="unidadadtva" id="unidadadtva" required class="js-example-basic-single">
       <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
       <c:forEach  var="ua" items="${requestScope.ua}">
         <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
+
       </c:forEach>
     </select></td>
     <td colspan="2"><select name="tramites" id="tramites" required class="js-example-basic-single">
+
       <option value="" selected="selected">Selecciona una opción del catálogo...</option>
-    </select>    
-    </tr>
+    </select></td>    
+  </tr>
+  
   <tr>
-      <td>&nbsp;</td>
-    <td colspan="2">    
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
     <td>Fecha de registro:</td>
-    <td colspan="2" valign="middle">
-        <div id="envio"><input type="submit" name="enviarrequisitos" class="botona" value="Enviar solicitud"></div>
-    </td>
-    </tr>
+    <td>Requisitos en formato zip/rar:</td>
+  </tr>
+  
   <tr>
       
       <td><input type="date" name="fecha_r" id="fecha_r" required value="fecha()"></td>
-      
-    <td colspan="2">    
+      <td><div class="uploadx"><input  name="adjunto" type="file"></div></td>
+       
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" valign="middle">
+        <div id="envio"><input type="submit" name="enviarrequisitos" class="botona" value="Enviar solicitud"></div>
+    </td>
   </tr>
   <tr>
     <td>&nbsp;</td>

@@ -185,18 +185,26 @@
                                 <button value="controladorseguimiento?operacion=enviarcorreo&id_seguimiento=${seguimientos.id_seguimiento}" id="mail" titulo="Confirme el envio por correo." mensaje="Está Ud. seguro de enviar por correo este seguimiento!"><img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar correo"  title="enviar correo" />
                                 </button>
                             </c:when>
+                            
                         </c:choose> 
                         <!--igh Validación para cuando estatus sea "entregado" el nivel 
                             ventanilla (grupo 4) pueda editar su registro-->
                                                    
-                            <c:choose>
-                                <c:when test="${seguimientos.estatus=='ENTREGADO' && requestScope.id_grupo==4}">
+                        <c:choose>
+                            <c:when test="${seguimientos.estatus=='ENTREGADO' && requestScope.id_grupo==4}">
                                 <!--Editar-->
                                 <button value="controladorseguimiento?operacion=localizar&id_seguimiento=${seguimientos.id_seguimiento}" id="editar"  titulo="Confirme la edición." mensaje="Está Ud. seguro de editar este seguimiento!">
                                     <img class="btn-tabla" src="imagenes/editar.png" width="24" height="24" alt="editar" title="editar seguimiento" />
                                 </button>
-                                </c:when>
-                            </c:choose>    
+                            </c:when>
+                        </c:choose>
+                        <c:choose>
+                            <c:when test="${seguimientos.estatus=='TURNADO' && requestScope.id_grupo==4}">
+                                <button value="controladoradjunto?operacion=listar&id_seguimiento=${seguimientos.id_seguimiento}" id="listar" titulo="Confirme el listado de adjuntos" mensaje="Está Ud. seguro de listar los adjuntos de este seguimiento!">
+                                    <img src="imagenes/adjunto.png" class="btn-tabla"  alt="Listar" title="listar adjuntos del seguimiento"/>
+                                </button>
+                            </c:when>
+                        </c:choose>
                            
                         </td>
                     </tr>
