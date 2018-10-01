@@ -25,7 +25,12 @@
             $(document).ready(function()
             {
                 
+                $("#loading").hide();
                 var $select2 = $('.js-example-basic-single').select2();
+                
+                $( "#adjunto" ).click(function() {
+                    $("#loading").show('slow');
+                });
                 
                 //evento change del selector unidadadtva
                 $("#unidadadtva").change(function()
@@ -226,13 +231,20 @@
   <tr>
       
       <td><input type="date" name="fecha_r" id="fecha_r" required value="fecha()"></td>
-      <td><div class="uploadx"><input  name="adjunto" type="file"></div></td>
+      <td><div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div></td>
        
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="2" valign="middle">
-        <div id="envio"><input type="submit" name="enviarrequisitos" class="botona" value="Enviar solicitud"></div>
+    <td colspan="2">
+  </tr>
+  <tr>    
+    <td><div id="envio"><input type="submit" name="enviarrequisitos" id="enviarrequisitos"  class="botona" value="Enviar solicitud"></div></td>
+    <td colspan="2" >
+        <div id="loading" >
+                <img  src="imagenes/cargando.gif" width="100" height="100" style="margin-left: auto; margin-right: auto;
+    display: block;" />
+        </div>
     </td>
   </tr>
   <tr>
