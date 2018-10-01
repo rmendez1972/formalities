@@ -25,7 +25,7 @@
 	<style type="text/css">
             
             @import url('css/fuentes.css');
-            body{background-image: url(imagenes/login1.png);font-family: helveticanuelightext;}
+            body{background-image: url(imagenes/backgroundSedetusLogin1.png);font-family: helveticanuelightext;}
             h1,h2,h3,h4,p{font-family: helveticanuelightext;color:#0080ff;}
                       
             #caja{
