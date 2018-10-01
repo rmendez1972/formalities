@@ -21,6 +21,10 @@
         <script type="text/javascript">
             $(function()
             {
+                $("#loading").hide();
+                $( "#adjunto" ).click(function() {
+                    $("#loading").show('slow');
+                });
                 
                 $("form#adjunto").submit(function()
                 {
@@ -75,11 +79,20 @@
      <tr>
         <td width="20"></td>
      
-        <td><div class="uploadx"><input  name="adjunto" type="file"></div><input name="id_seguimiento" id="id_seguimiento" type="hidden" value="${seguimiento.id_seguimiento}" ></td>
+        <td><div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div><input name="id_seguimiento" id="id_seguimiento" type="hidden" value="${seguimiento.id_seguimiento}" ></td>
      
-        <td>&nbsp; </td>
+        <td>&nbsp;</td>
         <td width="300"><input   type="submit" name="enviaradjunto" class="botona" value="Agregar Adjunto"></td>
         
+     </tr>
+     <tr>
+        <td width="20">&nbsp;</td>
+        <td width="300"><div id="loading" >
+                <img  src="imagenes/cargando.gif" width="100" height="100" style="margin-left: auto; margin-right: auto;
+    display: block;" />
+        </div></td>
+        <td width="300">&nbsp;</td>
+        <td width="300">&nbsp;</td>
      </tr>
 </table>
        
