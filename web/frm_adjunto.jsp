@@ -21,10 +21,10 @@
         <script type="text/javascript">
             $(function()
             {
-                $("#loading").hide();
+                /*$("#loading").hide();
                 $( "#adjunto" ).click(function() {
                     $("#loading").show('slow');
-                });
+                });*/
                 
                 $("form#adjunto").submit(function()
                 {
@@ -87,10 +87,10 @@
      </tr>
      <tr>
         <td width="20">&nbsp;</td>
-        <td width="300"><div id="loading" >
+        <td width="300"><!--<div id="loading" >
                 <img  src="imagenes/cargando.gif" width="100" height="100" style="margin-left: auto; margin-right: auto;
     display: block;" />
-        </div></td>
+        </div>--></td>
         <td width="300">&nbsp;</td>
         <td width="300">&nbsp;</td>
      </tr>

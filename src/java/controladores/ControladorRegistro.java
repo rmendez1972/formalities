@@ -120,10 +120,32 @@ public class ControladorRegistro extends ControladorBase
             return null;
 
     }
+    
+    
+    private String getFileExtension(File file) {
+        String name = file.getName();
+        int lastIndexOf = name.lastIndexOf(".");
+        if (lastIndexOf == -1) {
+            return ""; // empty extension
+        }
+        return name.substring(lastIndexOf);
+    }
+    
+    private String getFileName2(File file) {
+        String name = file.getName();
+        int pos = name.lastIndexOf(".");
+        if (pos > 0) {
+            name = name.substring(0, pos);
+        }
+        return name;
+    }
 
     private Boolean subirAdjunto(Part p1,Integer id_solicitud)
     {
             String filename = getFileName(p1);
+            File file = new File(filename);
+            String soloNombreArchivo = getFileName2(file);
+            String soloExtensionArchivo = getFileExtension(file);
             if (!filename.isEmpty())
             {    
                 // en caso de querer escupir en un PrintWriter
@@ -138,7 +160,7 @@ public class ControladorRegistro extends ControladorBase
 
                     String outputfile = "C:/Users/Administrador/Documents/netbeansprojects/tramites/web/adjuntos";
 
-                    File saveFile = new File(outputfile+"/" + id_solicitud.toString()+".rar");
+                    File saveFile = new File(outputfile+"/" + soloNombreArchivo+"_" + id_solicitud.toString()+soloExtensionArchivo);
                     FileOutputStream os = new FileOutputStream (saveFile);
 
                     // lee bytes del archivo q esta como inputstream
@@ -278,27 +300,32 @@ public class ControladorRegistro extends ControladorBase
                 ArrayList msolicitud = oper2.obtenerPorSolicitante(id_solicitante);
                 Solicitud msol= (Solicitud)msolicitud.get(0);
                 
-                Part p1 = request.getPart("adjunto");  
-                String nombreadjunto = getFileName(p1);
-                Boolean adjuntosubido=subirAdjunto(p1,msol.getId_solicitud());
+                //Part p1 = request.getPart("adjunto");  
+                //String filename = getFileName(p1);
+                //Boolean adjuntosubido=subirAdjunto(p1,msol.getId_solicitud());
                 
                 //seteamos un objeto seguimiento
                 seguimiento.setId_solicitud(msol.getId_solicitud());
                 seguimiento.setFecha(fecha_ingreso);
-                seguimiento.setObservaciones("Requisitos adjunto(s) en formato .rar/.zip");
+                seguimiento.setObservaciones("Requisitos adjuntos en cualquier formato");
                 seguimiento.setAdjunto(true);
                 seguimiento.setId_status(1);
                 seguimiento.setId_usuario(id_usuario);
                 resultado3= oper3.registroSeguimiento(seguimiento);
                 if(resultado3==true)
                 {
-                    Seguimiento seg = oper3.obtenerPorObservaciones(msol.getId_solicitud(), "Requisitos adjunto(s) en formato .rar/.zip");
-                    String nuevonombreadjunto = msol.getId_solicitud()+".rar";
-                    adjunto.setId_seguimiento(seg.getId_seguimiento());
-                    adjunto.setId_usuario(id_usuario);
-                    Integer id_solicitud=msol.getId_solicitud();
-                    adjunto.setNombre(id_solicitud.toString()+".rar");
-                    oper4.registroAdjunto(adjunto);
+                    Seguimiento seg = oper3.obtenerPorObservaciones(msol.getId_solicitud(), "Requisitos adjuntos en cualquier formato");
+                    //String nuevonombreadjunto = msol.getId_solicitud()+".rar";
+                    //adjunto.setId_seguimiento(seg.getId_seguimiento());
+                    //adjunto.setId_usuario(id_usuario);
+                    //Integer id_solicitud=msol.getId_solicitud();
+                    
+                    //File file = new File(filename);
+                    //String soloNombreArchivo = getFileName2(file);
+                    //String soloExtensionArchivo = getFileExtension(file);
+                    //String nombreadjunto = soloNombreArchivo+"_"+Integer.toString(id_solicitud)+soloExtensionArchivo;
+                    //adjunto.setNombre(nombreadjunto);
+                    //oper4.registroAdjunto(adjunto);
                     
                 }
                 mensaje="Solicitud grabada exitosamente";
