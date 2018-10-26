@@ -225,13 +225,13 @@
   </tr>
   <tr>
     <td>Fecha de registro:</td>
-    <td>Requisitos en formato zip/rar:</td>
+    <td><!--Requisitos en formato zip/rar:--></td>
   </tr>
   
   <tr>
       
       <td><input type="date" name="fecha_r" id="fecha_r" required value="fecha()"></td>
-      <td><div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div></td>
+      <td><!--<div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div>--></td>
        
   </tr>
   <tr>
