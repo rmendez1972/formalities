@@ -124,7 +124,7 @@ public class Conexion {
         try{
             int i;
             if(parametros!=null){
-                for(i=0;i<parametros.length;i++){
+                for(i=0;i<parametros.length-1;i++){
                     st.setObject(i+1, parametros[i]);
                 }
             }
