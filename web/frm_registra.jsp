@@ -68,7 +68,7 @@
                 
                 $("form#registra").submit(function()
                 {
-                
+                    $(this).find("button[type='submit']").prop('disabled',true);
                     var formData = new FormData($(this)[0]);
                     $.ajax(
                     {
