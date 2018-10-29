@@ -6,7 +6,6 @@ package Modelo;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import javabeans.UnidadAdministrativa;
 import javabeans.Direcciones;
 /**
  *
@@ -25,7 +24,6 @@ public class GestionDirecciones {
     }
     
     public Direcciones obtenerPorId(int id_direccion){
-        //UnidadAdministrativa ua=null;
         Direcciones dir=null;
         Object params[]={id_direccion};
         ResultSet res=Conexion.ejecutarConsulta("select * from direcciones where id_direccion=?", params);

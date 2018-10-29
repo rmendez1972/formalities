@@ -21,14 +21,14 @@
         <script type="text/javascript">
             $(function()
             {
-                $("#loading").hide();
+                /*$("#loading").hide();
                 $( "#adjunto" ).click(function() {
                     $("#loading").show('slow');
-                });
+                });*/
                 
                 $("form#adjunto").submit(function()
                 {
-                
+                    $(this).find("button[type='submit']").prop('disabled',true);
                     var formData = new FormData($(this)[0]);
                     $.ajax(
                     {
@@ -77,7 +77,14 @@
         <td width="300">&nbsp;</td>
      </tr>
      <tr>
-        <td width="20"></td>
+         <td width="20"></td>
+         <td><p align="left">(Archivo Max. de 50 Mb.)</p></td>
+         <td>&nbsp;</td>
+         <td>&nbsp;</td>
+     </tr>
+     <tr>
+         
+         <td width="20"></td>
      
         <td><div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div><input name="id_seguimiento" id="id_seguimiento" type="hidden" value="${seguimiento.id_seguimiento}" ></td>
      
@@ -87,10 +94,10 @@
      </tr>
      <tr>
         <td width="20">&nbsp;</td>
-        <td width="300"><div id="loading" >
+        <td width="300"><!--<div id="loading" >
                 <img  src="imagenes/cargando.gif" width="100" height="100" style="margin-left: auto; margin-right: auto;
     display: block;" />
-        </div></td>
+        </div>--></td>
         <td width="300">&nbsp;</td>
         <td width="300">&nbsp;</td>
      </tr>

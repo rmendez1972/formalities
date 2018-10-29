@@ -70,6 +70,8 @@
                         <li onclick="cargar('controladorrequisito?operacion=listar','#admin')"><a href="#">Requisitos</a></li>
                         <li onclick="cargar('controladorestatus?operacion=listar','#admin')"><a href="#">Estatus</a></li>
                         <li onclick="cargar('controladorpermiso?operacion=listar','#admin')"><a href="#">Permisos</a></li>
+                        <li onclick="cargar('controladormunicipio?operacion=listar','#admin')"><a href="#">Municipios</a></li>
+                        <li onclick="cargar('controladorlocalidad?operacion=listar','#admin')"><a href="#">Localidades</a></li>
                         
                     </ul>
                 </div>

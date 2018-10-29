@@ -41,17 +41,14 @@
     <servlet>
         <servlet-name>ControladorRequisito</servlet-name>
         <servlet-class>controladores.ControladorRequisito</servlet-class>
-        
     </servlet>
     <servlet>
         <servlet-name>ControladorAdjunto</servlet-name>
         <servlet-class>controladores.ControladorAdjunto</servlet-class>
-        
     </servlet>
     <servlet>
         <servlet-name>ControladorAdministrador</servlet-name>
         <servlet-class>controladores.ControladorAdministrador</servlet-class>
-        
     </servlet>
     <servlet-mapping>
         <servlet-name>ControladorSesion</servlet-name>
@@ -61,7 +58,6 @@
         <servlet-name>ControladorUnidadAdtva</servlet-name>
         <url-pattern>/controladorunidadadtva</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>ControladorDirecciones</servlet-name>
         <url-pattern>/controladordirecciones</url-pattern>
@@ -104,7 +100,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-    <welcome-file>login.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
-
 </web-app>

@@ -80,10 +80,32 @@ public class ControladorAdjunto extends ControladorBase {
         return null;
 
     }
+    
+    private String getFileExtension(File file) {
+        String name = file.getName();
+        int lastIndexOf = name.lastIndexOf(".");
+        if (lastIndexOf == -1) {
+            return ""; // empty extension
+        }
+        return name.substring(lastIndexOf);
+    }
+    
+    private String getFileName2(File file) {
+        String name = file.getName();
+        int pos = name.lastIndexOf(".");
+        if (pos > 0) {
+            name = name.substring(0, pos);
+        }
+        return name;
+    }
 
-    private Boolean subirAdjunto(Part p1)
+    private Boolean subirAdjunto(Part p1,Integer id_solicitud)
     {
         String filename = getFileName(p1);
+        File file = new File(filename);
+        String soloNombreArchivo = getFileName2(file);
+        String soloExtensionArchivo = getFileExtension(file);
+        
         if (!filename.isEmpty())
         {    
             // en caso de querer escupir en un PrintWriter
@@ -96,9 +118,11 @@ public class ControladorAdjunto extends ControladorBase {
                 // ruta relativa a donde subo el archivo adjunto
                 //String outputfile = this.getServletContext().getRealPath("/adjuntos/");  // get path on the server
 
-                String outputfile = "C:/Users/USUARIO/Documents/netbeansprojects/tramites/web/adjuntos";
 
-                File saveFile = new File(outputfile+"/" + filename);
+                String outputfile = "C:/Users/Administrador/Documents/netbeansprojects/tramites/build/web/adjuntos";
+
+
+                File saveFile = new File(outputfile+"/" + soloNombreArchivo+"_" + id_solicitud.toString()+soloExtensionArchivo);
                 FileOutputStream os = new FileOutputStream (saveFile);
             
                 // lee bytes del archivo q esta como inputstream
@@ -133,8 +157,8 @@ public class ControladorAdjunto extends ControladorBase {
         Tramite tramite;
         Integer id_seguimiento,id_tramite,id_solicitante,id_solicitud;
         String mensaje="Listado de archivos adjuntos exitoso";
-        String pathadjuntos="adjuntos/";
-        String pathuploads="http://localhost:3001/upload/";
+        String pathadjuntos="http://localhost:8080/tramites/adjuntos/";
+        String pathuploads="http://10.50.1.8:3001/upload/";
         //recupero el usuario de la sesion 
         HttpSession objSession = request.getSession(); 
         usuario = (Usuario)(objSession.getAttribute("usuario")); 
@@ -380,15 +404,26 @@ public class ControladorAdjunto extends ControladorBase {
         Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
         Integer id_usuario=usuario.getId_usuario();
             
-        Part p1 = request.getPart("adjunto");  
-        String nombreadjunto = getFileName(p1);
-        Boolean adjuntosubido=subirAdjunto(p1);
+        Part p1 = request.getPart("adjunto");
+        String filename = getFileName(p1);
+        File file = new File(filename);
+        String soloNombreArchivo = getFileName2(file);
+        String soloExtensionArchivo = getFileExtension(file);
         
         // leer el id_seguimiento q es enviado como multi part
         Part p2  = request.getPart("id_seguimiento");
         Scanner s2 = new Scanner(p2.getInputStream()); //la clase Scanner es utilizada para leer datos de un dispostivo de entrada o stream
         String midseguimiento = s2.nextLine();    // lectura del stream como cadena de caracteres
         int id_seguimiento=Integer.parseInt(midseguimiento); // pareseo el string a integer
+        
+        GestionSeguimiento gs=new GestionSeguimiento(); 
+        Seguimiento seguimiento = gs.obtenerPorId(id_seguimiento);
+        int id_solicitud = seguimiento.getId_solicitud();
+                
+        String nombreadjunto = soloNombreArchivo+"_"+Integer.toString(id_solicitud)+soloExtensionArchivo;
+        //Boolean adjuntosubido=subirAdjunto(p1,,msol.getId_solicitud());
+        
+        
              
           
         Adjunto adjunto = new Adjunto();   
@@ -411,10 +446,10 @@ public class ControladorAdjunto extends ControladorBase {
             mensaje="Problemas al grabar adjunto";
         }
             
-        GestionSeguimiento gs=new GestionSeguimiento(); 
-        Seguimiento seguimiento = gs.obtenerPorId(id_seguimiento);
-        int id_solicitud = seguimiento.getId_solicitud();
         
+        
+        //aqui subimos el adjunto
+        Boolean adjuntosubido=subirAdjunto(p1,id_solicitud);
             
         GestionSolicitud gsol=new GestionSolicitud(); 
         Solicitud solicitud=gsol.obtenerPorId(id_solicitud);
@@ -442,7 +477,7 @@ public class ControladorAdjunto extends ControladorBase {
         request.setAttribute("tramite",tramite);
         request.setAttribute("adjuntos",adjuntos);
         request.setAttribute("pathadjuntos",pathadjuntos);
-        if (id_grupo==1)
+        if (id_grupo==1 || id_grupo==4)
         {    
             RequestDispatcher rd=request.getRequestDispatcher("listaradjunto_registrante.jsp");
             rd.forward(request,response);

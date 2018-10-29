@@ -10,6 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="javabeans.Solicitante"%>
 <%@page import="javabeans.Solicitud"%>
+<%@page import="javabeans.Municipio"%>
 
 <!DOCTYPE html>
 <html>
@@ -68,7 +69,7 @@
                 
                 $("form#registra").submit(function()
                 {
-                
+                    $(this).find("button[type='submit']").prop('disabled',true);
                     var formData = new FormData($(this)[0]);
                     $.ajax(
                     {
@@ -153,9 +154,8 @@
         <td><input name="apellido_p" id="apellido_p" type="text" size="20"  maxlength="15" required placeholder="Mínimo 2, max. 15 letras"></td>
         <td><input name="apellido_m" id="apellido_m" type="text" size="20" maxlength="15" placeholder="Mínimo 2, max. 15 letras"></td>
         <td><textarea type="text" name="domicilio" id="domicilio" rows="4" maxlength="200"required  placeholder="Solo letras" title="No es una dirección válida"></textarea></td>
-       
       </tr>
-     
+
       <tr height="5">
         <td colspan="4"></td>
       </tr>
@@ -165,6 +165,7 @@
         <td>Teléfono:</td>
         <td>Email:</td>
         <td>Sexo:</td>
+        
       </tr>
       
       <tr>
@@ -179,6 +180,7 @@
               <option value="H">HOMBRE</option>
             </select></td>
         
+        
       </tr>
       
       <tr>
@@ -188,6 +190,7 @@
         <td></td>
       </tr>
       
+      
       <tr>
         <td><input name="password" id="password" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{8,15})" maxlength="15" placeholder="Password para api" title="Password para api"></td>
         <td></td>
@@ -195,7 +198,27 @@
         <td></td>
         
       </tr>
+      <tr>
+          <td>Municipio:</td>
+          <td colspan="3">Localidad:</td>
+      </tr>
+      <tr>
+          <td>
+            <select name="municipio" id="municipio" required class="js-example-basic-single">
+                <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
+                <c:forEach  var="mun" items="${requestScope.mun}">
+                    <option  required value="${mun.id_unidadAdministrativa}">${mun.nombre}</option>
+                </c:forEach>
+            </select>
+        </td>
+        <td colspan="3">
+            <select name="localidad" id="localidad" required class="js-example-basic-single">
+                <option value="" selected="selected">Selecciona una opción del catálogo...</option>
+            </select>
+        </td> 
+      </tr>
     </table>
+    
  
 <p>
 <br><h3>Datos del trámite</h3></p>
@@ -225,13 +248,13 @@
   </tr>
   <tr>
     <td>Fecha de registro:</td>
-    <td>Requisitos en formato zip/rar:</td>
+    <td><!--Requisitos en formato zip/rar:--></td>
   </tr>
   
   <tr>
       
       <td><input type="date" name="fecha_r" id="fecha_r" required value="fecha()"></td>
-      <td><div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div></td>
+      <td><!--<div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div>--></td>
        
   </tr>
   <tr>
