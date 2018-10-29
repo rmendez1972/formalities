@@ -28,10 +28,10 @@ public class ControladorMunicipio extends ControladorBase {
     
     public void listar(HttpServletRequest request, HttpServletResponse response) throws Exception{
         GestionMunicipio modelo=new GestionMunicipio();
-            ArrayList mun=modelo.obtenerTodos();
-            request.setAttribute("mun",mun);
-            RequestDispatcher rd=request.getRequestDispatcher("listar_mun.jsp");
-            rd.forward(request,response);
+        ArrayList mun=modelo.obtenerTodos();
+        request.setAttribute("mun",mun);
+        RequestDispatcher rd=request.getRequestDispatcher("listar_mun.jsp");
+        rd.forward(request,response);
     }
     public void nuevo(HttpServletRequest request, HttpServletResponse response) throws Exception{
         RequestDispatcher rd=request.getRequestDispatcher("frm_mun.jsp");

@@ -13,12 +13,12 @@ import javabeans.Localidad;
  */
 public class GestionLocalidad {
     public boolean registro(Localidad localidad){
-        Object params[]={localidad.getId_municipio(),localidad.getNombreLocalidad()};
+        Object params[]={localidad.getId_municipio(),localidad.getNombre_localidad()};
         return Conexion.ejecutar("insert into localidad (id_municipio, nombre_localidad) values(?,?)", params);
     }
     
     public boolean actualizar(Localidad localidad){
-        Object params[]={localidad.getNombreLocalidad(),localidad.getId_municipio(),localidad.getId_localidad() };
+        Object params[]={localidad.getNombre_localidad(),localidad.getId_municipio(),localidad.getId_localidad() };
         return Conexion.ejecutar("update localidad set nombre_localidad=?, id_municipio=? where id_localidad=?", params);
     }
     
@@ -47,6 +47,7 @@ public class GestionLocalidad {
         }catch(Exception e){}
         return loc;
     }
+    
     
     public boolean eliminarPorId(int id_localidad){
         Object params[]={id_localidad};
