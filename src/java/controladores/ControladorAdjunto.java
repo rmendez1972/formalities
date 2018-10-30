@@ -156,7 +156,7 @@ public class ControladorAdjunto extends ControladorBase {
         Integer id_seguimiento,id_tramite,id_solicitante,id_solicitud;
         String mensaje="Listado de archivos adjuntos exitoso";
         String pathadjuntos="http://localhost:8080/tramites/adjuntos/";
-        String pathuploads="http://localhost:3001/upload/";
+        String pathuploads="http://10.50.1.8:3001/upload/";
         //recupero el usuario de la sesion 
         HttpSession objSession = request.getSession(); 
         usuario = (Usuario)(objSession.getAttribute("usuario")); 

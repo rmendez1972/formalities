@@ -28,7 +28,7 @@
                 
                 $("form#adjunto").submit(function()
                 {
-                
+                    $(this).find("button[type='submit']").prop('disabled',true);
                     var formData = new FormData($(this)[0]);
                     $.ajax(
                     {
@@ -77,7 +77,14 @@
         <td width="300">&nbsp;</td>
      </tr>
      <tr>
-        <td width="20"></td>
+         <td width="20"></td>
+         <td><p align="left">(Archivo Max. de 50 Mb.)</p></td>
+         <td>&nbsp;</td>
+         <td>&nbsp;</td>
+     </tr>
+     <tr>
+         
+         <td width="20"></td>
      
         <td><div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div><input name="id_seguimiento" id="id_seguimiento" type="hidden" value="${seguimiento.id_seguimiento}" ></td>
      
