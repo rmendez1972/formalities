@@ -6,6 +6,9 @@
 package controladores;
 
 import Modelo.GestionLocalidad;
+import Modelo.GestionMunicipio;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -33,14 +36,29 @@ public class ControladorLocalidad extends ControladorBase {
         rd.forward(request,response);
     }
     public void nuevo(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        GestionMunicipio mod_mun = new GestionMunicipio();
+        ArrayList mun =mod_mun.obtenerTodos();
+        request.setAttribute("mun", mun);
         RequestDispatcher rd=request.getRequestDispatcher("frm_loc.jsp");
         rd.forward(request,response);
     }
     public void guardarNuevo(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        String localidad=request.getParameter("localidad");
         GestionLocalidad modelo=new GestionLocalidad();
+<<<<<<< HEAD
         Localidad loc =new Localidad();
         //loc.setNombreLocalidad(localidad);
+=======
+        Localidad loc=new Localidad();
+        loc.setNombre_Localidad(request.getParameter("localidad"));
+        //int id = Integer.parseInt(request.getParameter("municipio"));
+        loc.setId_municipio(Integer.parseInt(request.getParameter("municipio")));
+            
+        //String localidad=request.getParameter("localidad");
+        //GestionLocalidad modelo=new GestionLocalidad();
+        //Localidad loc =new Localidad();
+        //loc.setNombre_Localidad(localidad);
+        
+>>>>>>> e30fec623593619d780e48d50144111fe0f0841c
         if(modelo.registro(loc)){
             RequestDispatcher rd=request.getRequestDispatcher("controladorlocalidad?operacion=listar");
             request.setAttribute("msg", "Datos guardados");

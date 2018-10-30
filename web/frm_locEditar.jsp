@@ -3,9 +3,8 @@
     Created on : 29/10/2018, 01:03:40 PM
     Author     : SEDETUS
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="javabeans.Localidad"%>
 <!DOCTYPE html>
 <html>
@@ -37,7 +36,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre_localidad"   style=" width: 500px; font-size: 14px" value="${loc.nombre_localidad}" /></td>
+                    <td><input type="text" id="nombre_localidad"   style=" width: 500px; font-size: 14px" /></td>
                     <td></td>
                 </tr>
                 <tr>

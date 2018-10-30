@@ -48,6 +48,7 @@ public class GestionLocalidad {
         return loc;
     }
     
+    
     public boolean eliminarPorId(int id_localidad){
         Object params[]={id_localidad};
         return Conexion.ejecutar("delete from localidad where id_localidad=?", params);
