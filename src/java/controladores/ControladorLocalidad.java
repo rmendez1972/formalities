@@ -40,7 +40,7 @@ public class ControladorLocalidad extends ControladorBase {
         String localidad=request.getParameter("localidad");
         GestionLocalidad modelo=new GestionLocalidad();
         Localidad loc =new Localidad();
-        loc.setNombreLocalidad(localidad);
+        //loc.setNombreLocalidad(localidad);
         if(modelo.registro(loc)){
             RequestDispatcher rd=request.getRequestDispatcher("controladorlocalidad?operacion=listar");
             request.setAttribute("msg", "Datos guardados");

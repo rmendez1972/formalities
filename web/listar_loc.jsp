@@ -61,6 +61,7 @@
                   <tbody>
                       <c:forEach var="loc" items="${requestScope.loc}" varStatus="loop"> 
                           <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
+                              <td><c:out value="${loc.nombre_localidad}" /></td>
                               <td><c:out value="${loc.id_localidad}" /></td>
                               <td><c:out value="${loc.id_municipio}" /></td>
                               <td><img src="imagenes/editar.png" class="btn-tabla" title="Editar Localidad" onclick="editarLocalidad(${loc.id_localidad})" /><img src="imagenes/eliminar.png" class="btn-tabla" title="Eliminar Localidad" onclick="eliminarLocalidad(${loc.id_localidad})" /></td>
