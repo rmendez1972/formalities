@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import javabeans.Adjunto;
 import javabeans.Seguimiento;
-import javabeans.Solicitud;
 
 /**
  *
@@ -17,8 +16,6 @@ import javabeans.Solicitud;
 public class GestionAdjunto {
     public boolean registroAdjunto(Adjunto adj){
         boolean res=false;
-        //Seguimiento seguimiento;
-        //Solicitud solicitud;
         Integer id_usuario=adj.getId_usuario();
         Integer id_seguimiento=adj.getId_seguimiento();
         String nombre=adj.getNombre();
@@ -105,9 +102,4 @@ public class GestionAdjunto {
         }catch(Exception e){}
         return cuenta;
     }
-    /*
-    public boolean actualizar(Status status){
-        Object params[]={status.getNombre(), status.getId_status()};
-        return Conexion.ejecutar("update status set nombre=? where id_status=?", params);
-    }*/
 }
