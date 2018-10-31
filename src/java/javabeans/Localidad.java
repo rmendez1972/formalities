@@ -20,6 +20,8 @@ public class Localidad {
         this.id_municipio=id_municipio;
         this.nombre_localidad=nombre_localidad;
     }
+    
+    
     public int getId_localidad(){
         return id_localidad;
     }
@@ -38,7 +40,9 @@ public class Localidad {
     public void setId_municipio(int id_municipio) {
         this.id_municipio = id_municipio;
     }
-    public void setNombre_Localidad(String nombre_localidad){
+
+    public void setNombre_localidad(String nombre_localidad){
+
         this.nombre_localidad= nombre_localidad;
     }
     public String getMunicipio() {

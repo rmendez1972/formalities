@@ -55,6 +55,28 @@
                     });
                 });
                 
+                //evento change del selector municipio
+                $("#municipio").change(function()
+                {
+                    
+                    //la respuesta viene del servlet LocalidadesServelet
+                    $.getJSON("localidades", 
+                    {
+                        //evaluar el id de unidad administrativa del lado del modelo
+                        id_municipio: $(this).val(),    
+                        ajax: 'true'
+                    },
+                    function(data)
+                    {
+                                                
+                        //limpiamos el selector para poblar
+                        $("#localidades").html(" ");
+                        $.each(data.Localidades, function(i,item){
+                            $("#localidades").append("<option value='"+item.id_localidad+"'>"+item.nombre+"</option>");
+                        });
+                    });
+                });
+                
                 
                 /*$('#registra').submit(function(event) 
                 {  
@@ -138,7 +160,7 @@
 <!--<div id="frm_titulo">Datos del solicitante</div>-->
 
 <form name="registra" id="registra" action="controladorregistro?operacion=grabar"  method="post" >
-    <h1>Datos del solicitante</h1>
+    <h1>Datos del solicitantex</h1>
 
   
 <table width="920" border="0" align="center">
@@ -207,13 +229,14 @@
             <select name="municipio" id="municipio" required class="js-example-basic-single">
                 <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
                 <c:forEach  var="mun" items="${requestScope.mun}">
-                    <option  required value="${mun.id_unidadAdministrativa}">${mun.nombre}</option>
+                    <option  required value="${mun.id_municipio}">${mun.nombre}</option>
                 </c:forEach>
             </select>
         </td>
         <td colspan="3">
-            <select name="localidad" id="localidad" required class="js-example-basic-single">
+            <select name="localidades" id="localidades" required class="js-example-basic-single">
                 <option value="" selected="selected">Selecciona una opción del catálogo...</option>
+                
             </select>
         </td> 
       </tr>

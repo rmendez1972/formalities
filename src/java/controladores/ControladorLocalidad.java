@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.Map;
 import javabeans.Localidad;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,16 +43,12 @@ public class ControladorLocalidad extends ControladorBase {
     }
     public void guardarNuevo(HttpServletRequest request, HttpServletResponse response) throws Exception{
         GestionLocalidad modelo=new GestionLocalidad();
+
         Localidad loc=new Localidad();
-        loc.setNombre_Localidad(request.getParameter("localidad"));
-        //int id = Integer.parseInt(request.getParameter("municipio"));
+        loc.setNombre_localidad(request.getParameter("localidad"));
         loc.setId_municipio(Integer.parseInt(request.getParameter("municipio")));
-            
-        //String localidad=request.getParameter("localidad");
-        //GestionLocalidad modelo=new GestionLocalidad();
-        //Localidad loc =new Localidad();
-        //loc.setNombre_Localidad(localidad);
         
+
         if(modelo.registro(loc)){
             RequestDispatcher rd=request.getRequestDispatcher("controladorlocalidad?operacion=listar");
             request.setAttribute("msg", "Datos guardados");

@@ -14,6 +14,8 @@ import Modelo.GestionStatus;
 import Modelo.GestionTramite;
 import Modelo.GestionUnidadAdministrativa;
 import Modelo.GestionDirecciones;
+import Modelo.GestionMunicipio;
+import Modelo.GestionLocalidad;
 import Modelo.GestionUsuario;
 import Modelo.conectaMysql;
 import Modelo.mail;
@@ -186,7 +188,17 @@ public class ControladorRegistro extends ControladorBase
 
     }
      
-     
+         //igh 30-10-2018
+        public void capturar1(HttpServletRequest request, HttpServletResponse response) throws Exception
+        {
+            //GestionMunicipio oper1=new GestionMunicipio();
+            //ArrayList mun=oper1.obtenerTodos();
+            
+            //request.setAttribute("mun",mun);
+                     
+            //RequestDispatcher rd=request.getRequestDispatcher("frm_registra.jsp");
+            //rd.forward(request,response);
+        }
      
         public void capturar(HttpServletRequest request, HttpServletResponse response) throws Exception
         {
@@ -194,10 +206,17 @@ public class ControladorRegistro extends ControladorBase
             ArrayList ua=oper1.obtenerTodos();
             
             request.setAttribute("ua",ua);
+            
+            GestionMunicipio oper2=new GestionMunicipio();
+            ArrayList mun=oper2.obtenerTodos();
+            
+            request.setAttribute("mun",mun);
                      
             RequestDispatcher rd=request.getRequestDispatcher("frm_registra.jsp");
             rd.forward(request,response);
         }
+        
+
         
          
         
@@ -214,7 +233,10 @@ public class ControladorRegistro extends ControladorBase
           String mensaje;
           String pathadjuntos="adjuntos/";
            
-                   
+         
+        //30-10-2018 Datos de municipio y localidad
+        
+          
           //datos del solicitante
         String nombre=request.getParameter("nombre").toUpperCase();
         solicitante.setNombre(nombre);
@@ -251,6 +273,10 @@ public class ControladorRegistro extends ControladorBase
         //datos de la solicitud
         Integer id_tramite=Integer.parseInt(request.getParameter("tramites"));
         solicitud.setId_tramite(id_tramite);
+        Integer id_municipio=Integer.parseInt(request.getParameter("municipio"));
+        solicitud.setId_municipio(id_municipio);
+        Integer id_localidad=Integer.parseInt(request.getParameter("localidades"));
+        solicitud.setId_localidad(id_localidad);       
         
         Integer id_status=1;
         
