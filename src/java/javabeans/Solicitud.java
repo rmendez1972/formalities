@@ -15,14 +15,14 @@ public class Solicitud {
     private Date fecha_ingreso, fecha_termino;
 
     
-    private int id_tramite, id_solicitante, id_usuario_ingreso, id_usuario_seguimiento, id_status,dias_resolucion,dias_diferencia;
+    private int id_tramite, id_solicitante, id_usuario_ingreso, id_usuario_seguimiento, id_status,dias_resolucion,dias_diferencia,id_municipio,id_localidad;
     private String tramite,solicitante,status,unidadadministrativa,direccion;
 
     
     
     public Solicitud(){}
     
-    public Solicitud(int id_solicitud, Date fecha_ingreso, Date fecha_termino, int id_tramite, int id_solicitante, int id_usuario_ingreso, int id_usuario_seguimiento, int id_status){
+    public Solicitud(int id_solicitud, Date fecha_ingreso, Date fecha_termino, int id_tramite, int id_solicitante, int id_usuario_ingreso, int id_usuario_seguimiento, int id_status, int id_municipio, int id_localidad){
         this.id_solicitud=id_solicitud;
         this.fecha_ingreso=fecha_ingreso;
         this.fecha_termino=fecha_termino;
@@ -31,6 +31,14 @@ public class Solicitud {
         this.id_usuario_ingreso=id_usuario_ingreso;
         this.id_usuario_seguimiento=id_usuario_seguimiento;
         this.id_status=id_status;
+        this.id_municipio=id_municipio;
+        this.id_localidad=id_localidad;
+    }
+
+   
+
+    public void setId_localidad(int id_localidad) {
+        this.id_localidad = id_localidad;
     }
     
       
@@ -196,5 +204,17 @@ public class Solicitud {
 
     public void setDias_diferencia(int dias_diferencia) {
         this.dias_diferencia = dias_diferencia;
+    }
+    
+     public int getId_municipio() {
+        return id_municipio;
+    }
+
+    public void setId_municipio(int id_municipio) {
+        this.id_municipio = id_municipio;
+    }
+
+    public int getId_localidad() {
+        return id_localidad;
     }
 }

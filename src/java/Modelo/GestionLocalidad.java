@@ -7,6 +7,7 @@ package Modelo;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import javabeans.Localidad;
+import javabeans.Tramite;
 /**
  *
  * @author SEDETUS
@@ -37,10 +38,11 @@ public class GestionLocalidad {
     
     public ArrayList obtenerTodos(){
         ArrayList loc=new ArrayList();
-        ResultSet res=Conexion.ejecutarConsulta("select * from localidad order by nombre_localidad asc", null);
+        ResultSet res=Conexion.ejecutarConsulta("select L.*, M.nombre as municipio from localidad L inner join municipio M on L.id_municipio=M.id_municipio order by L.nombre_localidad asc", null);
         try{
             while(res.next()){
                 Localidad localidad=new Localidad(res.getInt("id_localidad"),res.getInt("id_municipio"), res.getString("nombre_localidad"));
+                localidad.setMunicipio(res.getString("municipio"));
                 loc.add(localidad);
             }
             res.close();
@@ -52,5 +54,20 @@ public class GestionLocalidad {
     public boolean eliminarPorId(int id_localidad){
         Object params[]={id_localidad};
         return Conexion.ejecutar("delete from localidad where id_localidad=?", params);
+    }
+    
+    //30-10-2018 igh
+    public ArrayList obtenerPorMunicipio(int id_municipio){
+        ArrayList localidades=new ArrayList();
+        Object params[]={id_municipio};
+        ResultSet res=Conexion.ejecutarConsulta("select * from localidad where id_municipio=? order by nombre_localidad asc", params);
+        try{
+            while(res.next()){
+                Localidad t=new Localidad(res.getInt("id_localidad"), res.getInt("id_municipio"), res.getString("nombre_localidad"));
+                localidades.add(t);
+            }
+            res.close();
+        }catch(Exception e){}
+        return localidades;
     }
 }
