@@ -27,16 +27,17 @@
         </script>
     </head>
     <body>
+        
         <form id="form_Loc" onsubmit="return registrar()">
             <h1>Editar Localidades</h1>
-            <input type="hidden" id="id_localidad" value="${loc.id_localidad}" />
+            
             <table border="0" align="center">
                 <tr>
                     <td>Nombre de la localidad:</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre_localidad"   style=" width: 500px; font-size: 14px" /></td>
+                    <td><input type="text" id="nombre_localidad" value="${loc.nombre_localidad}"  style=" width: 500px; font-size: 14px" /></td>
                     <td></td>
                 </tr>
                 <tr>

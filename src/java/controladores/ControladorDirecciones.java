@@ -32,12 +32,10 @@ public class ControladorDirecciones extends ControladorBase {
 
    public void listar(HttpServletRequest request, HttpServletResponse response) throws Exception{
         GestionDirecciones modelo=new GestionDirecciones();
-            ArrayList dir=modelo.obtenerTodos();
-            
-            request.setAttribute("dir",dir);
-            
-            RequestDispatcher rd=request.getRequestDispatcher("listar_dir.jsp");
-            rd.forward(request,response);
+        ArrayList dir=modelo.obtenerTodos();
+        request.setAttribute("dir",dir);
+        RequestDispatcher rd=request.getRequestDispatcher("listar_dir.jsp");
+        rd.forward(request,response);
     }
    
    public void listarPorunidad(HttpServletRequest request, HttpServletResponse response) throws Exception{

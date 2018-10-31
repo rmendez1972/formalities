@@ -62,6 +62,7 @@
             <thead>
                 <tr>
                     <th style="font-size: 16px">Municipio</th>
+                    <th style="font-size: 16px"width="20%">Acciones</th>
                 </tr>
             </thead>
             <tbody>

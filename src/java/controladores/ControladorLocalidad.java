@@ -91,12 +91,15 @@ public class ControladorLocalidad extends ControladorBase {
     }
     
     public void modificarGuardar(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        Localidad loc =new Localidad(Integer.parseInt(request.getParameter("id_localidad")),Integer.parseInt(request.getParameter("id_municipio")), request.getParameter("nombre_localidad"));
-            GestionLocalidad modelo=new GestionLocalidad();
-            if(modelo.actualizar(loc)){
-                RequestDispatcher rd=request.getRequestDispatcher("controladorlocalidad?operacion=listar");
-                request.setAttribute("msg", "Datos guardados");
-                rd.forward(request,response);
+        int id_localidad = 1;
+        int id_municipio = 1;
+        String nombre_localidad = request.getParameter("nombre_localidad");
+        Localidad loc =new Localidad(id_localidad,id_municipio,nombre_localidad);
+        GestionLocalidad modelo=new GestionLocalidad();
+        if(modelo.actualizar(loc)){
+            RequestDispatcher rd=request.getRequestDispatcher("controladorlocalidad?operacion=listar");
+            request.setAttribute("msg", "Datos guardados");
+            rd.forward(request,response);
             }
             else{
                 RequestDispatcher rd=request.getRequestDispatcher("controladorlocalidad?operacion=listar");

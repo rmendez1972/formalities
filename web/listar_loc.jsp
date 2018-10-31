@@ -55,12 +55,15 @@
         <table id="localidad" class="tablesorter" style="margin:auto; width:70%; font-size: 14px">
                   <thead>
                       <tr>
+                          <th style="font-size: 16px">Municipio</th>
                           <th style="font-size: 16px">Nombre de la Localidad</th>
+                          <th style="font-size: 16px"width="20%">Acciones</th>
                       </tr>
                   </thead>
                   <tbody>
                       <c:forEach var="loc" items="${requestScope.loc}" varStatus="loop"> 
                           <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
+                              <td> <c:out value="${loc.municipio}" /></td>
                               <td><c:out value="${loc.nombre_localidad}" /></td>
                               <td><img src="imagenes/editar.png" class="btn-tabla" title="Editar Localidad" onclick="editarLocalidad(${loc.id_localidad})" /><img src="imagenes/eliminar.png" class="btn-tabla" title="Eliminar Localidad" onclick="eliminarLocalidad(${loc.id_localidad})" /></td>
                           </tr>
