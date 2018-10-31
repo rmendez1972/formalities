@@ -44,12 +44,9 @@ public class ControladorLocalidad extends ControladorBase {
     }
     public void guardarNuevo(HttpServletRequest request, HttpServletResponse response) throws Exception{
         GestionLocalidad modelo=new GestionLocalidad();
-<<<<<<< HEAD
-        Localidad loc =new Localidad();
-        //loc.setNombreLocalidad(localidad);
-=======
+
         Localidad loc=new Localidad();
-        loc.setNombre_Localidad(request.getParameter("localidad"));
+        loc.setNombre_localidad(request.getParameter("localidad"));
         //int id = Integer.parseInt(request.getParameter("municipio"));
         loc.setId_municipio(Integer.parseInt(request.getParameter("municipio")));
             
@@ -58,7 +55,7 @@ public class ControladorLocalidad extends ControladorBase {
         //Localidad loc =new Localidad();
         //loc.setNombre_Localidad(localidad);
         
->>>>>>> e30fec623593619d780e48d50144111fe0f0841c
+
         if(modelo.registro(loc)){
             RequestDispatcher rd=request.getRequestDispatcher("controladorlocalidad?operacion=listar");
             request.setAttribute("msg", "Datos guardados");

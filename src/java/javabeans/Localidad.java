@@ -40,11 +40,9 @@ public class Localidad {
     public void setId_municipio(int id_municipio) {
         this.id_municipio = id_municipio;
     }
-<<<<<<< HEAD
-    public void setNombrel_localidad(String nombre_localidad){
-=======
-    public void setNombre_Localidad(String nombre_localidad){
->>>>>>> e30fec623593619d780e48d50144111fe0f0841c
+
+    public void setNombre_localidad(String nombre_localidad){
+
         this.nombre_localidad= nombre_localidad;
     }
     public Localidad(){}
