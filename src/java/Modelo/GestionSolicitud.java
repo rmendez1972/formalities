@@ -16,7 +16,7 @@ public class GestionSolicitud {
     
     public boolean registroSolicitud(Solicitud sol){
         Object params[]={ sol.getFecha_ingreso(), sol.getFecha_termino(), sol.getId_tramite(), sol.getId_solicitante(), sol.getId_usuario_ingreso(), sol.getId_usuario_seguimiento(), sol.getId_status(), sol.getId_municipio(),sol.getId_localidad()};
-        return Conexion.ejecutar("insert into solicitud (fecha_ingreso, fecha_termino, id_tramite, id_solicitante, id_usuario_ingreso, id_usuario_seguimiento, id_status) values (?,?,?,?,?,?,?,?,?)", params);
+        return Conexion.ejecutar("insert into solicitud (fecha_ingreso, fecha_termino, id_tramite, id_solicitante, id_usuario_ingreso, id_usuario_seguimiento, id_status, id_municipio, id_localidad) values (?,?,?,?,?,?,?,?,?)", params);
     }
     
     public boolean actualizarSolicitud(Solicitud sol){
