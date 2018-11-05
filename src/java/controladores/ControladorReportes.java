@@ -618,6 +618,78 @@ public class ControladorReportes extends HttpServlet
             
 
         }
+        
+        if(operacion.equals("localidades")){
+            
+            
+            Integer id_municipio;
+            
+            
+            try {
+                 cn=conectaMysql.getConnection();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            //recuperando parametros del reporte multipart
+            
+            String mid_municipio;
+            mid_municipio  = request.getParameter("municipio");
+            id_municipio=Integer.parseInt(mid_municipio);
+            
+            
+            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+            Date fecha_inicial,fecha_final = null;
+            try {
+                fecha_inicial = sdf.parse(request.getParameter("fecha_inicial"));
+            } catch (ParseException ex) {
+                Logger.getLogger(ControladorReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                fecha_final = sdf.parse(request.getParameter("fecha_final"));
+            } catch (ParseException ex) {
+                Logger.getLogger(ControladorReportes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                       
+            ServletOutputStream servletOutputStream = response.getOutputStream();
+            File reportFile=null;
+            reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/ReporteSolicitudesLocalidadesParam.jasper"));
+            
+            
+            try
+            {
+                
+                Map param = new HashMap(); //inicializo un objeto HashMap variable,valor
+                //param.put("id_delegacion", id_delegacion);
+                //param.put("id_mecanica", id_mecanica);
+               
+                
+                    param.put("sql","where DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' and '"+request.getParameter("fecha_final")+"'");
+               
+                
+                byte[] bytes = null;
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
+                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);
+                bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
+                response.setContentType("application/pdf");
+                
+                response.setContentLength(bytes.length);
+                servletOutputStream.write(bytes, 0, bytes.length);
+                
+                servletOutputStream.flush();
+                servletOutputStream.close();
+            }
+            catch (JRException e)
+            {
+                // display stack trace in the browser
+                StringWriter stringWriter = new StringWriter();
+                PrintWriter printWriter = new PrintWriter(stringWriter);
+                e.printStackTrace(printWriter);
+                response.setContentType("text/plain");
+                response.getOutputStream().print(stringWriter.toString());
+            } 
+        
+        }
 
     }
 
