@@ -108,13 +108,13 @@
                 });
                 
                 
-                //evento change del selector unidadadtva
+                //evento change del selector 
                 $("#municipio").change(function()
                 {
                     //la respuesta viene del servlet tramites2
                     $.getJSON("tramites2", 
                     {
-                        //evaluar el id de unidad administrativa del lado del modelo
+                        //evaluar el id de municipio del lado del modelo
                         id_municipio: $(this).val(),    
                         ajax: 'true'
                     },
@@ -125,7 +125,7 @@
                         $("#tramites").find('option').remove();
                         $("#tramites").append('<option value="">'+'Selecciona una opción del catálogo...'+'</option>');
                         $.each(data.Tramites, function(i,item){
-                            $("#tramites").append("<option value='"+item.id_tramite+"'>"+item.nombre+"</option>");
+                            $("#tramites").append("<option value='"+item.id_municipio+"'>"+item.nombre+"</option>");
                         });
                     });
                 });
