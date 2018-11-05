@@ -38,7 +38,14 @@
                 </tr>
                 <tr>
                     <td><input type="text" id="nombre_localidad" value="${loc.nombre_localidad}"  style=" width: 500px; font-size: 14px" /></td>
-                    <td></td>
+                    <input type="hidden" id="id_localidad" value="${loc.id_localidad}"  style=" width: 500px; font-size: 14px" />
+                    <td><select id="id_municipio" required style="width: 400px; font-size: 14px">
+                            <option value="">Seleccione una</option>
+                            <c:forEach  var="municipios" items="${requestScope.municipios}">
+                                <OPTION VALUE="${municipios.id_municipio}" ${municipios.id_municipio == loc.id_municipio ? 'selected':''}>${municipios.nombre}</OPTION>
+                            </c:forEach>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Aceptar" class="frm-btn" /> <input type="reset" value="Cancelar" class="frm-btn" /></td>
