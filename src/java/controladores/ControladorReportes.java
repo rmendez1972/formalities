@@ -632,12 +632,10 @@ public class ControladorReportes extends HttpServlet
             }
             
             //recuperando parametros del reporte multipart
-            
-            String mid_municipio;
-            mid_municipio  = request.getParameter("municipio");
+            String mid_municipio=null;
+            mid_municipio = request.getParameter("id_municipio");
             id_municipio=Integer.parseInt(mid_municipio);
-            
-            
+                     
             SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
             Date fecha_inicial,fecha_final = null;
             try {
@@ -664,8 +662,9 @@ public class ControladorReportes extends HttpServlet
                 //param.put("id_mecanica", id_mecanica);
                
                 
-                    param.put("sql","where DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' and '"+request.getParameter("fecha_final")+"'");
-               
+                    //param.put("sql","where DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' and '"+request.getParameter("fecha_final")+"' and id_municipio=='"+request.getParameter("id_municipio")+"'");
+                     param.put("sql","where S.id_municipio='"+id_municipio.toString()+"' and DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' AND '"+request.getParameter("fecha_final")+"'");
+                     
                 
                 byte[] bytes = null;
                 //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
