@@ -52,6 +52,8 @@ import javabeans.Solicitante;
 import javabeans.Seguimiento;
 import javabeans.Status;
 import javabeans.Tramite;
+import javabeans.Municipio;
+import javabeans.Localidad;
 import javabeans.UnidadAdministrativa;
 import javabeans.Usuario;
 
@@ -232,12 +234,8 @@ public class ControladorRegistro extends ControladorBase
           Adjunto adjunto = new Adjunto();
           String mensaje;
           String pathadjuntos="adjuntos/";
-           
-         
-        //30-10-2018 Datos de municipio y localidad
         
-          
-          //datos del solicitante
+        //datos del solicitante
         String nombre=request.getParameter("nombre").toUpperCase();
         solicitante.setNombre(nombre);
         String apellido_p=request.getParameter("apellido_p").toUpperCase();
@@ -426,6 +424,12 @@ public class ControladorRegistro extends ControladorBase
         Integer id_tramite=Integer.parseInt(request.getParameter("tramites"));
         solicitud.setId_tramite(id_tramite);
         
+        Integer id_muniicpio=Integer.parseInt(request.getParameter("municipio"));//05-11-2018 igh
+        solicitud.setId_municipio(id_muniicpio);
+        
+        Integer id_localidad=Integer.parseInt(request.getParameter("localidades"));//05-11-2018 igh
+        solicitud.setId_localidad(id_localidad);
+        
         SimpleDateFormat sdf2= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                       
         TimeZone timeZone = TimeZone.getTimeZone("America/Bogota");
@@ -477,6 +481,9 @@ public class ControladorRegistro extends ControladorBase
           request.setAttribute("mensaje",mensaje);
           ArrayList solicitudes=oper2.obtenerSolicitudes();
           request.setAttribute("solicitudes",solicitudes);
+          
+         
+          
           RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes.jsp");
           rd.forward(request,response);
         }
@@ -699,9 +706,10 @@ public class ControladorRegistro extends ControladorBase
         {
             Solicitud solicitud;
             Solicitante solicitante;
-            ArrayList ua,tm,tramites,sexo,status,solicitudes = null;
+            ArrayList ua,tm, mun,loc, tramites,sexo,status,solicitudes = null;
             Tramite tramite;
             Usuario usuario;
+            Localidad localidad;
             
             HttpSession objSession = request.getSession(); 
             usuario = (Usuario)(objSession.getAttribute("usuario")); 
@@ -712,7 +720,7 @@ public class ControladorRegistro extends ControladorBase
             
             String midsolicitud;   
             midsolicitud = request.getParameter("id_solicitud");  
-            Integer id_solicitud,id_solicitante,id_tramite,id_unidadaministrativa;
+            Integer id_solicitud,id_solicitante,id_tramite,id_localidad,id_unidadaministrativa;
             id_solicitud=Integer.parseInt(midsolicitud);
           
             GestionSolicitud oper1=new GestionSolicitud(); 
@@ -722,6 +730,7 @@ public class ControladorRegistro extends ControladorBase
             {    
                 id_solicitante=solicitud.getId_solicitante();
                 id_tramite=solicitud.getId_tramite();
+                id_localidad=solicitud.getId_localidad();
                 
                 GestionSolicitud gsol = new GestionSolicitud();
                 GestionSolicitante oper2=new GestionSolicitante(); 
@@ -733,12 +742,21 @@ public class ControladorRegistro extends ControladorBase
 
                 GestionUnidadAdministrativa oper4=new GestionUnidadAdministrativa(); 
                 ua = oper4.obtenerTodos(); 
-
+                
                 GestionSexo oper5 =new GestionSexo();
                 sexo= oper5.obtenerTodos();
 
                 GestionStatus oper6 =new GestionStatus();
                 status= oper6.obtenerTodos();
+                
+                GestionMunicipio oper7=new GestionMunicipio();//igh
+                mun=oper7.obtenerTodos();            
+                              
+                GestionLocalidad oper8=new GestionLocalidad();//igh
+                loc=oper8.obtenerTodos();
+                
+                localidad=oper8.obtenerPorId(id_localidad);
+                
 
                 request.setAttribute("solicitante",solicitante);
                 request.setAttribute("solicitud",solicitud);
@@ -747,6 +765,9 @@ public class ControladorRegistro extends ControladorBase
                 request.setAttribute("ua",ua);
                 request.setAttribute("sexo",sexo);
                 request.setAttribute("status",status);
+                request.setAttribute("localidad",localidad);
+                request.setAttribute("mun",mun);
+                request.setAttribute("loc",loc);
 
                 if (id_grupo==1 || id_grupo==4)
                 {    

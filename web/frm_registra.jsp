@@ -160,7 +160,7 @@
 <!--<div id="frm_titulo">Datos del solicitante</div>-->
 
 <form name="registra" id="registra" action="controladorregistro?operacion=grabar"  method="post" >
-    <h1>Datos del solicitantex</h1>
+    <h1>Datos del solicitante</h1>
 
   
 <table width="920" border="0" align="center">
