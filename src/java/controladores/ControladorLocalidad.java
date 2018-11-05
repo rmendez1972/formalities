@@ -80,14 +80,17 @@ public class ControladorLocalidad extends ControladorBase {
         int id_localidad=Integer.parseInt(request.getParameter("id"));
         GestionLocalidad modelo=new GestionLocalidad();
         Localidad loc =modelo.obtenerPorId(id_localidad);
+        GestionMunicipio modmunicipio = new GestionMunicipio();
+        ArrayList municipios = modmunicipio.obtenerTodos();
+        request.setAttribute("municipios", municipios);
         request.setAttribute("loc", loc);
         RequestDispatcher rd=request.getRequestDispatcher("frm_locEditar.jsp");
         rd.forward(request,response);
     }
     
     public void modificarGuardar(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        int id_localidad = 1;
-        int id_municipio = 1;
+        int id_localidad = Integer.parseInt(request.getParameter("id_localidad"));
+        int id_municipio = Integer.parseInt(request.getParameter("id_municipio"));;
         String nombre_localidad = request.getParameter("nombre_localidad");
         Localidad loc =new Localidad(id_localidad,id_municipio,nombre_localidad);
         GestionLocalidad modelo=new GestionLocalidad();
