@@ -35,16 +35,8 @@ public class Solicitud {
         this.id_localidad=id_localidad;
     }
 
-   
-
-    public void setId_localidad(int id_localidad) {
-        this.id_localidad = id_localidad;
-    }
     
-      
-    
-    
-    public Solicitud(int id_solicitud, Date fecha_ingreso, Date fecha_termino, int id_tramite, int id_solicitante, int id_usuario_ingreso, int id_usuario_seguimiento, int id_status, String tramite, String solicitante, String status, String unidadadministrativa, int dias_resolucion){
+    public Solicitud(int id_solicitud, Date fecha_ingreso, Date fecha_termino, int id_tramite, int id_solicitante, int id_usuario_ingreso, int id_usuario_seguimiento, int id_status, int id_municipio, int id_localidad, String tramite, String solicitante, String status, String unidadadministrativa, int dias_resolucion){
         this.id_solicitud=id_solicitud;
         this.fecha_ingreso=fecha_ingreso;
         this.fecha_termino=fecha_termino;
@@ -53,6 +45,8 @@ public class Solicitud {
         this.id_usuario_ingreso=id_usuario_ingreso;
         this.id_usuario_seguimiento=id_usuario_seguimiento;
         this.id_status=id_status;
+        this.id_municipio=id_municipio;
+        this.id_localidad=id_localidad;
         this.tramite=tramite;
         this.solicitante=solicitante;
         this.status=status;
@@ -216,5 +210,9 @@ public class Solicitud {
 
     public int getId_localidad() {
         return id_localidad;
+    }
+    
+    public void setId_localidad(int id_localidad) {
+        this.id_localidad = id_localidad;
     }
 }

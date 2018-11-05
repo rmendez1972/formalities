@@ -79,6 +79,26 @@
                         });
                     });
                 });
+                //evento change del selector municipio
+                $("#municipio").change(function()
+                {
+                   //la respuesta viene del servlet LocalidadesServelet
+                    $.getJSON("localidades", 
+                    {
+                        //evaluar el id de unidad administrativa del lado del modelo
+                        id_municipio: $(this).val(),    
+                        ajax: 'true'
+                    },
+                    function(data)
+                    {
+                        //limpiamos el selector para poblar
+                        $("#localidades").html(" ");
+                        $.each(data.Localidades, function(i,item){
+                            $("#localidades").append("<option value='"+item.id_localidad+"'>"+item.nombre+"</option>");
+                        });
+                    });
+                });
+                
                 
                 
                 $('#registra').submit(function(event) 
@@ -204,12 +224,37 @@
       </tr>
       
       
+       <tr>
+          <td>Municipio:</td>
+          <td colspan="3">Localidad:</td>
+      </tr>
+      
+ 
+      <tr>
+          <td>
+              
+              
+            <select name="municipio" id="municipio" required class="js-example-basic-single">
+                <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
+                <c:forEach  var="mun" items="${requestScope.mun}">
+                    <OPTION VALUE="${mun.id_municipio}" ${localidad.id_municipio== mun.id_municipio ? 'selected' : ''}>${mun.nombre}</OPTION>
+               
+                </c:forEach>
+            </select>
+        </td>
+
+        <td colspan="3">
+            <select name="localidades" id="localidades" class="js-example-basic-single">
+                <c:forEach  var="loc" items="${requestScope.loc}">
+                    <OPTION VALUE="${loc.id_localidad}" ${localidad.id_localidad == loc.id_localidad ? 'selected' : ''} >${loc.nombre_localidad}</OPTION>
+                 </c:forEach>
+        </select>
+        </td>
+
+      </tr>
     </table>
  
     <h1>Datos del trámite </h1> <!--<p>Estatus: ${solicitud.id_status}</p>!-->
-
-
-
 <table width="920" border="0" align="center">
   <tr>
     <td width="398">Subsecretaría:</td>
@@ -225,7 +270,7 @@
       <c:forEach  var="tm" items="${requestScope.tm}">
         <OPTION VALUE="${tm.id_tramite}" ${tramite.id_tramite == tm.id_tramite ? 'selected' : ''} >${tm.nombre}</OPTION>
       </c:forEach>
-    </select>    
+        </select></td>    
     </tr>
   <tr>
     <td>&nbsp;</td>
