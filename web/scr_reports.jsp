@@ -80,10 +80,10 @@
                         </tr>
                         <tr>
                             <td width="30%">
-                                <button value="controladorregistro?operacion=localizar&id_solicitud=${solicitudes.id_solicitud}" id="editar" 
-                                        titulo="Confirme la edición." mensaje="Está Ud. seguro de editar esta solicitud!">
-                                        <img src="imagenes/editar.png" class="btn-report" />
-                                        <p>Cuarto Reporte</p>
+                                <button value="controladorreportes?operacion=frm_reportelocalidades" id="rep_localidades" >
+
+                                        <img src="imagenes/reporte_solicitudes.png" class="btn-report" alt="Reporte de localidades a seguimientos"/>
+                                        <p>Localidades</p>
                                 </button>
                             </td>
                             <td width="30%">
@@ -100,6 +100,7 @@
                                         <p>Sexto Reporte</p>
                                 </button>
                             </td>
+                            
                         </tr>
                     </tbody>
                 </table>

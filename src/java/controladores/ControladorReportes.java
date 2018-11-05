@@ -13,6 +13,7 @@ import Modelo.GestionSolicitud;
 import Modelo.GestionStatus;
 import Modelo.GestionTramite;
 import Modelo.GestionUnidadAdministrativa;
+import Modelo.GestionMunicipio;
 import Modelo.conectaMysql;
 import Modelo.mail;
 import java.io.File;
@@ -46,6 +47,7 @@ import javabeans.Status;
 import javabeans.Tramite;
 import javabeans.UnidadAdministrativa;
 import javabeans.Usuario;
+import javabeans.Municipio;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -602,6 +604,18 @@ public class ControladorReportes extends HttpServlet
                 response.setContentType("text/plain");
                 response.getOutputStream().print(stringWriter.toString());
             } 
+
+        }
+        
+        if(operacion.equals("frm_reportelocalidades"))
+        {
+            GestionMunicipio oper1 = new GestionMunicipio();
+            ArrayList mun = oper1.obtenerTodos();
+            
+            request.setAttribute("mun",mun);       
+            RequestDispatcher rd=request.getRequestDispatcher("frm_reportelocalidades.jsp");
+            rd.forward(request,response);
+            
 
         }
 
