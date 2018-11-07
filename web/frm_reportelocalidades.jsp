@@ -108,13 +108,13 @@
                 });
                 
                 
-                //evento change del selector unidadadtva
+                //evento change del selector 
                 $("#municipio").change(function()
                 {
                     //la respuesta viene del servlet tramites2
                     $.getJSON("tramites2", 
                     {
-                        //evaluar el id de unidad administrativa del lado del modelo
+                        //evaluar el id de municipio del lado del modelo
                         id_municipio: $(this).val(),    
                         ajax: 'true'
                     },
@@ -125,7 +125,7 @@
                         $("#tramites").find('option').remove();
                         $("#tramites").append('<option value="">'+'Selecciona una opción del catálogo...'+'</option>');
                         $.each(data.Tramites, function(i,item){
-                            $("#tramites").append("<option value='"+item.id_tramite+"'>"+item.nombre+"</option>");
+                            $("#tramites").append("<option value='"+item.id_municipio+"'>"+item.nombre+"</option>");
                         });
                     });
                 });
@@ -171,13 +171,12 @@
                     var mfecha_inicial=$('#fecha_inicial').val();
                     var mfecha_final=$('#fecha_final').val();
                     var mid_municipio=$('#municipio').val();
-                    //$('#divimprimiendo').show();
+                    
                     if ((mid_municipio==null) || (mid_municipio==""))mid_municipio=0;
                     
                     var controlador="controladorreportes?operacion=localidades&id_municipio="+mid_municipio+"&fecha_inicial="+mfecha_inicial+"&fecha_final="+mfecha_final;
                     $.ajax(
                     {
-                    
                         url: $('#show').attr('src',controlador),
                         type: 'GET',
                         data: $(this).serialize(),
@@ -189,8 +188,6 @@
                         },
                         beforeSend: function()
                         {
-                            
-                            
                         },
                         cache: false,
                         contentType: false,
@@ -202,11 +199,6 @@
                     return false;
 
                 });
-                
-                //alert('apunto de aplicar datepicker..');
-                //$('#fecha_inicial').datepicker();
-                //$('#fecha_final').datepicker(); 
-                
                 
            });
            document.getElementById('fecha_inicial').value=fechaActual();  
@@ -221,13 +213,16 @@
     <body>
         <h2>
           <img src="imagenes/reporte_solicitudes.png" width="42" height="42"/>
-          Reporte de localidades
+          Reporte de Solicitudes Por Municipio
         </h2>
         <secttion id="wrapper_frm_reportes">
             <form name="frm_reportelocalidades" id="frm_reportelocalidades"  >
             <fieldset>
                 <legend>Parametriza tu reporte</legend>
-                <p><label for="fecha_inicial">Fecha Inicial:</label> <input id="fecha_inicial"  name="fecha_inicial" type="date"  title="Ingresa fecha inicial de registro de la solicitud" required><label for="fecha_final">Fecha Final:</label> <input id="fecha_final"  name="fecha_final" type="date"  title="Ingresa fecha final de registro de la solicitud" required></p>
+                <p><label for="fecha_inicial">Fecha Inicial:</label> 
+                    <input id="fecha_inicial"  name="fecha_inicial" type="date"  title="Ingresa fecha inicial de registro de la solicitud" required>
+                    <label for="fecha_final">Fecha Final:</label> 
+                    <input id="fecha_final"  name="fecha_final" type="date"  title="Ingresa fecha final de registro de la solicitud" required></p>
                     <p><label for="municipio">Municipio:</label> 
                         <select name="municipio" id="municipio" class="js-example-basic-single">
                             <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
