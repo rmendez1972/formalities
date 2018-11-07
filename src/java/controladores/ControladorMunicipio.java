@@ -95,7 +95,7 @@ public class ControladorMunicipio extends ControladorBase {
     
     public void reporte(HttpServletRequest request, HttpServletResponse response) throws Exception{
         Map param = new HashMap();
-        //generarReporte("ReporteUnidades.jasper", param, request, response);
+        generarReporte("ReporteMunicipios.jasper", param, request, response);
     }
     
     

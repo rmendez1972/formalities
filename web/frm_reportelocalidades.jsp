@@ -212,7 +212,7 @@
     <body>
         <h2>
           <img src="imagenes/reporte_solicitudes.png" width="42" height="42"/>
-          Reporte de localidades
+          Reporte de Solicitudes Por Municipio
         </h2>
         <secttion id="wrapper_frm_reportes">
             <form name="frm_reportelocalidades" id="frm_reportelocalidades"  >

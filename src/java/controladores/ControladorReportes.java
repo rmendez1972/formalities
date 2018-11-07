@@ -632,13 +632,23 @@ public class ControladorReportes extends HttpServlet
             }
             
             //recuperando parametros del reporte multipart
+            String mid_municipio=null;
+            mid_municipio = request.getParameter("id_municipio");
+            id_municipio=Integer.parseInt(mid_municipio);
+                     
+            SimpleDateFormat sdf= new SimpleDateFormat("dd-MM-yyyy");
             
+            //Date fecha_inicial = sdf.parse(request.getParameter("fecha_inicial"));
             
+            //Date fecha_final = sdf.parse(request.getParameter("fecha_final"));
             
-            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
             Date fecha_inicial,fecha_final = null;
+            
+            
             try {
                 fecha_inicial = sdf.parse(request.getParameter("fecha_inicial"));
+                //String fechai = sdf.format(fecha_inicial);
+               
             } catch (ParseException ex) {
                 Logger.getLogger(ControladorReportes.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -647,6 +657,10 @@ public class ControladorReportes extends HttpServlet
             } catch (ParseException ex) {
                 Logger.getLogger(ControladorReportes.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            GestionMunicipio municipio = new GestionMunicipio();
+            Municipio muni = municipio.obtenerPorId(id_municipio);
+            
                        
             ServletOutputStream servletOutputStream = response.getOutputStream();
             File reportFile=null;
@@ -657,9 +671,15 @@ public class ControladorReportes extends HttpServlet
             {
                 
                 Map param = new HashMap(); //inicializo un objeto HashMap variable,valor
-                
-                param.put("sql","where DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' and '"+request.getParameter("fecha_final")+"'");
+
+                //param.put("id_delegacion", id_delegacion);
+                //param.put("id_mecanica", id_mecanica);
                
+                param.put("val", "Municipio: "+muni.getNombre() +" de "+ request.getParameter("fecha_inicial") + " a "+ request.getParameter("fecha_final"));
+                    //param.put("sql","where DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' and '"+request.getParameter("fecha_final")+"' and id_municipio=='"+request.getParameter("id_municipio")+"'");
+                param.put("sql","where S.id_municipio='"+id_municipio.toString()+"' and DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' AND '"+request.getParameter("fecha_final")+"'");
+                     
+
                 
                 byte[] bytes = null;
                 bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
