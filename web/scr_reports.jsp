@@ -82,7 +82,7 @@
                             <td width="30%">
                                 <button value="controladorreportes?operacion=frm_reportelocalidades" id="rep_localidades" >
 
-                                        <img src="imagenes/reporte_solicitudes.png" class="btn-report" alt="Reporte de localidades a seguimientos"/>
+                                        <img src="imagenes/ReporteSolicitudMunicipio.png" class="btn-report" alt="Reporte de localidades a seguimientos"/>
                                         <p>Localidades</p>
                                 </button>
                             </td>
