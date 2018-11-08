@@ -39,19 +39,19 @@
 				<imageExpression><![CDATA["..\\imagenes\\qroo.png"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement uuid="95ab98cd-a2ca-4094-80f0-97739b65f75d" x="5" y="81" width="739" height="20"/>
+				<reportElement uuid="95ab98cd-a2ca-4094-80f0-97739b65f75d" x="122" y="76" width="380" height="20"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$P{val}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="5" y="13" width="752" height="20"/>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="205" y="17" width="194" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Trámites y Servicios]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="2" y="45" width="747" height="20"/>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="177" y="49" width="256" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="true"/>
 				</textElement>
