@@ -145,161 +145,140 @@
            document.getElementById('fecha_r').value=fecha;
         </script>
 
-
-        
-        
-        
-    </head>
+   
+    </head>  
     
-       
-        
     <body>
-      
-
-       
-<!--<div id="frm_titulo">Datos del solicitante</div>-->
-
-<form name="registra" id="registra" action="controladorregistro?operacion=grabar"  method="post" >
-    <h1>Datos del solicitante</h1>
-
-  
-<table width="920" border="0" align="center">
-      <tr>
-        <td width="150">Nombre:</td>
-        <td width="151">Apellido paterno:</td>
-        <td width="153">Apellido materno:</td>
-        <td width="448">Domicilio:</td>
-      </tr>
-      
-      <tr>
-        <td><input name="nombre" id="nombre"  type="text" size="20" maxlength="30" autofocus required  placeholder="Mínimo 3 caracteres"></td>
-        <td><input name="apellido_p" id="apellido_p" type="text" size="20"  maxlength="15" required placeholder="Mínimo 2, max. 15 letras"></td>
-        <td><input name="apellido_m" id="apellido_m" type="text" size="20" maxlength="15" placeholder="Mínimo 2, max. 15 letras"></td>
-        <td><textarea type="text" name="domicilio" id="domicilio" rows="4" maxlength="200"required  placeholder="Solo letras" title="No es una dirección válida"></textarea></td>
-      </tr>
-
-      <tr height="5">
-        <td colspan="4"></td>
-      </tr>
-      
-      <tr>
-        <td>RFC:</td>
-        <td>Teléfono:</td>
-        <td>Email:</td>
-        <td>Sexo:</td>
-        
-      </tr>
-      
-      <tr>
-        <td><input name="rfc" id="rfc" type="text" size="20" pattern="^[a-zA-Z]{3,4}(\d{6})((\D|\d){3})?$" maxlength="13" placeholder="XXX?AAMMDD???" title="ejemplo: GAHI691125PQ9"></td>
-        <td><input name="telefono" id="telefono" type="tel" size="20" pattern="([0-9]{10})" maxlength="10" placeholder="Escriba 10 dígitos"></td>
-        <td><input name="email" id="email" type="email" size="20" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$" maxlength="60" placeholder="ejemplo@ejemplo.com"></td>
-        <td>
-            <select name="sexo" id="sexo" required >
-              <!--<option value="0" selected="selected">Selecciona una opción.</option>!-->
-              <option value="">Seleccione una opción.</option>
-              <option value="M">MUJER</option>
-              <option value="H">HOMBRE</option>
-            </select></td>
-        
-        
-      </tr>
-      
-      <tr>
-        <td>PASSWORD:</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      
-      
-      <tr>
-        <td><input name="password" id="password" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{8,15})" maxlength="15" placeholder="Password para api" title="Password para api"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        
-      </tr>
-      <tr>
-          <td>Municipio:</td>
-          <td colspan="3">Localidad:</td>
-      </tr>
-      <tr>
-          <td>
-            <select name="municipio" id="municipio" required class="js-example-basic-single">
-                <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
-                <c:forEach  var="mun" items="${requestScope.mun}">
-                    <option  required value="${mun.id_municipio}">${mun.nombre}</option>
-                </c:forEach>
-            </select>
-        </td>
-        <td colspan="3">
-            <select name="localidades" id="localidades" required class="js-example-basic-single">
-                <option value="" selected="selected">Selecciona una opción del catálogo...</option>
+        <!--<div id="frm_titulo">Datos del solicitante</div>-->
+        <form name="registra" id="registra" action="controladorregistro?operacion=grabar"  method="post" width="100%">
+            <h1>Datos del solicitante</h1>
+            <table style="width:100%">
                 
-            </select>
-        </td> 
-      </tr>
-    </table>
-    
- 
-<p>
-<br><h3>Datos del trámite</h3></p>
+                <tr style="width:90%">
+                    <td style="width:30%">Nombre:</td>
+                    <td style="width:30%">Apellido paterno:</td>
+                    <td style="width:30%">Apellido materno:</td>
+                </tr>
+                <tr style="width:90%">
+                    <td style="width:30%"><input style="width:80%" name="nombre" id="nombre"  type="text" size="20" maxlength="30" autofocus required  placeholder="Mínimo 3 caracteres"></td>
+                    <td style="width:30%"><input style="width:80%" name="apellido_p" id="apellido_p" type="text" size="20"  maxlength="15" placeholder="Mínimo 2, max. 15 letras"></td>
+                    <td style="width:30%"><input style="width:80%" name="apellido_m" id="apellido_m" type="text" size="20" maxlength="15" placeholder="Mínimo 2, max. 15 letras"></td>
+                </tr>
+                <tr style="width:90%">
+                    <td style="width:30%">RFC:</td>
+                    <td style="width:30%">Sexo:</td>
+                </tr>
+                
+                <tr style="width:90%">
+                    <td style="width:30%"><input style="width:80%"name="rfc" id="rfc" type="text" size="20" pattern="^[a-zA-Z]{3,4}(\d{6})((\D|\d){3})?$" maxlength="13" placeholder="XXX?AAMMDD???" title="ejemplo: GAHI691125PQ9"></td>
+                    <td style="width:30%">
+                        <select style="width:80%;height: 50px;" name="sexo" id="sexo" required >
+                            <!--<option value="0" selected="selected">Selecciona una opción.</option>!-->
+                            <option value="">Seleccione una opción.</option>
+                            <option value="M">MUJER</option>
+                            <option value="H">HOMBRE</option>
+                        </select></td>
+                </tr>
+                
+            </table>
+            
+            <p>
+            <br><h1>Datos del contacto</h1></p> 
+        <table style="width:100%">
+            <tr style="width:90%">
+                    <td style="width:30%">Domicilio:</td>
+                    <td style="width:30%">Municipio:</td>
+                    <td style="width:30%">Localidad:</td>
+                </tr>
+                <tr style="width:90%">
+                    <td style="width:30%"><textarea style="width:80%;height: 50px;" type="text" name="domicilio" id="domicilio" rows="4" maxlength="200"required  placeholder="Solo letras" title="No es una dirección válida"></textarea></td>
+                    
+                    <td style="width:30%">
+                        <select style="width:80%"  name="municipio" id="municipio" required class="js-example-basic-single">
+                            <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
+                            <c:forEach  var="mun" items="${requestScope.mun}">
+                                <option   required value="${mun.id_municipio}">${mun.nombre}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                    <td style="width:30%" >
+                        <select style="width:80%"  name="localidades" id="localidades" required class="js-example-basic-single">
+                            <option value="" selected="selected">Selecciona una opción del catálogo...</option>
+                        </select>
+                    </td> 
+                </tr>
+            <tr style="width:90%">
+                <td style="width:30%">Teléfono:</td>
+                <td style="width:30%">Email:</td>
+                <td style="width:30%">PASSWORD:</td>
+            </tr>
+            <tr style="width:90%">
+                <td style="width:30%"><input style="width:80%" name="telefono" id="telefono" type="tel" size="20" pattern="([0-9]{10})" maxlength="10" placeholder="Escriba 10 dígitos"></td>
+                <td style="width:30%"><input style="width:80%" name="email" id="email" type="email" size="20" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$" maxlength="60" placeholder="ejemplo@ejemplo.com"></td>
+                <td style="width:30%"><input style="width:80%" name="password" id="password" type="text" size="20" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\0-9]{8,15})" maxlength="15" placeholder="Password para api" title="Password para api"></td>
+            </tr>
+            
+        </table>
+        <p>
+        <br><h1>Datos del trámite</h1></p>
+        <table style="width:100%">
+            <tr style="width:90%">
+                <td style="width:30%">Subsecretaría:</td>
+            </tr>
+            <tr style="width:90%">
+                <td style="width:30%">
+                    <select name="unidadadtva" id="unidadadtva" required class="js-example-basic-single">
+                        <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
+                        <c:forEach  var="ua" items="${requestScope.ua}">
+                            <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
+                        </c:forEach>
+                    </select>
+                </td> 
+            </tr>
+            <tr style="width:90%">
+                <td style="width:30%">Trámite:</td>
+            </tr>
+            <tr style="width:90%">
+                <td style="width:30%" >
+                    <select name="tramites" id="tramites" required class="js-example-basic-single">
+                        <option value="" selected="selected">Selecciona una opción del catálogo...</option>
+                    </select>
+                </td> 
+            </tr>
 
-<table width="920" border="0" align="center">
-  <tr>
-    <td width="404">Subsecretaría:</td>
-    <td width="502" colspan="2">Trámite:</td>
-  </tr>
-  <tr>
-    <td><select name="unidadadtva" id="unidadadtva" required class="js-example-basic-single">
-      <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
-      <c:forEach  var="ua" items="${requestScope.ua}">
-        <option  required value="${ua.id_unidadAdministrativa}">${ua.nombre}</option>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Fecha de registro:</td>
+            <td><!--Requisitos en formato zip/rar:--></td>
+          </tr>
 
-      </c:forEach>
-    </select></td>
-    <td colspan="2"><select name="tramites" id="tramites" required class="js-example-basic-single">
+          <tr>
 
-      <option value="" selected="selected">Selecciona una opción del catálogo...</option>
-    </select></td>    
-  </tr>
-  
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Fecha de registro:</td>
-    <td><!--Requisitos en formato zip/rar:--></td>
-  </tr>
-  
-  <tr>
-      
-      <td><input type="date" name="fecha_r" id="fecha_r" required value="fecha()"></td>
-      <td><!--<div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div>--></td>
-       
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td colspan="2">
-  </tr>
-  <tr>    
-    <td><div id="envio"><input type="submit" name="enviarrequisitos" id="enviarrequisitos"  class="botona" value="Enviar solicitud"></div></td>
-    <td colspan="2" >
-        <div id="loading" >
-                <img  src="imagenes/cargando.gif" width="100" height="100" style="margin-left: auto; margin-right: auto;
-    display: block;" />
-        </div>
-    </td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td colspan="2"></tr>
-  </table>
+              <td><input type="date" name="fecha_r" id="fecha_r" required value="fecha()"></td>
+              <td><!--<div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div>--></td>
+
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td colspan="2">
+          </tr>
+          <tr>    
+            <td><div id="envio"><input type="submit" name="enviarrequisitos" id="enviarrequisitos"  class="botona" value="Enviar solicitud"></div></td>
+            <td colspan="2" >
+                <div id="loading" >
+                        <img  src="imagenes/cargando.gif" width="100" height="100" style="margin-left: auto; margin-right: auto;
+            display: block;" />
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td colspan="2"></tr>
+          </table>
 <p>&nbsp;</p>
-
-
 </form>
         
     </body>

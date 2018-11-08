@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="imagenes/map1.ico" type="image/x-icon" rel="shortcut icon" />
 	<!--<meta http-equiv="refresh" content="2">!-->
       <!--<link rel="stylesheet" type="text/css" href="css/estilos.css"/>!-->
@@ -27,6 +28,7 @@
             @import url('css/fuentes.css');
             body{background-image: url(imagenes/backgroundSedetusLogin1.png);font-family: helveticanuelightext;}
             h1,h2,h3,h4,p{font-family: helveticanuelightext;color:#0080ff;}
+            form {border: 3px solid #f1f1f1;}
                       
             #caja{
 		/*background: #f0f0f0;*/width: 500px;border:1px solid white; margin:100px auto;
@@ -74,20 +76,21 @@
                 
             }
             #user{
-               float: left;
-               width: 200px;
-               margin-left: 25%;
-               margin-top: 10%;
-               text-transform: uppercase;
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
               
             }
             #password{
-               float: left;
-               width: 200px;
-               margin-left: 25%;
-               margin-top: 5%;
-               margin-bottom: 10px;
-               text-transform: uppercase;
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
               
             }
            #boton{
@@ -96,6 +99,17 @@
                 margin: auto;
                 margin-bottom: 20px;
                     
+            }
+            .container {
+                padding: 16px;
+            }
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
             }
 
             
@@ -127,8 +141,8 @@
     <%}%>  
     
     
-    <body>
-        <div id="caja" ><!--onclick="document.body.style.backgroundColor='none'; 
+    <body style="width:100%" >
+        <div style="width:35%"  id="caja" ><!--onclick="document.body.style.backgroundColor='none'; 
                 document.body.style.backgroundImage='url(imagenes/backg2.png)';">
             <!--<a href="#" onclick="javascript:document.body.style.backgroundColor='none'; 
                 document.body.style.backgroundImage='url(imagenes/backg2.png)';">Rojo</a>!-->
@@ -136,8 +150,8 @@
                 <h4 style="color: #459cc1; text-shadow: white 0.1em 0.1em 0.2em">Trámites y Servicios<br> Versión 1.0</h4>
                 <!--<img SRC="imagenes\loginicon.png">!-->
 		
-                <form name="login" id="login"   method="post">
-                    <div id="campos">
+                <form style="width:90%"  name="login" id="login"   method="post">
+                    <div class="container" style="width:80%" id="campos">
                         <div id="user">
                             <label for="user"></label>
                             <input type="text" name="user"   placeholder="Usuario" required style="text-transform: uppercase;">
@@ -149,7 +163,7 @@
                           
                         </div>
                     </div>
-                    <div id="boton">
+                    <div class="container" id="boton">
                         <input type="submit"  class="bottonlogin" name="boton"  value="">
                     
                     </div>

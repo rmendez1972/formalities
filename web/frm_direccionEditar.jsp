@@ -54,7 +54,10 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" value="Aceptar" class="frm-btn" /> <input type="reset" value="Cancelar" class="frm-btn" /></td>
+                    <td colspan="2">
+                        <input type="submit" value="Aceptar" class="frm-btn" /> 
+                        <input type="reset" value="Cancelar" class="frm-btn" onclick="cargar('controladordirecciones?operacion=listar','#admin')" />
+                    </td>
                 </tr>
             </table>
         </form>

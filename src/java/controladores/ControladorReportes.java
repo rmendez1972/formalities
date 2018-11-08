@@ -671,6 +671,7 @@ public class ControladorReportes extends HttpServlet
             {
                 
                 Map param = new HashMap(); //inicializo un objeto HashMap variable,valor
+
                 //param.put("id_delegacion", id_delegacion);
                 //param.put("id_mecanica", id_mecanica);
                
@@ -678,10 +679,9 @@ public class ControladorReportes extends HttpServlet
                     //param.put("sql","where DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' and '"+request.getParameter("fecha_final")+"' and id_municipio=='"+request.getParameter("id_municipio")+"'");
                 param.put("sql","where S.id_municipio='"+id_municipio.toString()+"' and DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' AND '"+request.getParameter("fecha_final")+"'");
                      
+
                 
                 byte[] bytes = null;
-                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), new JREmptyDataSource());
-                //bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),new HashMap(), cn);
                 bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
                 response.setContentType("application/pdf");
                 

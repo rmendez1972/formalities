@@ -56,11 +56,11 @@
     </head>
     <body>
         <!--<div id="adminnav">!-->
-            <div id="consola" ><h1 style="color:#fff;">Consola del administrador</h1>
+            <div style="width:100%" id="consola" ><h1 style="color:#fff;">Consola del administrador</h1>
             <!--<div id="tituloconsola" style="float:left;padding-top: 20px;width: 800px">Consola del Administrador
             </div>!-->
             
-                <div class="menuhorizontal">
+                <div style="width:90%"  class="menuhorizontal">
                     
                     <ul>
                         <li onclick="cargar('controladorusuario?operacion=listar','#admin')"><a href="#">Usuarios</a></li>

@@ -180,7 +180,8 @@
         <!--<td><div class="uploadx"><input  name="adjunto" type="file"></div></td>-->
      
         <td>&nbsp; </td>
-        <td width="300"><input   type="submit" name="enviarrequisitos" class="botona" value="Agregar seguimiento"></td>
+        <td width="300">
+            <input   type="submit" name="enviarrequisitos" class="botona" value="Agregar seguimiento"></td>
         
      </tr>
 </table>
