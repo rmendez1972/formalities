@@ -227,7 +227,7 @@
                         <select name="municipio" id="municipio" class="js-example-basic-single">
                             <option value="" selected="selected" >Selecciona una opción del catálogo...</option>
                             <c:forEach  var="mun" items="${requestScope.mun}">
-                                <option  required value="${mun.id_municipio}" id="nombre_muninicpio">${mun.nombre}</option>
+                                <option  required value="${mun.id_municipio}" >${mun.nombre}</option>
                             </c:forEach>
                         </select>
                     </p>

@@ -136,7 +136,7 @@
                 </tr>
                 <tr>
                     <td><input type="submit" value="Aceptar" class="frm-btn" /></td>
-                    <td><input type="reset" value="Cancelar" class="frm-btn" /></td>
+                    <td><input type="reset" value="Cancelar" class="frm-btn" onclick="cargar('controladorusuario?operacion=listar','#admin')" /></td>
                     <td></td>
                 </tr>
             </table>

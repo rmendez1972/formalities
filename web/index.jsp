@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
 	<meta name="description" content="Ventanilla unica de gestión de trámites y servicios">
 	<meta name="keywords" content="servicios, tramites, chetumal, quintana, roo">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="imagenes/valid.png"  rel="shortcut icon" />
         <!--Estilos!-->
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -59,8 +59,6 @@
 	<title>Trámites y servicios</title>
         
 
-       
-        
         <script> //Script para definir las áreas en donde se cargará el contenido
             $(document).ready(function(){
                 $("#registro").click(function (event) {
@@ -98,7 +96,7 @@
             }
             
             window.addEventListener("load", cargar('fondo.html','#contenido') , false);
-            
+
         </script>
     
    </head>
@@ -113,9 +111,10 @@
         </script>
         
     <body ><strong></strong>
-	<header>
+        
+	<header >
             
-            <div id="subheader">
+            <div style="width:80%;height: auto;" id="subheader">
 		<div id="logotipo"></div>
                 <div id="sistema"> Trámites y Servicios
                     <div  style="font-size: 12px; color:#000; margin-top: 5px"><strong>USUARIO:</strong>
@@ -127,7 +126,7 @@
                     </div>
                 </div>
 
-		<nav>
+		<nav >
                     <!--<div class="reporte"><a href="#">Reportes</a></div>!-->
                   
                     <div class="reporte" id="reportes"><a href="#">Reportes</a></div> 
@@ -141,14 +140,14 @@
                 
 	</header> <!--fin del header!-->
 
-	<section id="wrap"><!--Contenedor principal-->
-            <section id="main"><!--Seccion Principal-->
+	<section style="width:70%" id="wrap"><!--Contenedor principal-->
+            <section style="width:100%;height: auto;" id="main"><!--Seccion Principal-->
                 
-                <div id="contenido"></div> <!--Vertedero princiapl-->
+                <div  id="contenido"></div> <!--Vertedero princiapl-->
                 
             </section>
             
-            <footer> <!--Pie de página!-->
+            <footer style="width:100%;height: auto;">  <!--Pie de página!-->
                 <p>Sistema: Trámites y Servicios.<br>
                     Derechos reservados SEDETUS. Subsecretaría de Técnica, Dirección de Informática. Departamento de Sistemas Chetumal, Q.Roo 2017.
                     
