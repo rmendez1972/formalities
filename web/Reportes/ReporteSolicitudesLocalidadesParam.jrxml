@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe145593-eaf5-49dc-971a-1de1a3559efe">
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="ireport.callouts" value="##Wed Feb 01 13:43:03 BRT 2017"/>
@@ -33,27 +33,27 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="136" splitType="Stretch">
+		<band height="110" splitType="Stretch">
 			<image hAlign="Center">
-				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="2" width="105" height="115"/>
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="12" width="88" height="82"/>
 				<imageExpression><![CDATA["..\\imagenes\\qroo.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="232" y="44" width="194" height="20"/>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="204" y="45" width="194" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Trámites y Servicios]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="198" y="64" width="256" height="20"/>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="183" y="65" width="256" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Solicitudes por Municipio]]></text>
 			</staticText>
 			<image hAlign="Right">
-				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="502" y="17" width="250" height="79"/>
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="494" y="24" width="257" height="70"/>
 				<imageExpression><![CDATA["..\\imagenes\\sedetus.png"]]></imageExpression>
 			</image>
 		</band>
@@ -137,7 +137,9 @@
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="7c51dd18-3905-47fc-a264-102d5cfc6f9d" x="94" y="4" width="149" height="37"/>
-				<textElement/>
+				<textElement>
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{ua}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy HH.mm.ss">
