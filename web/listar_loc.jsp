@@ -11,6 +11,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <script>
+            $(document).ready(function(){
+            
+                $('#localidad').DataTable();
+            });
+            
             function eliminarLocalidad(id){
                 confirma("", "Eliminar Localidad", "Confirmar eliminación", "eliminar", function(){
                     var params=new Object();
@@ -31,13 +36,16 @@
             <c:if test="${msg != null}">
                 alert('${msg}');
             </c:if>
+                
+            
         </script>
     </head>
     <body>
-        <table width="960" border="0">
+        
+        <table width="100%">
             <tr>
-                <td width="750"><h3>Localidades</h3></td>
-                <td width="210"><div style="display:table; margin-bottom: 5px;">
+                <td width="80%"><h3>Localidades</h3></td>
+                <td width="20%" ><div style="display:table; margin-bottom: 5px;">
                         <div class="btn-catalogo" onclick="cargar('controladorlocalidad?operacion=nuevo','#admin')">
                             <img src="imagenes/agregar.png" />
                             <p>Agregar</p>
@@ -52,7 +60,7 @@
           </td>
         </tr>
       </table>
-        <table id="localidad" class="tablesorter" style="margin:auto; width:70%; font-size: 14px">
+        <table id="localidad" class="display" style="margin:auto; width:90%; font-size: 14px">
                   <thead>
                       <tr>
                           <th style="font-size: 16px">Municipio</th>

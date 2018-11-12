@@ -49,7 +49,7 @@
         </script>
     </head>
     <body>
-        <table width="960" border="0">
+        <table width="98%" border="0">
             <tr>
                 <td width="753"><h3>Listado de Trámites</h3></td>
                 <td width="197">
@@ -77,7 +77,7 @@
             
              
         
-        <table id="tramitestab"  style="margin:auto; width:95%">
+        <table width="98%" id="tramitestab"  style="margin:auto; width:95%">
             <thead>
                 <tr>
                     <th width="30%">Nombre</th>

@@ -40,7 +40,7 @@
      background-image: url(../imagenes/tools.png);
      background-repeat:no-repeat;
      background-position: 5px 15px;
-     height: 100px;
+     height: 150px;
      width: 98%;
      /*float: left;*/
     
@@ -461,7 +461,7 @@ input:required:valid, textarea:required:valid{
 
 /*--CONTENEDOR ENVOLVENTE (WRAP)--*/
 #wrap{/*Definiendo medidas*/
-	width: 960px;
+	width: 75%;
 	margin:auto;
 	clear: both; /* Clear both nunca se va a utilizar si tenemos un header que se utilizara al 100% del ancho de la pagina*/
 }
@@ -490,8 +490,8 @@ input:required:valid, textarea:required:valid{
     
 /*--- FOOTER */
 footer {
-	width: 960px;
-	height: 50px;
+	width: 100%;
+	height: auto;
 	float:left;
         color:#ECF0F1;
         color: #ffffff;
@@ -549,63 +549,6 @@ footer {
 
 
 
-
-
-@media screen and (max-width: 980px) {
-    #wrap {width:94%;height:94%;}
-    header{width:94%;height:auto;}
-    footer{height:94%;}
-    #subheader{width: 94%;height:94%;}
-    #logotipo{width: 94%; height:94%;}
-    #sistema{width: 94%;height:94%;}
-    nav{width: 94%;height:94%;}
-    header #subheader nav {width: 94%;height:94%;}
-    header #subheader nav > div {width: 94%;height:94%;background-size:94% 94%;
-        -webkit-background-size: 94% 94%;           /* Safari 3.0 */
-        -moz-background-size: 94% 94%;}
-    header #subheader nav > div a {width: 94%;height:94%;background-size:94% 94%;
-        -webkit-background-size: 94% 94%;           /* Safari 3.0 */
-        -moz-background-size: 94% 94%;}
-     
-    }
-    
-/* para 700px  o menos */
-@media screen and (max-width: 700px) {
-    #wrap {width:auto;height:auto;}
-    header{width:auto;height:auto;}
-    footer {height:auto;} 
-    #subheader{width: auto;height:auto; }
-    #logotipo{width: auto;height:auto; }
-    #sistema{width: auto;height:auto;}
-    nav {width: auto;height:auto;}
-     header #subheader nav > div {width: auto;height:auto;background-size:auto;
-        -webkit-background-size:auto;           /* Safari 3.0 */
-        -moz-background-size: auto;}
-    header #subheader nav > div a {width: auto;height:auto;background-size:auto;
-        -webkit-background-size:auto;           /* Safari 3.0 */
-        -moz-background-size: auto;}
-    }
-
-    
-/************************************************************************************
-MEDIA QUERIES
-*************************************************************************************/    
-/* para 480px  o menos */
-@media screen and (max-width: 480px) {
-    #wrap {width:auto;height:auto;}
-    #header{width:auto;height:auto;}
-       /*footer {width: auto;height:auto;} */ 
-    #subheader{width: auto;height:auto; }
-    #logotipo{width: auto;height:auto; }
-    #sistema{width: auto;height:auto;}
-    nav{width: auto;height:auto;}
- 
-    header #subheader nav > div {width: auto;height:auto;background-size:auto;
-        -webkit-background-size:auto;}
-    header #subheader nav > div a {width: auto;height:auto;background-size:auto;
-        -webkit-background-size:auto;}
-    }
-/* FIN DISEÑO RESPONSIVO*/
 
 
 /*--CONTENIDO--Div dinamico para mostrar el contenido html*/

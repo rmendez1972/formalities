@@ -127,8 +127,6 @@
                 </div>
                 
 		<nav >
-                    
-                  
                     <div class="reporte" id="reportes"><a href="#">Reportes</a></div> 
                     <div class="admin" id="consolaadmin"><a href="#">Catálogos</a></div>
                     <div class="admin" id="consolaadminventanilla" style="display:none"><a href="#">Catálogos</a></div>
@@ -140,14 +138,14 @@
                 
 	</header> <!--fin del header!-->
 
-	<section style="width:70%" id="wrap"><!--Contenedor principal-->
+	<section id="wrap"><!--Contenedor principal-->
             <section style="width:100%;height: auto;" id="main"><!--Seccion Principal-->
                 
                 <div  id="contenido"></div> <!--Vertedero princiapl-->
                 
             </section>
             
-            <footer style="width:100%;height: auto;">  <!--Pie de página!-->
+            <footer >  <!--Pie de página!-->
                 <p>Sistema: Trámites y Servicios.<br>
                     Derechos reservados SEDETUS. Subsecretaría de Técnica, Dirección de Informática. Departamento de Sistemas Chetumal, Q.Roo 2017.
                     
