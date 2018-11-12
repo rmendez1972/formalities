@@ -182,12 +182,11 @@
                     
                 </tr>
                 <tr style="width:90%">
-                    <td style="width:30%">RFC:</td>
                     <td style="width:30%">Sexo:</td>
+                    <td style="width:30%">RFC:</td>
                 </tr>
                 
                 <tr style="width:90%">
-                    <td style="width:30%"><input style="width:80%" name="rfc" id="rfc" type="text" size="20" pattern="^[a-zA-Z]{3,4}(\d{6})((\D|\d){3})?$" maxlength="13" placeholder="XXX?AAMMDD???" title="ejemplo: GAHI691125PQ9"value="${solicitante.rfc}" ></td>
                     <td style="width:30%">
                         
                         <select style="width:80%;height: 50px;" name="sexo" id="sexo">
@@ -196,6 +195,7 @@
                             </c:forEach>
                         </select>
                     </td>
+                    <td style="width:30%"><input style="width:80%" name="rfc" id="rfc" type="text" size="20" pattern="^[a-zA-Z]{3,4}(\d{6})((\D|\d){3})?$" maxlength="13" placeholder="XXX?AAMMDD???" title="ejemplo: GAHI691125PQ9"value="${solicitante.rfc}" ></td>
                 </tr>
                 
     </table>
@@ -292,7 +292,7 @@
             <td colspan="2">
           </tr>
           <tr style="width:90%">
-            <td >Estatus</td>
+            <td >Estatus :</td>
           </tr>
           <tr>
               <td>
