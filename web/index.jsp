@@ -112,11 +112,11 @@
         
     <body ><strong></strong>
         
-	<header >
+	<header style="width:100%;height: 120px;">
             
-            <div style="width:80%;height: auto;" id="subheader">
-		<div id="logotipo"></div>
-                <div id="sistema"> Trámites y Servicios
+            <div style="width:90%;height: auto;" id="subheader">
+		<div style="width:20%;height:120px;" id="logotipo"></div>
+                <div style="width:30%;height:120px;" id="sistema"> Trámites y Servicios
                     <div  style="font-size: 12px; color:#000; margin-top: 5px"><strong>USUARIO:</strong>
                       
                         <script type="text/javascript">document.write(usuario+'    ');</script>
@@ -125,9 +125,9 @@
                         <a href="login.jsp"> <img src="imagenes/locked.png" class="btn-tabla" alt="Cerrar Sesión"  title="Cerrar Sesión"></a>
                     </div>
                 </div>
-
+                
 		<nav >
-                    <!--<div class="reporte"><a href="#">Reportes</a></div>!-->
+                    
                   
                     <div class="reporte" id="reportes"><a href="#">Reportes</a></div> 
                     <div class="admin" id="consolaadmin"><a href="#">Catálogos</a></div>
