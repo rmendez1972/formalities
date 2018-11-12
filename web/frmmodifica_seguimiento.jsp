@@ -81,11 +81,13 @@
 <form name="seguimiento" id="seguimiento" action="controladorseguimiento?operacion=modificar"  method="post">
 
     <h3>Datos del solicitante:</h3>  
-<table width="920" border="0" align="center">
+<table width="100%" border="0" align="center">
+    
+    
       <tr>
-        <td width="150"style="color: #FFF;background-color: rgba(23,34,56,.1">Nombre:</td><td width="3"></td>
-        <td width="151"style="color: #FFF;background-color: rgba(23,34,56,.1">Apellido paterno:</td><td width="3"></td>
-        <td width="160"style="color: #FFF;background-color: rgba(23,34,56,.1">Apellido materno:</td><td width="3"></td>
+        <td style="color: #FFF;background-color: rgba(23,34,56,.1">Nombre:</td><td width="3"></td>
+        <td style="color: #FFF;background-color: rgba(23,34,56,.1">Apellido paterno:</td><td width="3"></td>
+        <td style="color: #FFF;background-color: rgba(23,34,56,.1">Apellido materno:</td><td width="3"></td>
         <td width="450"style="color: #FFF;background-color: rgba(23,34,56,.1">Domicilio:</td>
       </tr>
       

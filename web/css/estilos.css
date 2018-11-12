@@ -374,7 +374,7 @@ input:required:valid, textarea:required:valid{
         margin-bottom: 10px;
 }
     /*Div contenedor  del logotipo y menu principal animado*/
-    #subheader {width: 960px; margin: auto;}
+    #subheader {width: 90%; margin: auto;}
 
         #logotipo { /*Div contenedor para el logotipo SEDUVI*/
                 background:url(../imagenes/LogoSEDUVI.png);
@@ -414,10 +414,7 @@ input:required:valid, textarea:required:valid{
 
 
     }
-        header #subheader nav:hover{opacity: 1;} /*NAV retoma su intensidad de color*/
-
-            
-
+    header #subheader nav:hover{opacity: 1;} /*NAV retoma su intensidad de color*/
 
     header #subheader nav > div { /*Definición de todas las areas contenedoras (divs) que están dentro de NAV*/
             /*width: 210px;*/
@@ -444,10 +441,37 @@ input:required:valid, textarea:required:valid{
     }
 
     /*Aplicando imagen de fondo para los div que se se encuentran dentro de NAV*/
-    header #subheader nav .reporte{background:url(../imagenes/reporte100.png);} /*Opción reportes*/
-    header #subheader nav .admin{ background:url(../imagenes/admin100.png);margin-right: 10px;}/*Opción admin*/
-    header #subheader nav .consulta{background:url(../imagenes/consulta100.png);margin-right: 10px;}/*Opción consulta*/
-    header #subheader nav .registra{background:url(../imagenes/registra100.png);margin-right: 10px;}/*Opción registra*/
+    header #subheader nav .reporte{
+        background:url(../imagenes/reporte100.png);
+        margin-right: 10px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: 100%;     
+    } /*Opción reportes*/
+    header #subheader nav .admin{ 
+        background:url(../imagenes/admin100.png);
+        margin-right: 10px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: 100%;
+    }/*Opción admin*/
+    header #subheader nav .consulta{
+        background:url(../imagenes/consulta100.png);
+        margin-right: 10px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: 100%;
+    }/*Opción consulta*/
+    header #subheader nav .registra{
+        background:url(../imagenes/registra100.png);
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: 100%;
+    }/*Opción registra*/
 
     /*Efecto animado para cuando el cursor está sobre alguna opción del menu principal NAV*/
     header #subheader nav >div:hover{

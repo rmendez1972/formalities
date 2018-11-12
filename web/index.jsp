@@ -112,9 +112,9 @@
         
     <body ><strong></strong>
         
-	<header style="width:100%;height: 120px;">
+	<header >
             
-            <div style="width:90%;height: auto;" id="subheader">
+            <div id="subheader">
 		<div style="width:20%;height:120px;" id="logotipo"></div>
                 <div style="width:30%;height:120px;" id="sistema"> Trámites y Servicios
                     <div  style="font-size: 12px; color:#000; margin-top: 5px"><strong>USUARIO:</strong>
@@ -139,7 +139,7 @@
 	</header> <!--fin del header!-->
 
 	<section id="wrap"><!--Contenedor principal-->
-            <section style="width:100%;height: auto;" id="main"><!--Seccion Principal-->
+            <section id="main"><!--Seccion Principal-->
                 
                 <div  id="contenido"></div> <!--Vertedero princiapl-->
                 

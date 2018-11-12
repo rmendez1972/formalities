@@ -28,24 +28,24 @@
     </head>
     <body>
         
-        <form id="form_DIR" onsubmit="return registrar()">
-            <h1>Editar Dirección</h1>
+        <form id="form_DIR" onsubmit="return registrar()"  width="100%">
+            <h1 style="width:100%">Editar Dirección</h1>
             <input type="hidden" id="id_direccion" value="${di.id_direccion}" />
-            <table border="0" align="center">
-                <tr>
+            <table style="width:90%" border="0" align="center">
+                <tr style="width:90%">
                     <td>Nombre:</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre" pattern="([a-zA-ZñÑçÇáéíóúüÁÉÍÓÚÜ ]{10,100})"  placeholder="Mínimo 10 caracteres" required style=" width: 500px; font-size: 14px" value="${di.nombre}" /></td>
+                    <td><input style="width:90%" type="text" id="nombre" pattern="([a-zA-ZñÑçÇáéíóúüÁÉÍÓÚÜ ]{10,100})"  placeholder="Mínimo 10 caracteres" required style=" width: 500px; font-size: 14px" value="${di.nombre}" /></td>
                     <td></td>
                 </tr>
-                <tr>
+                <tr style="width:90%">
                     <td>Unidad Administrativa:</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td><select id="id_unidadadministrativa" required style="width: 300">
+                <tr style="width:90%">
+                    <td style="width:90%"><select id="id_unidadadministrativa" required style="width: 300">
                             <option value="">Seleccione una unidad administrativa</option>
                             <c:forEach  var="ua" items="${requestScope.ua}">
                                 <OPTION VALUE="${ua.id_unidadAdministrativa}" ${ua.id_unidadAdministrativa == di.id_unidadadministrativa ? 'selected':''}>${ua.nombre}</OPTION>

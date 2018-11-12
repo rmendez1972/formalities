@@ -38,10 +38,10 @@
         </script>
     </head>
     <body>
-        <table width="960" border="0">
+        <table width="100%" border="0">
   <tr>
-    <td width="750"><h3>Direcciones</h3></td>
-    <td width="210"><div style="display:table; margin-bottom: 5px;">
+    <td width="80%"><h3>Direcciones</h3></td>
+    <td width="20%"><div style="display:table; margin-bottom: 5px;">
             <div class="btn-catalogo" onclick="cargar('controladordirecciones?operacion=nuevo','#admin')">
                 <img src="imagenes/agregar.png" />
                 <p>Agregar</p>
@@ -60,7 +60,7 @@
         
       
         
-        <table id="direcciones" class="tablesorter" style="margin:auto; width:70%; font-size: 14px">
+        <table id="direcciones" class="tablesorter" style="margin:auto; width:90%; font-size: 14px">
             <thead>
                 <tr>
                     <th style="font-size: 16px">Nombre Dirección</th>

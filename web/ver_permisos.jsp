@@ -28,11 +28,11 @@
     <body>
         <form id="frm_permisos" onsubmit="return guardarPermisos();">
             <input type="hidden" id="id_grupo" name="id_grupo" value="${id_grupo}" />
-            <table id="tab_permisos" class="tablesorter" style="width:420px">
+            <table id="tab_permisos" class="tablesorter" style="width:90%">
                 <thead>
                     <tr>
-                        <th>Módulo</th>
-                        <th width="80">Permiso</th>
+                        <th width="50%">Módulo</th>
+                        <th width="50%">Permiso</th>
                     </tr>
                 </thead>
                 <tbody>

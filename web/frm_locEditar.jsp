@@ -28,20 +28,20 @@
     </head>
     <body>
         
-        <form id="form_Loc" onsubmit="return registrar()">
+        <form id="form_Loc" onsubmit="return registrar()" style="width:90%">
             <h1>Editar Localidades</h1>
             
-            <table border="0" align="center">
+            <table border="0" align="center" style="width:90%">
                 <tr>
                     <td>Nombre de la localidad:</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="nombre_localidad" value="${loc.nombre_localidad}"  style=" width: 500px; font-size: 14px" /></td>
-                    <input type="hidden" id="id_localidad" value="${loc.id_localidad}"  style=" width: 500px; font-size: 14px" />
+                    <td><input type="text" id="nombre_localidad" value="${loc.nombre_localidad}"  style=" width: 90%; font-size: 14px" /></td>
+                    <input type="hidden" id="id_localidad" value="${loc.id_localidad}"  style=" width: 90%; font-size: 14px" />
                 </tr>
-                <tr>
-                        <td><select id="id_municipio" required style="width: 400px; font-size: 14px">
+                <tr style="width:90%">
+                        <td><select id="id_municipio" required style="width: 90%; font-size: 14px">
                                 <option value="">Seleccione una</option>
                                 <c:forEach  var="municipios" items="${requestScope.municipios}">
                                     <OPTION VALUE="${municipios.id_municipio}" ${municipios.id_municipio == loc.id_municipio ? 'selected':''}>${municipios.nombre}</OPTION>

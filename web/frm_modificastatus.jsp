@@ -25,10 +25,10 @@
         </script>
     </head>
     <body>
-        <h1>Modificar Estatus</h1>
-        <form id="form_UA" onsubmit="return registrar()">
-            <input type="hidden" id="id_status" name="id_status" value="${status.id_status}" />
-            <table border="0" align="center">
+        <h1 >Modificar Estatus</h1>
+        <form id="form_UA" onsubmit="return registrar()" style="width:90%">
+            <input style="width:90%" type="hidden" id="id_status" name="id_status" value="${status.id_status}" />
+            <table border="0" align="center" style="width:90%">
                 <tr>
                     <td>Nombre</td>
                     <td></td>

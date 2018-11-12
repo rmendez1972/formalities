@@ -24,14 +24,14 @@
                         $("#admin").html(datos);
                     },"html");
                 });
-            }
+            };
             function editarLocalidad(id){
                 var params=new Object();
                 params.id=id;
                 $.post("controladorlocalidad?operacion=modificar",params,function(datos){
                     $("#admin").html(datos);
                 },"html");
-            }
+            };
             
             <c:if test="${msg != null}">
                 alert('${msg}');
@@ -65,7 +65,7 @@
                       <tr>
                           <th style="font-size: 16px">Municipio</th>
                           <th style="font-size: 16px">Nombre de la Localidad</th>
-                          <th style="font-size: 16px"width="20%">Acciones</th>
+                          <th style="font-size: 16px">Acciones</th>
                       </tr>
                   </thead>
                   <tbody>

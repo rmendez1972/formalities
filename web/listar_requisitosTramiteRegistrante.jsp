@@ -43,10 +43,10 @@
         </script>
     </head>
     <body>
-        <table width="960" border="0">
+        <table width="100%" border="0">
   <tr>
-    <td width="750"><h3>Requisitos del trámite:<br> ${tramite.nombre}</h3></td>
-    <td width="210"><div style="display:table; margin-bottom: 5px;">
+    <td width="80%"><h3>Requisitos del trámite:<br> ${tramite.nombre}</h3></td>
+    <td width="20%"><div style="display:table; margin-bottom: 5px;">
             
             <a href="controladortramite?operacion=reporteRequisitos&id=${tramite.id_tramite}" target="_blank">
                 <div class="btn-catalogo">
