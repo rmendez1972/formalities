@@ -403,7 +403,7 @@ public class ControladorReportes extends HttpServlet
             
             ServletOutputStream servletOutputStream = response.getOutputStream();
             File reportFile=null;
-            reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/ReporteTramitesParam.jasper"));
+            reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/ReporteTramitessParam.jasper"));
             
             try
             {
