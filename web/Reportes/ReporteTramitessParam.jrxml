@@ -18,10 +18,6 @@
 	</background>
 	<title>
 		<band height="116" splitType="Stretch">
-			<image scaleImage="RealHeight" hAlign="Center">
-				<reportElement uuid="26bdebd4-80af-4d7c-ab23-15496ca8ea17" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="12" width="88" height="82"/>
-				<imageExpression><![CDATA["..\\imagenes\\qroo.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="161" y="56" width="256" height="20"/>
 				<textElement textAlignment="Center">
@@ -36,9 +32,13 @@
 				</textElement>
 				<text><![CDATA[Reporte de Trámites de la SEDETUS]]></text>
 			</staticText>
-			<image scaleImage="RealHeight" hAlign="Right">
-				<reportElement uuid="26bdebd4-80af-4d7c-ab23-15496ca8ea17" stretchType="RelativeToTallestObject" mode="Transparent" x="494" y="16" width="257" height="70"/>
-				<imageExpression><![CDATA["..\\imagenes\\sedetus.jpg"]]></imageExpression>
+			<image hAlign="Center">
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="12" width="88" height="82"/>
+				<imageExpression><![CDATA["..\\imagenes\\qroo.png"]]></imageExpression>
+			</image>
+			<image hAlign="Right">
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="494" y="24" width="257" height="70"/>
+				<imageExpression><![CDATA["..\\imagenes\\sedetus.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
