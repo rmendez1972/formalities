@@ -150,7 +150,7 @@
                     {
                         
                         url: $('#show').attr('src','controladorreportes?operacion=tramites&id_direccion='+mid_direccion+'&id_unidadadministrativa='+mid_unidadadministrativa),
-                        type: 'POST',
+                        type: 'GET',
                         data: $(this).serialize(),
                         async: false,
                         success: function (resultado) 
