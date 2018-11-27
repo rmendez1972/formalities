@@ -147,7 +147,7 @@
             
             <footer >  <!--Pie de página!-->
                 <p>Sistema: Trámites y Servicios.<br>
-                    Derechos reservados SEDETUS. Subsecretaría de Técnica, Dirección de Informática. Departamento de Sistemas Chetumal, Q.Roo 2017.
+                    Derechos reservados SEDETUS. Subsecretaría Técnica, Dirección de Informática. Departamento de Sistemas Chetumal, Q.Roo 2017.
                     
                 </p>
             </footer> <!--fin del pie de página-->
