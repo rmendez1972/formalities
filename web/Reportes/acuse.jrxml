@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe145593-eaf5-49dc-971a-1de1a3559efe">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="474"/>
+	<property name="ireport.x" value="103"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -94,10 +94,14 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="53" splitType="Stretch">
-			<image scaleImage="RealHeight" hAlign="Center">
-				<reportElement uuid="d4111271-89ac-491b-b70f-c1bb14d08be6" x="13" y="0" width="545" height="53"/>
-				<imageExpression><![CDATA["..\\imagenes\\headerreporte.png"]]></imageExpression>
+		<band height="73" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="6" width="68" height="62"/>
+				<imageExpression><![CDATA["..\\imagenes\\qroo.png"]]></imageExpression>
+			</image>
+			<image hAlign="Right">
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="335" y="11" width="237" height="50"/>
+				<imageExpression><![CDATA["..\\imagenes\\sedetus.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>

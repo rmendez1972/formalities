@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteUsuarios" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d49dae9-11de-4574-8c56-721e2087b1fe">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="777"/>
+	<property name="ireport.y" value="123"/>
 	<queryString>
 		<![CDATA[select T.nombre as tramite, T.dias_resolucion, T.costo as costo, U.nombre as unidad, D.nombre as direccion from tramite T inner join unidadadministrativa U on T.id_unidadadministrativa=U.id_unidadadministrativa inner join direcciones D on T.id_direccion=D.id_direccion order by unidad,tramite asc]]>
 	</queryString>
@@ -63,14 +63,14 @@
 				<reportElement uuid="cad955ba-dcff-413e-960d-ab868370b9b8" x="0" y="28" width="752" height="1"/>
 			</line>
 			<staticText>
-				<reportElement uuid="716750bd-0467-4efd-8620-21d6c05c8d45" x="638" y="7" width="94" height="20"/>
-				<textElement textAlignment="Right">
+				<reportElement uuid="716750bd-0467-4efd-8620-21d6c05c8d45" x="660" y="7" width="92" height="20"/>
+				<textElement textAlignment="Justified">
 					<font fontName="Tahoma" size="10" isBold="false" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Días para resolución]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b00963d4-8753-473b-b60f-386293e133f1" x="578" y="7" width="60" height="20"/>
+				<reportElement uuid="b00963d4-8753-473b-b60f-386293e133f1" x="578" y="7" width="71" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
@@ -104,17 +104,10 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{unidad}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement uuid="a6e11350-3433-4b7e-96df-5c8f0f3c41b3" x="705" y="6" width="27" height="50"/>
-				<textElement textAlignment="Right">
-					<font fontName="Tahoma"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{dias_resolucion}]]></textFieldExpression>
-			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="d122de21-ee51-4437-93bb-fb31d324077c" x="578" y="6" width="125" height="50"/>
+				<reportElement uuid="d122de21-ee51-4437-93bb-fb31d324077c" x="578" y="6" width="82" height="50"/>
 				<textElement>
-					<font size="8"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
 			</textField>
@@ -124,6 +117,13 @@
 					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a6e11350-3433-4b7e-96df-5c8f0f3c41b3" x="666" y="6" width="80" height="50"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dias_resolucion}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
