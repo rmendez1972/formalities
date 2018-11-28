@@ -40,7 +40,7 @@
      background-image: url(../imagenes/tools.png);
      background-repeat:no-repeat;
      background-position: 5px 15px;
-     height: 100px;
+     height: 150px;
      width: 98%;
      /*float: left;*/
     
@@ -374,17 +374,20 @@ input:required:valid, textarea:required:valid{
         margin-bottom: 10px;
 }
     /*Div contenedor  del logotipo y menu principal animado*/
-    #subheader {width: 960px; margin: auto;}
+    #subheader {width: 90%; margin: auto;}
 
         #logotipo { /*Div contenedor para el logotipo SEDUVI*/
                 background:url(../imagenes/LogoSEDUVI.png);
                 background-repeat: no-repeat;
                 float: left;
-                width: 190px;
-                height: 120px;
                 padding: 0px 0px;
                 border-right: solid 2px ;
                 border-right-style: groove;
+                max-width: 100%;
+                height: 100%;
+                background-repeat:no-repeat;
+                background-size:contain;
+                background-position:center;
                               
                 }
       
@@ -411,10 +414,7 @@ input:required:valid, textarea:required:valid{
 
 
     }
-        header #subheader nav:hover{opacity: 1;} /*NAV retoma su intensidad de color*/
-
-            
-
+    header #subheader nav:hover{opacity: 1;} /*NAV retoma su intensidad de color*/
 
     header #subheader nav > div { /*Definición de todas las areas contenedoras (divs) que están dentro de NAV*/
             /*width: 210px;*/
@@ -441,10 +441,37 @@ input:required:valid, textarea:required:valid{
     }
 
     /*Aplicando imagen de fondo para los div que se se encuentran dentro de NAV*/
-    header #subheader nav .reporte{background:url(../imagenes/reporte100.png);} /*Opción reportes*/
-    header #subheader nav .admin{ background:url(../imagenes/admin100.png);margin-right: 10px;}/*Opción admin*/
-    header #subheader nav .consulta{background:url(../imagenes/consulta100.png);margin-right: 10px;}/*Opción consulta*/
-    header #subheader nav .registra{background:url(../imagenes/registra100.png);margin-right: 10px;}/*Opción registra*/
+    header #subheader nav .reporte{
+        background:url(../imagenes/reporte100.png);
+        margin-right: 10px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: 100%;     
+    } /*Opción reportes*/
+    header #subheader nav .admin{ 
+        background:url(../imagenes/admin100.png);
+        margin-right: 10px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: 100%;
+    }/*Opción admin*/
+    header #subheader nav .consulta{
+        background:url(../imagenes/consulta100.png);
+        margin-right: 10px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: 100%;
+    }/*Opción consulta*/
+    header #subheader nav .registra{
+        background:url(../imagenes/registra100.png);
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: 100%;
+    }/*Opción registra*/
 
     /*Efecto animado para cuando el cursor está sobre alguna opción del menu principal NAV*/
     header #subheader nav >div:hover{
@@ -458,7 +485,7 @@ input:required:valid, textarea:required:valid{
 
 /*--CONTENEDOR ENVOLVENTE (WRAP)--*/
 #wrap{/*Definiendo medidas*/
-	width: 960px;
+	width: 75%;
 	margin:auto;
 	clear: both; /* Clear both nunca se va a utilizar si tenemos un header que se utilizara al 100% del ancho de la pagina*/
 }
@@ -487,8 +514,8 @@ input:required:valid, textarea:required:valid{
     
 /*--- FOOTER */
 footer {
-	width: 960px;
-	height: 50px;
+	width: 100%;
+	height: auto;
 	float:left;
         color:#ECF0F1;
         color: #ffffff;
@@ -546,63 +573,6 @@ footer {
 
 
 
-
-
-@media screen and (max-width: 980px) {
-    #wrap {width:94%;height:94%;}
-    header{width:94%;height:auto;}
-    footer{height:94%;}
-    #subheader{width: 94%;height:94%;}
-    #logotipo{width: 94%; height:94%;}
-    #sistema{width: 94%;height:94%;}
-    nav{width: 94%;height:94%;}
-    header #subheader nav {width: 94%;height:94%;}
-    header #subheader nav > div {width: 94%;height:94%;background-size:94% 94%;
-        -webkit-background-size: 94% 94%;           /* Safari 3.0 */
-        -moz-background-size: 94% 94%;}
-    header #subheader nav > div a {width: 94%;height:94%;background-size:94% 94%;
-        -webkit-background-size: 94% 94%;           /* Safari 3.0 */
-        -moz-background-size: 94% 94%;}
-     
-    }
-    
-/* para 700px  o menos */
-@media screen and (max-width: 700px) {
-    #wrap {width:auto;height:auto;}
-    header{width:auto;height:auto;}
-    footer {height:auto;} 
-    #subheader{width: auto;height:auto; }
-    #logotipo{width: auto;height:auto; }
-    #sistema{width: auto;height:auto;}
-    nav {width: auto;height:auto;}
-     header #subheader nav > div {width: auto;height:auto;background-size:auto;
-        -webkit-background-size:auto;           /* Safari 3.0 */
-        -moz-background-size: auto;}
-    header #subheader nav > div a {width: auto;height:auto;background-size:auto;
-        -webkit-background-size:auto;           /* Safari 3.0 */
-        -moz-background-size: auto;}
-    }
-
-    
-/************************************************************************************
-MEDIA QUERIES
-*************************************************************************************/    
-/* para 480px  o menos */
-@media screen and (max-width: 480px) {
-    #wrap {width:auto;height:auto;}
-    #header{width:auto;height:auto;}
-       /*footer {width: auto;height:auto;} */ 
-    #subheader{width: auto;height:auto; }
-    #logotipo{width: auto;height:auto; }
-    #sistema{width: auto;height:auto;}
-    nav{width: auto;height:auto;}
- 
-    header #subheader nav > div {width: auto;height:auto;background-size:auto;
-        -webkit-background-size:auto;}
-    header #subheader nav > div a {width: auto;height:auto;background-size:auto;
-        -webkit-background-size:auto;}
-    }
-/* FIN DISEÑO RESPONSIVO*/
 
 
 /*--CONTENIDO--Div dinamico para mostrar el contenido html*/

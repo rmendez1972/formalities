@@ -20,7 +20,7 @@
                         $("#admin").html(datos);
                     },"html");
                 });
-            }
+            };
             function editarStatus(id){
                 var params=new Object();
                 params.id=id;
@@ -28,7 +28,11 @@
                 $.post("controladorestatus?operacion=editar", params, function(datos){
                     $("#admin").html(datos);
                 },"html")
-            }
+            };
+            $(document).ready(function(){
+            
+                $('#estatus').DataTable();
+            });
             
             <c:if test="${msg != null}">
                 alert('${msg}');
@@ -36,10 +40,10 @@
         </script>
     </head>
     <body>
-        <table width="960" border="0">
+        <table width="100%" border="0">
   <tr>
-    <td width="750"><h1>Listado de estatus</h1></td>
-    <td width="210"><div style="display:table; margin-bottom: 5px;">
+    <td width="80%"><h1>Listado de estatus</h1></td>
+    <td width="20%"><div style="display:table; margin-bottom: 5px;">
             <div class="btn-catalogo" onclick="cargar('controladorestatus?operacion=nuevo','#admin')">
                 <img src="imagenes/agregar.png" />
                 <p>Agregar</p>
@@ -58,11 +62,11 @@
         
       
         
-        <table id="estatus" class="tablesorter" style="margin:auto; width:60%">
+        <table id="estatus" class="display" style="margin:auto; width:90%">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th width="80">Acciones</th>
+                    <th width="80%">Nombre</th>
+                    <th width="20%">Acciones</th>
                 </tr>
             </thead>
             <tbody>

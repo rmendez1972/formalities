@@ -52,10 +52,10 @@
         </script>
     </head>
     <body>
-        <table width="960" border="0">
+        <table width="100%" border="0">
   <tr>
-      <td width="750"><h3>Requisitos del trámite:<br> ${tramite.nombre}</h3></td>
-    <td width="210"><div style="display:table; margin-bottom: 5px;">
+      <td width="80%"><h3>Requisitos del trámite:<br> ${tramite.nombre}</h3></td>
+    <td width="20%"><div style="display:table; margin-bottom: 5px;">
             <div class="btn-catalogo" onclick="$('#d_nuevoRequisito').slideDown();">
                 <img src="imagenes/agregar.png" />
                 <p>Agregar</p>
@@ -71,7 +71,7 @@
   </tr>
 </table>
     
-    <div id="d_nuevoRequisito" style="display:none; padding: 15px; margin:10px; border:1px solid #CDCDCD; font-size:13px">
+    <div id="d_nuevoRequisito" style="display:none;width:90%; padding: 15px; margin:10px; border:1px solid #CDCDCD; font-size:13px">
         
         Nuevo requisito: 
         <input type="hidden" id="id_tram" value="${tramite.id_tramite}" />

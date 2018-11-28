@@ -27,7 +27,7 @@
     </head>
     <body>
         
-        <div style="padding:10px;"><h3>Permisos</h3>
+        <div style="margin:auto; width:90%; font-size: 14px;padding:10px;"><h3>Permisos</h3>
             Grupo: 
             <select id="grupos" onchange="cargarPermisos(this.value)">
                 <option value="0">Seleccione uno</option>
@@ -36,6 +36,6 @@
                 </c:forEach>
             </select>
         </div>
-        <div id="div_permisos"></div>
+        <div style="margin:auto; width:90%; font-size: 14px;padding:10px;" id="div_permisos"></div>
     </body>
 </html>

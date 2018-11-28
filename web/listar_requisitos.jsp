@@ -18,7 +18,7 @@
                 $.post("controladorrequisito?operacion=editar", params, function(datos){
                     $("#admin").html(datos);
                 }, "html");
-            }
+            };
             
             function eliminarRequisito(id){
                 var params=new Object();
@@ -29,15 +29,22 @@
                         $("#admin").html(datos);
                     }, "html");
                 });
-            }
+            };
+            
+            $(document).ready(function(){
+            
+                $('#requisitos').DataTable();
+            });
+            
+            
             
         </script>
     </head>
     <body>
-        <table width="960" border="0">
+        <table width="100%" border="0">
   <tr>
-    <td width="753"><h3>Listado de requisitos</h3></td>
-    <td width="197"><div style="display:table; margin-bottom: 5px;">
+    <td width="80%"><h3>Listado de requisitos</h3></td>
+    <td width="20%"><div style="display:table; margin-bottom: 5px;">
             <div class="btn-catalogo" onclick="cargar('controladorrequisito?operacion=nuevo','#admin')">
                 <img src="imagenes/agregar.png" />
                 <p>Agregar</p>
@@ -53,17 +60,17 @@
   </tr>
 </table>
         
-        <table id="requisitos" class="tablesorter" style="margin:auto; width:98%">
+        <table id="requisitos" style="margin:auto; width:90%; font-size: 14px;">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th width="80">Acciones</th>
+                    <th width="80%">Nombre</th>
+                    <th width="20%">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach var="req" items="${requestScope.req}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td><c:out value="${req.nombre}" /></td>
+                        <td data-label="First name"><c:out value="${req.nombre}" /></td>
                         <td><img src="imagenes/editar.png" class="btn-tabla" title="Editar Requisito" onclick="editarRequisito(${req.id_requisito})" /><img src="imagenes/eliminar.png" class="btn-tabla" title="Eliminar Requisito" onclick="eliminarRequisito(${req.id_requisito})" /></td>
                     </tr>
                 </c:forEach>

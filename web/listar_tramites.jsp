@@ -20,7 +20,7 @@
                         $("#admin").html(datos);
                     },"html");
                 });
-            }
+            };
             function editarTramite(id){
                 var params=new Object();
                 params.id=id;
@@ -34,12 +34,13 @@
                 $.post("controladortramite?operacion=verRequisitos", params, function(datos){
                     $("#admin").html(datos);
                 },"html");
-            }
+            };
             
             $(document).ready(function(){
             
                 $('#tramitestab').DataTable();
             });
+            
             
             <c:if test="${msg != null}">
                 console.log('${msg}');
@@ -49,10 +50,10 @@
         </script>
     </head>
     <body>
-        <table width="960" border="0">
+        <table width="90%" border="0">
             <tr>
-                <td width="753"><h3>Listado de Trámites</h3></td>
-                <td width="197">
+                <td width="80%"><h3>Listado de Trámites</h3></td>
+                <td width="20%">
                     <div style="display:table; margin-bottom: 5px;">
                         <div class="btn-catalogo" onclick="cargar('controladortramite?operacion=nuevo','#admin')">
                                 <img src="imagenes/agregar.png" />
@@ -77,26 +78,26 @@
             
              
         
-        <table id="tramitestab"  style="margin:auto; width:95%">
-            <thead>
-                <tr>
-                    <th width="30%">Nombre</th>
-                    <th width="5%">Días de resolución</th>
-                    <th width="20%">Costo</th>
-                    <th width="15%">Subsecretarías</th>
-                    <th width="15%">Direccion</th>
-                    <th width="15%">Acciones</th>
+        <table id="tramitestab" class="table" style="margin:auto; width:90%; font-size: 14px">
+            <thead >
+                <tr >
+                    <th style="margin:auto; width:10%; font-size: 14px">Nombre</th>
+                    <th >Días de resolución</th>
+                    <th>Costo</th>
+                    <th >Subsecretarías</th>
+                    <th>Direccion</th>
+                    <th >Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 <c:forEach var="tram" items="${requestScope.tramites}" varStatus="loop"> 
                     <tr class="${loop.index % 2 == 0 ? 'odd' : 'impar'}"> 
-                        <td width="30%"><c:out value="${tram.nombre}" /></td>
-                        <td width="5%"><c:out value="${tram.dias_resolucion}" /></td>
-                        <td width="20%"><c:out value="${tram.costo}" /></td>
-                        <td width="15%"><c:out value="${tram.unidadAdministrativa}" /></td>
-                        <td width="15%"><c:out value="${tram.direccion}" /></td>
-                        <td width="15%">
+                        <td ><c:out value="${tram.nombre}" /></td>
+                        <td ><c:out value="${tram.dias_resolucion}" /></td>
+                        <td ><c:out value="${tram.costo}" /></td>
+                        <td ><c:out value="${tram.unidadAdministrativa}" /></td>
+                        <td ><c:out value="${tram.direccion}" /></td>
+                        <td >
                             <img src="imagenes/editar.png" class="btn-tabla" title="Editar Trámite" onclick="editarTramite(${tram.id_tramite});" />
                             <img src="imagenes/listar.png" class="btn-tabla" title="Ver requisitos" onclick="verRequisitos(${tram.id_tramite});" />
                             <img src="imagenes/eliminar.png" class="btn-tabla" title="Eliminar Trámite" onclick="eliminarTramite(${tram.id_tramite})" />

@@ -165,19 +165,20 @@
                     <td style="width:30%"><input style="width:80%" name="apellido_m" id="apellido_m" type="text" size="20" maxlength="15" placeholder="Mínimo 2, max. 15 letras"></td>
                 </tr>
                 <tr style="width:90%">
-                    <td style="width:30%">RFC:</td>
                     <td style="width:30%">Sexo:</td>
+                    <td style="width:30%">RFC:</td>
                 </tr>
                 
                 <tr style="width:90%">
-                    <td style="width:30%"><input style="width:80%"name="rfc" id="rfc" type="text" size="20" pattern="^[a-zA-Z]{3,4}(\d{6})((\D|\d){3})?$" maxlength="13" placeholder="XXX?AAMMDD???" title="ejemplo: GAHI691125PQ9"></td>
                     <td style="width:30%">
                         <select style="width:80%;height: 50px;" name="sexo" id="sexo" required >
                             <!--<option value="0" selected="selected">Selecciona una opción.</option>!-->
                             <option value="">Seleccione una opción.</option>
                             <option value="M">MUJER</option>
                             <option value="H">HOMBRE</option>
-                        </select></td>
+                        </select>
+                    </td>
+                    <td style="width:30%"><input style="width:80%"name="rfc" id="rfc" type="text" size="20" pattern="^[a-zA-Z]{3,4}(\d{6})((\D|\d){3})?$" maxlength="13" placeholder="XXX?AAMMDD???" title="ejemplo: GAHI691125PQ9"></td>
                 </tr>
                 
             </table>

@@ -269,7 +269,7 @@
                            
                             </select>
                         </p>
-                        <p><label for="seguimientos"style="padding:0px;">   Seguimento:</label>
+                        <p><label for="seguimientos"style="padding:0px;">   Seguimiento:</label>
                             <select name="seguimientos" id="seguimientos" style="width:500px;" class="js-example-basic-single" required>
                                 <option value="" selected="selected">Selecciona una opción del catálogo...</option>
                            

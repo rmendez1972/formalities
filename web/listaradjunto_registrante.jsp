@@ -69,7 +69,7 @@
         <center> 
         
         <br>
-        <table border=0 width="98%">
+        <table border=0 width="90%">
             <tr>
                 <td width="80%" align="left"> 
                     <h1>Listado de Adjuntos del Seguimiento</h1>
@@ -96,7 +96,7 @@
              
         </table>
         
-        <table id="adjuntos"  class="tablesorter" width="98%">
+        <table id="adjuntos"  class="tablesorter" width="90%">
             <thead>
                 <tr><th><strong>Nombre del Archivo Adjunto</strong></th><th></th><th><strong>Usuario que Adjunta</strong></th></tr>
             </thead>

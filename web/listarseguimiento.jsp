@@ -69,7 +69,7 @@
         <center> 
         
         <br>
-        <table border=0 width="98%">
+        <table border=0 width="90%">
             <tr>
                 <td width="80%" align="left"> 
                     <h1>Listado de Seguimientos de la Solicitud</h1>
@@ -106,7 +106,7 @@
              
         </table>
         
-        <table id="seguimientos"  class="tablesorter" width="98%">
+        <table id="seguimientos"  class="tablesorter" width="90%">
             <thead>
                 <tr><th >Fecha de Seguimiento</th><th>Observaciones</th><th>Estatus</th><th>Adjuntos?</th><th>Usuario que Reporta</th><th>Acciones</th></tr>
             </thead>

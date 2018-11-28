@@ -33,32 +33,38 @@
         <c:if test="${msg != null}">
             alert('${msg}');
         </c:if>
+            $(document).ready(function(){
+            
+                $('#usuarios').DataTable();
+            });
         </script>
     </head>
     <body>
-            <table width="960" border="0">
-  <tr>
-    <td width="753"><h3>Listado de Usuarios</h3></td>
-    <td width="197"><div style="display:table; margin-bottom: 5px;">
-            <div class="btn-catalogo" onclick="cargar('controladorusuario?operacion=nuevo','#admin')">
-                <img src="imagenes/agregar.png" />
-                <p>Agregar</p>
-            </div>
-            <a href="controladorusuario?operacion=reporte" target="_blank">
-                <div class="btn-catalogo">
-                    <img src="imagenes/reportesb.png" />
-                    <p>Imprimir</p>
-                </div>
-            </a>
-        </div>  </td>
-  </tr>
-</table>
+        <table width="100%">
+            <tr>
+                <td width="80%"><h3>Listado de Usuarios</h3></td>
+                <td width="20%">
+                    <div style="display:table;margin-bottom: 5px;">
+                        <div class="btn-catalogo" onclick="cargar('controladorusuario?operacion=nuevo','#admin')">
+                            <img src="imagenes/agregar.png" />
+                            <p>Agregar</p>
+                        </div>
+                        <a href="controladorusuario?operacion=reporte" target="_blank">
+                            <div class="btn-catalogo">
+                                <img src="imagenes/reportesb.png" />
+                                <p>Imprimir</p>
+                            </div>
+                        </a>
+                    </div>  
+                </td>
+            </tr>
+        </table>
 
         
         
           
         
-        <table id="usuarios" class="tablesorter" style="margin:auto; width:95%">
+        <table id="usuarios" class="tablesorter" style="width:90%">
             <thead>
                 <tr>
                     <th>Usuario</th>
@@ -66,7 +72,7 @@
                     <th>Subsecretaría</th>
                     <th>Dirección</th>
                     <th>Grupo</th>
-                    <th width="80">Acciones</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>

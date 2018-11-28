@@ -114,9 +114,9 @@
         
 	<header >
             
-            <div style="width:80%;height: auto;" id="subheader">
-		<div id="logotipo"></div>
-                <div id="sistema"> Trámites y Servicios
+            <div id="subheader">
+		<div style="width:20%;height:120px;" id="logotipo"></div>
+                <div style="width:30%;height:120px;" id="sistema"> Trámites y Servicios
                     <div  style="font-size: 12px; color:#000; margin-top: 5px"><strong>USUARIO:</strong>
                       
                         <script type="text/javascript">document.write(usuario+'    ');</script>
@@ -125,10 +125,8 @@
                         <a href="login.jsp"> <img src="imagenes/locked.png" class="btn-tabla" alt="Cerrar Sesión"  title="Cerrar Sesión"></a>
                     </div>
                 </div>
-
+                
 		<nav >
-                    <!--<div class="reporte"><a href="#">Reportes</a></div>!-->
-                  
                     <div class="reporte" id="reportes"><a href="#">Reportes</a></div> 
                     <div class="admin" id="consolaadmin"><a href="#">Catálogos</a></div>
                     <div class="admin" id="consolaadminventanilla" style="display:none"><a href="#">Catálogos</a></div>
@@ -140,16 +138,16 @@
                 
 	</header> <!--fin del header!-->
 
-	<section style="width:70%" id="wrap"><!--Contenedor principal-->
-            <section style="width:100%;height: auto;" id="main"><!--Seccion Principal-->
+	<section id="wrap"><!--Contenedor principal-->
+            <section id="main"><!--Seccion Principal-->
                 
                 <div  id="contenido"></div> <!--Vertedero princiapl-->
                 
             </section>
             
-            <footer style="width:100%;height: auto;">  <!--Pie de página!-->
+            <footer >  <!--Pie de página!-->
                 <p>Sistema: Trámites y Servicios.<br>
-                    Derechos reservados SEDETUS. Subsecretaría de Técnica, Dirección de Informática. Departamento de Sistemas Chetumal, Q.Roo 2017.
+                    Derechos reservados SEDETUS. Subsecretaría Técnica, Dirección de Informática. Departamento de Sistemas Chetumal, Q.Roo 2017.
                     
                 </p>
             </footer> <!--fin del pie de página-->
