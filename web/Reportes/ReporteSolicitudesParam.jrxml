@@ -30,6 +30,9 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
+		<band height="3" splitType="Stretch"/>
+	</title>
+	<pageHeader>
 		<band height="110" splitType="Stretch">
 			<image hAlign="Center">
 				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="12" width="88" height="82"/>
@@ -54,57 +57,57 @@
 				<imageExpression><![CDATA["..\\imagenes\\sedetus.png"]]></imageExpression>
 			</image>
 		</band>
-	</title>
-	<pageHeader>
-		<band height="7" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="27" splitType="Stretch">
+		<band height="33" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="252" y="0" width="171" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="252" y="6" width="171" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Tramite]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="240d2834-c42e-4c69-8b77-a06e991f4456" x="0" y="0" width="87" height="20"/>
+				<reportElement uuid="240d2834-c42e-4c69-8b77-a06e991f4456" x="0" y="6" width="87" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Ingreso]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="433" y="0" width="151" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="433" y="6" width="151" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Solicitante]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="671" y="0" width="78" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="671" y="6" width="78" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Estatus Actual]]></text>
 			</staticText>
 			<line>
-				<reportElement uuid="91bfc418-7516-4b9c-be06-27b7354fd954" x="2" y="23" width="747" height="2"/>
+				<reportElement uuid="91bfc418-7516-4b9c-be06-27b7354fd954" x="2" y="30" width="747" height="1"/>
 			</line>
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="92" y="0" width="151" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="92" y="6" width="151" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Subsecretaria]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="588" y="1" width="78" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="588" y="7" width="78" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Costo]]></text>
 			</staticText>
+			<line>
+				<reportElement uuid="91bfc418-7516-4b9c-be06-27b7354fd954" x="2" y="1" width="747" height="1"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -125,7 +128,9 @@
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="7c51dd18-3905-47fc-a264-102d5cfc6f9d" x="94" y="4" width="149" height="37"/>
-				<textElement/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{ua}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy HH.mm.ss">
@@ -152,7 +157,7 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="32" splitType="Stretch">
+		<band height="23" splitType="Stretch">
 			<staticText>
 				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="495" y="2" width="76" height="20"/>
 				<textElement>
@@ -170,16 +175,16 @@
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="31" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<textField>
-				<reportElement uuid="feb96451-ae28-4d53-9456-7d36e4e837eb" x="608" y="4" width="98" height="20"/>
+				<reportElement uuid="feb96451-ae28-4d53-9456-7d36e4e837eb" x="614" y="4" width="98" height="20"/>
 				<textElement textAlignment="Right">
 					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="3c1e9509-f262-49f6-b261-b830f660c056" x="706" y="4" width="40" height="20"/>
+				<reportElement uuid="3c1e9509-f262-49f6-b261-b830f660c056" x="712" y="4" width="40" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 				</textElement>

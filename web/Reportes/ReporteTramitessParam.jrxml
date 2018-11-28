@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe145593-eaf5-49dc-971a-1de1a3559efe">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="6.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="733"/>
 	<parameter name="sql" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -17,38 +17,38 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="116" splitType="Stretch">
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="110" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="12" width="88" height="82"/>
+				<imageExpression><![CDATA["..\\imagenes\\qroo.png"]]></imageExpression>
+			</image>
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="161" y="56" width="256" height="20"/>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="192" y="36" width="256" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Trámites y Servicios]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="192" y="36" width="216" height="20"/>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="200" y="56" width="216" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Trámites de la SEDETUS]]></text>
 			</staticText>
-			<image hAlign="Center">
-				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="12" width="88" height="82"/>
-				<imageExpression><![CDATA["..\\imagenes\\qroo.png"]]></imageExpression>
-			</image>
 			<image hAlign="Right">
-				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="494" y="24" width="257" height="70"/>
+				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="494" y="16" width="257" height="70"/>
 				<imageExpression><![CDATA["..\\imagenes\\sedetus.png"]]></imageExpression>
 			</image>
 		</band>
-	</title>
-	<pageHeader>
-		<band height="6" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="41" splitType="Stretch">
+		<band height="24" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="8" y="0" width="243" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="8" y="2" width="243" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
@@ -62,14 +62,14 @@
 				<text><![CDATA[Subsecretaría]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="546" y="0" width="102" height="20"/>
+				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="546" y="2" width="102" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Dirección]]></text>
 			</staticText>
 			<line>
-				<reportElement uuid="91bfc418-7516-4b9c-be06-27b7354fd954" x="2" y="23" width="747" height="2"/>
+				<reportElement uuid="91bfc418-7516-4b9c-be06-27b7354fd954" x="2" y="18" width="749" height="1"/>
 			</line>
 			<staticText>
 				<reportElement uuid="9b87e15f-563a-4c14-91c4-de09389b2ce0" x="260" y="2" width="79" height="20"/>
@@ -78,45 +78,48 @@
 				</textElement>
 				<text><![CDATA[Días Resolución]]></text>
 			</staticText>
+			<line>
+				<reportElement uuid="91bfc418-7516-4b9c-be06-27b7354fd954" x="2" y="0" width="749" height="1"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="26" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="61ca5503-8145-411d-89f8-a0589d068cc9" x="8" y="2" width="247" height="20"/>
 				<textElement>
-					<font fontName="Tahoma"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="5608f899-3226-482c-8aef-14c4e64caaa6" x="344" y="2" width="197" height="20"/>
 				<textElement>
-					<font fontName="Tahoma"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{unidadadministrativ}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="5608f899-3226-482c-8aef-14c4e64caaa6" x="546" y="4" width="197" height="20"/>
+				<reportElement uuid="5608f899-3226-482c-8aef-14c4e64caaa6" x="546" y="2" width="197" height="20"/>
 				<textElement>
-					<font fontName="Tahoma"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="61ca5503-8145-411d-89f8-a0589d068cc9" x="260" y="2" width="66" height="20"/>
 				<textElement textAlignment="Center">
-					<font fontName="Tahoma"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dias_resolucion}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="12" splitType="Stretch"/>
+		<band height="6" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="31" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<textField>
 				<reportElement uuid="feb96451-ae28-4d53-9456-7d36e4e837eb" x="608" y="4" width="98" height="20"/>
 				<textElement textAlignment="Right">
@@ -132,7 +135,7 @@
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement uuid="c5a8dcd2-c6da-456e-bfe4-a77fd0f14e6f" x="82" y="4" width="108" height="20"/>
+				<reportElement uuid="c5a8dcd2-c6da-456e-bfe4-a77fd0f14e6f" x="80" y="4" width="108" height="20"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 				</textElement>
