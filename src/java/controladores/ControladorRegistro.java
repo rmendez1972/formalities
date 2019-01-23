@@ -162,7 +162,7 @@ public class ControladorRegistro extends ControladorBase
                     // ruta relativa a donde subo el archivo adjunto
                     //String outputfile = this.getServletContext().getRealPath("/adjuntos/");  // get path on the server
 
-                    String outputfile = "C:/Users/SEDETUS/Documents/NetBeansProjects/tramites/web/adjuntos";
+                    String outputfile = "C:/Users/Laura/Documents/NetBeans-Project/tramites/web/adjuntos";
 
                     File saveFile = new File(outputfile+"/" + soloNombreArchivo+"_" + id_solicitud.toString()+soloExtensionArchivo);
                     FileOutputStream os = new FileOutputStream (saveFile);
@@ -324,9 +324,9 @@ public class ControladorRegistro extends ControladorBase
                 ArrayList msolicitud = oper2.obtenerPorSolicitante(id_solicitante);
                 Solicitud msol= (Solicitud)msolicitud.get(0);
                 
-                Part p1 = request.getPart("adjunto");  
-                String filename = getFileName(p1);
-                Boolean adjuntosubido=subirAdjunto(p1,msol.getId_solicitud());
+                //Part p1 = request.getPart("adjunto");  
+                //String filename = getFileName(p1);
+                //Boolean adjuntosubido=subirAdjunto(p1,msol.getId_solicitud());
                 
                 //seteamos un objeto seguimiento
                 seguimiento.setId_solicitud(msol.getId_solicitud());
@@ -339,17 +339,17 @@ public class ControladorRegistro extends ControladorBase
                 if(resultado3==true)
                 {
                     Seguimiento seg = oper3.obtenerPorObservaciones(msol.getId_solicitud(), "Requisitos adjuntos en cualquier formato");
-                    String nuevonombreadjunto = msol.getId_solicitud()+".rar";
-                    adjunto.setId_seguimiento(seg.getId_seguimiento());
-                    adjunto.setId_usuario(id_usuario);
-                    Integer id_solicitud=msol.getId_solicitud();
+                    //String nuevonombreadjunto = msol.getId_solicitud()+".rar";
+                    //adjunto.setId_seguimiento(seg.getId_seguimiento());
+                    //adjunto.setId_usuario(id_usuario);
+                    //Integer id_solicitud=msol.getId_solicitud();
                     
-                    File file = new File(filename);
-                    String soloNombreArchivo = getFileName2(file);
-                    String soloExtensionArchivo = getFileExtension(file);
-                    String nombreadjunto = soloNombreArchivo+"_"+Integer.toString(id_solicitud)+soloExtensionArchivo;
-                    adjunto.setNombre(nombreadjunto);
-                    oper4.registroAdjunto(adjunto);
+                    //File file = new File(filename);
+                    //String soloNombreArchivo = getFileName2(file);
+                    //String soloExtensionArchivo = getFileExtension(file);
+                    //String nombreadjunto = soloNombreArchivo+"_"+Integer.toString(id_solicitud)+soloExtensionArchivo;
+                    //adjunto.setNombre(nombreadjunto);
+                    //oper4.registroAdjunto(adjunto);
                     
                 }
                 mensaje="Solicitud grabada exitosamente";

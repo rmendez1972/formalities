@@ -253,29 +253,27 @@
           </tr>
           <tr>
             <td>Fecha de registro:</td>
-            <td>Requisitos en formato zip/rar:</td>
+            <td><!--Requisitos en formato zip/rar:--></td>
           </tr>
 
           <tr>
 
               <td><input type="date" name="fecha_r" id="fecha_r" required value="fecha()"></td>
-              <td><div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div></td>
+              <td><!--<div class="uploadx"><input  name="adjunto" id="adjunto" type="file"></div>--></td>
 
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td colspan="2">
+          </tr>
+          <tr>    
+            <td><div id="envio"><input type="submit" name="enviarrequisitos" id="enviarrequisitos"  class="botona" value="Enviar solicitud"></div></td>
             <td colspan="2" >
                 <div id="loading" >
                         <img  src="imagenes/cargando.gif" width="100" height="100" style="margin-left: auto; margin-right: auto;
             display: block;" />
                 </div>
-            </td>    
-                
-          </tr>
-          <tr>    
-            <td><div id="envio"><input type="submit" name="enviarrequisitos" id="enviarrequisitos"  class="botona" value="Enviar solicitud"></div></td>
-            
+            </td>
           </tr>
           <tr>
             <td>&nbsp;</td>
