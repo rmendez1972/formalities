@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe145593-eaf5-49dc-971a-1de1a3559efe">
-	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="251"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="sql" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -33,13 +33,6 @@
 				<imageExpression><![CDATA["..\\imagenes\\qroo.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="192" y="36" width="194" height="20"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Trámites y Servicios]]></text>
-			</staticText>
-			<staticText>
 				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="211" y="56" width="156" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="true"/>
@@ -50,6 +43,13 @@
 				<reportElement uuid="26bdebd4-80af-4d7c-ab23-15496ca8ea17" stretchType="RelativeToTallestObject" mode="Transparent" x="494" y="16" width="257" height="70"/>
 				<imageExpression><![CDATA["..\\imagenes\\sedetus.png"]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="124" y="36" width="329" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sistema De Gestión De Trámites Y Servicios]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>

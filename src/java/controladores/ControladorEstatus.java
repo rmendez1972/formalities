@@ -100,9 +100,17 @@ public class ControladorEstatus extends ControladorBase {
         rd.forward(request,response);
     }
     
-    public void reporte(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        /*Map param = new HashMap();
-        generarReporte("ReporteStatus.jasper", param, request, response);*/
+    /*public void reporte(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        Map param = new HashMap();
+        //generarReporte("ReporteStatus.jasper", param, request, response);
+        generarReporteExcel("ReporteStatus.jasper", param, request, response);
+
+      
+    }*/
+    
+    public void reporte(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        Map param = new HashMap();
+        generarReporte("ReporteStatus.jasper", param, request, response);
         //generarReporteExcel("ReporteStatus.jasper", param, request, response);
 
       

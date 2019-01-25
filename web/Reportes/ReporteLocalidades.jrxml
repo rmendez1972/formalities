@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteUsuarios" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d49dae9-11de-4574-8c56-721e2087b1fe">
-	<property name="ireport.zoom" value="3.0"/>
-	<property name="ireport.x" value="814"/>
-	<property name="ireport.y" value="314"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[select L.*, M.nombre as municipio from localidad L inner join municipio M on L.id_municipio=M.id_municipio order by L.nombre_localidad asc]]>
 	</queryString>
@@ -23,23 +23,23 @@
 				<imageExpression><![CDATA["..\\imagenes\\qroo.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="06d7dbe0-d4e4-45ca-a2f8-c681c6933dc0" x="192" y="36" width="194" height="20"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Trámites y Servicios]]></text>
-			</staticText>
-			<staticText>
 				<reportElement uuid="0503b35f-acc0-4832-a848-290874a81fd8" x="161" y="56" width="256" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Localidades]]></text>
 			</staticText>
-			<image hAlign="Center">
+			<image hAlign="Right">
 				<reportElement uuid="1e1ba5e4-889c-48e6-8c9f-df72ea923f9f" stretchType="RelativeToTallestObject" mode="Transparent" x="494" y="16" width="257" height="70"/>
 				<imageExpression><![CDATA["..\\imagenes\\sedetus.png"]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement uuid="2e5cff4f-b186-4b22-8270-3a3247fd7c4b" x="124" y="36" width="329" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sistema De Gestión De Trámites Y Servicios]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>

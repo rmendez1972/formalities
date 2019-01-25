@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JasperRunManager;
-import javax.servlet.annotation.MultipartConfig;
+/*import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.Part;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
@@ -32,7 +32,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRCsvDataSource;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
-import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
+import net.sf.jasperreports.engine.export.JRXlsExporterParameter;*/
 
 /**
  *
@@ -84,7 +84,7 @@ public class ControladorBase extends HttpServlet {
             servletOutputStream.close();
     }
     
-    public void generarReporteExcel(String reporte, Map param, HttpServletRequest request, HttpServletResponse response) throws Exception{
+    /*public void generarReporteExcel(String reporte, Map param, HttpServletRequest request, HttpServletResponse response) throws Exception{
         try{   
 
         String reportName = "C:/Users/Laura/Documents/java/tramites/web/Reportes/ReporteStatus.jasper";
@@ -115,7 +115,7 @@ public class ControladorBase extends HttpServlet {
         {
         JOptionPane.showMessageDialog(null,e);;
         }
-    }
+    }*/
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
