@@ -12,7 +12,8 @@ import java.sql.*;
 
 public class Conexion {
     public static Connection conex=null;
-    
+
+   
     private Conexion(){
         
     }
@@ -110,6 +111,19 @@ public class Conexion {
             return null;
         }
     }
+    public static ResultSet ejecutarConsultaLogin(String sql, Object parametros[]){
+        try{
+            conectar();
+            PreparedStatement st=conex.prepareStatement(sql);
+            establecerParametrosLogin(st,parametros);
+            ResultSet res=st.executeQuery();
+            parametros=null;
+            return res;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     
     public static ResultSet obtenerPor(String tabla, String campo, Object valor){
         Object parametros[]={valor};
@@ -133,5 +147,20 @@ public class Conexion {
             System.out.println(e);
         }
     }
+    
+        private static void establecerParametrosLogin(PreparedStatement st, Object[] parametros) {
+            try{
+                int i;
+                if(parametros!=null){
+                    for(i=0;i<parametros.length;i++){
+                        st.setObject(i+1, parametros[i]);
+                    }
+                }
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
+        }
+ 
     
 }
