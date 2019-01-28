@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-	<meta name="description" content="Ventanilla unica de gestión de trámites y servicios">
+	<meta name="description" content="Sistema de gestión de trámites y servicios">
 	<meta name="keywords" content="servicios, tramites, chetumal, quintana, roo">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="imagenes/valid.png"  rel="shortcut icon" />
@@ -56,7 +56,7 @@
         
         <!--<link rel="stylesheet" type="text/css" href="bootstrap-responsive.css">!-->
         
-	<title>Trámites y servicios</title>
+	<title>Sistema De Gestión De Trámites Y Servicios</title>
         
 
         <script> //Script para definir las áreas en donde se cargará el contenido
@@ -116,7 +116,7 @@
             
             <div id="subheader">
 		<div style="width:20%;height:120px;" id="logotipo"></div>
-                <div style="width:30%;height:120px;" id="sistema"> Trámites y Servicios
+                <div style="width:30%;height:120px;" id="sistema"> Sistema De Gestión De Trámites Y Servicios
                     <div  style="font-size: 12px; color:#000; margin-top: 5px"><strong>USUARIO:</strong>
                       
                         <script type="text/javascript">document.write(usuario+'    ');</script>
@@ -146,7 +146,7 @@
             </section>
             
             <footer >  <!--Pie de página!-->
-                <p>Sistema: Trámites y Servicios.<br>
+                <p>Sistema De Gestión De Trámites Y Servicios.<br>
                     Derechos reservados SEDETUS. Subsecretaría Técnica, Dirección de Informática. Departamento de Sistemas Chetumal, Q.Roo 2017.
                     
                 </p>
