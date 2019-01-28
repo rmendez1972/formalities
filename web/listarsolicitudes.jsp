@@ -359,7 +359,11 @@
                                     titulo="Confirme el envió." mensaje="Está Ud. seguro de enviar los requisitos por email!">
                                 <img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar requisitos por correo"  title="Enviar requisitos por correo"/> 
                             </button>
-                            
+                                    
+                            <button value="controladorregistro?operacion=enviaracuse&id_solicitud=${solicitudes.id_solicitud}" id="mail"
+                                    titulo="Confirme el envió." mensaje="Está Ud. seguro de enviar los requisitos por email!">
+                                <img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar Acuse de la solicitud por correo"  title="Enviar Acuse de la solicitud por correo"/> 
+                            </button>
                             <!--<button value="controladorregistro?operacion=acuse&id_solicitud=${solicitudes.id_solicitud}" id="acuse"
                                     titulo="Confirme el envió." mensaje="Está Ud. seguro de imprimir el acuse de la solicitud?">
                                 <img src="imagenes/acuse.png"  class="btn-tabla" width="24" height="24" alt="Imprimir acuse de la solicitud"  title="Imprimir acuse de la solicitud"/> 
