@@ -54,6 +54,12 @@
                     <p>Imprimir</p>
                 </div>
             </a>
+            <a href="controladorestatus?operacion=reporteExcel">
+                <div class="btn-catalogo">
+                    <img src="imagenes/reporteExcel.png" />
+                    <p>Exportar</p>
+                </div>
+            </a>
         </div>  
     </td>
   </tr>
