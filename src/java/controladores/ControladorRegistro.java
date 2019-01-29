@@ -1247,7 +1247,7 @@ public class ControladorRegistro extends ControladorBase
                             +"Trámites y Servicios, para el control interno, la elaboracion de informes sobre el servicio brindado y con "
                             +"fines estadísticos; asumiendo la obligación de cumplir con las medidas legales y de seguridad suficientes "
                             +"para proteger los Datos Personales que se hayan recabado. Para mayor detalle consulte, nuestro Aviso de "
-                            +"Privacidad Integral en:  <a link='www.qroo.gob.mx/sedetus'><u>www.qroo.gob.mx/sedetus</u></a> en la sección \"Avisos de Privacidad\"</h5>"
+                            +"Privacidad Integral en: http://qroo.gob.mx/sedetus  </a> en la sección \"Avisos de Privacidad\"</h5>"
                         + "</td></tr>"
                     + "</table>");
             //Integer i=1;
