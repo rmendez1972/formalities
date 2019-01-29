@@ -1128,6 +1128,253 @@ public class ControladorRegistro extends ControladorBase
           }
           
         }
+        
+        //Método enviar acuse del solicitante formato html. iniciado por ismael
+        public void enviaracuse(HttpServletRequest request, HttpServletResponse response) throws Exception 
+        {
+            Boolean resultado=false;
+            Usuario usuario;
+            UnidadAdministrativa unidadadministrativa;
+            ArrayList solicitudes;
+            String mensaje,unidadadministrativanombre;
+            //recupero el usuario de la sesion 
+            HttpSession objSession = request.getSession(); 
+            usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+            Integer id_grupo=usuario.getId_grupo();
+            Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
+            
+            String midtramite,midsolicitud;   
+            midsolicitud = request.getParameter("id_solicitud");  
+            Integer id_solicitud,id_solicitante,id_tramite,id_unidadaministrativa;
+            id_solicitud=Integer.parseInt(midsolicitud);
+            
+            GestionSolicitud gs= new GestionSolicitud();
+            Solicitud solicitud= gs.obtenerPorId(id_solicitud);
+            id_tramite=solicitud.getId_tramite();
+            id_solicitante=solicitud.getId_solicitante();
+            Date fecha_ingreso=solicitud.getFecha_ingreso();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            String fecha_solicitud = sdf.format(fecha_ingreso);
+            
+            
+            
+            GestionSolicitante gsol=new GestionSolicitante();
+            Solicitante solicitante=gsol.obtenerPorId(id_solicitante);
+            String email =solicitante.getEmail();
+            String nombre_solicitante=solicitante.getNombre();
+            String apellido_paterno=solicitante.getApellido_paterno();
+            String apellido_materno=solicitante.getApellido_materno();
+            String password=solicitante.getPassword();
+            
+            GestionTramite modelo=new GestionTramite();
+            Tramite t=modelo.obtenerPorId(id_tramite);
+            String nombretramite = t.getNombre();
+            unidadadministrativanombre=t.getUnidadAdministrativa();
+            Integer mid_unidadadministrativa=t.getId_unidadadministrativa();
+            
+            GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa();
+            UnidadAdministrativa ua = gua.obtenerPorId(mid_unidadadministrativa);
+            String emailua=ua.getEmail();
+            String nombreua=ua.getNombre();
+            
+            
+            GestionRequisito mod_req=new GestionRequisito();
+            ArrayList req=mod_req.obtenerPorTramite(id_tramite);
+            ArrayList noreq=mod_req.obtenerSinTramite(id_tramite);
+            
+          if(!email.equals("") || !email.equals("NULL"))
+          {    
+            mail correo = new mail();
+            //Iterator iterator=req.listIterator();
+            //String cuerpocorreo="<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>C. Subsecretari@ <br>P R E S E N T E:</b><br><br>"+"Por este medio te notificamos de un nuevo trámite de: (<b>"+nombretramite+"</b>), con fecha: "+fecha_solicitud+" con <b>Núm. de Solicitud: "+midsolicitud+"</b> que ha sido ingresado al Sistema de Ventanilla Unica de Gestión de Trámites y Servicios de la SEDUVI para su atención. <br><br>";
+            
+            String requisitos="";
+            Iterator it = req.iterator();
+            Integer num=1;
+            while (it.hasNext()){
+                Requisito requisito = (Requisito) it.next();
+                requisitos+="<tr><td width='10%'>"+num.toString()+"</td><td width='90%'>"+requisito.getNombre()+"</td></tr>";
+                num++;
+            }
+            //resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDETUS", "<table border='0' align='center' width='90%'><tr><td>
+            //<img src=\"http://187.141.104.246:4200/assets/img/headerreporte.png\" /></td></tr></table>
+            //<br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+
+            //"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>)con la SEDETUS <br><br>
+            //<table border='2' align='left' width='100%'><thead><tr><th width='20%'>No.</th><th width='80%'>Descripción</th></tr></thead>
+            //<tbody>"+requisitos+"</tbody></table><br>"+"<br><br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"<br>Secretaría de Desarrollo Territorial Urbano Sustentable</b>");
+            resultado=correo.send(email, "Acuse de recibo del trámite en la SEDETUS", 
+                    "<table border='0' align='center' width='90%'><tr><td><img src=\"http://187.141.104.246:4200/assets/img/headerreporte.png\" /></td></tr></table><br>"
+                    +"<table width='800px'>"
+                            +"<tr><td style='text-align:center;'><h2>Acuse de recibo</h2></td></tr>"
+                            +"<tr><td style='text-align:justify'>Por este conducto se le informa que su trámite "
+                            +"ha sido ingresado correctamente a la SEDETUS, con los datos que a continuación se "
+                            +"detallan:</td></tr>"
+                    +"</table><br><br>"
+                    +"<table width='400px'>"
+                        + "<tr><td style='border:black 2px solid;width:50%;'><b>Núm. Solicitud :</b></td><td style='border:black 2px solid;width:50%;'>"+id_solicitud+"</td></tr>"
+                        + "<tr><td style='border:black 2px solid;width:50%;'><b>Fecha de ingreso :</b></td><td style='border:black 2px solid;width:50%;'>"+fecha_solicitud+"</td>"
+                        + "</tr>"
+                    +"</table>"
+                    +"<table width='800px'>"
+                        +"<tr><td style='border:black 2px solid;width:25%;'><b>Trámite :</b></td><td style='border:black 2px solid;width:75%;'>"+nombretramite+"</td></tr>"
+                        +"<tr><td style='border:black 2px solid;width:25%;'><b>Solicitante :</b></td><td style='border:black 2px solid;width:75%;'>"+nombre_solicitante+" "+apellido_paterno+" "+apellido_materno+"</td></tr>"
+                        +"<tr><td style='border:black 2px solid;width:25%;'><b>Subsecretaría :</b></td><td style='border:black 2px solid;width:75%;'>"+nombreua+"</td></tr>"
+                    +"</table>"
+                    +"<br><br>"
+                    +"<table width='800px'>"
+                        +"<tr><td style='text-align:justify;'><b>Nota:</b> Es muy importante que conserve el número de solicitud, "
+                            +"pues es requisito indispensable para el seguimiento de su trámite "
+                            +"a través del la página de la SEDETUS con dirección http://qroo.gob.mx/sedetus "
+                            +"y a través de nuestra aplicación móvil."
+                        + "</td></tr>"
+                        +"<tr></tr>"
+                        +"<tr><td><br><b>Usuario:</b>"+email+"<b>&emsp;&emsp;Contraseña :</b>"+password+"</td></tr>"
+                        +"<tr><td style='text-align:center;'><br><br><br><br><b>A t e n t a m e n t e<br></b></td></tr>"
+                        +"<tr></tr>"
+                        +"<tr><td style='text-align:center;'><b>Secretaría de Desarrollo Territorial Urbano Sustentable</b></td></tr>"
+                        +"<tr><td style='text-align:center;'><br><br><br><br><b><u>Aviso de Privacidad Simplificado: Trámites y Servicios</b></u></td></tr>"
+                        +"<tr><td style='text-align:justify;'>"
+                            +"<br>En cumplimiento a Ley General de Protección de Datos Personales en Posesión de los Sujetos Obligados y a la "
+                            +"Ley de Protección de Datos Personales en Posesión de Sujetos Obligados de Quintana Roo, la SEDETUS, con "
+                            +"domicilio en la av. Álvaro Obregon No. 474, col. Centro, código postal 77000, de la Ciudad de Chetumal, "
+                            +"Quintana Roo, en su calidad de Sujeto Obligado informa que es responsable del tratamiento de los Datos "
+                            +"Personales que nos proporcione, los cuales serán protegidos de conformidad a los dispuesto por la citada ley "
+                            +"y demás normatividad que resulte aplicable."
+                        +"</td></tr>"
+                        +"<tr><td style='text-align:justify;'>"
+                            +"<h5>Los Datos Personales que recabamos de Usted, los utilizaremos principalmente para la emisión y envío de "
+                            +"Trámites y Servicios, para el control interno, la elaboracion de informes sobre el servicio brindado y con "
+                            +"fines estadísticos; asumiendo la obligación de cumplir con las medidas legales y de seguridad suficientes "
+                            +"para proteger los Datos Personales que se hayan recabado. Para mayor detalle consulte, nuestro Aviso de "
+                            +"Privacidad Integral en: http://qroo.gob.mx/sedetus  </a> en la sección \"Avisos de Privacidad\"</h5>"
+                        + "</td></tr>"
+                    + "</table>");
+            //Integer i=1;
+                       
+            //cuerpocorreo=cuerpocorreo+"<br>Atentamente<br><br><b>Administrador del Sistema</b><br>";
+            //resultado=correo.send(emailua, "Ingreso de Nueva Solicitud en Ventanilla Unica de Trámites y Servicios de la SEDUVI", cuerpocorreo);
+              
+          }
+          if(resultado==true)
+          {
+              mensaje="Notifiación de nueva solicitud enviada por correo exitosamente";
+          }else
+          {
+              mensaje="No pudo ser enviado la notiticación de nueva solicitud por correo";
+          
+          }
+          
+          if (id_grupo==1)
+          {    
+                solicitudes=gs.obtenerSolicitudes();
+                request.setAttribute("solicitudes",solicitudes);
+                request.setAttribute("mensaje",mensaje);
+                RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes.jsp");
+                rd.forward(request,response);
+          }
+          
+        }
+        
+        
+        
+        
+        
+        //Metodo pendiente para anexar el acuse formato pdf, iniciado por Angel Lara
+        public void enviaracuse2(HttpServletRequest request, HttpServletResponse response) throws Exception 
+        {
+            Boolean resultado=false;
+            Usuario usuario;
+            UnidadAdministrativa unidadadministrativa;
+            ArrayList solicitudes;
+            String mensaje,unidadadministrativanombre;
+            //recupero el usuario de la sesion 
+            HttpSession objSession = request.getSession(); 
+            usuario = (Usuario)(objSession.getAttribute("usuario")); 
+            
+            Integer id_grupo=usuario.getId_grupo();
+            Integer id_unidadadministrativa=usuario.getId_unidadadministrativa();
+            
+            String midtramite,midsolicitud;   
+            midsolicitud = request.getParameter("id_solicitud");  
+            Integer id_solicitud,id_solicitante,id_tramite,id_unidadaministrativa;
+            id_solicitud=Integer.parseInt(midsolicitud);
+            
+            GestionSolicitud gs= new GestionSolicitud();
+            Solicitud solicitud= gs.obtenerPorId(id_solicitud);
+            id_tramite=solicitud.getId_tramite();
+            id_solicitante=solicitud.getId_solicitante();
+            Date fecha_ingreso=solicitud.getFecha_ingreso();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            String fecha_solicitud = sdf.format(fecha_ingreso);
+            
+            
+            
+            GestionSolicitante gsol=new GestionSolicitante();
+            Solicitante solicitante=gsol.obtenerPorId(id_solicitante);
+            String email =solicitante.getEmail();
+            String nombre_solicitante=solicitante.getNombre();
+            String apellido_paterno=solicitante.getApellido_paterno();
+            String apellido_materno=solicitante.getApellido_materno();
+            String password=solicitante.getPassword();
+            
+            GestionTramite modelo=new GestionTramite();
+            Tramite t=modelo.obtenerPorId(id_tramite);
+            String nombretramite = t.getNombre();
+            unidadadministrativanombre=t.getUnidadAdministrativa();
+            Integer mid_unidadadministrativa=t.getId_unidadadministrativa();
+            
+            GestionUnidadAdministrativa gua=new GestionUnidadAdministrativa();
+            UnidadAdministrativa ua = gua.obtenerPorId(mid_unidadadministrativa);
+            String emailua=ua.getEmail();
+            String nombreua=ua.getNombre();
+            
+            
+            GestionRequisito mod_req=new GestionRequisito();
+            ArrayList req=mod_req.obtenerPorTramite(id_tramite);
+            ArrayList noreq=mod_req.obtenerSinTramite(id_tramite);
+            
+          if(!email.equals("") || !email.equals("NULL"))
+          {    
+            mail correo = new mail();
+            //Iterator iterator=req.listIterator();
+            //String cuerpocorreo="<table border='0' align='center' width='90%'><tr><td><img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8BevTD5TfmuOTtwljH55eYl5nUR0dLpluk43gDdk5wlZegwHHPg\" /></td></tr></table><br><b>C. Subsecretari@ <br>P R E S E N T E:</b><br><br>"+"Por este medio te notificamos de un nuevo trámite de: (<b>"+nombretramite+"</b>), con fecha: "+fecha_solicitud+" con <b>Núm. de Solicitud: "+midsolicitud+"</b> que ha sido ingresado al Sistema de Ventanilla Unica de Gestión de Trámites y Servicios de la SEDUVI para su atención. <br><br>";
+            
+            String requisitos="";
+            Iterator it = req.iterator();
+            Integer num=1;
+            while (it.hasNext()){
+                Requisito requisito = (Requisito) it.next();
+                requisitos+="<tr><td width='10%'>"+num.toString()+"</td><td width='90%'>"+requisito.getNombre()+"</td></tr>";
+                num++;
+            }
+            String adjunto ="http://localhost:8080/tramites/controladorregistro?operacion=acuse&id_solicitud=398";
+            resultado=correo.sendAcuse(email, "Acuse de Recibo", "Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+" "+"Por este medio te enviamos el acuse correspondiente al tramite: ("+nombretramite+") realizado con la SEDETUS "+" "+"Atentamente"+" "+" "+unidadadministrativanombre+" Secretaría de Desarrollo Territorial Urbano Sustentable ",adjunto);
+            //Integer i=1;
+                       
+            //cuerpocorreo=cuerpocorreo+"<br>Atentamente<br><br><b>Administrador del Sistema</b><br>";
+            //resultado=correo.send(emailua, "Ingreso de Nueva Solicitud en Ventanilla Unica de Trámites y Servicios de la SEDUVI", cuerpocorreo);
+              
+          }
+          if(resultado==true)
+          {
+              mensaje="Notifiación de nueva solicitud enviada por correo exitosamente";
+          }else
+          {
+              mensaje="No pudo ser enviado la notiticación de nueva solicitud por correo";
+          
+          }
+          
+          if (id_grupo==1)
+          {    
+                solicitudes=gs.obtenerSolicitudes();
+                request.setAttribute("solicitudes",solicitudes);
+                request.setAttribute("mensaje",mensaje);
+                RequestDispatcher rd=request.getRequestDispatcher("listarsolicitudes.jsp");
+                rd.forward(request,response);
+          }
+          
+        } 
          
        
         public void acuse(HttpServletRequest request, HttpServletResponse response) throws Exception 

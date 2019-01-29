@@ -331,12 +331,12 @@
                                                           
                             <button value="controladorregistro?operacion=borrar&id_solicitud=${solicitudes.id_solicitud}" id="eliminar"
                                     titulo="Confirme la eliminación." mensaje="Está Ud. seguro de borrar esta solicitud!">
-                                <img src="imagenes/eliminar.png" class="btn-tabla" alt="eliminacion"  title="Eliminar solicitud"/>
+                                <img src="imagenes/delete.png" class="btn-tabla" alt="eliminacion"  title="Eliminar solicitud"/>
                             </button>
                                     
                             <button value="controladorregistro?operacion=enviarcorreosubsec&id_solicitud=${solicitudes.id_solicitud}" id="notificacion"
                                     titulo="Confirme el envío de notificación" mensaje="Está Ud. seguro de enviar la notificación por email!">
-                                <img src="imagenes/notificacion.png"  class="btn-tabla" width="24" height="24" alt="Enviar notificación por correo"  title="Enviar notificación por correo"/> 
+                                <img src="imagenes/send.png"  class="btn-tabla" width="24" height="24" alt="Enviar notificación por correo"  title="Enviar notificación por correo"/> 
                             </button> 
                              
 
@@ -351,21 +351,25 @@
                                     
                            <button value="controladorregistro?operacion=verRequisitos&id=${solicitudes.id_tramite}" id="requisitos" 
                                     titulo="Confirme listado de Requisitos." mensaje="Está Ud. seguro de listar los requisitos de esta solicitud!">
-                                <img src="imagenes/requisitos.png" class="btn-tabla" alt="requisitos" title="Listar Requisitos de la solicitud"/>
+                                <img src="imagenes/list.png" class="btn-tabla" alt="requisitos" title="Listar Requisitos de la solicitud"/>
                             </button>
                             
                                       
                             <button value="controladorregistro?operacion=enviarcorreo&id_solicitud=${solicitudes.id_solicitud}" id="mail"
                                     titulo="Confirme el envió." mensaje="Está Ud. seguro de enviar los requisitos por email!">
-                                <img src="imagenes/mail.png"  class="btn-tabla" width="24" height="24" alt="Enviar requisitos por correo"  title="Enviar requisitos por correo"/> 
+                                <img src="imagenes/enviarrequisitos.png"  class="btn-tabla" width="24" height="24" alt="Enviar requisitos por correo"  title="Enviar requisitos por correo"/> 
                             </button>
-                            
+                                    
+                            <button value="controladorregistro?operacion=enviaracuse&id_solicitud=${solicitudes.id_solicitud}" id="mail"
+                                    titulo="Confirme el envió." mensaje="Está Ud. seguro de enviar los requisitos por email!">
+                                <img src="imagenes/envioacuse.png"  class="btn-tabla" width="24" height="24" alt="Enviar Acuse de la solicitud por correo"  title="Enviar Acuse de la solicitud por correo"/> 
+                            </button>
                             <!--<button value="controladorregistro?operacion=acuse&id_solicitud=${solicitudes.id_solicitud}" id="acuse"
                                     titulo="Confirme el envió." mensaje="Está Ud. seguro de imprimir el acuse de la solicitud?">
                                 <img src="imagenes/acuse.png"  class="btn-tabla" width="24" height="24" alt="Imprimir acuse de la solicitud"  title="Imprimir acuse de la solicitud"/> 
                             </button>-->
                             <a href="controladorregistro?operacion=acuse&id_solicitud=${solicitudes.id_solicitud}" target="new">
-                                <img src="imagenes/acuse.png" class="btn-tabla" width="24" height="24" alt="Imprimir acuse de la solicitud"  title="Imprimir acuse de la solicitud"></a>
+                                <img src="imagenes/printacuse.png" class="btn-tabla" width="24" height="24" alt="Imprimir acuse de la solicitud"  title="Imprimir acuse de la solicitud"></a>
                         </td>
                              
                     </tr>
