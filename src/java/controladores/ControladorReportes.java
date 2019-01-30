@@ -664,9 +664,13 @@ public class ControladorReportes extends HttpServlet
                        
             ServletOutputStream servletOutputStream = response.getOutputStream();
             File reportFile=null;
-            reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/ReporteSolicitudesLocalidadesParam.jasper"));
+            if (id_municipio!=0) {
+                reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/ReporteSolicitudesLocalidadesParam.jasper"));   
+            }
+            else{
+                reportFile = new File(getServletConfig().getServletContext().getRealPath("/Reportes/ReporteSolicitudesEstatalParam.jasper"));   
             
-            
+            }
             try
             {
                 
@@ -674,12 +678,15 @@ public class ControladorReportes extends HttpServlet
 
                 //param.put("id_delegacion", id_delegacion);
                 //param.put("id_mecanica", id_mecanica);
-               
-                param.put("val", "Municipio: "+muni.getNombre() +" de "+ request.getParameter("fecha_inicial") + " a "+ request.getParameter("fecha_final"));
+                if (id_municipio!=0) {
+                    param.put("val", "Municipio: "+muni.getNombre() +" de "+ request.getParameter("fecha_inicial") + " a "+ request.getParameter("fecha_final"));
                     //param.put("sql","where DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' and '"+request.getParameter("fecha_final")+"' and id_municipio=='"+request.getParameter("id_municipio")+"'");
-                param.put("sql","where S.id_municipio='"+id_municipio.toString()+"' and DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' AND '"+request.getParameter("fecha_final")+"'");
-                     
-
+                    param.put("sql","where S.id_municipio='"+id_municipio.toString()+"' and DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' AND '"+request.getParameter("fecha_final")+"'");
+                } else {
+                    param.put("val", "Reporte Estatal de "+ request.getParameter("fecha_inicial") + " a "+ request.getParameter("fecha_final"));
+                    param.put("sql","where S.id_municipio>0 and DATE(S.fecha_ingreso) between '"+request.getParameter("fecha_inicial")+"' AND '"+request.getParameter("fecha_final")+"'");
+                        
+                }
                 
                 byte[] bytes = null;
                 bytes = JasperRunManager.runReportToPdf(reportFile.getPath(),param, cn);  //el segundo parametro es un hashmap para el paso de parametros al jasperreport
