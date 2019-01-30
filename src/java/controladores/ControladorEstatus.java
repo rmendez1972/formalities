@@ -9,6 +9,7 @@ import static Modelo.conectaMysql.getConnection;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Date;
@@ -99,15 +100,7 @@ public class ControladorEstatus extends ControladorBase {
         RequestDispatcher rd=request.getRequestDispatcher("controladorestatus?operacion=listar");
         rd.forward(request,response);
     }
-    
-    /*public void reporte(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        Map param = new HashMap();
-        //generarReporte("ReporteStatus.jasper", param, request, response);
-        generarReporteExcel("ReporteStatus.jasper", param, request, response);
-
-      
-    }*/
-    
+     
     public void reporte(HttpServletRequest request, HttpServletResponse response) throws Exception{
         Map param = new HashMap();
         generarReporte("ReporteStatus.jasper", param, request, response);
@@ -115,4 +108,10 @@ public class ControladorEstatus extends ControladorBase {
 
       
     }
+    
+    public void reporteExcel(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        Map param = new HashMap();
+        generarReporteExcel("ReporteStatus2.jrxml", param, request, response);
+    }
+    
 }
