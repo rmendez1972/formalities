@@ -872,6 +872,7 @@ public class ControladorRegistro extends ControladorBase
             UsuarioApi user= new UsuarioApi(); 
             ArrayList usuario = new ArrayList();
             if (solicitante != null){
+                response.setHeader("Access-Control-Allow-Origin", "*");
                 ArrayList solicitud=gsolic.obtenerPorSolicitante(solicitante.getId_solicitante());
                 Solicitud solic = (Solicitud)solicitud.get(0);
                 Integer id_solicitud=solic.getId_solicitud();
@@ -1102,7 +1103,7 @@ public class ControladorRegistro extends ControladorBase
                 requisitos+="<tr><td width='10%'>"+num.toString()+"</td><td width='90%'>"+requisito.getNombre()+"</td></tr>";
                 num++;
             }
-            resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDETUS", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://187.141.104.246:4200/assets/img/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDETUS <br><br><table border='2' align='left' width='100%'><thead><tr><th width='20%'>No.</th><th width='80%'>Descripción</th></tr></thead><tbody>"+requisitos+"</tbody></table><br>"+"<br><br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"<br>Secretaría de Desarrollo Territorial Urbano Sustentable</b>");
+            resultado=correo.send(email, "Lista de Requisitos para trámite en la SEDETUS", "<table border='0' align='center' width='90%'><tr><td><img src=\"http://10.50.1.8:4200/assets/img/headerreporte.png\" /></td></tr></table><br><b>Hola, "+nombre_solicitante +" "+apellido_paterno+" "+apellido_materno+"</b><br><br>"+"Por este medio te enviamos los Requisitos para el tramite: (<b>"+nombretramite+"</b>) con la SEDETUS <br><br><table border='2' align='left' width='100%'><thead><tr><th width='20%'>No.</th><th width='80%'>Descripción</th></tr></thead><tbody>"+requisitos+"</tbody></table><br>"+"<br><br><br>"+"Atentamente"+"<br><br>"+"<b>"+unidadadministrativanombre+"<br>Secretaría de Desarrollo Territorial Urbano Sustentable</b>");
             //Integer i=1;
                        
             //cuerpocorreo=cuerpocorreo+"<br>Atentamente<br><br><b>Administrador del Sistema</b><br>";
@@ -1111,7 +1112,7 @@ public class ControladorRegistro extends ControladorBase
           }
           if(resultado==true)
           {
-              mensaje="Notifiación de nueva solicitud enviada por correo exitosamente";
+              mensaje="Notificación de nueva solicitud enviada por correo exitosamente";
           }else
           {
               mensaje="No pudo ser enviado la notiticación de nueva solicitud por correo";
@@ -1258,7 +1259,7 @@ public class ControladorRegistro extends ControladorBase
           }
           if(resultado==true)
           {
-              mensaje="Notifiación de nueva solicitud enviada por correo exitosamente";
+              mensaje="Notificación de nueva solicitud enviada por correo exitosamente";
           }else
           {
               mensaje="No pudo ser enviado la notiticación de nueva solicitud por correo";
@@ -1358,7 +1359,7 @@ public class ControladorRegistro extends ControladorBase
           }
           if(resultado==true)
           {
-              mensaje="Notifiación de nueva solicitud enviada por correo exitosamente";
+              mensaje="Notificación de nueva solicitud enviada por correo exitosamente";
           }else
           {
               mensaje="No pudo ser enviado la notiticación de nueva solicitud por correo";

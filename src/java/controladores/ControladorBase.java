@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 import static jdk.nashorn.tools.ShellFunctions.input;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -96,7 +97,7 @@ public class ControladorBase extends HttpServlet {
         
         String ruta = getServletConfig().getServletContext().getRealPath("/Reportes/"+reporte);
         InputStream input = new FileInputStream(new File(ruta));
-            
+        JRXlsxExporter exporter = null;    
         try{   
 
             JasperReport report = JasperCompileManager.compileReport(input);
@@ -105,8 +106,9 @@ public class ControladorBase extends HttpServlet {
             OutputStream out = response.getOutputStream();
 
             ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream(); 
-                  
-            JRXlsxExporter exporter = new JRXlsxExporter();
+            System.out.println("Hola k ase");      
+            exporter = new JRXlsxExporter();
+            
             
             
             //OutputStream outputfile = new FileOutputStream(new File("JasperReport.xlsx"));
@@ -117,14 +119,18 @@ public class ControladorBase extends HttpServlet {
             exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, Boolean.TRUE);
             exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
             exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
-           
+            System.out.println("Hola k ase1");
             exporter.exportReport();
             
             
             response.setHeader("Content-disposition", "attachment; filename=ListadoPDF.xlsx");
+            System.out.println("Hola k ase2");
             response.setContentType("application/vnd.ms-excel");
+            System.out.println("Hola k ase3");
             response.setContentLength(arrayOutputStream.toByteArray().length);
+            System.out.println("Hola k ase4");
             out.write(arrayOutputStream.toByteArray());
+            System.out.println("Hola k ase5");
             out.flush();
             out.close();
             
